@@ -28,7 +28,7 @@ This is not just a website — it's a declaration of my commitment to build, lea
 
 ## 📸 Preview
 
-![](./screenshot-home.png)
+![](img/screenshot-home.png)
 
 [🔗 Live Demo](https://syfaarizal.github.io/sicoder-portfolio/)
 
