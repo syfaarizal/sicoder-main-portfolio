@@ -27,7 +27,7 @@ body {
     width: 100%;
     min-height: 100vh;
     overflow-x: hidden;
-    background-image: url(img/bg-red.jpg);
+    background-image: url(../assets/img/bg-red.jpg);
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
