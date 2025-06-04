@@ -27,7 +27,8 @@ body {
     width: 100%;
     min-height: 100vh;
     overflow-x: hidden;
-    background-image: url(../assets/img/bg-red.jpg);
+    background-image: url(../assets/img/bg-panjang.png);
+    background-color: #200000;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -143,6 +144,13 @@ section{
     min-height: 100vh;
     padding: 5rem 9% 5rem;
 }
+
+/* #home {
+  background-image: url(../assets/img/light-red.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+} */
 
 .home{
     display: flex;
