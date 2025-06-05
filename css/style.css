@@ -588,6 +588,13 @@ span{
   line-height: 1.5;
 }
 
+.edu-content ul {
+  font-size: 1.7rem;
+  color: #ccc;
+  line-height: 1.5;
+  padding-left: 20px;
+}
+
 #education {
   position: relative;
   overflow: hidden; 
