@@ -27,8 +27,8 @@ body {
     width: 100%;
     min-height: 100vh;
     overflow-x: hidden;
-    background-image: url(../assets/img/bg-panjang.png);
-    background-color: #200000;
+    background-image: url(../assets/img/bg-transparant.png);
+    background-color: #000000;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: center;
@@ -59,7 +59,7 @@ header{
     display: inline-block;
     font-size: 3rem;
     padding: 0.25em 0.75em; 
-    filter: drop-shadow(0 0 2.5px rgb(107, 3, 3));
+    filter: drop-shadow(5px 0 5px rgb(59, 0, 0));
 }
 
 .logo:hover {
@@ -190,14 +190,14 @@ span{
 }
 
 .home-img img{
-    position: relative;
     width: 25vw;
+    border-radius: 300px;
     font-weight: 500;
     display: inline-block;
     cursor: pointer;
     transition: 0.2s linear;
     padding: 0 55px;
-    filter: drop-shadow(0 0 5px rgba(255, 0, 0, 1));
+    filter: drop-shadow(10px 10px 10px rgb(112, 0, 0));
 }
 
 .home-img img:hover{
@@ -324,7 +324,7 @@ span{
 }
 
 .service-header p {
-    font-size: 1.8rem;
+    font-size: 2rem;
 }
 
 .service-detail {
@@ -408,7 +408,8 @@ span{
 
 .service-detail-item h2 {
     padding: 0 5px;
-    padding-bottom: 5px;
+    padding-bottom: 6px;
+    font-size: 1.8rem;
 }
 
 .service-detail-item p {
@@ -450,7 +451,7 @@ span{
 }
 
 .skills-header p {
-    font-size: 1.8rem;
+    font-size: 2rem;
 }
 
 .skills-title {
@@ -527,7 +528,7 @@ span{
 }
 
 .education-header p {
-    font-size: 1.8rem;
+    font-size: 2rem;
 }
 
 .timeline {
@@ -672,7 +673,7 @@ span{
 }
 
 .portfolio-header p {
-  font-size: 1.8rem;
+  font-size: 2rem;
 }
 
 .portfolio-container {
@@ -774,7 +775,7 @@ span{
 }
 
 .contact-header p {
-  font-size: 1.8rem;
+  font-size: 2rem;
 }
 
 .contact-container {
