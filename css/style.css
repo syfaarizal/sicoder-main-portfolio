@@ -566,6 +566,7 @@ span{
   padding: 2rem;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   text-align: center;
+  box-sizing: border-box;
 }
 
 .skill-card:hover {
@@ -584,6 +585,14 @@ span{
 
 .skill-card p {
     font-size: 12px;
+}
+
+.skill-card svg {
+  width: 100%;
+  max-width: 40px;
+  height: auto;
+  display: block;
+  margin: 0 auto 1rem;
 }
 
 @media (max-width: 768px) {
