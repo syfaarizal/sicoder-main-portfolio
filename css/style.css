@@ -9,6 +9,7 @@
     outline: none;
     font-family: var(--font-main);
     scroll-behavior: smooth;
+    /* outline: 1px solid red; */
 }
 
 :root {
@@ -73,6 +74,12 @@ header{
     color: var(--text-color);
 }
 
+@media (max-width: 768px) {
+  .logo {
+    padding: 0;
+  }
+}
+
 .menu-toggle {
   display: none;
   font-size: 2.5rem;
@@ -80,13 +87,13 @@ header{
   cursor: pointer;
 }
 
-@media (max-width: 995px) {
+@media (max-width: 768px) {
   .menu-toggle {
     display: block;
   }
 
   nav {
-    top: 80px; /* biar tidak ketumpuk header */
+    top: 80px; /* biar ga ketumpuk header */
   }
 }
 
@@ -145,13 +152,6 @@ section{
     padding: 5rem 9% 5rem;
 }
 
-/* #home {
-  background-image: url(../assets/img/light-red.png);
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-} */
-
 .home{
     display: flex;
     justify-content: center;
@@ -190,7 +190,6 @@ span{
 }
 
 .home-img img{
-    width: 25vw;
     border-radius: 300px;
     font-weight: 500;
     display: inline-block;
@@ -198,6 +197,16 @@ span{
     transition: 0.2s linear;
     padding: 0 55px;
     filter: drop-shadow(10px 10px 10px rgb(112, 0, 0));
+}
+
+@media (max-width: 768px) {
+  .home-img img {
+    display: none;
+  }
+
+  .home-img {
+    display: none;
+  }
 }
 
 .home-img img:hover{
@@ -264,7 +273,7 @@ span{
 }
 
 .typing-text span::before{
-    content: "software Developer";
+    content: "Software Developer";
     color: var(--primary-color);
     animation: words 20s infinite;
 }
@@ -300,6 +309,50 @@ span{
     }
     80%, 100%{
         content: "Developer Building My Own Path";
+    }
+}
+
+@media (max-width: 1000px){
+    .home{
+        gap: 4rem;
+    }
+}
+
+@media(max-width: 995px){
+    .home{
+        flex-direction: column;
+        margin-top: 50px;
+    }
+
+    .home-content {
+      padding: 0;
+      text-align: left;
+    }
+
+    .home .home-content h3{
+        font-size: 2.7rem;
+        text-align: left;
+    }
+
+    .home .home-content h1{
+        font-size: 3.5rem;
+        text-align: left;
+        margin-bottom: 10px;
+    }
+
+    .home .home-content p {
+      font-size: 1.8rem;
+      text-align: left;
+      margin-bottom: 10px;
+      padding: 0;
+    }
+
+    .typing-text span {
+      font-size: 2.7rem;
+    }
+
+    .typing-text span::after {
+      height: 45px;
     }
 }
 
@@ -377,9 +430,32 @@ span{
     row-gap: 48px;
   }
 
+  #front-end {
+    margin: 0 0 0 15px;
+  }
+
+  #website-design {
+    margin: 0 0 0 15px;
+  }
+
+  #responsive-web{
+    margin: 0 0 0 15px;
+  }
+
+  #ui-ux {
+    margin: 0 0 0 15px;
+  }
+
+  #code-optimization {
+    margin: 0 0 0 15px;
+  }
+
+  #personal-project-build {
+    margin: 0 0 0 15px;
+  }
+
   .service-detail-item {
     width: 100%;
-    margin: auto;
   }
 }
 
@@ -508,6 +584,29 @@ span{
 
 .skill-card p {
     font-size: 12px;
+}
+
+@media (max-width: 768px) {
+  .skills-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .portfolio-container {
+    grid-template-columns: 1fr;
+  }
+
+  .skill-card {
+  width: 100%;
+}
+
+.skill-card h3 {
+  align-items: flex-end;
+  text-align: center;
+}
+
+.skill-card p {
+  display: none;
+}
 }
 
 .education-header {
@@ -649,6 +748,32 @@ span{
   100% { transform: translateY(0); }
 }
 
+@media (max-width: 768px) {
+  .edu-icon {
+    display: none;
+  }
+
+  .edu-anim-right {
+    display: none;
+  }
+
+  #education::after {
+    display: none;
+  }
+  
+  .edu-card h3 {
+    font-size: 17px;
+  }
+
+  .edu-card p {
+    font-size: 15px;
+  }
+
+  .edu-card ul {
+    font-size: 15px;
+  }
+}
+
 #portfolio {
   padding: 5rem 9%;
   position: relative;
@@ -703,6 +828,15 @@ span{
   border: 1px solid #333;
 }
 
+.tech-stack span {
+  margin-right: 5px;
+  border: 2px solid;
+  border-radius: 1.5rem;
+  padding: 4px;
+  font-size: 1.3rem;
+  font-weight: bold;
+}
+
 .project-card h3 {
   font-size: 2rem;
   margin: 1rem 0 0.5rem;
@@ -750,6 +884,21 @@ span{
 .btn-outline:hover {
   background-color: var(--primary-color);
   color: black;
+}
+
+@media (max-width: 768px) {
+  .portfolio-container {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  .portfolio-container {
+    grid-template-columns: 1fr;
+  }
+
+  .tech-stack span{
+    font-size: 9px;
+    margin-right: 0;
+  }
 }
 
 #contact {
@@ -898,6 +1047,35 @@ span{
   transition: all 0.2s ease;
 }
 
+@media (max-width: 768px) {
+  .contact-container {
+    flex-direction: column;
+  }
+
+  .contact-form,
+  .contact-visual {
+    flex: 1;
+    width: 100%;
+  }
+
+  .contact-quote {
+    display: none;
+  }
+
+  .box-line-quote {
+    display: none;
+  }
+
+  .contact-visual img {
+    display: none;
+  }
+
+  .box-line {
+    width: 450px;
+    height: 4px;
+  }
+}
+
 #footer {
   background-color: #0a0a0a;
   padding: 4rem 9% 2rem;
@@ -961,21 +1139,11 @@ span{
   padding-top: 1rem;
 }
 
-@media (max-width: 768px) {
-  .skills-container {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .portfolio-container {
-    grid-template-columns: 1fr;
-  }
-}
-
 @media (max-width: 600px) {
   .home-content {
-    padding-left: 20px;
+    padding-left: 4px;
     padding-top: 50px;
-    text-align: center;
+    text-align: left;
   }
 
   .home-content h1 {
@@ -999,42 +1167,10 @@ span{
   }
 }
 
-@media (max-width: 768px) {
-  .contact-container {
-    flex-direction: column;
-  }
-
-  .contact-form,
-  .contact-visual {
-    flex: 1;
-    width: 100%;
-  }
+html, body {
+  overflow-x: hidden;
 }
 
-@media (max-width: 1000px){
-    .home{
-        gap: 4rem;
-    }
+img, section, div {
+  max-width: 100%;
 }
-
-@media(max-width: 995px){
-    .home{
-        flex-direction: column;
-        margin: 5rem 4rem;
-    }
-
-    .home .home-content h3{
-        font-size: 2.5rem;
-    }
-
-    .home-content h1{
-        font-size: 5rem;
-    }
-
-    .home-img img{
-        max-width: 100%; 
-        height: auto;
-        margin-top: 4rem;
-    }
-}
-

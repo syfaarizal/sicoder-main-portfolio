@@ -21,6 +21,7 @@ This is not just a website — it's a declaration of my commitment to build, lea
 
 - HTML5 (Semantic Structure)
 - CSS3 (Flexbox, Grid, Animations)
+- JavaScript Vanila 
 - FontAwesome Icons
 - Google Fonts (Poppins)
 
@@ -34,18 +35,9 @@ This is not just a website — it's a declaration of my commitment to build, lea
 
 ---
 
-## 📚 What I Learned
-
-- How to structure and design a multi-section website
-- How to write clean, responsive CSS using Grid & Flexbox
-- The importance of design consistency, spacing, and font scaling
-- Creating a personal brand as a developer
-
----
-
 ## 📬 Connect with Me
 
-- 💼 [LinkedIn](https://www.linkedin.com/in/syifa-fauziyah-arizal-28a46a2aa/)
+- 💼 [LinkedIn](https://www.linkedin.com/in/syifaarizal/)
 - 💻 [GitHub](https://github.com/syfaarizal)
 - 📸 [Instagram](https://instagram.com/syfaarizal)
 
