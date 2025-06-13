@@ -321,7 +321,7 @@ span{
 @media(max-width: 995px){
     .home{
         flex-direction: column;
-        margin-top: 50px;
+        margin-top: 100px;
     }
 
     .home-content {
@@ -908,6 +908,16 @@ span{
     font-size: 9px;
     margin-right: 0;
   }
+
+  .btn-demo {
+    font-size: 13px;
+    padding: 0.7rem 1.5rem
+  }
+
+  .btn-outline {
+    font-size: 13px;
+    padding: 0.7rem 1.5rem
+  }
 }
 
 #contact {
@@ -1146,6 +1156,18 @@ span{
   font-size: 1.3rem;
   border-top: 1px solid #222;
   padding-top: 1rem;
+}
+
+@media (max-width: 768px) {
+  .footer-container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-bottom {
+    margin-top: 1.5rem;
+  }
 }
 
 @media (max-width: 600px) {
