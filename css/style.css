@@ -542,6 +542,11 @@ span{
     text-shadow: 1px 1px 2px rgba(255,255,255,0.1);
 }
 
+#web-skills {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+}
+
 .skills-container {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
@@ -597,6 +602,11 @@ span{
 
 @media (max-width: 768px) {
   .skills-container {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  #web-skills {
+    display: grid;
     grid-template-columns: repeat(2, 1fr);
   }
 
