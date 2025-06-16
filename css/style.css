@@ -660,6 +660,8 @@ span{
   border-radius: 1rem;
   padding: 1rem;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
+  width: 500px;
+  height: 180px;
 }
 
 .blog-card:hover {
@@ -707,7 +709,7 @@ span{
   }
 
 .modal-content {
-  background-color: #111;
+  background-color: #000000;
   border: 2px solid var(--primary-color);
   color: #fff;
   padding: 20px;
@@ -743,9 +745,20 @@ span{
 }
 
 .codean {
-  background-color: rgb(10, 10, 10);
-  border-radius: 10px;
-  margin: 5px 0;
+  background: #1e1e1e;
+  padding: 0;
+  border-radius: 8px;
+  color: #eee;
+  font-family: 'Courier New', monospace;
+  margin: 1rem 0;
+  overflow-x: auto;
+}
+
+.codean pre, .codean code {
+  white-space: pre-wrap;
+  word-wrap: break-word;
+  overflow-x: auto;
+  display: block;
 }
 
 #portfolio {
