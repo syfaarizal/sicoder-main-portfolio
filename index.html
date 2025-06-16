@@ -18,7 +18,7 @@
                 <a href="#home" class="active"> Home </a>
                 <a href="#service"> Services</a>
                 <a href="#skills"> Skills</a>
-                <a href="#education"> Education</a>
+                <a href="#blog"> Blog</a>
                 <a href="#portfolio"> Portfolio</a>
                 <a href="#contact"> Contact</a>
             </nav>
@@ -251,66 +251,53 @@
                 </div>
                 <div class="box-line"></div>
             </section>
-            <section id="education">
-                <div class="education-header">
-                    <div>
-                        <h1>My Education <span>Journey</span></h1>
-                        <p>What built the mindset, skillset, and soulset.</p>
+            <section id="blog">
+                <div class="blog-header">
+                    <h1>My <span>Blog</span></h1>
+                    <p>My blog in learning, building and growing.</p>
+                </div>
+                <div class="blog-container">
+                    <div class="blog-cards">
+                        <div class="blog-card" onclick="openModal(0)">
+                            <small style="display:block; margin-bottom:10px; font-size: 1.2rem; color:#ccc;">🗓️ 05 Juni 2025</small>
+                            <h3>🎯 Day 1: Cetak Nama dan Status</h3>
+                            <p>Hari ini gua belajar buat input pake template literal (${}). Gua agak pusing waktu bikin Date(), tapi muncul juga di console pake format…</p>
+                            <a href="#" class="read-more-btn" data-index="0">Read More →</a>
+                        </div>
+                    </div>
+                    <div class="blog-cards">
+                        <div class="blog-card" onclick="openModal(0)">
+                            <small style="display:block; margin-bottom:10px; font-size: 1.2rem; color:#ccc;">🗓️ 05 Juni 2025</small>
+                            <h3>🎯 Day 1: Cetak Nama dan Status</h3>
+                            <p>Hari ini gua belajar buat input pake template literal (${}). Gua agak pusing waktu bikin Date(), tapi muncul juga di console pake format…</p>
+                            <a href="#" class="read-more-btn" data-index="0">Read More →</a>
+                        </div>
+                    </div>
+                    <div class="blog-cards">
+                        <div class="blog-card" onclick="openModal(0)">
+                            <small style="display:block; margin-bottom:10px; font-size: 1.2rem; color:#ccc;">🗓️ 05 Juni 2025</small>
+                            <h3>🎯 Day 1: Cetak Nama dan Status</h3>
+                            <p>Hari ini gua belajar buat input pake template literal (${}). Gua agak pusing waktu bikin Date(), tapi muncul juga di console pake format…</p>
+                            <a href="#" class="read-more-btn" data-index="0">Read More →</a>
+                        </div>
+                    </div>
+                    <div class="blog-cards">
+                        <div class="blog-card" onclick="openModal(0)">
+                            <small style="display:block; margin-bottom:10px; font-size: 1.2rem; color:#ccc;">🗓️ 05 Juni 2025</small>
+                            <h3>🎯 Day 1: Cetak Nama dan Status</h3>
+                            <p>Hari ini gua belajar buat input pake template literal (${}). Gua agak pusing waktu bikin Date(), tapi muncul juga di console pake format…</p>
+                            <a href="#" class="read-more-btn" data-index="0">Read More →</a>
+                        </div>
                     </div>
                 </div>
-                <div class="timeline">
-                    <div class="edu-card">
-                        <div class="edu-icon"><i class="fas fa-university"></i></div>
-                        <div class="edu-content">
-                            <div class="edu-year">2024 - Now</div>
-                            <h3>Bachelor of Informatics – Muhammadiyah Cyber University</h3>
-                            <p>Online-based degree focusing on software development, algorithms, and IT fundamentals.
-                                <ul>
-                                    <li>Emphasis on front-end engineering, independent research, and personal discipline.</li>
-                                </ul>
-                            </p>
-                        </div>
+                <!-- Modal HTML -->
+                <div class="modal" id="blogModal">
+                    <div class="modal-content">
+                        <span class="close-button" onclick="closeModal()">&times;</span>
+                        <h3 class="modal-ttl" id="modal-title"></h3>
+                        <small class="modal-sb" id="modal-sub"></small>
+                        <p class="modal-bd" id="modal-body"></p>
                     </div>
-                    <div class="edu-card">
-                        <div class="edu-icon"><i class="fas fa-laptop-code"></i></div>
-                        <div class="edu-content">
-                            <div class="edu-year">2024 – Now</div>
-                            <h3>Online Courses & Certifications</h3>
-                            <p>Hands-on learning through platforms like Coding Studio, BuildWith Angga, and ITBOX. <br>
-                                <ul>
-                                    <li>Topics: HTML, CSS, JavaScript, Git, UI/UX, responsive design, and web projects.</li>
-                                    <li>Built real-world mini projects while sharpening collaboration and version control skills.</li>
-                                </ul>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="edu-card">
-                        <div class="edu-icon"><i class="fas fa-book-open"></i></div>
-                        <div class="edu-content">
-                            <div class="edu-year">2024 – Now</div>
-                            <h3>Self-Taught Front-End Developer</h3>
-                            <p>Independent learning through documentation, community discussions, and YouTube.
-                                <ul>
-                                    <li>Focus: React, Next.js, design systems, and performance optimization.</li>
-                                    <li>Active on GitHub & committed to continuous improvement.</li>
-                                    <li>Projects: SICODER portfolio, JS mini-apps, GitHub daily commits.</li>
-                                </ul>
-                            </p>
-                        </div>
-                    </div>
-                    <div class="edu-card">
-                        <div class="edu-icon"><i class="fas fa-book-open-reader"></i></div>
-                        <div class="edu-content">
-                            <div class="edu-year">Daily Practice</div>
-                            <h3>Mindset, Journaling & Personal Growth</h3>
-                            <p>Every day, I strengthen my mindset through journaling, reading, systems thinking, <br>
-                                and self-reflection to maintain consistency and purpose as a lifelong learner.</p>
-                        </div>
-                    </div>
-                    <div class="edu-anim-right">
-                        <img src="assets/img/logo-html-more-red-no-bg.png" alt="floating icon">
-                    </div>
-                    <div class="box-line"></div>
                 </div>
             </section>
             <section id="portfolio">
@@ -388,7 +375,7 @@
                         <label for="subject">Subject</label>
                         <input type="text" name="subject" placeholder="Subject" required>
                         <label for="mesaage">Message:</label>
-                        <textarea rows="5" placeholder="Message" required></textarea>
+                        <textarea name="message" rows="5" placeholder="Message" required></textarea>
 
                         <input type="hidden" name="_captcha" value="false">
                         <input type="hidden" name="_next" value="thanks.html">
