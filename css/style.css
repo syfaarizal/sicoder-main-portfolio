@@ -651,7 +651,7 @@ span{
   margin-top: 5rem;
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 4rem;
+  gap: 3rem;
 }
 
 .blog-card {
@@ -661,13 +661,13 @@ span{
   padding: 1rem;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   width: 500px;
-  height: 180px;
+  height: 160px;
 }
 
 .blog-card:hover {
   transform: translateY(-10px);
   box-shadow: 0 0 20px var(--primary-color);
-  /* background-color: #550000; */
+  background-color: #50000065;
 }
 
 .blog-card h3 {
@@ -759,6 +759,21 @@ span{
   word-wrap: break-word;
   overflow-x: auto;
   display: block;
+}
+
+.modal-content ol {
+  padding-left: 1.5rem;
+}
+
+.modal-content ul {
+  padding-left: 1.5rem;
+}
+
+.modal-content ol li ul {
+  margin-top: 0.3rem;
+  margin-bottom: 0.5rem;
+  padding-left: 1.5rem;
+  list-style: disc;
 }
 
 #portfolio {
