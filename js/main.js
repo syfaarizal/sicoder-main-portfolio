@@ -353,10 +353,20 @@ const blogPosts = [
           <li>Tampilkan pesan sukses + jumlah percobaan</li>
         </ul>
       </li>
-    </ol>
-
-    `
-  }
+    </ol>`
+  },
+  {
+    title:"HTML Introduction",
+    sub:"Ditulis pada 14 Mei 2025",
+    body:`HTML is <b>Markup language</b>, not programming language. Programming language itu ada sesuatu yang berkaitan dengan logic, punya if, else, atau kondisi. <br><br>
+    <h3>Istilah: </h3>
+    <ul>
+      <li>Elemen: Struktur dasar HTML, biasanya berupa tag seperti <span>&lt;p&gt;</span>, <span>&lt;div&gt;</span>, atau termasuk <span>&lt;!DOCTYPE&gt;</span></li>
+      <li>Atribut: Informasi tambahan dalam tag. Contoh: <span>type="text"</span> dalam <span>&lt;input&gt;</span></li>
+      <li>Properti: Biasanya dipakai di CSS atau JS (JavaScript), bukan di HTML langsung</li>
+      <li>Konten: Isi diantara tag pembuka & penutup. Contoh: teks dalam <span>&lt;p&gt;Halo&lt;p&gt;</span></li>
+    </ul>`
+  },
   // Tambahin lagi post lain di sini...
 ];
 
