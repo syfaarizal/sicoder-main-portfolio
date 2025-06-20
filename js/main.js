@@ -99,13 +99,15 @@ const blogPosts = [
     <br><br>
     1. Meminta user memasukkan <b>tahun lahir</b> <br>
     2. Menghitung <b>umur saat ini</b> <br>
-    3. Menampilkan pesan seperti ini: <br><br>
-    <span>
-    Kamu lahir pada tahun 2005. <br>
-    Sekarang tahun 2025. <br>
-    Artinya kamu berusia 20 tahun 🎉 <br>
-    Tahun depan kamu akan berusia 21 tahun. <br><br>
-    </span>
+    3. Menampilkan pesan seperti ini: <br>
+    <div class="codean">
+      <pre><code>
+      Kamu lahir pada tahun 2005. 
+      Sekarang tahun 2025. 
+      Artinya kamu berusia 20 tahun 🎉 
+      Tahun depan kamu akan berusia 21 tahun.
+      </code></pre>
+    </div><br>
     <h3>🧠 Proses Berpikir (dan Kesalahan Kecil 😅)</h3>
     Awalnya gua pikir input bisa langsung ditulis kayak gini: <br>
     <div class="codean">
@@ -365,7 +367,45 @@ const blogPosts = [
       <li>Atribut: Informasi tambahan dalam tag. Contoh: <span>type="text"</span> dalam <span>&lt;input&gt;</span></li>
       <li>Properti: Biasanya dipakai di CSS atau JS (JavaScript), bukan di HTML langsung</li>
       <li>Konten: Isi diantara tag pembuka & penutup. Contoh: teks dalam <span>&lt;p&gt;Halo&lt;p&gt;</span></li>
-    </ul>`
+    </ul> <br>
+    <h3>Tag Meta</h3>
+    <table class="tb-blog">
+      <thead>
+        <tr>
+          <th>Tag Meta</th>
+          <th>Fungsi</th>
+          <th>Contoh</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>&lt;meta charset = "UTF-8"&gt;</td>
+          <td>Menampilkan semua huruf/lambang dengan benar</td>
+          <td>Supaya "%","&", atau emoji tidak rusak</td>
+        </tr>
+        <tr>
+          <td>&lt;meta name = "viewport..."&gt;</td>
+          <td>Agar tampilan cocok di berbagai alat seperti ponsel, laptop & computer</td>
+          <td>Supaya halaman terlihat bagus di semua layar</td>
+        </tr>
+      </tbody>
+    </table> <br>
+    <h2>Heading dan Paragraf</h2><br>
+    <h3>Text Formating</h3>
+    <span>b</span> = For bold writing <br>
+    <span>i</span> = For italic writing <br>
+    <span>u</span> = For underland <br>
+    <span>sup</span> = For kuadrat line (2<sup>2</sup>) <br>
+    <span>sub</span> = For (H<sub>2</sub>O) <br>
+    <span>br</span> = For spase <br><br>
+    <h3>List</h3>
+    <ul>
+      <li>Ordered List adalah daftar yang terurut. artinya, setiap item dalam daftar memiliki urutan atau nomor. <br>
+      Contohnya: <span>ol > li : type = A, a , I, i</spa></li>
+      <li>Unordered List adalah daftar yang tidak terurut. Artinya, setiap item di tandai dengan bullet (tanda titik). <br>
+      Contohnya: <span>ul > li : type = none, square, disc, etc</li>
+    </ul>
+    `
   },
   // Tambahin lagi post lain di sini...
 ];
