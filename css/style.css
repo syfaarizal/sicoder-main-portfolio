@@ -460,38 +460,93 @@ span{
 }
 
 .service-detail-item {
-    background-color: black;
-    border: 4px solid var(--primary-color);
-    border-radius: 1.5rem;
-    width: 90%;
+  background-color: black;
+  border: 4px solid var(--primary-color);
+  border-radius: 1.5rem;
+  width: 90%;
+  box-shadow: 0 10px 10px rgba(94, 1, 1, 1.4);
+  transition: transform 0.4s ease, box-shadow 0.4s ease;
+  transform-style: preserve-3d;
+  perspective: 1000px;
+  overflow: visible;
 }
 
 .service-detail-item:hover {
-    transform: scale(1.1);
-    box-shadow: 0 0 25px var(--hover-shadow);
-    transform-origin: center;
+  filter: brightness(120%) saturate(150%);
+  transition: 0.3s ease;
+  transform: rotateX(60deg) translateY(100px) scale(1.05);
+  box-shadow: 3px 80px 30px rgba(94, 1, 1, 1);
+  transition: all 0.5s cubic-bezier(0.25, 1, 0.5, 1);
 }
 
-.service-detail-item:hover img {
-    filter: brightness(120%) saturate(150%);
-    transition: all 0.3s ease;
+.service-detail-item::after {
+  content: "";
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: radial-gradient(circle at top left, rgba(122, 122, 122, 0.3), transparent);
+  pointer-events: none;
+  opacity: 0;
+  transition: opacity 0.4s ease;
+  border-radius: inherit;
+}
+.service-detail-item:hover::after {
+  opacity: 1;
+}
+
+.magic-line {
+  position: absolute;
+  top: -50px; 
+  left: 50%;
+  transform: translate(-50%, -50%);
+  height: 0;
+  width: 3px;
+  background: linear-gradient(to top, rgba(78, 1, 1, 0.856), rgba(255,255,255,1));
+  z-index: 10;
+  pointer-events: none;
+  transition: height 0.5s ease;
+}
+
+.service-detail-item:hover .magic-line {
+  height: 400px; /* garis naik ke atas card */
+}
+
+.tooltip {
+  position: absolute;
+  bottom: 100%; /* muncul di atas garis */
+  left: 50%;
+  transform: translateX(-50%) translateY(-15px);
+  background: #5a0000;
+  /* color: #a10000; */
+  padding: 6px 6px;
+  border-radius: 10px;
+  /* font-size: 20px; */
+  /* white-space: nowrap; */
+  opacity: 0;
+  transition: opacity 0.4s ease 0.3s, transform 0.4s ease 0.3s;
+  z-index: 99;
+}
+
+.service-detail-item:hover .tooltip {
+  opacity: 1;
+  transform: translateX(-50%) translateY(-1px); /* naik dikit */
 }
 
 .service-detail-item img {
-    width: 100%;
-    border-radius: 5px;
+  width: 100%;
+  border-radius: 5px;
 }
 
 .service-detail-item h2 {
-    padding: 0 5px;
-    padding-bottom: 6px;
-    font-size: 1.8rem;
+  padding: 0 5px;
+  padding-bottom: 6px;
+  font-size: 1.8rem;
 }
 
 .service-detail-item p {
-    font-size: 14px;
-    padding: 0 5px;
-    padding-bottom: 10px;
+  font-size: 14px;
+  padding: 0 5px;
+  padding-bottom: 10px;
 }
 
 .box-line {
@@ -506,40 +561,40 @@ span{
 }
 
 .skills-header {
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 }
 
 .skills-header h1 {
-    font-size: 6rem;
-    font-weight: 700;
-    line-height: 1.3;
-    margin-bottom: 5px;
+  font-size: 6rem;
+  font-weight: 700;
+  line-height: 1.3;
+  margin-bottom: 5px;
 }
 
 #skills {
-    padding: 0 auto;
+  padding: 0 auto;
 }
 
 .skills-header span {
-    color: var(--primary-color);
+  color: var(--primary-color);
 }
 
 .skills-header p {
-    font-size: 2rem;
+  font-size: 2rem;
 }
 
 .skills-title {
-    margin-top: 50px;
-    margin-bottom: 30px;
-    font-size: 18px;
-    text-align: center;
+  margin-top: 50px;
+  margin-bottom: 30px;
+  font-size: 18px;
+  text-align: center;
 }
 
 .skills-title span {
-    color: #b02a2a;
-    text-shadow: 1px 1px 2px rgba(255,255,255,0.1);
+  color: #b02a2a;
+  text-shadow: 1px 1px 2px rgba(255,255,255,0.1);
 }
 
 #web-skills {
@@ -594,7 +649,7 @@ span{
 }
 
 .skill-card p {
-    font-size: 12px;
+  font-size: 12px;
 }
 
 .skill-card svg {
