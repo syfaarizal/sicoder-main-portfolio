@@ -252,6 +252,7 @@ span{
     border: 2px solid var(--primary-color);
     transition: all 0.3s ease;
     cursor: pointer;
+    margin-right: 13px;
 }
 
 .btn:hover{
@@ -295,10 +296,10 @@ span{
 }
 
 @keyframes words{
-    0%,20%{
+    0%, 20%{
         content: "Front-End Developer in Progress";
     }
-    20%,40%{
+    20%, 40%{
         content: "Web Developer in the Making";
     }
     40%, 60%{
@@ -321,7 +322,7 @@ span{
 @media(max-width: 995px){
     .home{
         flex-direction: column;
-        margin-top: 100px;
+        margin-top: 60px;
     }
 
     .home-content {
@@ -353,6 +354,12 @@ span{
 
     .typing-text span::after {
       height: 45px;
+    }
+
+    .btn {
+      display: grid;
+      flex-direction: column;
+      margin-bottom: 15px;
     }
 }
 
@@ -407,14 +414,17 @@ span{
 
 #ui-ux {
     grid-area: ui-ux;
+    margin-bottom: 50px;
 }
 
 #code-optimization {
     grid-area: code;
+    margin-bottom: 50px;
 }
 
 #personal-project-build {
     grid-area: personal;
+    margin-bottom: 50px;
 }
 
 @media (max-width: 768px) {
@@ -496,32 +506,33 @@ span{
 
 .magic-line {
   position: absolute;
-  top: -50px; 
+  top: 0; 
   left: 50%;
   transform: translate(-50%, -50%);
   height: 0;
   width: 3px;
-  background: linear-gradient(to top, rgba(78, 1, 1, 0.856), rgba(255,255,255,1));
+  background: linear-gradient(to top, rgba(78, 1, 1, 1), rgba(255,255,255,1));
   z-index: 10;
   pointer-events: none;
   transition: height 0.5s ease;
 }
 
 .service-detail-item:hover .magic-line {
-  height: 400px; /* garis naik ke atas card */
+  height: 350px; /* garis naik ke atas card */
 }
 
 .tooltip {
   position: absolute;
-  bottom: 100%; /* muncul di atas garis */
+  bottom: 100%; 
   left: 50%;
-  transform: translateX(-50%) translateY(-15px);
+  transform: translateX(-50%) translateY(-30px);
   background: #5a0000;
-  /* color: #a10000; */
-  padding: 6px 6px;
-  border-radius: 10px;
-  /* font-size: 20px; */
-  /* white-space: nowrap; */
+  color: #ffffff;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 500;
+  padding: 6px 10px;
+  white-space: nowrap;
   opacity: 0;
   transition: opacity 0.4s ease 0.3s, transform 0.4s ease 0.3s;
   z-index: 99;
@@ -529,7 +540,7 @@ span{
 
 .service-detail-item:hover .tooltip {
   opacity: 1;
-  transform: translateX(-50%) translateY(-1px); /* naik dikit */
+  transform: translateX(-50%) translateY(5px); /* naik dikit */
 }
 
 .service-detail-item img {
@@ -771,10 +782,7 @@ span{
 }
 
 @keyframes href{
-  0%,5%{
-    content: "";
-  }
-  5%,10%{
+  0%,10%{
     content: "R";
   }
   10%,20%{
@@ -939,10 +947,9 @@ span{
     height: auto;
   }
   .modal-content{
-    margin: 150px 20px;
-    max-height: auto;
-    max-width: 395px;
-    max-height: 600px;
+    margin: 120px 25px;
+    max-width: 367px;
+    max-height: 580px;
     padding: 10px;
   }
 }
@@ -1126,14 +1133,18 @@ span{
 }
 
 .contact-form label {
-    font-size: 1.8rem;
-    font-weight: bold;
+  font-size: 1.8rem;
+  font-weight: bold;
+}
+
+.contact-form label:hover {
+  color: var(--primary-color);
 }
 
 .contact-form input,
 .contact-form textarea {
   padding: 1rem;
-  border-radius: 1rem;
+  border-radius: 2.5rem;
   border: 2px solid var(--primary-color);
   background-color: #0d0d0d;
   color: white;
@@ -1145,9 +1156,14 @@ span{
   color: #888;
 }
 
-.contact-form button {
-  align-self: flex-start;
-  margin-top: 20px;
+.contact-form input::placeholder::after,
+.contact-form textarea::placeholder::after {
+  color: var(--primary-color);
+  opacity: 0;
+}
+.contact-form input::placeholder:hover::after,
+.contact-form textarea::placeholder:hover::after {
+  opacity: 1;
 }
 
 #contact::after {
@@ -1163,6 +1179,12 @@ span{
   animation: pulseGlowRotate 5s linear infinite;
   z-index: -1;
 }
+
+.contact-form button {
+  align-self: flex-start;
+  margin-top: 20px;
+}
+
 
 @keyframes pulseGlowRotate {
   0%, 100% {
@@ -1229,7 +1251,7 @@ span{
 .contact-visual img {
   width: 280px;
   position: relative;
-  top: 30px;
+  top: 0;
   animation: floatY 5s ease-in-out infinite;
   filter: drop-shadow(0 0 30px rgb(107, 3, 5));
 }
@@ -1256,7 +1278,7 @@ span{
 .contact-form textarea:focus {
   outline: none;
   border-color: var(--primary-color);
-  box-shadow: 0 0 8px rgba(255, 0, 0, 0.5);
+  box-shadow: 0 0 8px rgba(255, 0, 0, 1);
   transition: all 0.2s ease;
 }
 
@@ -1272,11 +1294,14 @@ span{
   }
 
   .contact-quote {
-    display: none;
+    top: 7px;
+    font-size: 10px;
+    margin: 0;
   }
 
   .box-line-quote {
-    display: none;
+    top: 15px;
+    margin: 0;
   }
 
   .contact-visual img {
@@ -1286,6 +1311,10 @@ span{
   .box-line {
     width: 450px;
     height: 4px;
+  }
+
+  #contact::after{
+    display: none;
   }
 }
 

@@ -336,9 +336,9 @@ const blogPosts = [
   {
     title:"Day 4: Game Tebak Angka - Belajar Seru Bareng JavaScript 🎯",
     sub:"Ditulis pada 11 Juni 2025",
-    body:`Hari ke-4 tantangan ngoding ini agak beda vibes-nya karena gua disuruh bikin game sederhana: Number Guessing Game alias Tebak Angka! Sekilas emang kedengeran receh, tapi ternyata seru juga pas dibikin. <br><br>
+    body:`Hari ke-4 tantangan ngoding ini agak beda vibes-nya karena gua disuruh bikin game sederhana: Number Guessing Game alias Tebak Angka! Sekilas emang kedengeran receh, tapi ternyata lumayan banyak yang harus di perhatiin, terutama buat interaksi ke user dan logika kondisional. <br><br>
     <h3>🧠 Apa Sih Tantangannya?</h3>
-    Kita diminta bikin program yang: <br>
+    Program harus bisa: <br>
     <ol>
       <li>Generate angka acak antara 1 sampai 10</li>
       <li>Minta user buat nebak angkanya</li>
@@ -355,7 +355,83 @@ const blogPosts = [
           <li>Tampilkan pesan sukses + jumlah percobaan</li>
         </ul>
       </li>
-    </ol>`
+    </ol> <br>
+        Contoh output-nya: <br>
+    <div class="codean">
+      <pre><code>
+        Saya menyimpan angka antara 1 dan 10. <br>
+        Coba tebak!
+        Tebakan kamu: 4
+        Terlalu kecil! <br>
+        Tebakan kamu: 7
+        Terlalu besar! <br>
+        Tebakan kamu: 6
+        Selamat! Kamu menebak angka dengan benar dalam 3 percobaan.
+      </code></pre>
+    </div> <br>
+    <h3>🧠 Debugging Kocak</h3> <br>
+    Awalnya gua bikin gini: <br>
+    <div class="codean">
+      <pre><code>
+        const angkaRandom:
+        Math.floor(Math.random() * 10) + 1:
+      </code></pre>
+    </div>
+    Dan error dong. Gua sempet bengong. Ternyata gua salah pakai <span>:</span> yang mestinya <span>=</span> buat assignment. Klasik type JavaScript. <br><br>
+    <h3>Versi Perbaikan Awal</h3> <br>
+    Setelah dibenerin dan disusun ulang logikanya, ini versi working code awal gua: <br>
+    <div class="codean">
+      <pre><code>
+        let angkaRandom =
+        Math.floor(Math.random() * 10) + 1;
+        let attempt = 0;
+        let ulang = true;
+
+        while(ulang) {
+          const inputUser = prompt("Saya menyimpan angka antara 1 sampai 10. Coba tebak!");
+          attempt++;
+
+          const userInput = parseInt(inputUser);
+
+          if (isNaN(userInput)) {
+            console.log("Eh? Masukan angka ya");
+          } else {
+            if (userInput < angkaRandom) {
+              console.log("Terlalu kecil");
+            } else if (inputUser > angkaRandom){
+              console.log("Terlalu besar");
+            } else {
+              console.log(\`Selamat! Kamu menebak angka dengan benar dalam \${attempt} percobaan.\`);
+              ulang = false;
+            }
+          }
+        }
+      </code></pre>
+    </div> 
+    Kodenya simple dan langsung jalan. Tapi gua ngerasa masih bisa ditingkatin. <br><br>
+    <h2>Bonus Challenge</h2> <br>
+    Ada tambahan tantangan opsional: <br>
+    <ul>
+      <li>Validasi input angka</li>
+      <li>Sistem skor (komentar berdasarkan jumlah percobaan</li>
+      <li>Mode sulit: 1-50</li>
+    </ul> <br>
+    <h3>Validasi Input & Skor</h3> <br>
+    Validasi angka udah gua pasang pakai <span>isNaN()</span>. Tinggal tambahin logika sistem skor: <br>
+    <div class="codean">
+      <pre><code>
+        if(attempt <= 3) {
+          console.log("Pro banget! Kamu cepet banget nebaknya.");
+        } else if(attempt <= 6){
+          console.log("Lumayan! Tapi bisa lebih cepat.");
+        } esle {
+          console.log("Wah, perlu latihan nih. Tapi tetap semangat!");
+        }
+      </code></pre>
+    </div> <br>
+    <h3>Mode Sulit (1-50)</h3> <br>
+    Gua pakai 
+    `
   },
   {
     title:"HTML Introduction",
@@ -368,7 +444,7 @@ const blogPosts = [
       <li>Properti: Biasanya dipakai di CSS atau JS (JavaScript), bukan di HTML langsung</li>
       <li>Konten: Isi diantara tag pembuka & penutup. Contoh: teks dalam <span>&lt;p&gt;Halo&lt;p&gt;</span></li>
     </ul> <br>
-    <h3>Tag Meta</h3>
+    <h3>Tag Meta</h3> <br>
     <table class="tb-blog">
       <thead>
         <tr>
@@ -390,6 +466,13 @@ const blogPosts = [
         </tr>
       </tbody>
     </table> <br>
+    <span>width = device-width</span> artinya lebar halaman HTML akan disesuaikan dengan lebar layar perangkat (HP, Laptop, Tablet, etc). <br><br>
+    <span>initial-scale = 1.0</span> artinya zoom awal halaman adalah 100% (tidak diperbesar atau diperkecil saat pertama dibuka). <br><br>
+    Kenapa harus diawal HTML? <br><br>
+    Karena: <ul>
+              <li>Tag <span>meta</span> memberi informasi penting ke browser sebelum halaman dimuat.</li>
+              <li>Harus di letakkan di bagian <span>&lt;head&gt;</span> supaya browser bisa langsung tahu bagaimana cara membaca dan menampilkan halaman dengan benar.</li>
+            </ul> <br>
     <h2>Heading dan Paragraf</h2><br>
     <h3>Text Formating</h3>
     <span>b</span> = For bold writing <br>
@@ -404,8 +487,66 @@ const blogPosts = [
       Contohnya: <span>ol > li : type = A, a , I, i</spa></li>
       <li>Unordered List adalah daftar yang tidak terurut. Artinya, setiap item di tandai dengan bullet (tanda titik). <br>
       Contohnya: <span>ul > li : type = none, square, disc, etc</li>
-    </ul>
-    `
+    </ul> <br>
+    <h3>Anchor</h3>
+    Anchor (atau tag <span>&lt;a&gt;</span>) di HTML kayak link. <br>
+    Fungsinya: Menghubungkan satu halaman lain, atau bagian tertentu di halaman yang sama. <br><r>
+    Bentuknya: <span>&lt;a href="https://www.google.com"&gt; Cari Google &lt;/a&gt;</span> <br><br>
+    Anchor tuh kayak "portal" di dunia HTML. <br>
+    Lo klik, langsung teleport ke tempat lain, bisa ke website lain, halaman lain, atau bagian lain dalam halaman itu juga. <br><br>
+    <table class="tb-blog">
+      <thead>
+        <tr>
+          <th>Istilah</th>
+          <th>Artinya</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>&lt;a&gt;</td>
+          <td>Tag Anchor (link)</td>
+        </tr>
+        <tr>
+          <td>href</td>
+          <td>Tempat tujuan (alamat link)</td>
+        </tr>
+      </tbody>
+    </table> <br>
+    <span>target="blank"</span>: agar website membuka di tab baru. <br><br>
+    <h3>Image</h3>
+    <span>&lt;img src="https://..." alt="picture"&gt;</span> <br>
+    <span>&lt;img src="local.img" alt="picture"&gt; </span> <br><br>
+    <h3>Table</h3>
+    Table HTML itu kayak kotak-kotak yang dipakai buat nampilin data secara rapi dalam bentuk baris dan kolom. <br><br>
+    <span>&lt;table&gt;</span>: Mulai bikin table. <br>
+    <span>&lt;tr&gt;</span> (table row): Baris dalam table (row = horizontal). <br> 
+    <span>&lt;th&gt;</span> (table header): Judul kolom. <br> 
+    <span>&lt;td&gt;</span> (table data): Isi data dalam kolom table. <br><br>
+    Contoh struktur table dasar:
+    <div class="codean">
+      <pre><code>
+        &lt;table&gt;
+          &lt;thead&gt;
+            &lt;tr&gt;
+              &lt;th&gt;No&lt;/th&gt;
+              &lt;th&gt;Nama&lt;/th&gt;
+            &lt;/tr&gt;
+          &lt;/thead&gt;
+          &lt;tbody&gt;
+            &lt;tr&gt;
+              &lt;td&gt;1&lt;/td&gt;
+              &lt;td&gt;Siti&lt;/td&gt;
+            &lt;/tr&gt;
+          &lt;/tbody&gt;
+          &lt;tfoot&gt;
+            &lt;tr&gt;
+              &lt;td&gt;Rata-rata&lt;/td&gt;
+            &lt;/tr&gt;
+          &lt;/tfoot&gt;
+        &lt;/table&gt;
+      </code></pre>
+    </div>
+     `
   },
   // Tambahin lagi post lain di sini...
 ];
