@@ -852,7 +852,7 @@ span{
   margin: 100px 550px;
 }
 
-.close-button {
+.modal-close {
   color: var(--primary-color);
   float: right;
   font-size: 2.3rem;
@@ -861,7 +861,7 @@ span{
 }
 
 .modal-bd span {
-  background-color: #52525291;
+  background-color: #414141a4;
   padding-left: 2px;
   padding-right: 2px;
   border-radius: 4px;
@@ -870,7 +870,7 @@ span{
 
 .modal-ttl {
   font-size: 1.7rem;
-  margin-bottom: 10px;
+  margin-bottom: 7px;
   color: var(--primary-color);
 }
 
@@ -879,7 +879,7 @@ span{
 }
 
 .modal-bd {
-  margin-top: 5px;
+  margin-top: 8px;
   font-size: 1.3rem;
 }
 
@@ -926,6 +926,7 @@ span{
 .tb-blog thead, .tb-blog tbody{
   background-color: rgb(255, 255, 255);
   color: black;
+  text-align: center;
 }
 
 .tb-blog th {
@@ -1154,16 +1155,6 @@ span{
 .contact-form input::placeholder,
 .contact-form textarea::placeholder {
   color: #888;
-}
-
-.contact-form input::placeholder::after,
-.contact-form textarea::placeholder::after {
-  color: var(--primary-color);
-  opacity: 0;
-}
-.contact-form input::placeholder:hover::after,
-.contact-form textarea::placeholder:hover::after {
-  opacity: 1;
 }
 
 #contact::after {
