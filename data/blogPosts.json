@@ -23,5 +23,10 @@
     "title": "HTML – Part 1: Kenalan Sama HTML, Struktur Dasar, dan Elemen Penting",
     "sub": "Ditulis pada 14 Mei 2025",
     "file": "blog/html-intro.md"
+  },
+  {
+    "title": "HTML – Part 2: Iframe, Div, Span, & Dunia Semantik HTML",
+    "sub": "Ditulis pada 16 Mei 2025",
+    "file": "blog/html-intro2.md"
   }
 ]
