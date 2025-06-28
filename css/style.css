@@ -360,6 +360,11 @@ span{
     display: grid;
     flex-direction: column;
     margin-bottom: 15px;
+    display: flex;
+    text-align: center;
+    margin-right: 0;
+    width: 217px;
+    font-size: 15px;
   }
 }
 
@@ -962,7 +967,8 @@ span{
   border-radius: 5px;
 }
 
-@media(max-width: 768px){
+
+@media(max-width: 768px) {
   .blog-container {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
@@ -973,13 +979,13 @@ span{
   }
   .modal-content{
     margin: 120px 25px;
-    max-width: 367px;
-    max-height: 580px;
+    max-width: 366px;
+    max-height: 650px;
     padding: 10px;
   }
   .modal-img img{ 
-    margin-left: 0;
-}
+    margin: 0;
+  }
 }
 
 #portfolio {

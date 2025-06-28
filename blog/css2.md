@@ -1,4 +1,4 @@
-<i>“Kalau Card 1 itu kenalan, Card 2 ini udah mulai dandanin. Styling teks biar rapi, dan ngerti cara ngatur ruang antar elemen kayak pro UI designer.”</i>
+<blockquote style="margin: 1rem 0; padding: 1rem; border-left: 4px solid rgb(145, 31, 31); font-style: italic; color: #fff;">“Kalau Card 1 itu kenalan, Card 2 ini udah mulai dandanin. Styling teks biar rapi, dan ngerti cara ngatur ruang antar elemen kayak pro UI designer.”</blockquote>
 <br><br>
 
 <h2>✍️ Styling Teks (Biar Gak Flat)</h2>
@@ -38,11 +38,11 @@
         }
     </code></pre>
 </div>
-Paragraf kamu gak cuma enak dibaca, tapi juga enak diliat ✨
+Paragraf lu gak cuma enak dibaca, tapi juga enak diliat ✨
 <br><br>
 
 <h2>📦 Box Model: Pahami Dunia Kotak HTML</h2>
-<i>“Semua elemen HTML itu sebenarnya... kotak. Dan CSS bantu kamu ngatur kotak itu kayak main Tetris.”</i>
+<i>“Semua elemen HTML itu sebenarnya... kotak. Dan CSS bantu lu ngatur kotak itu kayak main Tetris.”</i>
 <br><br>
 
 <h3>🧱 Box Model terdiri dari:</h3>
@@ -157,7 +157,7 @@ Satuan yang bisa dipakai:
 <br><br>
 
 <h2>🌫️ Box Shadow</h2>
-<i>Efek glow, neomorphism, atau shadow aesthetic bisa kamu bikin pakai ini:</i>
+<i>Efek glow, neomorphism, atau shadow aesthetic bisa lu bikin pakai ini:</i>
 <br>
 <div class="codean">
     <pre><code>

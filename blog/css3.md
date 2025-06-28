@@ -1,4 +1,4 @@
-<i>“Kalau tampilan udah cakep, sekarang kita atur penempatan biar semua elemen gak ‘ngegas’ sendiri dan saling injak.”</i>
+<blockquote style="margin: 1rem 0; padding: 1rem; border-left: 4px solid rgb(145, 31, 31); font-style: italic; color: #fff;">“Kalau tampilan udah cakep, sekarang kita atur penempatan biar semua elemen gak ‘ngegas’ sendiri dan saling injak.”</blockquote>
 <br><br>
 
 <h2>📍 Positioning: Biar Elemen Gak Nyasar</h2>
@@ -157,7 +157,7 @@ Gunanya biar popup/modal gak ketutupan konten lain. Think of it like: layer-laye
     </code></pre>
 </div>
 
-🧠 <i>1fr= 1 bagian dari total ruang yang tersedia. Bisa kamu pikir kayak: 1 slot dari 3 slot yang dibagi rata.</i>
+🧠 <i>1fr= 1 bagian dari total ruang yang tersedia. Bisa lu pikir kayak: 1 slot dari 3 slot yang dibagi rata.</i>
 <br><br>
 
 <h2>📱 Responsive Layout: Mulai dari Sini</h2>

@@ -1,4 +1,4 @@
-<i>“HTML doang tuh kayak nasi tanpa lauk. CSS-lah yang bikin tampilannya gurih, aesthetic, dan pantas dipajang.”</i>
+<blockquote style="margin: 1rem 0; padding: 1rem; border-left: 4px solid rgb(145, 31, 31); font-style: italic; color: #fff;">“HTML doang tuh kayak nasi tanpa lauk. CSS-lah yang bikin tampilannya gurih, aesthetic, dan pantas dipajang.”</blockquote>
 <br><br>
 <h2>🌈 Apa Itu CSS?</h2>
 CSS (Cascading Style Sheets) adalah bahasa styling buat ngatur tampilan elemen HTML. Jadi kalau HTML itu struktur rangka, CSS itu bajunya, biar website gak kelihatan kayak zaman web dinosaurus 🦖.
@@ -14,7 +14,7 @@ CSS (Cascading Style Sheets) adalah bahasa styling buat ngatur tampilan elemen H
 <br>
 
 <h3>🛠️ Gimana Cara Pakai CSS di HTML?</h3>
-Ada 3 cara nerapin CSS ke halaman HTML kamu:
+Ada 3 cara nerapin CSS ke halaman HTML lu:
 <br><br>
 
 <b>1. Inline CSS</b><br>
@@ -59,7 +59,7 @@ CSS dipisah di file sendiri, lalu di-link ke HTML-nya.
 <br>
 
 <h2>🧠 Selektor CSS</h2>
-Selektor itu cara kamu nunjuk: “eh CSS, tolong style bagian ini ya!”
+Selektor itu cara lu nunjuk: “eh CSS, tolong style bagian ini ya!”
 
 <table class="tb-blog">
   <thead>

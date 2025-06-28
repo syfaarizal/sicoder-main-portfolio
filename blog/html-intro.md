@@ -1,4 +1,5 @@
-<i>“Kalau website itu rumah, HTML itu pondasinya. Gak kelihatan, tapi semuanya berdiri karena dia.”</i> <br><br>
+<blockquote style="margin: 1rem 0; padding: 1rem; border-left: 4px solid rgb(145, 31, 31); font-style: italic; color: #fff;">“Kalau website itu rumah, HTML itu pondasinya. Gak kelihatan, tapi semuanya berdiri karena dia.”
+</blockquote><br><br>
 <h3>✨ Apa Itu HTML?</h3>
 <b>HTML (HyperText Markup Language)</b> itu bukan bahasa pemrograman, tapi bahasa markup. Fungsinya? Buat ngatur struktur konten di halaman web. Jadi HTML tuh ngasih tahu browser: <br><br>
 <i>“Eh bro, ini judul ya, yang ini paragraf, ini gambar, ini tombol login.”</i> <br><br>
@@ -76,7 +77,7 @@ Contoh:
   </code></pre>
 </div> <br>
 <h3>🎨 Text Formatting</h3>
-HTML juga bisa bantu kamu <i>ngedandanin</i> teks! <br>
+HTML juga bisa bantu lu <i>ngedandanin</i> teks! <br>
 <table class="tb-blog">
   <thead>
     <tr>
@@ -172,7 +173,7 @@ Tag <span>&lt;a&gt;</span> itu kayak pintu teleport. Klik dia, langsung ke tempa
     </tr>
     <tr>
       <td><span>target="_blank"</span></td>
-      <td>Buka link di tab baru (biar gak ninggalin halaman kamu)</td>
+      <td>Buka link di tab baru (biar gak ninggalin halaman lu)</td>
     </tr>
   </tbody>
 </table>
@@ -344,7 +345,7 @@ Kalau gak ada value? Server bakal bingung, datanya kosong atau gak jelas. <br>
 </div> <br>
 <h2>🚨 Penutup Card 1</h2>
 HTML itu pondasi. Semua web pasti mulai dari sini.<br>
-Di part 1 ini, kamu udah belajar:<br>
+Di part 1 ini, lu udah belajar:<br>
 
 ✅ Struktur dasar HTML<br>
 ✅ Meta tag<br>

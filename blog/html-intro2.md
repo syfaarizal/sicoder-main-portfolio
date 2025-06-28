@@ -1,4 +1,4 @@
-<i>“Kalau part 1 itu pondasi rumah, part 2 ini mulai ngatur ruangannya biar cozy dan terstruktur.”</i>
+<blockquote style="margin: 1rem 0; padding: 1rem; border-left: 4px solid rgb(145, 31, 31); font-style: italic; color: #fff;">“Kalau part 1 itu pondasi rumah, part 2 ini mulai ngatur ruangannya biar cozy dan terstruktur.”</blockquote>
 <br>
 <h2>🖼️ Apa Itu <span>&lt;iframe&gt;</span>?</h2>
 <span>&lt;iframe&gt;</span> itu ibarat jendela kecil di halaman kamu, yang bisa nampilin halaman web lain dari internet.
@@ -88,9 +88,7 @@
 <br>
 🧠 Kalau <span>div</span> <i>itu kotak container</i>, <span>span</span> <i>itu stabilo teks</i>. <br><br>
 <div class="modal-img">
-    <pre><code>
-        <img src="/assets/img/Semantic.png" alt="Semantic & Non-semantic">
-    </code></pre>
+<img src="/assets/img/Semantic.png" alt="Semantic & Non-semantic">
 </div> <br>
 <h2>🧠 Apa Itu Semantic HTML?</h2>
 <b>Semantic HTML</b> adalah elemen-elemen HTML yang namanya udah ngasih tahu maknanya. Jadi <i>ngodingnya gak cuma rapi</i>, tapi juga bikin website lebih mudah dipahami sama browser, SEO, dan screen reader. <br><br>
