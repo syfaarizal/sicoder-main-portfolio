@@ -28,5 +28,20 @@
     "title": "HTML – Part 2: Iframe, Div, Span, & Dunia Semantik HTML",
     "sub": "Ditulis pada 16 Mei 2025",
     "file": "blog/html-intro2.md"
+  },
+  {
+    "title": "CSS – Part 1: Kenalan & Dasar Styling Buat Web Biar Gak Polosan",
+    "sub": "Ditulis pada 17 Mei 2025",
+    "file": "blog/css1.md"
+  },
+  {
+    "title": "CSS – Part 2: Teks Stylish & Box Model Mastery",
+    "sub": "Ditulis pada 17 Mei 2025",
+    "file": "blog/css2.md"
+  },
+  {
+    "title": "CSS – Part 3: Layouting & Positioning Masterclass",
+    "sub": "Ditulis pada 18 Mei 2025",
+    "file": "blog/css3.md"
   }
 ]

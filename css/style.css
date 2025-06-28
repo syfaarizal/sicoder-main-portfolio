@@ -724,6 +724,12 @@ span{
   /* text-align: center; */
 }
 
+@media (max-width: 768px) {
+  .judul-blog {
+    font-size: 17px;
+  }
+}
+
 .blog-container {
   margin-top: 2rem;
   display: grid;
@@ -805,6 +811,27 @@ span{
   }
   95%,100%{
     content: "Read More →";
+  }
+}
+
+.page-counter {
+  display: inline-block;
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+  color: #ccc;
+}
+
+.page-counter2 {
+  display: inline-block;
+  margin-left: 230px;
+  margin-bottom: 10px;
+  font-size: 1.2rem;
+  color: #ccc;
+}
+
+@media screen and (max-width: 768px) {
+  .page-counter2 {
+    margin-left: 195px;
   }
 }
 
