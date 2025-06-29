@@ -188,7 +188,7 @@ HP user? Auto tampilannya rapi. Laptop user? Tetap kece.
     Jangan takut mulai dari bawah, semua orang yang jago pun pernah stuck di <span>&lt;br&gt;</span> doang kok 😆
   </p>
 
-  <div style="background-color:rgb(255, 205, 205); padding: 1rem; border-left: 4px solid rgb(151, 4, 4); border-radius: 8px; margin-bottom: 1.5rem; margin-top: 40px;">
+  <div class="css-card-next" style="background-color:rgb(255, 205, 205); padding: 1rem; border-left: 4px solid rgb(151, 4, 4); border-radius: 8px; margin-bottom: 1.5rem; margin-top: 40px;">
     <h3 style="margin-top: 0; color:rgb(133, 4, 4);">🚀 What’s Next?</h3>
     <p style="margin: 0; color: #5c5c5c;">
       <strong>Kenalan Sama JavaScript</strong><br>
@@ -196,7 +196,7 @@ HP user? Auto tampilannya rapi. Laptop user? Tetap kece.
       Apa itu JavaScript? · Kenapa JavaScript penting di web dev · Cara pakai JS di HTML · etc
     </p>
   </div>
-  <div style="background-color:rgb(255, 205, 205); padding: 1rem; border-left: 4px solid rgb(151, 4, 4); border-radius: 8px; margin-bottom: 1.5rem;">
+  <div class="css-card-next" style="background-color:rgb(255, 205, 205); padding: 1rem; border-left: 4px solid rgb(151, 4, 4); border-radius: 8px; margin-bottom: 1.5rem;">
     <h3 style="margin-top: 0; color:rgb(133, 4, 4);">🚀 What’s Next?</h3>
     <p style="margin: 0; color: #5c5c5c;">
       <strong>Logic, Kondisi, dan Perulangan</strong><br>
@@ -204,7 +204,7 @@ HP user? Auto tampilannya rapi. Laptop user? Tetap kece.
       Percabangan: <span>if</span>, <span>else</span>, <span>else if</span> · Switch case (buat alternatif logika bercabang) · etc
     </p>
   </div>
-  <div style="background-color:rgb(255, 205, 205); padding: 1rem; border-left: 4px solid rgb(151, 4, 4); border-radius: 8px; margin-bottom: 1.5rem;">
+  <div class="css-card-next" style="background-color:rgb(255, 205, 205); padding: 1rem; border-left: 4px solid rgb(151, 4, 4); border-radius: 8px; margin-bottom: 1.5rem;">
     <h3 style="margin-top: 0; color:rgb(133, 4, 4);">🚀 What’s Next?</h3>
     <p style="margin: 0; color: #5c5c5c;">
       <strong>Interaksi & DOM Dasar</strong> <br>
@@ -213,6 +213,6 @@ HP user? Auto tampilannya rapi. Laptop user? Tetap kece.
     </p>
   </div>
 
-  <p style="text-align: center; font-weight: bold; color: #444; margin-top:70px;">📍Stay tuned!<br>
+  <p class="call-to-action" style="text-align: center; font-weight: bold; color: #444; margin-top:70px;">📍Stay tuned!<br>
   📩 DM aja kalau lu juga lagi belajar coding — kita bisa grow bareng loh!</p>
 </section>

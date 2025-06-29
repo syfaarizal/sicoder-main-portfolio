@@ -986,6 +986,12 @@ span{
   .modal-img img{ 
     margin: 0;
   }
+  .css-card-next {
+    display: none;
+  }
+  .call-to-action {
+    font-size: 10px;
+  }
 }
 
 #portfolio {
