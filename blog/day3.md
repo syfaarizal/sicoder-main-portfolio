@@ -143,4 +143,5 @@ Gua ngerasa ini bisa dibikin lebih clean lagi dengan function dan loop. Function
     <li>Function bikin kode lebih bersih dan bisa di-reuse</li>
     <li>Loop <span>while</span> + <span>confirm()</span> bikin program jadi dinamis dan fun dipakai user</li>
 </ul> <br>
-Dan akhirnya, ini jadi bukan cuma kalkulator biasa, tapi juga latihan berpikir logis, rapiin struktur kode, dan kasih pengalaman interaktif buat user. Sampai jumpa di challenge selanjutnya! 🚀
+Dan akhirnya, ini jadi bukan cuma kalkulator biasa, tapi juga latihan berpikir logis, rapiin struktur kode, dan kasih pengalaman interaktif buat user. Sampai jumpa di challenge selanjutnya! 🚀 <br><br>
+<a href="https://github.com/syfaarizal/js-mini-calculator"><i class="fab fa-github" target="_blank" rel="noopener noreferrer" class="social-icons"></i></a>

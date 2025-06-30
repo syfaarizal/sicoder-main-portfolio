@@ -81,3 +81,14 @@ function closeModal() {
   document.body.style.overflow = '';
 }
 window.closeModal = closeModal; 
+
+const cvBtn = document.getElementById('CV-btn');
+const extraLinks = document.getElementById('extraLinks');
+
+cvBtn.addEventListener('click', (event) => {
+  event.preventDefault();
+
+  // Toggle class hidden/show
+  extraLinks.classList.toggle('hidden');
+  extraLinks.classList.toggle('show');
+});

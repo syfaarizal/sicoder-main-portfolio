@@ -167,7 +167,7 @@ HP user? Auto tampilannya rapi. Laptop user? Tetap kece.
   <li>✅ Siap styling ala pro dengan best practices</li>
 </ul>
 
-<section class="css-card-ending" style="margin-top: 2rem; padding: 1.5rem; background-color: #f9f9f9; border-left: 5px solid rgb(145, 31, 31); border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.05); font-family: 'Segoe UI', sans-serif; max-height: 50rem;">
+<section class="css-card-ending" style="margin-top: 2rem; padding: 1.5rem; background-color: #f9f9f9; border-left: 5px solid rgb(145, 31, 31); border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.05); font-family: 'Segoe UI', sans-serif; height: auto;">
   <h2 style="margin-bottom: 0.8rem; color: #333;">📌 Penutup dari Gua - SICODER 💻🌱</h2>
   <p style="margin-bottom: 1rem; line-height: 1.7; color: #555;">
     Halo! Gua <strong>Syifa</strong>, dan semua materi yang gua bagikan di sini adalah hasil belajar dari <strong>NOL</strong>.  
@@ -183,12 +183,12 @@ HP user? Auto tampilannya rapi. Laptop user? Tetap kece.
   </blockquote>
 
   <p style="margin-bottom: 1.2rem; line-height: 1.7; color: #555;">
-    Kalau lu juga lagi belajar HTML & CSS — dari awal, dari gak ngerti apa-apa — gua harap konten ini bisa jadi temen belajarmu juga.  
+    Kalau lu juga lagi belajar HTML & CSS — dari awal, dari gak ngerti apa-apa — gua harap konten ini bisa jadi temen belajar lu juga.  
     <br><br>
     Jangan takut mulai dari bawah, semua orang yang jago pun pernah stuck di <span>&lt;br&gt;</span> doang kok 😆
   </p>
 
-  <div class="css-card-next" style="background-color:rgb(255, 205, 205); padding: 1rem; border-left: 4px solid rgb(151, 4, 4); border-radius: 8px; margin-bottom: 1.5rem; margin-top: 40px;">
+  <div style="background-color:rgb(255, 205, 205); padding: 1rem; border-left: 4px solid rgb(151, 4, 4); border-radius: 8px; margin-bottom: 1.5rem; margin-top: 40px;">
     <h3 style="margin-top: 0; color:rgb(133, 4, 4);">🚀 What’s Next?</h3>
     <p style="margin: 0; color: #5c5c5c;">
       <strong>Kenalan Sama JavaScript</strong><br>

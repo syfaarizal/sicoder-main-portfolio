@@ -41,4 +41,4 @@ Intinya: kalau menitnya kurang dari 10 (misalnya 5), nanti dia otomatis ditambah
 <br><br>
 Kesimpulannya: pakai <span>new Date()</span> buat dapetin waktu sekarang, pecah jadi komponen tanggal, dan styling hasil output-nya pakai <span>ternary operator</span> untuk hasil yang bersih.
 <br><br>
-<a href="https://github.com/syfaarizal/Cetak-Nama-dan-Status"><i class="fab fa-github" target="_blank" rel="noopener noreferrer" class="social-icons"></i></a>
+<a href="https://github.com/syfaarizal/js-print-name-status"><i class="fab fa-github" target="_blank" rel="noopener noreferrer" class="social-icons"></i></a>

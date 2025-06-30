@@ -85,4 +85,4 @@ Di JavaScript console, <span><code>\n</code></span> berfungsi kayak <span><code>
    3. Validasi input itu penting banget! <br>
    4. Tambahan kecil kayak <span><code>\n</code></span> bisa bikin program lebih enak dibaca <br><br>
 Setiap challenge itu bukan cuma soal berhasil atau nggaknya kode jalan, tapi tentang <b>gimana kita mikir dan belajar dari error-nya.</b> Dan di hari ke-2 ini, gua makin ngerti kenapa debugging itu bukan musuh, tapi sahabat. <br><br>
-<a href="https://github.com/syfaarizal/Kalkulator-Umur"><i class="fab fa-github" target="_blank" rel="noopener noreferrer" class="social-icons"></i></a>
+<a href="https://github.com/syfaarizal/js-age-calculator"><i class="fab fa-github" target="_blank" rel="noopener noreferrer" class="social-icons"></i></a>

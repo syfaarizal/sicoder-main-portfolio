@@ -1,7 +1,7 @@
 <blockquote style="margin: 1rem 0; padding: 1rem; border-left: 4px solid rgb(145, 31, 31); font-style: italic; color: #fff;">“Kalau part 1 itu pondasi rumah, part 2 ini mulai ngatur ruangannya biar cozy dan terstruktur.”</blockquote>
 <br>
 <h2>🖼️ Apa Itu <span>&lt;iframe&gt;</span>?</h2>
-<span>&lt;iframe&gt;</span> itu ibarat jendela kecil di halaman kamu, yang bisa nampilin halaman web lain dari internet.
+<span>&lt;iframe&gt;</span> itu ibarat jendela kecil di halaman lu, yang bisa nampilin halaman web lain dari internet.
 <br>
 <h3>🔍 Fungsi:</h3>
 <ul>
@@ -39,7 +39,7 @@
   </code></pre>
 </div> <br>
 <h3>🧬 Apa Itu <span>&lt;span&gt;</span>?</h3>
-<span>&lt;span&gt;</span> itu elemen inline yang dipakai buat ngebungkus teks kecil yang pengen kamu <i>format atau styling</i>. <br><br>
+<span>&lt;span&gt;</span> itu elemen inline yang dipakai buat ngebungkus teks kecil yang pengen lu <i>format atau styling</i>. <br><br>
 <h3>🔍 Fungsinya:</h3>
 <ul>
     <li>Nge-highlight teks tertentu</li>

@@ -152,4 +152,5 @@ Yang gua pelajari di challenge ini:
     <li><span>confirm()</span> dan <span>prompt()</span> bikin pengalaman user lebih engaging</li>
     <li>Ternyata debugging seru juga kalau dijadiin bahan belajar</li>
 </ul> <br>
-Dan tentu aja, makin semangat buat lanjut ke Day 5 🚀
+Dan tentu aja, makin semangat buat lanjut ke Day 5 🚀 <br><br>
+<a href="https://github.com/syfaarizal/js-number-guessing-game"><i class="fab fa-github" target="_blank" rel="noopener noreferrer" class="social-icons"></i></a>
