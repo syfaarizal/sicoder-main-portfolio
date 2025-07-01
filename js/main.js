@@ -38,7 +38,7 @@ const observer = new IntersectionObserver((entries) => {
     }
   });
 }, {
-  threshold: 0.13 // 50% dari section terlihat
+  threshold: 0.10 // 50% dari section terlihat
 });
 
 // Observe semua section
