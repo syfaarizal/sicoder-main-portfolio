@@ -74,29 +74,6 @@ header{
     color: var(--text-color);
 }
 
-@media (max-width: 768px) {
-  .logo {
-    padding: 0;
-  }
-}
-
-.menu-toggle {
-  display: none;
-  font-size: 2.5rem;
-  color: white;
-  cursor: pointer;
-}
-
-@media (max-width: 768px) {
-  .menu-toggle {
-    display: block;
-  }
-
-  nav {
-    top: 80px; /* biar ga ketumpuk header */
-  }
-}
-
 nav a{
     font-size: 1.8rem;
     color: var(--text-color);
@@ -110,41 +87,6 @@ nav a:hover,
 nav a.active{
     color: var(--primary-color);
     border-bottom: 3px solid var(--primary-color);
-}
-
-@media(max-width:995px){
-  nav{
-    position: absolute;
-    display: none;
-    top: 0;
-    right: 0;
-    width: 40%;
-    border-left: 3px solid var(--primary-color);
-    border-bottom: 3px solid var(--primary-color);
-    border-bottom-left-radius: 2rem;
-    padding: 1rem solid;
-    background-color: var(--bg-color);
-    border-top: 0.1rem solid rgba(0,0,0,0.1);
-  }
-
-  nav.active{
-    display: block;
-  }
-
-  nav a{
-    display: block;
-    font-size: 2rem;
-    margin: 3rem 0;
-  }
-
-  nav a:hover,
-  nav a.active{
-    padding: 1rem;
-    border-radius: 0.5rem;
-    border-bottom: 0.5rem solid var(--primary-color);
-  }
-
-    
 }
 
 section{
@@ -236,16 +178,6 @@ span{
   background: var(--primary-color);
   box-shadow: 10px 0 0 10px var(--primary-color);
   z-index: -5;
-}
-
-@media (max-width: 768px) {
-  .home-img,
-  .home-img img {
-    display: none;
-  }
-  #home::after {
-    display: none;
-  }
 }
 
 .social-icons a{
@@ -416,68 +348,6 @@ span{
   }
 }
 
-@media (max-width: 1000px){
-  .home{
-    gap: 4rem;
-  }
-}
-
-@media(max-width: 754px){
-  .home{
-    flex-direction: column;
-    margin-top: 60px;
-  }
-
-  .home-content {
-    padding: 0;
-    text-align: left;
-    margin-top: 40px;
-  }
-
-  .home .home-content h3{
-    font-size: 2.7rem;
-    text-align: left;
-  }
-
-  .home .home-content h1{
-    font-size: 3.5rem;
-    text-align: left;
-    margin-bottom: 10px;
-  }
-
-  .home .home-content p {
-    font-size: 1.8rem;
-    text-align: left;
-    margin-bottom: 10px;
-    padding: 0;
-  }
-
-  .typing-text span {
-      font-size: 2.7rem;
-  }
-
-  .typing-text span::after {
-    height: 45px;
-  }
-
-  .btn {
-    display: grid;
-    flex-direction: column;
-    margin-bottom: 15px;
-    display: flex;
-    text-align: center;
-    margin-right: 0;
-    width: 217px;
-    font-size: 15px;
-  }
-  .svg-panah {
-    margin-left: 100px;
-  }
-  .exstaCV a {
-    margin-left: 0;
-  }
-}
-
 #service {
   padding: 0 auto;
 }
@@ -540,48 +410,6 @@ span{
 #personal-project-build {
   grid-area: personal;
   margin-bottom: 50px;
-}
-
-@media (max-width: 768px) {
-  .service-detail {
-    grid-template-columns: 1fr;
-    grid-template-areas:
-        "front-end"
-        "website"
-        "responsive"
-        "ui-ux"
-        "code"
-        "personal";
-    row-gap: 48px;
-  }
-
-  #front-end {
-    margin: 0 0 0 15px;
-  }
-
-  #website-design {
-    margin: 0 0 0 15px;
-  }
-
-  #responsive-web{
-    margin: 0 0 0 15px;
-  }
-
-  #ui-ux {
-    margin: 0 0 0 15px;
-  }
-
-  #code-optimization {
-    margin: 0 0 0 15px;
-  }
-
-  #personal-project-build {
-    margin: 0 0 0 15px;
-  }
-
-  .service-detail-item {
-    width: 100%;
-  }
 }
 
 .service-detail-item {
@@ -786,34 +614,6 @@ span{
   margin: 0 auto 1rem;
 }
 
-@media (max-width: 768px) {
-  .skills-container {
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  #web-skills {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-  }
-
-  .portfolio-container {
-    grid-template-columns: 1fr;
-  }
-
-  .skill-card {
-  width: 100%;
-}
-
-.skill-card h3 {
-  align-items: flex-end;
-  text-align: center;
-}
-
-.skill-card p {
-  display: none;
-}
-}
-
 #blog {
   padding: 0 auto;
 }
@@ -837,12 +637,6 @@ span{
   margin-top: 3.5rem;
   font-size: 2rem;
   /* text-align: center; */
-}
-
-@media (max-width: 768px) {
-  .judul-blog {
-    font-size: 17px;
-  }
 }
 
 .blog-container {
@@ -1063,34 +857,6 @@ span{
   border-radius: 5px;
 }
 
-
-@media(max-width: 768px) {
-  .blog-container {
-    display: grid;
-    grid-template-columns: repeat(1, 1fr);
-  }
-  .blog-card{
-    width: auto;
-    height: auto;
-  }
-  .modal-content{
-    margin: auto;
-    margin-top: 70px;
-    max-width: auto;
-    max-height: auto;
-    padding: 10px;
-  }
-  .modal-img img{ 
-    margin: 0;
-  }
-  .css-card-next {
-    display: none;
-  }
-  .call-to-action {
-    font-size: 10px;
-  }
-}
-
 #portfolio {
   padding: 5rem 9%;
   position: relative;
@@ -1201,31 +967,6 @@ span{
 .btn-outline:hover {
   background-color: var(--primary-color);
   color: black;
-}
-
-@media (max-width: 768px) {
-  .portfolio-container {
-    grid-template-columns: repeat(1, 1fr);
-  }
-
-  .portfolio-container {
-    grid-template-columns: 1fr;
-  }
-
-  .tech-stack span{
-    font-size: 9px;
-    margin-right: 0;
-  }
-
-  .btn-demo {
-    font-size: 13px;
-    padding: 0.7rem 1.5rem
-  }
-
-  .btn-outline {
-    font-size: 13px;
-    padding: 0.7rem 1.5rem
-  }
 }
 
 #contact {
@@ -1408,42 +1149,6 @@ span{
   transition: all 0.2s ease;
 }
 
-@media (max-width: 768px) {
-  .contact-container {
-    flex-direction: column;
-  }
-
-  .contact-form,
-  .contact-visual {
-    flex: 1;
-    width: 100%;
-  }
-
-  .contact-quote {
-    top: 7px;
-    font-size: 10px;
-    margin: 0;
-  }
-
-  .box-line-quote {
-    top: 15px;
-    margin: 0;
-  }
-
-  .contact-visual img {
-    display: none;
-  }
-
-  .box-line {
-    width: 450px;
-    height: 4px;
-  }
-
-  #contact::after{
-    display: none;
-  }
-}
-
 #footer {
   background-color: #0a0a0a;
   padding: 4rem 9% 2rem;
@@ -1505,28 +1210,6 @@ span{
   font-size: 1.3rem;
   border-top: 1px solid #222;
   padding-top: 1rem;
-}
-
-@media (max-width: 768px) {
-  .footer-container {
-    display: flex;
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .footer-bottom {
-    margin-top: 1.5rem;
-  }
-}
-
-@media (max-width: 600px) {
-  .service-header h1,
-  .skills-header h1,
-  .education-header h1,
-  .portfolio-header h1,
-  .contact-header h1 {
-    font-size: 3.5rem;
-  }
 }
 
 html, body {
