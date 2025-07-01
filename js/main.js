@@ -44,6 +44,17 @@ const observer = new IntersectionObserver((entries) => {
 // Observe semua section
 sections.forEach(section => observer.observe(section));
 
+const cvBtn = document.getElementById('CV-btn');
+const extraLinks = document.getElementById('extraLinks');
+
+cvBtn.addEventListener('click', (event) => {
+  event.preventDefault();
+
+  // Toggle class hidden/show
+  extraLinks.classList.toggle('hidden');
+  extraLinks.classList.toggle('show');
+});
+
 let blogPosts = [];
 
 fetch('./data/blogPosts.json')
@@ -81,14 +92,3 @@ function closeModal() {
   document.body.style.overflow = '';
 }
 window.closeModal = closeModal; 
-
-const cvBtn = document.getElementById('CV-btn');
-const extraLinks = document.getElementById('extraLinks');
-
-cvBtn.addEventListener('click', (event) => {
-  event.preventDefault();
-
-  // Toggle class hidden/show
-  extraLinks.classList.toggle('hidden');
-  extraLinks.classList.toggle('show');
-});
