@@ -1,8 +1,7 @@
-
 # 🚀 SICODE[R] – Personal Web Portfolio
 
 Welcome to my personal portfolio website!  
-This is where I document, build, and grow as a self-taught **Front-End Developer** & **UI enthusiast**.
+This is where I document, build, and grow as a self-taught **Front-End Developer**, **QA** & **UI enthusiast**.
 
 ## 🎯 Live Site
 
