@@ -223,7 +223,44 @@
 }
 
 @media (max-width: 912px) {
-    
+  .service-detail {
+    grid-template-columns: repeat(2, 1fr);
+    grid-template-areas:
+      "front-end website"
+      "responsive ui-ux"
+      "code personal";
+    gap: 60px;
+  }
+
+  #web-skills {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 30px;
+    margin-top: 20px;
+  }
+
+  .blog-container {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 3rem;
+  }
+
+  .blog-card {
+    width: auto;
+    height: auto;
+  }
+
+  .modal-content {
+    margin: auto;
+    margin-top: 70px;
+    max-width: auto;
+    max-height: auto;
+    padding: 10px;
+  }
 }
 
 /* 🔸 max-width: 768px (Tablet Portrait) 🔸 */
@@ -327,13 +364,13 @@
   }
 
   .contact-quote {
-    top: 7px;
+    top: 4rem;
     font-size: 10px;
     margin: 0;
   }
 
   .box-line-quote {
-    top: 15px;
+    top: 4.4rem;
     margin: 0;
   }
 
@@ -422,6 +459,17 @@
   .portfolio-header h1,
   .contact-header h1 {
     font-size: 3.5rem;
+  }
+
+  .contact-quote {
+    top: 4rem;
+    font-size: 10px;
+    margin: 0;
+  }
+
+  .box-line-quote {
+    top: 4.4rem;
+    margin: 0;
   }
 }
 
