@@ -91,4 +91,13 @@ function closeModal() {
   document.getElementById('blogModal').style.display = 'none';
   document.body.style.overflow = '';
 }
-window.closeModal = closeModal; 
+
+// Klik di luar modal-content untuk close
+document.getElementById('blogModal').addEventListener('click', function (e) {
+  const modalContent = document.querySelector('.modal-content');
+  if (!modalContent.contains(e.target)) {
+    closeModal();
+  }
+});
+
+window.closeModal = closeModal;

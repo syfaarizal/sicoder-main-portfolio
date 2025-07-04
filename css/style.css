@@ -553,7 +553,7 @@ span{
 
 #web-skills {
   display: grid;
-  grid-template-columns: repeat(5, 1fr);
+  grid-template-columns: repeat(4, 1fr);
 }
 
 .skills-container {
@@ -748,29 +748,34 @@ span{
   background-color: rgba(0,0,0,0.7);
   justify-content: center;
   align-items: center;
-
+  transition: opacity 0.3s ease;
   }
 
 .modal-content {
+  position: relative;
   background-color: #000000;
   border: 2px solid var(--primary-color);
   color: #fff;
   padding: 20px;
   border-radius: 10px;
   width: 100%;
-  max-width: 80vh;
-  overflow-x: auto;
+  max-width: 60%;
+  height: auto;
   max-height: 80vh;
   overflow-y: auto;
-  margin: 100px 550px;
+  margin: 100px auto;
 }
 
 .modal-close {
+  position: fixed;
+  top: 20px;
+  right: 40px;
   color: var(--primary-color);
   float: right;
-  font-size: 2.3rem;
+  font-size: 4rem;
   cursor: pointer;
-  margin-bottom: 15px;
+  margin: auto;
+  z-index: 10000;
 }
 
 .modal-bd span {

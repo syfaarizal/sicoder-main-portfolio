@@ -84,7 +84,8 @@
   }
 
   .modal-content {
-    margin: 7rem 36rem ;
+    margin: 80px auto;
+    max-width: 80%;
   }
 
   .portfolio-container {
@@ -257,7 +258,7 @@
   .modal-content {
     margin: auto;
     margin-top: 70px;
-    max-width: auto;
+    max-width: 90%;
     max-height: auto;
     padding: 10px;
   }
@@ -331,9 +332,13 @@
   .modal-content {
     margin: auto;
     margin-top: 70px;
-    max-width: auto;
+    max-width: 90%;
     max-height: auto;
     padding: 10px;
+  }
+
+  .modal-close {
+    top: auto
   }
 
   .modal-img img { margin: 0; }
