@@ -143,4 +143,5 @@ Challenge ini walaupun terlihat ringan, justru ngingetin gua pentingnya basic, k
 Kadang kita terlalu fokus sama hal besar, padahal hal kecil kaya gini yang ngebentuk pondasi. Dan ya, gua balik lagi. Gas!
 <br><br>
 <h3>🧠 Tips dari Syifa Edition™:</h3>
-<blockquote style="margin: 1rem 0; padding: 1rem; border-left: 4px solid rgb(145, 31, 31); font-style: italic; color: #fff;">“Kalau stuck, jangan panik. Break dulu. Minum air putih. Jalan bentar. Terus balik ngoding lagi. Otak juga butuh refresh.”</blockquote>
+<blockquote style="margin: 1rem 0; padding: 1rem; border-left: 4px solid rgb(145, 31, 31); font-style: italic; color: #fff;">“Kalau stuck, jangan panik. Break dulu. Minum air putih. Jalan bentar. Terus balik ngoding lagi. Otak juga butuh refresh.”</blockquote> <br><br>
+<a href="https://github.com/syfaarizal/js-looping-name"><i class="fab fa-github" target="_blank" rel="noopener noreferrer" class="social-icons"></i></a>

@@ -291,10 +291,10 @@
 
   #front-end, #website-design, #responsive-web,
   #ui-ux, #code-optimization, #personal-project-build {
-    margin: 0 15px 0 0;
+    margin: 0 0 0 30px;
   }
 
-  .service-detail-item { width: 100%; }
+  .service-detail-item { width: 80%; }
 
   .skills-container,
   #web-skills {
@@ -474,6 +474,19 @@
 
   .box-line-quote {
     top: 4.4rem;
+    margin: 0;
+  }
+}
+
+@media (max-width: 360px){
+  .contact-quote {
+    top: 1rem;
+    font-size: 10px;
+    margin: 0;
+  }
+
+  .box-line-quote {
+    top: 1rem;
     margin: 0;
   }
 }
