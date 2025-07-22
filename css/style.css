@@ -226,6 +226,10 @@ span{
   transform-origin: center;
 }
 
+.btn, .btn-demo, .btn-outline {
+  transition: all 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+}
+
 .exstaCV {
   margin-top: 10px;
 }
@@ -581,10 +585,12 @@ span{
   transition: transform 0.3s ease, box-shadow 0.3s ease;
   text-align: center;
   box-sizing: border-box;
+  opacity: 0;
+  animation-delay: calc(var(--index) * 0.2s);
 }
 
 .skill-card:hover {
-  transform: scale(1.1);
+  transform: scale(1.05);
   box-shadow: 0 0 15px var(--primary-color);
 }
 
@@ -721,6 +727,26 @@ span{
   95%,100%{
     content: "Read More →";
   }
+}
+
+.blog-card {
+  position: relative;
+  overflow: hidden;
+}
+
+.blog-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(151, 19, 19, 0.349), transparent);
+  transition: 0.5s;
+}
+
+.blog-card:hover::before {
+  left: 100%;
 }
 
 .page-counter {
@@ -1223,4 +1249,15 @@ html, body {
 
 img, section, div {
   max-width: 100%;
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
