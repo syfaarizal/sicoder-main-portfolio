@@ -1,0 +1,403 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HTML Introduction</title>
+  <link rel="stylesheet" href="../assets/css/blog.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+</head>
+<body>
+  <h1>HTML Basics: The Foundation of Web Development</h1>
+  
+  <blockquote style="margin: 1rem 0; padding: 1rem; border-left: 4px solid rgb(145, 31, 31); font-style: italic; color: #fff;">
+    "If a website is a house, HTML is its foundation. You can't see it, but everything stands because of it."
+  </blockquote>
+  
+  <h3>✨ What is HTML?</h3>
+  <p><b>HTML (HyperText Markup Language)</b> is not a programming language, but a markup language. Its function? To structure content on web pages. So HTML tells the browser:</p>
+  <p><i>"Hey bro, this is a title, this is a paragraph, this is an image, this is a login button."</i></p>
+  <p>📌 Not a Programming Language because:</p>
+  <ul>
+    <li>No logic like <code>if</code>, <code>else</code>, <code>loop</code></li>
+    <li>Can't calculate or create dynamic actions</li>
+    <li>Only for marking and wrapping content</li>
+  </ul>
+  
+  <h3>🧩 Basic HTML Terms</h3>
+  <table class="tb-blog">
+    <thead>
+      <tr>
+        <th>Term</th>
+        <th>Simple Explanation</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>Element</td>
+        <td>Main HTML component, usually starts and ends with tags. Example: <code>&lt;p&gt;Hello&lt;/p&gt;</code></td>
+      </tr>
+      <tr>
+        <td>Tag</td>
+        <td>Structure markers. There are opening <code>&lt;p&gt;</code> and closing <code>&lt;/p&gt;</code> tags.</td>
+      </tr>
+      <tr>
+        <td>Attribute</td>
+        <td>Additional info inside tags. Example: <code>type="text"</code> in <code>&lt;input&gt;</code>.</td>
+      </tr>
+      <tr>
+        <td>Property</td>
+        <td>Usually used in CSS/JS for styling or scripting, not directly in HTML.</td>
+      </tr>
+      <tr>
+        <td>Content</td>
+        <td>Text between opening and closing tags. Example: "Hello" in <code>&lt;p&gt;Hello&lt;/p&gt;</code>.</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <h3>🔖 Meta Tags: So Browsers Don't Misunderstand</h3>
+  <p>Meta tags are like secret instructions given to the browser before the web page appears.</p>
+  
+  <h3>🧠 Meta Tag Examples:</h3>
+  <table class="tb-blog">
+    <thead>
+      <tr>
+        <th>Tag</th>
+        <th>Function</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>&lt;meta charset="UTF-8"&gt;</code></td>
+        <td>Ensures all characters, emojis, and symbols display correctly.</td>
+      </tr>
+      <tr>
+        <td><code>&lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;</code></td>
+        <td>Makes the page responsive on phones, tablets, laptops, etc.</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <h3>Why Put Them in <code>&lt;head&gt;</code>?</h3>
+  <p>Because browsers read the <code>&lt;head&gt;</code> section first. So important info like this needs to be given upfront.</p>
+  <p>Meta tags are like giving a briefing to the browser: <i>"Okay, this is how to display my page."</i></p>
+  
+  <h3>🔡 Headings & Paragraphs</h3>
+  <ul>
+    <li><code>&lt;h1&gt;</code> to <code>&lt;h6&gt;</code> = For titles (smaller number means smaller text size)</li>
+    <li><code>&lt;p&gt;</code> = For paragraphs. The favorite tag for long content.</li>
+  </ul>
+  
+  <h3>Example:</h3>
+  <div class="code-block">
+    <button class="copy-button">Copy</button>
+    <pre><code class="language-html">
+&lt;h1&gt;Welcome&lt;/h1&gt;
+&lt;p&gt;This is a sweet opening paragraph~&lt;/p&gt;
+    </code></pre>
+  </div>
+  
+  <h3>🎨 Text Formatting</h3>
+  <p>HTML can also help you <i>style</i> text!</p>
+  <table class="tb-blog">
+    <thead>
+      <tr>
+        <th>Tag</th>
+        <th>Function</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>&lt;b&gt;</code>/<code>&lt;strong&gt;</code></td>
+        <td>Bold text like your feelings for them</td>
+      </tr>
+      <tr>
+        <td><code>&lt;i&gt;</code>/<code>&lt;em&gt;</code></td>
+        <td>Italic text, good for emphasis</td>
+      </tr>
+      <tr>
+        <td><code>&lt;u&gt;</code></td>
+        <td>Underline</td>
+      </tr>
+      <tr>
+        <td><code>&lt;sup&gt;</code></td>
+        <td>Small text above, example: 2<sup>2</sup></td>
+      </tr>
+      <tr>
+        <td><code>&lt;sub&gt;</code></td>
+        <td>Small text below, example: H<sub>2</sub>O</td>
+      </tr>
+      <tr>
+        <td><code>&lt;br&gt;</code></td>
+        <td>Line break</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <h2>📋 Lists</h2>
+  
+  <h3>🔢 Ordered List</h3>
+  <ul>
+    <li>Use <code>&lt;ol&gt;</code></li>
+    <li>Numbered items</li>
+    <li>Can choose number style: 1, A, a, I, i</li>
+  </ul>
+  <div class="code-block">
+    <button class="copy-button">Copy</button>
+    <pre><code class="language-html">
+&lt;ol type="A"&gt;
+  &lt;li&gt;Wake up&lt;/li&gt;
+  &lt;li&gt;Shower&lt;/li&gt;
+  &lt;li&gt;Code&lt;/li&gt;
+&lt;/ol&gt;
+    </code></pre>
+  </div>
+  
+  <h3>🔘 Unordered List</h3>
+  <ul>
+    <li>Use <code>&lt;ul&gt;</code></li>
+    <li>Bullet points (•)</li>
+    <li>Can change bullet style: <code>disc</code>, <code>square</code>, etc</li>
+  </ul>
+  <div class="code-block">
+    <button class="copy-button">Copy</button>
+    <pre><code class="language-html">
+&lt;ul type="square"&gt;
+  &lt;li&gt;HTML&lt;/li&gt;
+  &lt;li&gt;CSS&lt;/li&gt;
+  &lt;li&gt;JS&lt;/li&gt;
+&lt;/ul&gt;
+    </code></pre>
+  </div>
+  
+  <h3>✨ HTML Fun Fact:</h3>
+  <p>The <code>type="square"</code> property might still work in some browsers, but by modern standards, styling <code>&lt;ul&gt;</code> like this is usually done with CSS:</p>
+  <div class="code-block">
+    <button class="copy-button">Copy</button>
+    <pre><code class="language-css">
+ul {
+  list-style-type: square;
+}
+    </code></pre>
+  </div>
+  
+  <h2>🔗 Anchor (Links): Web Portals</h2>
+  <p>The <code>&lt;a&gt;</code> tag is like a teleport door. Click it, and you're somewhere else.</p>
+  <div class="code-block">
+    <button class="copy-button">Copy</button>
+    <pre><code class="language-html">
+&lt;a href="https://google.com" target="_blank"&gt;Search on Google&lt;/a&gt;
+    </code></pre>
+  </div>
+  <table class="tb-blog">
+    <thead>
+      <tr>
+        <th>Attribute</th>
+        <th>Function</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>href</code></td>
+        <td>Link destination</td>
+      </tr>
+      <tr>
+        <td><code>target="_blank"</code></td>
+        <td>Open link in new tab (so it doesn't leave your page)</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>🌀 <i>Click link = teleport to another world.</i></p>
+  
+  <h2>🖼️ Images</h2>
+  <p>HTML can display images using the <code>&lt;img&gt;</code> tag.</p>
+  <div class="code-block">
+    <button class="copy-button">Copy</button>
+    <pre><code class="language-html">
+&lt;img src="image.jpg" alt="Cute Cat Picture"&gt;
+    </code></pre>
+  </div>
+  <table class="tb-blog">
+    <thead>
+      <tr>
+        <th>Attribute</th>
+        <th>Function</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>src</code></td>
+        <td>Image address (online/offline)</td>
+      </tr>
+      <tr>
+        <td><code>alt</code></td>
+        <td>Image description (for accessibility and SEO)</td>
+      </tr>
+    </tbody>
+  </table>
+  <p>📌 <i><code>alt</code> is super important. If the image fails to load, this text becomes the savior.</i></p>
+  
+  <h2>📊 Tables</h2>
+  <p>Tables are used to display organized data in rows and columns.</p>
+  <div class="code-block">
+    <button class="copy-button">Copy</button>
+    <pre><code class="language-html">
+&lt;table&gt;
+  &lt;thead&gt;
+    &lt;tr&gt;
+      &lt;th&gt;No&lt;/th&gt;
+      &lt;th&gt;Name&lt;/th&gt;
+    &lt;/tr&gt;
+  &lt;/thead&gt;
+  &lt;tbody&gt;
+    &lt;tr&gt;
+      &lt;td&gt;1&lt;/td&gt;
+      &lt;td&gt;Syifa&lt;/td&gt;
+    &lt;/tr&gt;
+  &lt;/tbody&gt;
+&lt;/table&gt;
+    </code></pre>
+  </div>
+  <table class="tb-blog">
+    <thead>
+      <tr>
+        <th>Attribute</th>
+        <th>Function</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>&lt;table&gt;</code></td>
+        <td>Start creating a table</td>
+      </tr>
+      <tr>
+        <td><code>&lt;tr&gt;</code></td>
+        <td>Table row</td>
+      </tr>
+      <tr>
+        <td><code>&lt;th&gt;</code></td>
+        <td>Column header</td>
+      </tr>
+      <tr>
+        <td><code>&lt;td&gt;</code></td>
+        <td>Table data</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <h3>Additional:</h3>
+  <ul>
+    <li><code>colspan</code>: Merge columns</li>
+    <li><code>rowspan</code>: Merge rows</li>
+  </ul>
+  
+  <h2>🏛️ Tables for Layout? That's Old School, Bestie!</h2>
+  <p>⚠️ In the old days, developers used tables to create website layouts. But that's outdated now.</p>
+  <p>Now we have:</p>
+  <ul>
+    <li>CSS <b>Flexbox</b> 🧘</li>
+    <li>CSS <b>Grid</b> 🧩
+      <ul>
+        <li>Which are much cleaner, flexible, and responsive.</li>
+      </ul>
+    </li>
+  </ul>
+  
+  <h2>📥 Forms: Collecting User Data</h2>
+  <p>Forms are used to create login features, account registration, comments, contact pages, etc.</p>
+  <div class="code-block">
+    <button class="copy-button">Copy</button>
+    <pre><code class="language-html">
+&lt;form action="/submit" method="post"&gt;
+  &lt;label for="name"&gt;Name:&lt;/label&gt;
+  &lt;input type="text" id="name" name="name" required placeholder="Enter your name"&gt;
+  &lt;input type="submit" value="Submit"&gt;
+&lt;/form&gt;
+    </code></pre>
+  </div>
+  <table class="tb-blog">
+    <thead>
+      <tr>
+        <th>Tag/Attribute</th>
+        <th>Function</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>&lt;form&gt;</code></td>
+        <td>Wraps all form elements</td>
+      </tr>
+      <tr>
+        <td><code>action</code></td>
+        <td>Address to send the data to</td>
+      </tr>
+      <tr>
+        <td><code>method</code></td>
+        <td>Submission method (GET or POST)</td>
+      </tr>
+      <tr>
+        <td><code>&lt;label&gt;</code></td>
+        <td>Input label</td>
+      </tr>
+      <tr>
+        <td><code>&lt;input&gt;</code></td>
+        <td>Input element (text, email, password, etc)</td>
+      </tr>
+      <tr>
+        <td><code>&lt;textarea&gt;</code></td>
+        <td>For long text</td>
+      </tr>
+      <tr>
+        <td><code>&lt;select&gt;</code> + <code>&lt;option&gt;</code></td>
+        <td>Dropdown menu</td>
+      </tr>
+      <tr>
+        <td><code>&lt;button&gt;</code> / <code>&lt;input type="submit"&gt;</code></td>
+        <td>Form submit button</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <h3>⚡ Form Tips</h3>
+  <ul>
+    <li>Use <code>name</code> in every input → so the data can be sent</li>
+    <li>Add <code>placeholder</code>, <code>required</code>, <code>autocomplete</code> → to be more user-friendly</li>
+    <li>Special input types:
+      <ul>
+        <li><code>type="email"</code> → must be valid email</li>
+        <li><code>type="password"</code> → hidden characters</li>
+        <li><code>type="radio"</code> / <code>checkbox</code> → for options</li>
+        <li><code>type="submit"</code> → submit button</li>
+      </ul>
+    </li>
+  </ul>
+  
+  <h3>❓ What is <code>value</code>?</h3>
+  <p><code>value</code> is the data sent to the server when the form is submitted.</p>
+  <p>No value? The server will be confused, the data will be empty or unclear.</p>
+  <div class="code-block">
+    <button class="copy-button">Copy</button>
+    <pre><code class="language-html">
+&lt;select name="category"&gt;
+  &lt;option value="html"&gt;Learn HTML&lt;/option&gt;
+  &lt;option value="css"&gt;Learn CSS&lt;/option&gt;
+&lt;/select&gt;
+    </code></pre>
+  </div>
+  
+  <h2>🚨 Closing Card 1</h2>
+  <p>HTML is the foundation. All websites start here.</p>
+  <p>In part 1, you've learned:</p>
+  <p>✅ Basic HTML structure<br>
+  ✅ Meta tags<br>
+  ✅ Text elements<br>
+  ✅ Lists, Links, Images, Tables<br>
+  ✅ Forms & how they work</p>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-jsx.min.js"></script>
+  <script src="../assets/js/mainblog.js"></script>
+</body>
+</html>

@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Age Calculator Challenge</title>
+  <link rel="stylesheet" href="../assets/css/blog.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+</head>
+<body>
+  <h1>Challenge Day 2: Simple Age Calculator</h1>
+  <p>Today's challenge really made my brain curl 😅 We were asked to create a <b>JavaScript program</b> that calculates someone's age based on their <b>birth year</b>. Sounds simple, but when I actually started coding, there were quite a few traps.</p>
+    
+  <h3>💡 Challenge Description</h3>
+  <p>Create a program that:</p>
+  <p>1. Asks the user to enter their <b>birth year</b></p>
+  <p>2. Calculates their <b>current age</b></p>
+  <p>3. Displays a message like this:</p>
+  <div class="code-block">
+    <button class="copy-button">Copy</button>
+    <pre><code class="language-js">
+You were born in 2005.
+The current year is 2025.
+That means you're 20 years old 🎉
+Next year you'll be 21 years old.
+    </code></pre>
+  </div>
+    
+  <h3>🧠 Thought Process (and Small Mistakes 😅)</h3>
+  <p>At first I thought the input could be written like this:</p>
+  <div class="code-block">
+    <button class="copy-button">Copy</button>
+    <pre><code class="language-js">
+const readline = prompt();
+const birthYear = readline.question("Enter your birth year: ");
+      </code></pre>
+  </div>
+  <p>Turns out... <b>WRONG!</b></p>
+  <p>I forgot that <code>prompt()</code> only works in browsers, while <code>readline.question(...)</code> is part of Node.js's <code>readline</code> module - and <b>you can't mix them.</b></p>
+  <p>Luckily I still understood the logic. After some more tinkering (and asking ChatGPT too 🤭), I finally got the correct version:</p>
+    
+  <h3>✅ Browser Version Solution</h3>
+  <div class="code-block">
+    <button class="copy-button">Copy</button>
+    <pre><code class="language-js">
+const birthYear = prompt("Enter your birth year: ");
+const birth = parseInt(birthYear); // convert input string to number
+const currentYear = new Date().getFullYear();
+const age = currentYear - birth;
+const nextYear = age + 1;
+
+console.log(`You were born in ${birthYear}. The current year is ${currentYear}. That means you're ${age} years old 🎉 Next year you'll be ${nextYear} years old.`);
+    </code></pre>
+  </div>
+    
+  <h3>✍️ Why parseInt()?</h3>
+  <p>Because input from <code>prompt()</code> is always a string. If we want to calculate age, we need to convert it to a number first. That's why we need <code>parseInt()</code> or we could also use <code>Number()</code>.</p>
+    
+  <h3>🧪 Bonus Challenge: Validation & Edge Cases</h3>
+  <p>The bonus challenge was fun too: we were asked to add additional logic so the program could handle weird cases, like...</p>
+    
+  <h3>🚀 Case 1: User Enters Year Greater Than Current Year</h3>
+  <div class="code-block">
+    <button class="copy-button">Copy</button>
+    <pre><code class="language-js">
+if (birth > currentYear) {
+    console.log("Are you from the future? 🛸");
+}
+    </code></pre>
+  </div>
+    
+  <h3>❌ Case 2: Invalid Input (Letters, empty, etc)</h3>
+  <div class="code-block">
+    <button class="copy-button">Copy</button>
+    <pre><code class="language-js">
+if (isNaN(birth)) {
+    console.log("Invalid input. Please enter a valid birth year.");
+}
+    </code></pre>
+  </div>
+    
+  <h3>🧼 Bonus Tip: Use <code>\n</code> for cleaner output</h3>
+  <p>In JavaScript console, <code>\n</code> works like <code>&lt;br&gt;</code> in HTML. So we can format the output to be more readable.</p>
+    
+  <h3>🧾 Final Code</h3>
+  <div class="code-block">
+    <button class="copy-button">Copy</button>
+    <pre><code class="language-js">
+const birthYear = prompt("Enter your birth year: ");
+const birth = parseInt(birthYear);
+const currentYear = new Date().getFullYear();
+const age = currentYear - birth;
+const nextYear = age + 1;
+
+if (isNaN(birth)) {
+    console.log("Invalid input. Please enter a valid birth year.");
+} else if (birth > currentYear) {
+    console.log("Are you from the future? 🛸");
+} else {
+    console.log(`You were born in ${birthYear}.\nThe current year is ${currentYear}.\nThat means you're ${age} years old 🎉\nNext year you'll be ${nextYear} years old.`);
+}
+    </code></pre>
+  </div>
+    
+  <h3>🎯 What I Learned Today</h3>
+  <p>1. Don't mix <code>prompt()</code> and <code>readline()</code> 😅</p>
+  <p>2. Use <code>parseInt()</code> to ensure the input is a number</p>
+  <p>3. Input validation is super important!</p>
+  <p>4. Small additions like <code>\n</code> can make the program output much more readable</p>
+    
+  <p>Every challenge isn't just about whether the code works or not, but about <b>how we think and learn from our mistakes.</b> And on day 2, I understand even more why debugging isn't an enemy, but a friend.</p>
+    
+  <p><a href="https://github.com/syfaarizal/js-age-calculator" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> View on GitHub</a></p>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-jsx.min.js"></script>
+  <script src="../assets/js/mainblog.js"></script>
+</body>
+</html>

@@ -1,0 +1,208 @@
+:root {
+  --primary-color: #971313;
+  --secondary-color: #cfcfcf;
+  --background-color: #000000;
+  --code-background: #1a1a1a;
+  --button-hover: #363636;
+}
+
+body {
+  font-family: 'Segoe UI', system-ui, sans-serif;
+  line-height: 1.6;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: 2rem;
+  background-color: var(--background-color);
+  color: var(--secondary-color);
+}
+
+.blog-post {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+h1, h2, h3 {
+  color: var(--primary-color);
+  margin: 1.5rem 0 1rem;
+}
+
+h1 {
+  font-size: 2rem;
+  border-bottom: 1px solid var(--primary-color);
+  padding-bottom: 0.5rem;
+}
+
+.modal-img img {
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+  margin-top: 1rem;
+}
+
+.code-block {
+  position: relative;
+  margin: 1.5rem 0;
+  background-color: var(--code-background);
+  border-radius: 5px;
+}
+
+.copy-button {
+  position: absolute;
+  top: 0.5rem;
+  right: 0.5rem;
+  font-size: 0.8rem;
+  padding: 0.25rem 0.5rem;
+  background: var(--code-background);
+  color: var(--secondary-color);
+  border: 1px solid var(--button-hover);
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background 0.2s ease;
+}
+
+.copy-button:hover {
+  background: var(--button-hover);
+}
+
+pre {
+  margin: 0;
+  padding: 1rem;
+  overflow-x: auto;
+}
+
+code {
+  font-family: 'Consolas', monospace;
+  font-size: 0.9em;
+}
+
+.output-example {
+  background-color: var(--code-background);
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-family: monospace;
+}
+
+a {
+  color: var(--secondary-color);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+a:hover {
+  color: var(--primary-color);
+}
+  
+.tb-blog {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 20px 0;
+  font-family: Arial, sans-serif;
+  box-shadow: 0 2px 3px rgba(0,0,0,0.1);
+}
+  
+.tb-blog th {
+  background-color: #222222;
+  color: var(--secondary-color);
+  padding: 12px 15px;
+  text-align: left;
+  font-weight: bold;
+  border: var(--secondary-color) 1px solid;
+}
+  
+.tb-blog td {
+  padding: 10px 15px;
+  border: 1px solid var(--secondary-color);
+  vertical-align: top;
+}
+  
+.tb-blog tr:hover {
+  background-color: #4b0000ab;
+}
+  
+.tb-blog code {
+  background-color: #fafafa;
+  padding: 2px 4px;
+  border-radius: 3px;
+  color: var(--primary-color);
+  font-weight: 600;
+  font-family: 'Courier New', monospace;
+}
+  
+
+@media screen and (max-width: 600px) {
+  .tb-blog {
+    border: 0;
+  }
+    
+  .tb-blog thead {
+    display: none;
+  }
+    
+  .tb-blog tr {
+    margin-bottom: 10px;
+    display: block;
+    border-bottom: 2px solid #ddd;
+  }
+    
+  .tb-blog td {
+    display: block;
+    text-align: right;
+    padding-left: 50%;
+    position: relative;
+  }
+    
+  .tb-blog td::before {
+    content: attr(data-label);
+    position: absolute;
+    left: 15px;
+    width: 45%;
+    padding-right: 10px;
+    font-weight: bold;
+    text-align: left;
+  }
+}
+
+/* Code block styling to match previous days */
+.code-block {
+  position: relative;
+  background-color: #2d2d2d;
+  border-radius: 6px;
+  margin: 20px 0;
+  overflow: hidden;
+}
+  
+.copy-button {
+  position: absolute;
+  top: 8px;
+  right: 8px;
+  background-color: #3a3a3a;
+  color: var(--secondary-color);
+  border: none;
+  padding: 5px 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  font-size: 12px;
+  transition: all 0.2s;
+}
+  
+.copy-button:hover {
+  background-color: #4a4a4a;
+}
+
+footer {
+  margin-top: 2rem;
+  border-top: 1px solid var(--primary-color);
+  padding-top: 1rem;
+}
+
+@media (max-width: 600px) {
+  body {
+    padding: 1rem;
+  }
+  
+  h1 {
+    font-size: 1.5rem;
+  }
+}

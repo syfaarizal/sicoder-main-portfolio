@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Learning Template Literals in JavaScript</title>
+  <link rel="stylesheet" href="../assets/css/blog.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+</head>
+<body>
+  <article class="blog-post">
+    <header>
+      <h1>Challenge Day 1: Learning Template Literals in JavaScript</h1>
+    </header>
+
+    <section>
+      <p>
+        Today I learned about <code>template literals</code> in JavaScript — you know, that thing where you can insert variables directly into strings using <code>${}</code>. Kinda mind-blowing at first 😄
+      </p>
+      
+      <p>At first, I just used it in a simple way like this:</p>
+      <div class="code-block">
+        <button class="copy-button">Copy</button>
+        <pre><code class="language-js">
+const currentDate = new Date();
+console.log(`Hari ini tanggal ${currentDate}`);
+        </code></pre>
+      </div>
+      
+      <p>Yep, this shows the date and time info in JavaScript's default format, like:</p>
+      <div class="code-block">
+        <button class="copy-button">Copy</button>
+        <pre><code class="language-js">
+Today is Sun Jun 16 2025 21:41:00 GMT+0700 (Western Indonesia Time)
+        </code></pre>
+      </div>
+    </section>
+
+    <section>
+      <h2>Better Date Format</h2>
+      <p>But… it feels kinda messy and not that personal, right? So I found a more flexible way where you can customize it however you want. Here's an example:</p>
+      
+      <div class="code-block">
+        <button class="copy-button">Copy</button>
+        <pre><code class="language-js">
+const now = new Date();
+const day = now.getDate();
+const month = now.getMonth() + 1;
+const year = now.getFullYear();
+const hours = now.getHours();
+const minutes = now.getMinutes();
+
+console.log(`Today is ${day}/${month}/${year}, at ${hour}:${minute < 10 ? "0" + minute : minute}`);
+        </code></pre>
+      </div>
+      
+      <p>The result looks way cleaner and easier to read:</p>
+      <p class="output-example">Today is 05/6/2025, at 21:41</p>
+    </section>
+
+    <section>
+      <h3> Why do we use minute < 10 ? "0" + minute : minute?</h3>
+      <p>I was kinda confused when I first saw this line:</p>
+      
+      <div class="code-block">
+        <button class="copy-button">Copy</button>
+        <pre><code class="language-js">
+minutes < 10 ? '0' + minutes : minutes
+        </code></pre>
+      </div>
+      
+      <p>
+        But I finally got it: it's a ternary operator, basically like a mini if-else. <br>  
+        Basically: if the minute is less than 10 (like 5), it'll automatically add a zero in front ("05") so it doesn't look weird. Imagine writing 03:7 instead of 03:07 — yeah, kinda awkward. This makes it way more readable and aesthetic.
+      </p>
+    </section>
+
+    <footer>
+      <h3>To wrap it up:</h3>
+      <p>
+        use <code>new Date()</code> to get the current time, break it into date components, and style the output using a <code>ternary operator</code> for a cleaner result.
+      </p>
+      
+      <nav>
+        <a href="https://github.com/syfaarizal/js-print-name-status" target="_blank" rel="noopener noreferrer">
+          <i class="fab fa-github"></i> View code on GitHub
+        </a>
+      </nav>
+    </footer>
+  </article>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-jsx.min.js"></script>
+  <script src="../assets/js/mainblog.js"></script>
+</body>
+</html>

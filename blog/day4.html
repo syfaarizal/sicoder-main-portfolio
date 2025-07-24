@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Number Guessing Game</title>
+  <link rel="stylesheet" href="../assets/css/blog.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+</head>
+<body>
+  <h1>Challenge Day 4: Number Guessing Game</h1>
+  <p>Day 4 of this coding challenge had a different vibe because I was asked to create a simple game: Number Guessing Game! At first glance it sounds trivial, but turns out there were quite a few things to consider, especially for user interaction and conditional logic.</p>
+    
+  <h3>🎮 Challenge Description:</h3>
+  <p>The program should be able to:</p>
+  <ol>
+    <li>Generate a random number between 1 and 10</li>
+    <li>Ask the user to guess the number</li>
+    <li>
+      If wrong:
+      <ul>
+        <li>Give a clue: "Too small" or "Too big"</li>
+        <li>Repeat the guess</li>
+      </ul>
+    </li>
+    <li>
+      If correct:
+      <ul>
+        <li>Show success message + number of attempts</li>
+      </ul>
+    </li>
+  </ol>
+  
+  <p>Example output:</p>
+  <div class="code-block">
+    <button class="copy-button">Copy</button>
+    <pre><code class="language-js">
+I'm thinking of a number between 1 and 10.
+Take a guess!
+Your guess: 4
+Too small!
+Your guess: 7
+Too big!
+Your guess: 6
+Congratulations! You guessed the number correctly in 3 attempts.
+    </code></pre>
+  </div>
+    
+  <h3>🧠 Funny Debugging</h3>
+  <p>At first I wrote it like this:</p>
+  <div class="code-block">
+    <button class="copy-button">Copy</button>
+    <pre><code class="language-js">
+const randomNumber:
+Math.floor(Math.random() * 10) + 1:
+    </code></pre>
+  </div>
+  <p>And of course it errored. I was confused for a moment. Turns out I used <code>:</code> when I should've used <code>=</code> for assignment. Classic JavaScript typo.</p>
+    
+  <h3>🚀 Initial Fixed Version</h3>
+  <p>After fixing and rearranging the logic, here's my first working version:</p>
+  <div class="code-block">
+    <button class="copy-button">Copy</button>
+    <pre><code class="language-js">
+let randomNumber = Math.floor(Math.random() * 10) + 1;
+let attempt = 0;
+let repeat = true;
+
+while(repeat) {
+  const userInput = prompt("I'm thinking of a number between 1 and 10. Take a guess!");
+  attempt++;
+
+  const guess = parseInt(userInput);
+
+  if (isNaN(guess)) {
+    console.log("Eh? Please enter a number 😄");
+  } else {
+    if (guess < randomNumber) {
+      console.log("Too small 😅");
+    } else if (guess > randomNumber) {
+      console.log("Too big 😅");
+    } else {
+      console.log(`🎉 Congratulations! You guessed the number correctly in ${attempt} attempts.`);
+      repeat = false;
+    }
+  }
+}
+    </code></pre>
+  </div>
+  <p>The code is simple and works immediately. But I felt it could still be improved.</p>
+    
+  <h2>✨ Bonus Challenge</h2>
+  <p>There were additional optional challenges:</p>
+  <ul>
+    <li>Number input validation</li>
+    <li>Scoring system (comments based on number of attempts)</li>
+    <li>Hard mode: 1-50</li>
+  </ul>
+    
+  <h3>✅ Input Validation & Scoring</h3>
+  <p>Number validation was already implemented using <code>isNaN()</code>. Just needed to add the scoring system logic:</p>
+  <div class="code-block">
+    <button class="copy-button">Copy</button>
+    <pre><code class="language-js">
+if(attempt <= 3) {
+  console.log("🔥 Pro move! You guessed it super fast.");
+} else if (attempt <= 6) {
+  console.log("👍 Not bad! But you can do better.");
+} else {
+  console.log("😅 Well, needs more practice. Keep trying!");
+}
+    </code></pre>
+  </div>
+    
+  <h3>🎯 Hard Mode (1-50)</h3>
+  <p>I used <code>confirm()</code> to ask if the user wants to play in hard mode:</p>
+  <div class="code-block">
+    <button class="copy-button">Copy</button>
+    <pre><code class="language-js">
+let hardMode = confirm("Want to play in hard mode? (Numbers 1–50)");
+let rangeText = hardMode ? "1 and 50" : "1 and 10";
+let randomNumber = Math.floor(Math.random() * (hardMode ? 50 : 10)) + 1;
+    </code></pre>
+  </div>
+  <p>Then I included rangeText in the <code>prompt()</code> to make it dynamic:</p>
+  <div class="code-block">
+    <button class="copy-button">Copy</button>
+    <pre><code class="language-js">
+const userInput = prompt(`I'm thinking of a number between ${rangeText}. Take a guess!`);
+    </code></pre>
+  </div>
+    
+  <h3>🧩 Final Version: Fully Interactive</h3>
+  <div class="code-block">
+    <button class="copy-button">Copy</button>
+    <pre><code class="language-js">
+let hardMode = confirm("Want to play in hard mode? (Numbers 1–50)");
+let rangeText = hardMode ? "1 and 50" : "1 and 10";
+let randomNumber = Math.floor(Math.random() * (hardMode ? 50 : 10)) + 1;
+let attempt = 0;
+let repeat = true;
+
+while(repeat) {
+  const userInput = prompt(`I'm thinking of a number between ${rangeText}. Take a guess!`);
+  attempt++;
+
+  const guess = parseInt(userInput);
+
+  if (isNaN(guess)) {
+    console.log("Eh? Please enter a number 😄");
+  } else {
+    if (guess < randomNumber) {
+      console.log("Too small 😅");
+    } else if (guess > randomNumber) {
+      console.log("Too big 😅");
+    } else {
+      console.log(`🎉 Congratulations! You guessed the number correctly in ${attempt} attempts.`);
+
+      if(attempt <= 3) {
+        console.log("🔥 Pro move! You guessed it super fast.");
+      } else if (attempt <= 6) {
+        console.log("👍 Not bad! But you can do better.");
+      } else {
+        console.log("😅 Well, needs more practice. Keep trying!");
+      }
+
+      repeat = false;
+    }
+  }
+}
+    </code></pre>
+  </div>
+    
+  <h3>💬 Reflection</h3>
+  <p>What I learned from this challenge:</p>
+  <ul>
+    <li>The importance of careful syntax writing (small typos can cause big errors)</li>
+    <li><code>if-else</code> logic can be enhanced to be more interactive and dynamic</li>
+    <li><code>confirm()</code> and <code>prompt()</code> make the user experience more engaging</li>
+    <li>Debugging can actually be fun when treated as learning material</li>
+  </ul>
+    
+  <p>And of course, I'm more excited to continue to Day 5 🚀</p>
+    
+  <p><a href="https://github.com/syfaarizal/js-number-guessing-game" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> View on GitHub</a></p>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-jsx.min.js"></script>
+  <script src="../assets/js/mainblog.js"></script>
+</body>
+</html>

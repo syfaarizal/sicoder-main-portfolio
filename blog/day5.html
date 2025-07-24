@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Looping Name Challenge</title>
+  <link rel="stylesheet" href="../assets/css/blog.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+</head>
+<body>
+  <h1>Challenge Day 5: Creative Name Looping</h1>
+  
+  <blockquote style="margin: 1rem 0; padding: 1rem; border-left: 4px solid rgb(145, 31, 31); font-style: italic; color: #fff;">
+    "It's okay to take breaks, but don't give up. Let's get back on track!"
+  </blockquote>
+  
+  <p>After taking some time off to focus on other projects, I'm finally back to the JS challenges! This time I got a simple but brain-stimulating challenge: looping names and creating more creative outputs.</p>
+    
+  <h2>🎯 Challenge Description</h2>
+  <p>Create a program that:</p>
+  <ul>
+    <li>Prints your name <code>n</code> times (user input)</li>
+    <li>Adds numbering in front</li>
+  </ul>
+
+  <div class="code-block">
+    <button class="copy-button">Copy</button>
+    <pre><code class="language-js">
+1. Syifa Fauziyah Arizal  
+2. Syifa Fauziyah Arizal  
+3. Syifa Fauziyah Arizal
+    </code></pre>
+  </div>
+
+  <h3>🔍 What is N?</h3>
+  <p>Here, <code>n</code> means the number of repetitions requested by the user. So the user will be asked how many times they want to print their name.</p>
+  <p>Simple? Yep. But my brain lagged a bit because it's been a while since I worked with JS. 😅</p>
+    
+  <h2>🧪 First Attempt</h2>
+  <div class="code-block">
+    <button class="copy-button">Copy</button>
+    <pre><code class="language-js">
+const input = prompt("How many times do you want to print your name? ");
+
+for (let i = 1; i <= input; i++) {
+    console.log(i + ". " + "Syifa Fauziyah Arizal");
+}
+    </code></pre>
+  </div>
+  <p>Does it work? Yup! But not very robust yet.</p>
+    
+  <h2>✅ Input Validation Version</h2>
+  <div class="code-block">
+    <button class="copy-button">Copy</button>
+    <pre><code class="language-js">
+const input = Number(prompt("How many times do you want to print your name? "));
+
+if (!isNaN(input) && input > 0) {
+    for (let i = 1; i <= input; i++) {
+        console.log(`${i}. Syifa Fauziyah Arizal`);
+    }
+} else {
+    console.log("Please enter a valid number 😅");
+}
+    </code></pre>
+  </div>
+
+  <h3>🔍 Explanation:</h3>
+  <ul>
+    <li><code>isNaN()</code> means <i>is Not a Number</i>, so we use <code>!isNaN()</code> to prevent the loop from running if the user enters 0 or negative numbers (why would you want to print your name 0 times anyway? 😆).</li>
+  </ul>
+    
+  <h2>🎁 Bonus Challenge</h2>
+  <p>Level up! Add:</p>
+  <ul>
+    <li>Different emoji for each line (looping from array)</li>
+    <li>Different motivational quote for each line</li>
+    <li>Combine all outputs into one concatenated string</li>
+  </ul>
+  
+  <h3>Example Output:</h3>
+  <div class="code-block">
+    <button class="copy-button">Copy</button>
+    <pre><code class="language-js">
+1. Syifa 🔥 — Keep going!  
+2. Syifa 💡 — You're learning!  
+3. Syifa 🌱 — Progress every day!
+    </code></pre>
+  </div>
+
+  <h3>💡 Solution: Using Arrays and Modulus</h3>
+  <div class="code-block">
+    <button class="copy-button">Copy</button>
+    <pre><code class="language-js">
+const emojis = ["🔥", "💡", "🌱", "🚀", "🎯", "💪", "🧠", "✨", "🔧", "🎉"];
+const motivation = [
+    "Keep going!",
+    "You can do it!",
+    "Believe in yourself!",
+    "Stay positive!",
+    "Never give up!",
+    "Dream big!",
+    "Stay focused!",
+    "Work hard!",
+    "Embrace challenges!",
+    "Success is yours!",
+];
+    </code></pre>
+  </div>
+
+  <h3>🔍 Why Use <code>%</code> (Modulus)?</h3>
+  <p>For example if <code>i = 11</code>, then <code>emoji[11 % 10] = emoji[1]</code> means it will cycle back to the start of the array when the index exceeds the length. A genius way to create <i>infinite looping</i> within array bounds 💡.</p>
+  <p>✅ Simple, efficient, and creates creative outputs without errors!</p>
+    
+  <h2>🧠 Final Code</h2>
+  <div class="code-block">
+    <button class="copy-button">Copy</button>
+    <pre><code class="language-js">
+const input = Number(prompt("How many times do you want to print your name? "));
+
+const emojis = ["🔥", "💡", "🌱", "🚀", "🎯", "💪", "🧠", "✨", "🔧", "🎉"];
+const motivation = [
+    "Keep going!",
+    "You can do it!",
+    "Believe in yourself!",
+    "Stay positive!",
+    "Never give up!",
+    "Dream big!",
+    "Stay focused!",
+    "Work hard!",
+    "Embrace challenges!",
+    "Success is yours!",
+];
+
+let result = "";
+
+if (!isNaN(input) && input > 0) {
+    for (let i = 0; i < input; i++) {
+        const emoji = emojis[i % emojis.length];
+        const quote = motivation[i % motivation.length];
+        result += `${i + 1}. Syifa ${emoji} - ${quote}\n`;
+    }
+    console.log(result);
+} else {
+    console.log("Please enter a valid number 😅");
+}
+    </code></pre>
+  </div>
+    
+  <h2>📝 Mini Reflection</h2>
+  <p>I got stuck at first, but after some tinkering, researching, and giving my brain some breathing room, I figured it out.</p>
+  <p>This challenge, while seemingly light, reminded me of the importance of basics like:</p>
+  <ul>
+    <li>✔️ Input validation</li>
+    <li>✔️ Array looping with modulus</li>
+    <li>✔️ Combining strings with newline <code>\n</code></li>
+  </ul>
+  <p>Sometimes we focus too much on big things, when it's these small things that form our foundation. And yes, I'm back. Let's go!</p>
+    
+  <h3>🧠 Tips from Syifa Edition™:</h3>
+  <blockquote style="margin: 1rem 0; padding: 1rem; border-left: 4px solid rgb(145, 31, 31); font-style: italic; color: #fff;">
+    "When stuck, don't panic. Take a break first. Drink some water. Take a short walk. Then come back to coding. Your brain needs refreshing too."
+  </blockquote>
+    
+  <p><a href="https://github.com/syfaarizal/js-looping-name" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> View on GitHub</a></p>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-jsx.min.js"></script>
+  <script src="../assets/js/mainblog.js"></script>
+</body>
+</html>

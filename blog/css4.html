@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>CSS Advanced Techniques</title>
+  <link rel="stylesheet" href="../assets/css/blog.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+</head>
+<body>
+  <h1>CSS Advanced: Animations, Responsive Design & Best Practices</h1>
+  
+  <blockquote style="margin: 1rem 0; padding: 1rem; border-left: 4px solid rgb(145, 31, 31); font-style: italic; color: #fff;">
+    "If HTML is the foundation, CSS Card 4 is like Instagram filters for your website. Making it alive, moving, and adaptive."
+  </blockquote>
+  
+  <h2>🎯 Pseudo-Class & Pseudo-Element</h2>
+  
+  <h3>🔹 Pseudo-Class (<code>:</code>)</h3>
+  <p>Used to style elements based on their state (when clicked, hovered, etc).</p>
+  <table class="tb-blog">
+    <thead>
+      <tr>
+        <th>Example</th>
+        <th>Function</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td><code>:hover</code></td><td>When element is touched/hovered</td></tr>
+      <tr><td><code>:focus</code></td><td>When element is active (like clicked input)</td></tr>
+      <tr><td><code>:first-child</code></td><td>First child of parent</td></tr>
+      <tr><td><code>:nth-child(2)</code></td><td>2nd child</td></tr>
+    </tbody>
+  </table>
+
+  <div class="code-block">
+    <button class="copy-button">Copy</button>
+    <pre><code class="language-css">
+button:hover {
+  background-color: hotpink;
+  color: white;
+}
+    </code></pre>
+  </div>
+  
+  <h3>🔹 Pseudo-Element (<code>::</code>)</h3>
+  <p>Styles part of an element, not the whole element.</p>
+  <table class="tb-blog">
+    <thead>
+      <tr>
+        <th>Example</th>
+        <th>Function</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td><code>::before</code></td><td>Add content before element</td></tr>
+      <tr><td><code>::after</code></td><td>Add content after element</td></tr>
+      <tr><td><code>::placeholder</code></td><td>Style input placeholder</td></tr>
+    </tbody>
+  </table>
+
+  <div class="code-block">
+    <button class="copy-button">Copy</button>
+    <pre><code class="language-css">
+h1::after {
+  content: " 🚀";
+  color: orange;
+}
+    </code></pre>
+  </div>
+  
+  <h2>✨ Transitions & Light Animations</h2>
+  
+  <h3>🔧 <code>transition</code></h3>
+  <p>Creates smooth effects when properties change.</p>
+  <div class="code-block">
+    <button class="copy-button">Copy</button>
+    <pre><code class="language-css">
+.box {
+  transition: all 0.3s ease;
+}
+.box:hover {
+  transform: scale(1.1);
+  background-color: #00f;
+}
+    </code></pre>
+  </div>
+  <p>Zoom effect on hover. Smooth and soft, not like Harry Potter magic 🧙‍♂️</p>
+  
+  <h3>🔥 <code>animation</code></h3>
+  <p>Creates repeating/regular movement using keyframes.</p>
+  <div class="code-block">
+    <button class="copy-button">Copy</button>
+    <pre><code class="language-css">
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+.title {
+  animation: fadeIn 1s ease-in;
+}
+    </code></pre>
+  </div>
+  
+  <h2>📏 Responsive Units</h2>
+  
+  <h3>🌐 Popular Units:</h3>
+  <table class="tb-blog">
+    <thead>
+      <tr>
+        <th>Unit</th>
+        <th>Function</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td><code>px</code></td><td>Fixed size</td></tr>
+      <tr><td><code>%</code></td><td>Relative to parent element</td></tr>
+      <tr><td><code>em</code></td><td>Relative to parent's font size</td></tr>
+      <tr><td><code>rem</code></td><td>Relative to root (html)</td></tr>
+      <tr><td><code>vw</code> / <code>vh</code></td><td>% of viewport width/height</td></tr>
+    </tbody>
+  </table>
+
+  <div class="code-block">
+    <button class="copy-button">Copy</button>
+    <pre><code class="language-css">
+.container {
+  width: 80vw;
+  font-size: 1.2rem;
+}
+    </code></pre>
+  </div>
+
+  <p>🧠 <b>Best practice:</b> use <code>rem</code> for text, <code>vw</code>/<code>%</code> for layout. Responsive = YESSS 🔥</p>
+  
+  <h2>🎨 Responsive Design + Media Query</h2>
+  <p><code>media query</code> = way to create different displays for different screen sizes.</p>
+  <div class="code-block">
+    <button class="copy-button">Copy</button>
+    <pre><code class="language-css">
+@media (max-width: 600px) {
+  h1 {
+    font-size: 24px;
+    text-align: center;
+  }
+}
+    </code></pre>
+  </div>
+  <p>Mobile user? Display automatically neat. Laptop user? Still looks cool.</p>
+  
+  <h2>🧼 Styling Best Practices (Must Know to Go Pro)</h2>
+  <table class="tb-blog">
+    <thead>
+      <tr>
+        <th>Tip</th>
+        <th>Explanation</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr><td>Use classes, avoid styling tags directly like <code>&lt;h1&gt;</code></td><td>More flexible</td></tr>
+      <tr><td>Clear class names (<code>.btn-primary</code>)</td><td>Less confusing</td></tr>
+      <tr><td>Reuse classes, avoid copy-paste styles</td><td>DRY: Don't Repeat Yourself</td></tr>
+      <tr><td>Use CSS reset/normalize</td><td>Consistent display across browsers</td></tr>
+      <tr><td>External CSS &gt; inline/internal</td><td>Cleaner and more scalable</td></tr>
+    </tbody>
+  </table>
+  
+  <h2>🧠 CSS Recap Card 4</h2>
+  <ul>
+    <li>✅ Know pseudo-class/element for cool interactions & effects</li>
+    <li>✅ Can create hover effects & simple animations (without JavaScript!)</li>
+    <li>✅ Familiar with various units (px, rem, %, vw, etc)</li>
+    <li>✅ Responsive layout works through media queries</li>
+    <li>✅ Ready to style like a pro with best practices</li>
+  </ul>
+
+  <section class="css-card-ending" style="margin-top: 2rem; padding: 1.5rem; background-color: #f9f9f9; border-left: 5px solid rgb(145, 31, 31); border-radius: 10px; box-shadow: 0 4px 8px rgba(0,0,0,0.05); font-family: 'Segoe UI', sans-serif; height: auto;">
+    <h2 style="margin-bottom: 0.8rem; color: #333;">📌 Closing Thoughts from Me - SICODER 💻🌱</h2>
+    <p style="margin-bottom: 1rem; line-height: 1.7; color: #555;">
+      Hi! I'm <strong>Syifa</strong>, and all the material I share here is what I've learned from <strong>SCRATCH</strong>.  
+      <br><br>
+      I started not knowing what <code>&lt;div&gt;</code> was, why we need <code>&lt;head&gt;</code>, or why CSS could change text colors 😅 But little by little I learned - through videos, articles, and of course... lots of trial and error until the errors disappeared 😭
+      <br><br>
+      Everything I share here (from <strong>HTML Card Part 1–2</strong> to <strong>CSS Card Part 1–4</strong>) is my own recap and understanding. I try to explain it in a way I understand and like, so you readers can feel: "Oh, it can be explained this simply."
+    </p>
+
+    <blockquote style="margin: 1rem 0; padding: 1rem; background-color:rgb(245, 232, 232); border-left: 4px solid rgb(145, 31, 31); font-style: italic; color: #333;">
+      🎯 I believe: <br>
+      <strong>Learning to code isn't about who's fastest, but who's consistent and doesn't give up.</strong>
+    </blockquote>
+
+    <p style="margin-bottom: 1.2rem; line-height: 1.7; color: #555;">
+      If you're also learning HTML & CSS - from scratch, from knowing nothing - I hope this content can be your learning companion too.  
+      <br><br>
+      Don't be afraid to start from the bottom, everyone who's good was once stuck on just <code>&lt;br&gt;</code> 😆
+    </p>
+
+    <div style="background-color:rgb(255, 205, 205); padding: 1rem; border-left: 4px solid rgb(151, 4, 4); border-radius: 8px; margin-bottom: 1.5rem; margin-top: 40px;">
+      <h3 style="margin-top: 0; color:rgb(133, 4, 4);">🚀 What's Next?</h3>
+      <p style="margin: 0; color: #5c5c5c;">
+        <strong>Meet JavaScript</strong><br>
+        <i>"HTML is the skeleton, CSS is the outfit... JavaScript? That's the soul!"</i><br>
+        What is JavaScript? · Why JavaScript is important in web dev · How to use JS in HTML · etc
+      </p>
+    </div>
+    <div class="css-card-next" style="background-color:rgb(255, 205, 205); padding: 1rem; border-left: 4px solid rgb(151, 4, 4); border-radius: 8px; margin-bottom: 1.5rem;">
+      <h3 style="margin-top: 0; color:rgb(133, 4, 4);">🚀 What's Next?</h3>
+      <p style="margin: 0; color: #5c5c5c;">
+        <strong>Logic, Conditions & Loops</strong><br>
+        <i>"This is where your website starts to 'think'."</i><br>
+        Branching: <code>if</code>, <code>else</code>, <code>else if</code> · Switch case (for alternative branching logic) · etc
+      </p>
+    </div>
+    <div class="css-card-next" style="background-color:rgb(255, 205, 205); padding: 1rem; border-left: 4px solid rgb(151, 4, 4); border-radius: 8px; margin-bottom: 1.5rem;">
+      <h3 style="margin-top: 0; color:rgb(133, 4, 4);">🚀 What's Next?</h3>
+      <p style="margin: 0; color: #5c5c5c;">
+        <strong>Interactions & Basic DOM</strong> <br>
+        <i>"Time to make your website alive! Can click, change text, and control display directly from script."</i><br>
+        What is DOM (Document Object Model) · Event Listeners (<code>click</code>, <code>input</code>, etc) · etc
+      </p>
+    </div>
+
+    <p class="call-to-action" style="text-align: center; font-weight: bold; color: #444; margin-top:70px;">📍Stay tuned!<br>
+    📩 Just DM if you're also learning to code - we can grow together!</p>
+  </section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-jsx.min.js"></script>
+  <script src="../assets/js/mainblog.js"></script>
+</body>
+</html>

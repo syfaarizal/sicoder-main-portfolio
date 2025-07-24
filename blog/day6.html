@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Odd/Even Challenge</title>
+  <link rel="stylesheet" href="../assets/css/blog.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+</head>
+<body>
+  <h1>🔢 Day 6: Odd, Even, or Special?</h1>
+  <p>Yo! Back again with day 6 challenge. Today I'm playing with numbers, but not just checking odd/even. I added some layered logic to sharpen my coding reasoning 🧠✨</p>
+    
+  <h3>🎯 Challenge Goals:</h3>
+  <ul>
+    <li>Practice nested conditions (<code>if</code>, <code>else if</code>, <code>else</code>)</li>
+    <li>Understand odd, even, and multiple concepts</li>
+    <li>Add input validation & more human-friendly output</li>
+  </ul>
+  
+  <h3>📝 Program Description:</h3>
+  <ol>
+    <li>User inputs a <strong>number</strong></li>
+    <li>Program checks if the number is:
+      <ul>
+        <li>✅ Odd</li>
+        <li>✅ Even</li>
+        <li>🎉 Multiple of 10 (shows special message)</li>
+      </ul>
+    </li>
+    <li>Output includes emojis to make it more expressive 😄</li>
+  </ol>
+  
+  <h3>Example Output:</h3>
+  <div class="code-block">
+    <button class="copy-button">Copy</button>
+    <pre><code class="language-js">
+Enter a number: 27
+➡️ 27 is an odd number 🔹
+
+Enter a number: 44
+➡️ 44 is an even number 🔸
+
+Enter a number: 30
+🎉 30 is an even number & multiple of 10!
+    </code></pre>
+  </div>
+  
+  <h3>🛠️ Tools & Concepts:</h3>
+  <ul>
+    <li><code>prompt()</code> and <code>parseInt()</code> to get user input</li>
+    <li><code>isNaN()</code> for input validation</li>
+    <li><code>if</code> and <code>else if</code> for conditional logic</li>
+    <li><code>%</code> (modulus) operator to check odd/even/multiples</li>
+  </ul>
+  
+  <h2>⚙️ Basic Implementation:</h2>
+  <div class="code-block">
+    <button class="copy-button">Copy</button>
+    <pre><code class="language-js">
+const input = parseInt(prompt("Enter a number dude!:"));
+
+if (isNaN(input)) {
+    console.log("Lol that's not a number 😅");
+} else if (input % 2 === 0) {
+    console.log("This is an even number dude! 👍");
+} else {
+    console.log("This is an odd number dude! 👌");
+}
+    </code></pre>
+  </div>
+  
+  <h2>🎊 Adding: Multiple of 10</h2>
+  <div class="code-block">
+    <button class="copy-button">Copy</button>
+    <pre><code class="language-js">
+else if (input % 10 === 0 && input % 2 === 0)
+    </code></pre>
+  </div>
+  
+  <h3>✅ Full Code Version 1:</h3>
+  <div class="code-block">
+    <button class="copy-button">Copy</button>
+    <pre><code class="language-js">
+const input = parseInt(prompt("Enter a number dude:"));
+
+if (isNaN(input)) {
+    console.log("Lol that's not a number 😅"); 
+} else if (input % 10 === 0 && input % 2 === 0) {
+    console.log("This is an even number and multiple of 10 dude! 🎉");
+} else if (input % 2 === 0) {
+    console.log("This is an even number dude! 👍");
+} else {
+    console.log("This is an odd number dude! 👌");
+}
+    </code></pre>
+  </div>
+  
+  <h2>🔁 Bonus Challenge: Loop Version</h2>
+  <div class="code-block">
+    <button class="copy-button">Copy</button>
+    <pre><code class="language-js">
+let input;
+
+while (true) {
+    input = prompt("Enter a number dude! (type 'exit' to quit)");
+
+    if (input === "exit") {
+        console.log("Alright dude, exiting the program. Bye 👋");
+        break;
+    }
+    const number = parseFloat(input);
+
+    if (isNaN(number)) {
+        console.log("Lol that's not a number 😅"); 
+    } else if (number % 10 === 0 && number % 2 === 0) {
+        console.log("This is an even number and multiple of 10 dude! 🎉");
+    } else if (number % 2 === 0) {
+        console.log("This is an even number dude! 🔸");
+    } else {
+        console.log("This is an odd number dude! 🔹");
+    }
+}
+    </code></pre>
+  </div>
+  
+  <h2>📉 Addition: Check Negative Numbers</h2>
+  
+  <h3>🚀 Final Code:</h3>
+  <div class="code-block">
+    <button class="copy-button">Copy</button>
+    <pre><code class="language-js">
+let input;
+
+while (true) {
+    input = prompt("Enter a number dude! (type 'exit' to quit)");
+
+    if (input === "exit") {
+        console.log("Alright dude, exiting the program. Bye 👋");
+        break;
+    }
+
+    const number = parseFloat(input);
+
+    if (isNaN(number)) {
+        console.log("❌ Lol that's not a number 😅"); 
+    } else if (number < 0) {
+        console.log("📉 This is a negative number...");
+    } else if (number % 10 === 0 && number % 2 === 0) {
+        console.log("🎊 This is an even number and multiple of 10 dude!");
+    } else if (number % 2 === 0) {
+        console.log("🔸 This is an even number dude!");
+    } else {
+        console.log("🔹 This is an odd number dude!");
+    }
+}
+    </code></pre>
+  </div>
+  
+  <h2>💬 Quick Reflection:</h2>
+  <p>This challenge taught me many small but important things:</p>
+  <ul>
+    <li>Organizing <code>if-else</code> logic so they don't conflict</li>
+    <li>Validating user input in a friendly way</li>
+    <li>Giving expressive feedback through emojis (to make it fun!)</li>
+    <li>Looping with <code>while (true)</code> and <code>break</code> when user wants to stop</li>
+  </ul>
+  <p>Definitely more excited to continue to <strong>Day 7</strong>! 🚀</p>
+  
+  <p><a href="https://github.com/syfaarizal/js-ganjil-genap" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> View on GitHub</a></p>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-jsx.min.js"></script>
+  <script src="../assets/js/mainblog.js"></script>
+</body>
+</html>

@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>HTML Intermediate Concepts</title>
+    <link rel="stylesheet" href="../assets/css/blog.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+</head>
+<body>
+  <h1>HTML Intermediate: Structure & Semantics</h1>
+  
+  <blockquote style="margin: 1rem 0; padding: 1rem; border-left: 4px solid rgb(145, 31, 31); font-style: italic; color: #fff;">
+    "If part 1 was the house foundation, part 2 is about arranging the rooms to be cozy and well-structured."
+  </blockquote>
+  
+  <h2>🖼️ What is <code>&lt;iframe&gt;</code>?</h2>
+  <p><code>&lt;iframe&gt;</code> is like a small window in your page that can display another web page from the internet.</p>
+  
+  <h3>🔍 Functions:</h3>
+  <ul>
+    <li>Display YouTube videos</li>
+    <li>Show Google Maps</li>
+    <li>Embed external documents</li>
+  </ul>
+  
+  <h3>🔧 Example:</h3>
+  <div class="code-block">
+    <button class="copy-button">Copy</button>
+    <pre><code class="language-html">
+&lt;iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" width="560" height="315" allowfullscreen&gt;&lt;/iframe&gt;
+    </code></pre>
+  </div>
+  
+  <h3>⚠️ Tips:</h3>
+  <ul>
+    <li>Don't use too many iframes, they make pages heavy</li>
+    <li>Use <code>width</code>, <code>height</code>, and <code>allowfullscreen</code> attributes to control appearance</li>
+  </ul>
+  
+  <h3>📦 What is <code>&lt;div&gt;</code>?</h3>
+  <p><code>&lt;div&gt;</code> stands for division, and is used to wrap/group larger HTML elements.</p>
+  
+  <h3>🔍 Its functions:</h3>
+  <ul>
+    <li>Divide content into sections</li>
+    <li>Used with CSS for layout styling</li>
+  </ul>
+  <p>🧠 Think of it like: <code>div</code> = big container (like a cardboard box holding many items)</p>
+  
+  <h3>🔧 Example:</h3>
+  <div class="code-block">
+    <button class="copy-button">Copy</button>
+    <pre><code class="language-html">
+&lt;div class="card"&gt;
+    &lt;h2&gt;Article Title&lt;/h2&gt;
+    &lt;p&gt;Article content goes here...&lt;/p&gt;
+&lt;/div&gt;
+    </code></pre>
+  </div>
+  
+  <h3>🧬 What is <code>&lt;span&gt;</code>?</h3>
+  <p><code>&lt;span&gt;</code> is an inline element used to wrap small text you want to <i>format or style</i>.</p>
+  
+  <h3>🔍 Its functions:</h3>
+  <ul>
+    <li>Highlight specific text</li>
+    <li>Add style to words/sentences without disrupting paragraphs</li>
+  </ul>
+  <p>🧠 Think of it like: <code>span</code> = text highlighter, not a box</p>
+  
+  <h3>🔧 Example:</h3>
+  <div class="code-block">
+    <button class="copy-button">Copy</button>
+    <pre><code class="language-html">
+&lt;p&gt;My name is &lt;span class="highlight"&gt;Syifa Arizal&lt;/span&gt; and I love coding!&lt;/p&gt;
+    </code></pre>
+  </div>
+  
+  <h2>⚔️ Difference Between <code>div</code> vs <code>span</code></h2>
+  <table class="tb-blog">
+    <thead>
+      <tr>
+        <th>Comparison</th>
+        <th><code>&lt;div&gt;</code></th>
+        <th><code>&lt;span&gt;</code></th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>Type</code></td>
+        <td>Block-level</td>
+        <td>Inline</td>
+      </tr>
+      <tr>
+        <td>Size</td>
+        <td>Full line width</td>
+        <td>Only small text selection</td>
+      </tr>
+      <tr>
+        <td>Commonly used for</td>
+        <td>Layout & large containers</td>
+        <td>Styling specific words/sentences</td>
+      </tr>
+      <tr>
+        <td>Creates new line?</td>
+        <td>Yes</td>
+        <td>No</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <p>🧠 If <code>div</code> <i>is a container box</i>, <code>span</code> <i>is a text highlighter</i>.</p>
+  
+  <div class="modal-img">
+    <img src="/assets/img/Semantic.png" alt="Semantic & Non-semantic">
+  </div>
+  
+  <h2>🧠 What is Semantic HTML?</h2>
+  <p><b>Semantic HTML</b> are HTML elements whose names already indicate their meaning. So <i>not just neat coding</i>, but also makes websites easier to understand by browsers, SEO, and screen readers.</p>
+  
+  <h3>🎯 Purpose:</h3>
+  <ul>
+    <li>Clearer structure</li>
+    <li>More accessible (for disabilities)</li>
+    <li>SEO-friendly</li>
+  </ul>
+  
+  <h3>🧱 Semantic Tag Examples:</h3>
+  <table class="tb-blog">
+    <thead>
+      <tr>
+        <th>Tag</th>
+        <th>Meaning</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td><code>&lt;header&gt;</code></td>
+        <td>Page header (usually contains logo, nav)</td>
+      </tr>
+      <tr>
+        <td><code>&lt;nav&gt;</code></td>
+        <td>Navigation/menu</td>
+      </tr>
+      <tr>
+        <td><code>&lt;main&gt;</code></td>
+        <td>Main content</td>
+      </tr>
+      <tr>
+        <td><code>&lt;article&gt;</code></td>
+        <td>Standalone article</td>
+      </tr>
+      <tr>
+        <td><code>&lt;section&gt;</code></td>
+        <td>Specific section in page</td>
+      </tr>
+      <tr>
+        <td><code>&lt;footer&gt;</code></td>
+        <td>Page footer</td>
+      </tr>
+      <tr>
+        <td><code>&lt;aside&gt;</code></td>
+        <td>Sidebar or additional info</td>
+      </tr>
+    </tbody>
+  </table>
+  
+  <h2>🚫 Non-Semantic HTML</h2>
+  <p><b>Non-semantic HTML</b> are tags that <i>don't provide context</i> about their content.</p>
+  
+  <h3>🎯 Examples:</h3>
+  <ul>
+    <li><code>&lt;div&gt;</code></li>
+    <li><code>&lt;span&gt;</code></li>
+  </ul>
+  <p>These don't say "hey I'm navigation" or "this is an article." They're just empty boxes without identity.</p>
+  
+  <h2>🔀 Semantic & Non-Semantic Combination Example</h2>
+  <div class="code-block">
+    <button class="copy-button">Copy</button>
+    <pre><code class="language-html">
+&lt;header&gt;
+    &lt;div class="logo"&gt;🌟 Website Logo&lt;/div&gt;
+    &lt;nav&gt;
+        &lt;ul&gt;
+            &lt;li&gt;&lt;a href="#"&gt;Home&lt;/a&gt;&lt;/li&gt;
+        &lt;/ul&gt;
+    &lt;/nav&gt;
+&lt;/header&gt;
+&lt;main&gt;
+    &lt;article&gt;
+        &lt;h1&gt;Learning HTML is fun!&lt;/h1&gt;
+        &lt;p&gt;&lt;span class="highlight"&gt;HTML&lt;/span&gt; is the foundation of modern web.&lt;/p&gt;
+    &lt;/article&gt;
+&lt;/main&gt;
+&lt;footer&gt;
+    &lt;p&gt;&amp;copy; 2025 - Syifa SICODER.&lt;/p&gt;
+&lt;/footer&gt;
+    </code></pre>
+  </div>
+  <p>➡️ This is an example <i>combo</i>: semantic HTML for big structure, non-semantic for small styling.</p>
+  
+  <h2>🧩 Ideal HTML5 Structure</h2>
+  <div class="code-block">
+    <button class="copy-button">Copy</button>
+    <pre><code class="language-html">
+&lt;!DOCTYPE html&gt;
+&lt;html lang="en"&gt;
+    &lt;head&gt;
+        &lt;meta charset="UTF-8"&gt;
+        &lt;meta name="viewport" content="width=device-width, initial-scale=1.0"&gt;
+        &lt;title&gt;Syifa's Website&lt;/title&gt;
+    &lt;/head&gt;
+    &lt;body&gt;
+        &lt;header&gt;...&lt;/header&gt;
+        &lt;nav&gt;...&lt;/nav&gt;
+        &lt;main&gt;
+            &lt;section&gt;...&lt;/section&gt;
+            &lt;article&gt;...&lt;/article&gt;
+        &lt;/main&gt;
+        &lt;footer&gt;...&lt;/footer&gt;
+    &lt;/body&gt;
+&lt;/html&gt;
+    </code></pre>
+  </div>
+  <p>🧠 Complete structure: clear, easy to read, and ready for responsive + SEO!</p>
+  
+  <h2>✅ Card 2 Conclusion</h2>
+  <p><i>HTML is like decorating a house after the foundation is built. In Card 2, you learned how to arrange rooms so they're not messy and all elements have meaning.</i></p>
+  
+  <h3>🎯 What I learned:</h3>
+  <ul>
+    <li>How to embed external content with <code>&lt;iframe&gt;</code></li>
+    <li>Understand the function & difference between <code>div</code> and <code>span</code></li>
+    <li>Get to know semantic HTML and why it's important</li>
+    <li>Know the ideal HTML5 structure for real projects</li>
+  </ul>
+  
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-jsx.min.js"></script>
+  <script src="../assets/js/mainblog.js"></script>
+</body>
+</html>
