@@ -48,20 +48,10 @@
     height: 15px;
   }
 
-  .service-detail {
-    grid-template-columns: repeat(3, 1fr);
-    grid-template-areas:
-      "front-end website responsive"
-      "ui-ux code personal";
-    gap: 60px;
-  }
-
   #front-end, #website-design, #responsive-web,
   #ui-ux, #code-optimization, #personal-project-build {
     margin: 0 0 10px 0;
   }
-
-  .service-detail-item { width: 150%; }
 
   .skills-container {
     grid-template-columns: repeat(4, 1fr);
@@ -224,15 +214,6 @@
 }
 
 @media (max-width: 912px) {
-  .service-detail {
-    grid-template-columns: repeat(2, 1fr);
-    grid-template-areas:
-      "front-end website"
-      "responsive ui-ux"
-      "code personal";
-    gap: 60px;
-  }
-
   #web-skills {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
@@ -277,24 +258,10 @@
     display: none;
   }
 
-  .service-detail {
-    grid-template-columns: 1fr;
-    grid-template-areas:
-      "front-end"
-      "website"
-      "responsive"
-      "ui-ux"
-      "code"
-      "personal";
-    row-gap: 48px;
-  }
-
   #front-end, #website-design, #responsive-web,
   #ui-ux, #code-optimization, #personal-project-build {
     margin: 0 0 0 30px;
   }
-
-  .service-detail-item { width: 80%; }
 
   .skills-container,
   #web-skills {
@@ -458,7 +425,6 @@
 
 /* 🔸 max-width: 600px 🔸 */
 @media (max-width: 600px) {
-  .service-header h1,
   .skills-header h1,
   .education-header h1,
   .portfolio-header h1,
