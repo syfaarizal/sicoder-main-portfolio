@@ -62,58 +62,6 @@ document.addEventListener('DOMContentLoaded', function() {
             extraLinks.classList.toggle('show');
         });
     }
-
-    // Blog modal functionality
-    let blogPosts = [];
-    const blogModal = document.getElementById('blogModal');
-    
-    if (blogModal) {
-        fetch('./data/blogPosts.json')
-            .then(res => res.json())
-            .then(data => {
-                blogPosts = data;
-                document.querySelectorAll(".read-more-btn").forEach(btn => {
-                    btn.addEventListener("click", (e) => {
-                        e.preventDefault();
-                        const index = btn.getAttribute("data-index");
-                        openModal(index);
-                    });
-                });
-            });
-
-        // Close modal when clicking outside content
-        blogModal.addEventListener('click', function(e) {
-            if (e.target === this) {
-                closeModal();
-            }
-        });
-    }
-
-    function openModal(index) {
-        const post = blogPosts[index];
-        const modal = document.getElementById("blogModal");
-        
-        document.getElementById("modal-title").innerText = post.title;
-        document.getElementById("modal-sub").innerText = post.sub;
-
-        fetch(post.file)
-            .then(res => res.text())
-            .then(md => {
-                document.getElementById("modal-body").innerHTML = marked.parse(md);
-                modal.style.display = "block";
-                document.body.style.overflow = 'hidden';
-            })
-            .catch(err => {
-                console.error("Error loading blog content:", err);
-                document.getElementById("modal-body").innerHTML = "<p>Error loading content. Please try again later.</p>";
-                modal.style.display = "block";
-            });
-    }
-
-    window.closeModal = function() {
-        document.getElementById('blogModal').style.display = 'none';
-        document.body.style.overflow = '';
-    }
 });
 
 // Add animation to skill cards on scroll
