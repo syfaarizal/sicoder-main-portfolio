@@ -693,7 +693,7 @@ span{
 .blog-container {
   margin-top: 2rem;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 3rem;
 }
 
@@ -808,24 +808,12 @@ span{
   display: block;
 }
 
-.codean {
-  background: #1a1a1a;
-  padding: 0;
-  border-radius: 8px;
-  color: #eee;
-  font-family: 'Courier New', monospace;
-  margin: 1rem 0;
-  overflow-x: auto;
-  max-width: auto;
-  color: var(--primary-color);
-  font-weight: 530;
-}
-
-.codean pre, .codean code {
-  white-space: pre-wrap;
-  word-wrap: break-word;
-  overflow-x: auto;
-  display: block;
+.blog-links {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 1rem;
+  font-size: 1.2rem;
+  color: #ccc;
 }
 
 #portfolio {

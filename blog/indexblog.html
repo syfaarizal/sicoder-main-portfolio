@@ -11,12 +11,265 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Montserrat:wght@400;600;700&display=swap">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
-    <link rel="stylesheet" href="../assets/css/style.css">
-    <link rel="stylesheet" href="../assets/css/responsive.css">
-    <link rel="stylesheet" href="./assets/css/blog.css">
     <title>SICODER. Blog</title>
+    <style>
+        :root {
+            --primary-color: #971313;
+            --primary-light: #c74a4a;
+            --dark-color: #161616;
+            --light-color: #f8f8f8;
+            --gray-color: #e0e0e0;
+            --transition: all 0.3s ease;
+            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            --shadow-hover: 0 8px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: var(--light-color);
+            color: var(--dark-color);
+            line-height: 1.6;
+        }
+
+        #blog {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 4rem 2rem;
+        }
+
+        .blog-header {
+            text-align: center;
+            margin-bottom: 3rem;
+            animation: fadeIn 1s ease;
+        }
+
+        .blog-header h1 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 3.5rem;
+            font-weight: 700;
+            margin-bottom: 1rem;
+            color: var(--dark-color);
+        }
+
+        .blog-header h1 span {
+            color: var(--primary-color);
+            position: relative;
+        }
+
+        .blog-header h1 span::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 3px;
+            background: var(--primary-color);
+            transform: scaleX(0);
+            transform-origin: right;
+            transition: transform 0.5s ease;
+        }
+
+        .blog-header h1:hover span::after {
+            transform: scaleX(1);
+            transform-origin: left;
+        }
+
+        .blog-header p {
+            font-size: 1.2rem;
+            color: #666;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .judul-blog {
+            margin-bottom: 2rem;
+            text-align: center;
+        }
+
+        .judul-blog h2 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--dark-color);
+        }
+
+        .judul-blog h2 span {
+            color: var(--primary-color);
+            position: relative;
+        }
+
+        .judul-blog h2 span::before {
+            content: '';
+            position: absolute;
+            bottom: -5px;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: var(--primary-color);
+        }
+
+        .blog-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+            gap: 2rem;
+        }
+
+        .blog-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: var(--shadow);
+            transition: var(--transition);
+            position: relative;
+            padding: 2rem;
+            border: 1px solid var(--gray-color);
+        }
+
+        .blog-card:hover {
+            transform: translateY(-10px);
+            box-shadow: var(--shadow-hover);
+        }
+
+        .blog-card::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 5px;
+            height: 0;
+            background: var(--primary-color);
+            transition: height 0.3s ease;
+        }
+
+        .blog-card:hover::before {
+            height: 100%;
+        }
+
+        .page-counter {
+            display: block;
+            color: var(--primary-color);
+            font-weight: 500;
+            margin-bottom: 0.5rem;
+        }
+
+        .blog-card h3 {
+            font-family: 'Montserrat', sans-serif;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: var(--dark-color);
+            transition: var(--transition);
+        }
+
+        .blog-card:hover h3 {
+            color: var(--primary-color);
+        }
+
+        .blog-card p {
+            color: #555;
+            margin-bottom: 1.5rem;
+        }
+
+        .read-more-btn {
+            display: inline-block;
+            color: var(--primary-color);
+            font-weight: 600;
+            text-decoration: none;
+            position: relative;
+            padding-right: 25px;
+        }
+
+        .read-more-btn::after {
+            content: '\f061';
+            font-family: 'Font Awesome 6 Free';
+            font-weight: 900;
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+            transition: var(--transition);
+        }
+
+        .read-more-btn:hover::after {
+            right: -5px;
+        }
+
+        /* Animations */
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .blog-header h1 {
+                font-size: 2.5rem;
+            }
+
+            .blog-container {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        /* Loading animation for cards */
+        .blog-card {
+            opacity: 0;
+            animation: fadeInUp 0.5s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Delay animations for each card */
+        .blog-card:nth-child(1) { animation-delay: 0.1s; }
+        .blog-card:nth-child(2) { animation-delay: 0.2s; }
+        .blog-card:nth-child(3) { animation-delay: 0.3s; }
+        .blog-card:nth-child(4) { animation-delay: 0.4s; }
+        .blog-card:nth-child(5) { animation-delay: 0.5s; }
+        .blog-card:nth-child(6) { animation-delay: 0.6s; }
+
+        /* Hover effect for text */
+        .blog-card p b {
+            position: relative;
+            color: var(--primary-color);
+        }
+
+        .blog-card p b::after {
+            content: '';
+            position: absolute;
+            bottom: -2px;
+            left: 0;
+            width: 0;
+            height: 2px;
+            background: var(--primary-light);
+            transition: width 0.3s ease;
+        }
+
+        .blog-card:hover p b::after {
+            width: 100%;
+        }
+    </style>
 </head>
 <body>
     <section id="blog">
@@ -28,55 +281,45 @@
             <h2>Challenges <span>Day-By-Day</span></h2>
         </div>
         <div class="blog-container">
-            <div class="blog-cards">
-                <div class="blog-card">
-                    <small class="page-counter">June 5, 2025</small>
-                    <h3>Day 1: Print Name and Status</h3>
-                    <p>Today I learned about template literals in JavaScript. You know, that thing where you can insert variables...</p>
-                    <a href="./day1.html" class="read-more-btn"></a>
-                </div>
+            <div class="blog-card">
+                <small class="page-counter">June 5, 2025</small>
+                <h3>Day 1: Print Name and Status</h3>
+                <p>Today I learned about template literals in JavaScript. You know, that thing where you can insert variables...</p>
+                <a href="./blog/day1.html" class="read-more-btn" aria-label="Read more about Day 1: Print Name and Status">Read more</a>
             </div>
-            <div class="blog-cards">
-                <div class="blog-card">
-                    <small class="page-counter">June 6, 2025</small>
-                    <h3>Day 2: Simple Age Calculator</h3>
-                    <p>Today's challenge really made my brain curl 😅 We were asked to create a <b>JavaScript program</b> that...</p>
-                    <a href="./blog/day2.html" class="read-more-btn"></a>
-                </div>
+            <div class="blog-card">
+                <small class="page-counter">June 6, 2025</small>
+                <h3>Day 2: Simple Age Calculator</h3>
+                <p>Today's challenge really made my brain curl 😅 We were asked to create a <b>JavaScript program</b> that...</p>
+                <a href="./blog/day2.html" class="read-more-btn" aria-label="Read more about Day 2: Simple Age Calculator">Read more</a>
             </div>
-            <div class="blog-cards">
-                <div class="blog-card">
-                    <small class="page-counter">June 9, 2025</small>
-                    <h3>Day 3: Interactive Calculator</h3>
-                    <p>Day 3 of this coding challenge really made me frown but also smile when I finally got it working. I was...</p>
-                    <a href="./blog/day3.html" class="read-more-btn"></a>
-                </div>
+            <div class="blog-card">
+                <small class="page-counter">June 9, 2025</small>
+                <h3>Day 3: Interactive Calculator</h3>
+                <p>Day 3 of this coding challenge really made me frown but also smile when I finally got it working. I was...</p>
+                <a href="./blog/day3.html" class="read-more-btn" aria-label="Read more about Day 3: Interactive Calculator">Read more</a>
             </div>
-            <div class="blog-cards">
-                <div class="blog-card">
-                    <small class="page-counter">June 11, 2025</small>
-                    <h3>Day 4: Number Guessing Game</h3>
-                    <p>Day 4 of this coding challenge had a different vibe because I was asked to create a simple game:...</p>
-                    <a href="./blog/day4.html" class="read-more-btn"></a>
-                </div>
+            <div class="blog-card">
+                <small class="page-counter">June 11, 2025</small>
+                <h3>Day 4: Number Guessing Game</h3>
+                <p>Day 4 of this coding challenge had a different vibe because I was asked to create a simple game:...</p>
+                <a href="./blog/day4.html" class="read-more-btn" aria-label="Read more about Day 4: Number Guessing Game">Read more</a>
             </div>
-            <div class="blog-cards">
-                <div class="blog-card">
-                    <small class="page-counter">July 7, 2025</small>
-                    <h3>Day 5: Creative Name Looping</h3>
-                    <p>After taking some time off to focus on other projects, I'm finally back to the JS challenges! This time...</p>
-                    <a href="./blog/day5.html" class="read-more-btn"></a>
-                </div>
+            <div class="blog-card">
+                <small class="page-counter">July 7, 2025</small>
+                <h3>Day 5: Creative Name Looping</h3>
+                <p>After taking some time off to focus on other projects, I'm finally back to the JS challenges! This time...</p>
+                <a href="./blog/day5.html" class="read-more-btn" aria-label="Read more about Day 5: Creative Name Looping">Read more</a>
             </div>
-            <div class="blog-cards">
-                <div class="blog-card">
-                    <small class="page-counter">July 15, 2025</small>
-                    <h3>Day 6: Odd, Even, or Special?</h3>
-                    <p>Yo! Back again with day 6 challenge. Today I'm playing with numbers, but not just checking...</p>
-                    <a href="./blog/day6.html" class="read-more-btn"></a>
-                </div>
+            <div class="blog-card">
+                <small class="page-counter">July 15, 2025</small>
+                <h3>Day 6: Odd, Even, or Special?</h3>
+                <p>Yo! Back again with day 6 challenge. Today I'm playing with numbers, but not just checking...</p>
+                <a href="./blog/day6.html" class="read-more-btn" aria-label="Read more about Day 6: Odd, Even, or Special?">Read more</a>
             </div>
         </div>
     </section>
+
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </body>
 </html>

@@ -1,6 +1,6 @@
 :root {
   --primary-color: #971313;
-  --secondary-color: #cfcfcf;
+  --secondary-color: #eeeded;
   --background-color: #000000;
   --code-background: #1a1a1a;
   --button-hover: #363636;
@@ -121,11 +121,19 @@ a:hover {
   background-color: #4b0000ab;
 }
   
-.tb-blog code {
-  background-color: #fafafa;
+.tb-blog code,
+p code,
+li code,
+h3 code,
+h4 code,
+h5 code,
+h6 code {
+  font-size: 0.8em;
+  display: inline-block;
+  background-color: #3f3f3f86;
   padding: 2px 4px;
   border-radius: 3px;
-  color: var(--primary-color);
+  color: var(--secondary-color);
   font-weight: 600;
   font-family: 'Courier New', monospace;
 }
