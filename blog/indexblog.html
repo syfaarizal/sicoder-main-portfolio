@@ -18,12 +18,15 @@
         :root {
             --primary-color: #971313;
             --primary-light: #c74a4a;
-            --dark-color: #161616;
+            --primary-gradient: linear-gradient(135deg, #971313, #c74a4a);
+            --dark-color: #000000;
             --light-color: #f8f8f8;
             --gray-color: #e0e0e0;
-            --transition: all 0.3s ease;
-            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-            --shadow-hover: 0 8px 15px rgba(0, 0, 0, 0.2);
+            --accent-color: #ff6b6b;
+            --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+            --shadow: 0 4px 20px rgba(151, 19, 19, 0.1);
+            --shadow-hover: 0 20px 40px rgba(151, 19, 19, 0.2);
+            --blur-bg: rgba(255, 255, 255, 0.95);
         }
 
         * {
@@ -34,130 +37,255 @@
 
         body {
             font-family: 'Poppins', sans-serif;
-            background-color: var(--light-color);
-            color: var(--dark-color);
+            background: var(--dark-color);
+            color: var(--light-color);
             line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        /* Particle Background */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: var(--primary-color);
+            border-radius: 50%;
+            animation: float 20s infinite linear;
+        }
+
+        @keyframes float {
+            0% { transform: translateY(100vh) rotate(0deg); opacity: 0; }
+            10% { opacity: 1; }
+            90% { opacity: 1; }
+            100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
         }
 
         #blog {
             max-width: 1200px;
             margin: 0 auto;
             padding: 4rem 2rem;
+            position: relative;
         }
 
         .blog-header {
             text-align: center;
             margin-bottom: 3rem;
-            animation: fadeIn 1s ease;
+            animation: fadeInUp 1s ease;
         }
 
         .blog-header h1 {
             font-family: 'Montserrat', sans-serif;
-            font-size: 3.5rem;
+            font-size: clamp(2.5rem, 5vw, 3.5rem);
             font-weight: 700;
             margin-bottom: 1rem;
-            color: var(--dark-color);
+            color: var(--light-color);
+            position: relative;
         }
 
         .blog-header h1 span {
-            color: var(--primary-color);
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             position: relative;
         }
 
         .blog-header h1 span::after {
             content: '';
             position: absolute;
-            bottom: 0;
+            bottom: -5px;
             left: 0;
             width: 100%;
             height: 3px;
-            background: var(--primary-color);
+            background: var(--primary-gradient);
             transform: scaleX(0);
-            transform-origin: right;
-            transition: transform 0.5s ease;
+            transform-origin: center;
+            transition: transform 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
         }
 
         .blog-header h1:hover span::after {
             transform: scaleX(1);
-            transform-origin: left;
         }
 
         .blog-header p {
             font-size: 1.2rem;
-            color: #666;
+            color: #888;
             max-width: 600px;
             margin: 0 auto;
+            opacity: 0.8;
+        }
+
+        /* Search and Filter Controls */
+        .blog-controls {
+            display: flex;
+            justify-content: center;
+            gap: 1rem;
+            margin-bottom: 3rem;
+            flex-wrap: wrap;
+            animation: fadeInUp 1s ease 0.2s both;
+        }
+
+        .search-container {
+            position: relative;
+            flex: 1;
+            max-width: 400px;
+        }
+
+        .search-input {
+            width: 100%;
+            padding: 1rem 1rem 1rem 3rem;
+            border: 2px solid transparent;
+            border-radius: 50px;
+            background: var(--blur-bg);
+            backdrop-filter: blur(10px);
+            font-size: 1rem;
+            transition: var(--transition);
+            color: var(--dark-color);
+        }
+
+        .search-input:focus {
+            outline: none;
+            border-color: var(--primary-color);
+            transform: scale(1.02);
+            box-shadow: 0 0 20px rgba(151, 19, 19, 0.3);
+        }
+
+        .search-icon {
+            position: absolute;
+            left: 1rem;
+            top: 50%;
+            transform: translateY(-50%);
+            color: var(--primary-color);
+            font-size: 1.2rem;
+        }
+
+        .filter-tags {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .filter-tag {
+            padding: 0.5rem 1rem;
+            border: 2px solid var(--primary-color);
+            border-radius: 25px;
+            background: transparent;
+            color: var(--primary-color);
+            cursor: pointer;
+            transition: var(--transition);
+            font-weight: 500;
+            white-space: nowrap;
+        }
+
+        .filter-tag:hover,
+        .filter-tag.active {
+            background: var(--primary-gradient);
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(151, 19, 19, 0.3);
         }
 
         .judul-blog {
             margin-bottom: 2rem;
             text-align: center;
+            animation: fadeInUp 1s ease 0.1s both;
         }
 
         .judul-blog h2 {
             font-family: 'Montserrat', sans-serif;
             font-size: 2rem;
             font-weight: 600;
-            color: var(--dark-color);
+            color: var(--light-color);
         }
 
         .judul-blog h2 span {
-            color: var(--primary-color);
+            background: var(--primary-gradient);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
             position: relative;
-        }
-
-        .judul-blog h2 span::before {
-            content: '';
-            position: absolute;
-            bottom: -5px;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: var(--primary-color);
         }
 
         .blog-container {
             display: grid;
             grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
             gap: 2rem;
+            margin-bottom: 2rem;
         }
 
         .blog-card {
-            background: white;
-            border-radius: 10px;
+            background: var(--blur-bg);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.2);
+            border-radius: 20px;
             overflow: hidden;
             box-shadow: var(--shadow);
             transition: var(--transition);
             position: relative;
             padding: 2rem;
-            border: 1px solid var(--gray-color);
-        }
-
-        .blog-card:hover {
-            transform: translateY(-10px);
-            box-shadow: var(--shadow-hover);
+            cursor: pointer;
+            transform-style: preserve-3d;
         }
 
         .blog-card::before {
             content: '';
             position: absolute;
             top: 0;
-            left: 0;
-            width: 5px;
-            height: 0;
-            background: var(--primary-color);
-            transition: height 0.3s ease;
+            left: -100%;
+            width: 100%;
+            height: 2px;
+            background: var(--primary-gradient);
+            transition: left 0.5s ease;
         }
 
         .blog-card:hover::before {
-            height: 100%;
+            left: 100%;
+        }
+
+        .blog-card:hover {
+            transform: translateY(-15px) rotateX(5deg);
+            box-shadow: var(--shadow-hover);
+            border-color: var(--primary-color);
+        }
+
+        .blog-card::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: var(--primary-gradient);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+            border-radius: 20px;
+            z-index: -1;
+        }
+
+        .blog-card:hover::after {
+            opacity: 0.03;
         }
 
         .page-counter {
-            display: block;
+            display: inline-block;
             color: var(--primary-color);
-            font-weight: 500;
+            font-weight: 600;
             margin-bottom: 0.5rem;
+            padding: 0.3rem 0.8rem;
+            background: rgba(151, 19, 19, 0.1);
+            border-radius: 15px;
+            font-size: 0.85rem;
+            letter-spacing: 0.5px;
         }
 
         .blog-card h3 {
@@ -166,74 +294,131 @@
             margin-bottom: 1rem;
             color: var(--dark-color);
             transition: var(--transition);
+            position: relative;
         }
 
         .blog-card:hover h3 {
             color: var(--primary-color);
+            transform: translateX(5px);
         }
 
         .blog-card p {
             color: #555;
             margin-bottom: 1.5rem;
+            line-height: 1.7;
+        }
+
+        .blog-card p b {
+            color: var(--primary-color);
+            position: relative;
         }
 
         .read-more-btn {
-            display: inline-block;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
             color: var(--primary-color);
             font-weight: 600;
             text-decoration: none;
-            position: relative;
-            padding-right: 25px;
-        }
-
-        .read-more-btn::after {
-            content: '\f061';
-            font-family: 'Font Awesome 6 Free';
-            font-weight: 900;
-            position: absolute;
-            right: 0;
-            top: 50%;
-            transform: translateY(-50%);
+            padding: 0.8rem 1.5rem;
+            border: 2px solid var(--primary-color);
+            border-radius: 25px;
             transition: var(--transition);
+            position: relative;
+            overflow: hidden;
         }
 
-        .read-more-btn:hover::after {
-            right: -5px;
+        .read-more-btn::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: var(--primary-gradient);
+            transition: left 0.3s ease;
+            z-index: -1;
+        }
+
+        .read-more-btn:hover::before {
+            left: 0;
+        }
+
+        .read-more-btn:hover {
+            color: white;
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(151, 19, 19, 0.3);
+        }
+
+        .read-more-btn i {
+            transition: transform 0.3s ease;
+        }
+
+        .read-more-btn:hover i {
+            transform: translateX(5px);
+        }
+
+        /* Stats Counter */
+        .blog-stats {
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+            margin-bottom: 2rem;
+            animation: fadeInUp 1s ease 0.3s both;
+        }
+
+        .stat-item {
+            text-align: center;
+            padding: 1rem;
+            background: var(--blur-bg);
+            backdrop-filter: blur(10px);
+            border-radius: 15px;
+            min-width: 120px;
+        }
+
+        .stat-number {
+            font-size: 2rem;
+            font-weight: 700;
+            color: var(--primary-color);
+            display: block;
+        }
+
+        .stat-label {
+            font-size: 0.9rem;
+            color: #666;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* No results message */
+        .no-results {
+            text-align: center;
+            padding: 3rem;
+            color: #888;
+            display: none;
+        }
+
+        .no-results i {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--primary-color);
+        }
+
+        /* Loading animation */
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+
+        .loading {
+            animation: pulse 1.5s infinite;
         }
 
         /* Animations */
-        @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(20px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        /* Responsive Design */
-        @media (max-width: 768px) {
-            .blog-header h1 {
-                font-size: 2.5rem;
-            }
-
-            .blog-container {
-                grid-template-columns: 1fr;
-            }
-        }
-
-        /* Loading animation for cards */
-        .blog-card {
-            opacity: 0;
-            animation: fadeInUp 0.5s ease forwards;
-        }
-
         @keyframes fadeInUp {
             from {
                 opacity: 0;
-                transform: translateY(20px);
+                transform: translateY(30px);
             }
             to {
                 opacity: 1;
@@ -241,7 +426,12 @@
             }
         }
 
-        /* Delay animations for each card */
+        /* Stagger animation for cards */
+        .blog-card {
+            opacity: 0;
+            animation: fadeInUp 0.6s ease forwards;
+        }
+
         .blog-card:nth-child(1) { animation-delay: 0.1s; }
         .blog-card:nth-child(2) { animation-delay: 0.2s; }
         .blog-card:nth-child(3) { animation-delay: 0.3s; }
@@ -249,77 +439,300 @@
         .blog-card:nth-child(5) { animation-delay: 0.5s; }
         .blog-card:nth-child(6) { animation-delay: 0.6s; }
 
-        /* Hover effect for text */
-        .blog-card p b {
-            position: relative;
-            color: var(--primary-color);
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .blog-controls {
+                flex-direction: column;
+                align-items: center;
+            }
+
+            .filter-tags {
+                justify-content: center;
+            }
+
+            .blog-container {
+                grid-template-columns: 1fr;
+            }
+
+            .blog-stats {
+                flex-wrap: wrap;
+                gap: 1rem;
+            }
+
+            .blog-card:hover {
+                transform: translateY(-10px);
+            }
         }
 
-        .blog-card p b::after {
-            content: '';
-            position: absolute;
-            bottom: -2px;
-            left: 0;
-            width: 0;
-            height: 2px;
-            background: var(--primary-light);
-            transition: width 0.3s ease;
+        /* Scroll reveal animation */
+        .reveal {
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.8s ease;
         }
 
-        .blog-card:hover p b::after {
-            width: 100%;
+        .reveal.active {
+            opacity: 1;
+            transform: translateY(0);
         }
     </style>
 </head>
 <body>
+    <!-- Particle Background -->
+    <div class="particles" id="particles"></div>
+
     <section id="blog">
         <div class="blog-header">
             <h1>My <span>Blog</span></h1>
             <p>My blog in learning, building and growing.</p>
         </div>
-        <div class="judul-blog">
+
+        <div class="blog-stats">
+            <div class="stat-item">
+                <span class="stat-number" id="totalPosts">6</span>
+                <span class="stat-label">Posts</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" id="totalDays">30</span>
+                <span class="stat-label">Days</span>
+            </div>
+            <div class="stat-item">
+                <span class="stat-number" id="currentStreak">2</span>
+                <span class="stat-label">Streak</span>
+            </div>
+        </div>
+
+        <div class="blog-controls">
+            <div class="search-container">
+                <i class="fas fa-search search-icon"></i>
+                <input type="text" class="search-input" placeholder="Search posts..." id="searchInput">
+            </div>
+            <div class="filter-tags">
+                <button class="filter-tag active" data-filter="all">All</button>
+                <button class="filter-tag" data-filter="javascript">JavaScript</button>
+                <button class="filter-tag" data-filter="game">Games</button>
+                <button class="filter-tag" data-filter="calculator">Calculator</button>
+                <button class="filter-tag" data-filter="loop">Loops</button>
+            </div>
+        </div>
+
+        <div class="judul-blog reveal">
             <h2>Challenges <span>Day-By-Day</span></h2>
         </div>
-        <div class="blog-container">
-            <div class="blog-card">
+
+        <div class="blog-container" id="blogContainer">
+            <div class="blog-card" data-tags="javascript template-literals basics" data-date="2025-06-05">
                 <small class="page-counter">June 5, 2025</small>
                 <h3>Day 1: Print Name and Status</h3>
-                <p>Today I learned about template literals in JavaScript. You know, that thing where you can insert variables...</p>
-                <a href="./blog/day1.html" class="read-more-btn" aria-label="Read more about Day 1: Print Name and Status">Read more</a>
+                <p>Today I learned about <b>template literals</b> in JavaScript. You know, that thing where you can insert variables directly into strings with backticks...</p>
+                <a href="./day1.html" class="read-more-btn" aria-label="Read more about Day 1: Print Name and Status">
+                    Read more <i class="fas fa-arrow-right"></i>
+                </a>
             </div>
-            <div class="blog-card">
+            <div class="blog-card" data-tags="javascript calculator age math" data-date="2025-06-06">
                 <small class="page-counter">June 6, 2025</small>
                 <h3>Day 2: Simple Age Calculator</h3>
-                <p>Today's challenge really made my brain curl 😅 We were asked to create a <b>JavaScript program</b> that...</p>
-                <a href="./blog/day2.html" class="read-more-btn" aria-label="Read more about Day 2: Simple Age Calculator">Read more</a>
+                <p>Today's challenge really made my brain curl 😅 We were asked to create a <b>JavaScript program</b> that calculates age based on birth year...</p>
+                <a href="./day2.html" class="read-more-btn" aria-label="Read more about Day 2: Simple Age Calculator">
+                    Read more <i class="fas fa-arrow-right"></i>
+                </a>
             </div>
-            <div class="blog-card">
+            <div class="blog-card" data-tags="javascript calculator interactive ui" data-date="2025-06-09">
                 <small class="page-counter">June 9, 2025</small>
                 <h3>Day 3: Interactive Calculator</h3>
-                <p>Day 3 of this coding challenge really made me frown but also smile when I finally got it working. I was...</p>
-                <a href="./blog/day3.html" class="read-more-btn" aria-label="Read more about Day 3: Interactive Calculator">Read more</a>
+                <p>Day 3 of this coding challenge really made me frown but also smile when I finally got it working. Building an <b>interactive calculator</b>...</p>
+                <a href="./day3.html" class="read-more-btn" aria-label="Read more about Day 3: Interactive Calculator">
+                    Read more <i class="fas fa-arrow-right"></i>
+                </a>
             </div>
-            <div class="blog-card">
+            <div class="blog-card" data-tags="javascript game guessing random" data-date="2025-06-11">
                 <small class="page-counter">June 11, 2025</small>
                 <h3>Day 4: Number Guessing Game</h3>
-                <p>Day 4 of this coding challenge had a different vibe because I was asked to create a simple game:...</p>
-                <a href="./blog/day4.html" class="read-more-btn" aria-label="Read more about Day 4: Number Guessing Game">Read more</a>
+                <p>Day 4 of this coding challenge had a different vibe because I was asked to create a simple <b>game</b>: a number guessing challenge...</p>
+                <a href="./day4.html" class="read-more-btn" aria-label="Read more about Day 4: Number Guessing Game">
+                    Read more <i class="fas fa-arrow-right"></i>
+                </a>
             </div>
-            <div class="blog-card">
+            <div class="blog-card" data-tags="javascript loop creative patterns" data-date="2025-07-07">
                 <small class="page-counter">July 7, 2025</small>
                 <h3>Day 5: Creative Name Looping</h3>
-                <p>After taking some time off to focus on other projects, I'm finally back to the JS challenges! This time...</p>
-                <a href="./blog/day5.html" class="read-more-btn" aria-label="Read more about Day 5: Creative Name Looping">Read more</a>
+                <p>After taking some time off to focus on other projects, I'm finally back to the JS challenges! This time working with <b>loops</b>...</p>
+                <a href="./day5.html" class="read-more-btn" aria-label="Read more about Day 5: Creative Name Looping">
+                    Read more <i class="fas fa-arrow-right"></i>
+                </a>
             </div>
-            <div class="blog-card">
+            <div class="blog-card" data-tags="javascript numbers conditions logic" data-date="2025-07-15">
                 <small class="page-counter">July 15, 2025</small>
                 <h3>Day 6: Odd, Even, or Special?</h3>
-                <p>Yo! Back again with day 6 challenge. Today I'm playing with numbers, but not just checking...</p>
-                <a href="./blog/day6.html" class="read-more-btn" aria-label="Read more about Day 6: Odd, Even, or Special?">Read more</a>
+                <p>Yo! Back again with day 6 challenge. Today I'm playing with <b>numbers</b>, but not just checking if they're odd or even...</p>
+                <a href="./day6.html" class="read-more-btn" aria-label="Read more about Day 6: Odd, Even, or Special?">
+                    Read more <i class="fas fa-arrow-right"></i>
+                </a>
             </div>
+        </div>
+
+        <div class="no-results" id="noResults">
+            <i class="fas fa-search"></i>
+            <h3>No posts found</h3>
+            <p>Try adjusting your search or filter criteria</p>
         </div>
     </section>
 
-    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script>
+        // Particle background
+        function createParticles() {
+            const container = document.getElementById('particles');
+            const particleCount = 50;
+            
+            for (let i = 0; i < particleCount; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDelay = Math.random() * 20 + 's';
+                particle.style.animationDuration = (20 + Math.random() * 10) + 's';
+                container.appendChild(particle);
+            }
+        }
+
+        // Search and filter functionality
+        const searchInput = document.getElementById('searchInput');
+        const filterTags = document.querySelectorAll('.filter-tag');
+        const blogCards = document.querySelectorAll('.blog-card');
+        const noResults = document.getElementById('noResults');
+        const blogContainer = document.getElementById('blogContainer');
+
+        let currentFilter = 'all';
+
+        function filterPosts() {
+            const searchTerm = searchInput.value.toLowerCase();
+            let visibleCount = 0;
+
+            blogCards.forEach((card, index) => {
+                const tags = card.dataset.tags.toLowerCase();
+                const title = card.querySelector('h3').textContent.toLowerCase();
+                const content = card.querySelector('p').textContent.toLowerCase();
+                
+                const matchesSearch = !searchTerm || 
+                    tags.includes(searchTerm) || 
+                    title.includes(searchTerm) || 
+                    content.includes(searchTerm);
+                
+                const matchesFilter = currentFilter === 'all' || tags.includes(currentFilter);
+                
+                if (matchesSearch && matchesFilter) {
+                    card.style.display = 'block';
+                    card.style.animationDelay = (visibleCount * 0.1) + 's';
+                    visibleCount++;
+                } else {
+                    card.style.display = 'none';
+                }
+            });
+
+            noResults.style.display = visibleCount === 0 ? 'block' : 'none';
+            updateStats(visibleCount);
+        }
+
+        function updateStats(visibleCount) {
+            document.getElementById('totalPosts').textContent = visibleCount;
+        }
+
+        // Event listeners
+        searchInput.addEventListener('input', filterPosts);
+
+        filterTags.forEach(tag => {
+            tag.addEventListener('click', () => {
+                filterTags.forEach(t => t.classList.remove('active'));
+                tag.classList.add('active');
+                currentFilter = tag.dataset.filter;
+                filterPosts();
+            });
+        });
+
+        // Scroll reveal animation
+        function revealElements() {
+            const reveals = document.querySelectorAll('.reveal');
+            
+            reveals.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.classList.add('active');
+                }
+            });
+        }
+
+        // Animated counter
+        function animateCounter(element, target, duration = 2000) {
+            let start = 0;
+            const increment = target / (duration / 16);
+            
+            const timer = setInterval(() => {
+                start += increment;
+                element.textContent = Math.floor(start);
+                
+                if (start >= target) {
+                    element.textContent = target;
+                    clearInterval(timer);
+                }
+            }, 16);
+        }
+
+        // Enhanced card interactions
+        blogCards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-15px) rotateX(5deg) scale(1.02)';
+            });
+            
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0) rotateX(0) scale(1)';
+            });
+            
+            // Click animation
+            card.addEventListener('click', (e) => {
+                if (!e.target.closest('.read-more-btn')) {
+                    const link = card.querySelector('.read-more-btn');
+                    if (link) {
+                        card.style.transform = 'scale(0.95)';
+                        setTimeout(() => {
+                            card.style.transform = '';
+                            window.location.href = link.href;
+                        }, 150);
+                    }
+                }
+            });
+        });
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', () => {
+            createParticles();
+            
+            // Animate counters
+            setTimeout(() => {
+                animateCounter(document.getElementById('totalPosts'), 6);
+                animateCounter(document.getElementById('totalDays'), 30);
+                animateCounter(document.getElementById('currentStreak'), 2);
+            }, 1000);
+        });
+
+        window.addEventListener('scroll', revealElements);
+        revealElements(); // Check on load
+
+        // Keyboard shortcuts
+        document.addEventListener('keydown', (e) => {
+            if (e.ctrlKey && e.key === 'k') {
+                e.preventDefault();
+                searchInput.focus();
+            }
+        });
+
+        // Add loading states for better UX
+        searchInput.addEventListener('input', () => {
+            blogContainer.classList.add('loading');
+            setTimeout(() => {
+                blogContainer.classList.remove('loading');
+            }, 300);
+        });
+    </script>
 </body>
 </html>
