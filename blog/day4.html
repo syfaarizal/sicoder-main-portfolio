@@ -3,39 +3,92 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>JavaScript Number Guessing Game</title>
-  <link rel="stylesheet" href="../assets/css/blog.css">
+  <title>JavaScript Number Guessing Game - Day 4 | SICODER Blog</title>
+  <meta name="description" content="Learn to create an interactive number guessing game with JavaScript, including difficulty levels, input validation, and scoring system.">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css" />
   <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css" rel="stylesheet" />
+  <link rel="stylesheet" href="../assets/css/blog.css">
 </head>
 <body>
-  <h1>Challenge Day 4: Number Guessing Game</h1>
-  <p>Day 4 of this coding challenge had a different vibe because I was asked to create a simple game: Number Guessing Game! At first glance it sounds trivial, but turns out there were quite a few things to consider, especially for user interaction and conditional logic.</p>
-    
-  <h3>🎮 Challenge Description:</h3>
-  <p>The program should be able to:</p>
-  <ol>
-    <li>Generate a random number between 1 and 10</li>
-    <li>Ask the user to guess the number</li>
-    <li>
-      If wrong:
-      <ul>
-        <li>Give a clue: "Too small" or "Too big"</li>
-        <li>Repeat the guess</li>
-      </ul>
-    </li>
-    <li>
-      If correct:
-      <ul>
-        <li>Show success message + number of attempts</li>
-      </ul>
-    </li>
-  </ol>
-  
-  <p>Example output:</p>
-  <div class="code-block">
-    <button class="copy-button">Copy</button>
-    <pre><code class="language-js">
+  <div class="scroll-progress">
+    <div class="scroll-progress-bar"></div>
+  </div>
+
+  <nav class="header-nav">
+    <div class="nav-container">
+      <a href="./indexblog.html" class="back-to-blog">
+        <i class="fas fa-arrow-left"></i>
+        Back to Blog
+      </a>
+      <div class="post-meta-nav">
+        <div class="reading-time">
+          <i class="fas fa-clock"></i>
+          <span>8 min read</span>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <div class="container">
+    <article class="blog-post fade-in">
+      <header class="article-header">
+        <div class="challenge-badge">Challenge Day 4</div>
+        <h1>Number Guessing Game</h1>
+        <div class="article-meta">
+          <div class="meta-item">
+            <i class="fas fa-calendar"></i>
+            <span>June 11, 2025</span>
+          </div>
+          <div class="meta-item">
+            <i class="fas fa-tags"></i>
+            <span>JavaScript, Game, Logic</span>
+          </div>
+          <div class="meta-item">
+            <i class="fas fa-user"></i>
+            <span>Syifa Fauziyah Arizal</span>
+          </div>
+        </div>
+        <div class="article-intro">
+          Day 4 of this coding challenge had a different vibe because I was asked to create a simple game: Number Guessing Game! This challenge taught me about random number generation, user interaction, and conditional logic.
+        </div>
+      </header>
+
+      <section>
+        <h2><i class="fas fa-gamepad"></i> Challenge Description</h2>
+        <p>The program should be able to:</p>
+        <ol>
+          <li>Generate a random number between 1 and 10</li>
+          <li>Ask the user to guess the number</li>
+          <li>
+            If wrong:
+            <ul>
+              <li>Give a clue: "Too small" or "Too big"</li>
+              <li>Repeat the guess</li>
+            </ul>
+          </li>
+          <li>
+            If correct:
+            <ul>
+              <li>Show success message + number of attempts</li>
+            </ul>
+          </li>
+        </ol>
+
+        <div class="code-block">
+          <div class="code-header">
+            <div class="code-title">
+              <i class="fab fa-js"></i>
+              Example Output
+            </div>
+            <button class="copy-button" onclick="copyCode(this)">
+              <i class="fas fa-copy"></i>
+              Copy
+            </button>
+          </div>
+          <pre><code class="language-js">
 I'm thinking of a number between 1 and 10.
 Take a guess!
 Your guess: 4
@@ -44,25 +97,50 @@ Your guess: 7
 Too big!
 Your guess: 6
 Congratulations! You guessed the number correctly in 3 attempts.
-    </code></pre>
-  </div>
-    
-  <h3>🧠 Funny Debugging</h3>
-  <p>At first I wrote it like this:</p>
-  <div class="code-block">
-    <button class="copy-button">Copy</button>
-    <pre><code class="language-js">
+          </code></pre>
+        </div>
+      </section>
+
+      <section>
+        <h2><i class="fas fa-bug"></i> Funny Debugging</h2>
+        <p>At first I wrote it like this:</p>
+        
+        <div class="code-block">
+          <div class="code-header">
+            <div class="code-title">
+              <i class="fab fa-js"></i>
+              Initial Mistake
+            </div>
+            <button class="copy-button" onclick="copyCode(this)">
+              <i class="fas fa-copy"></i>
+              Copy
+            </button>
+          </div>
+          <pre><code class="language-js">
 const randomNumber:
 Math.floor(Math.random() * 10) + 1:
-    </code></pre>
-  </div>
-  <p>And of course it errored. I was confused for a moment. Turns out I used <code>:</code> when I should've used <code>=</code> for assignment. Classic JavaScript typo.</p>
-    
-  <h3>🚀 Initial Fixed Version</h3>
-  <p>After fixing and rearranging the logic, here's my first working version:</p>
-  <div class="code-block">
-    <button class="copy-button">Copy</button>
-    <pre><code class="language-js">
+          </code></pre>
+        </div>
+        
+        <p>And of course it errored. I was confused for a moment. Turns out I used <code>:</code> when I should've used <code>=</code> for assignment. Classic JavaScript typo.</p>
+      </section>
+
+      <section>
+        <h2><i class="fas fa-check-circle"></i> Initial Fixed Version</h2>
+        <p>After fixing and rearranging the logic, here's my first working version:</p>
+        
+        <div class="code-block">
+          <div class="code-header">
+            <div class="code-title">
+              <i class="fab fa-js"></i>
+              Working Version
+            </div>
+            <button class="copy-button" onclick="copyCode(this)">
+              <i class="fas fa-copy"></i>
+              Copy
+            </button>
+          </div>
+          <pre><code class="language-js">
 let randomNumber = Math.floor(Math.random() * 10) + 1;
 let attempt = 0;
 let repeat = true;
@@ -86,23 +164,36 @@ while(repeat) {
     }
   }
 }
-    </code></pre>
-  </div>
-  <p>The code is simple and works immediately. But I felt it could still be improved.</p>
-    
-  <h2>✨ Bonus Challenge</h2>
-  <p>There were additional optional challenges:</p>
-  <ul>
-    <li>Number input validation</li>
-    <li>Scoring system (comments based on number of attempts)</li>
-    <li>Hard mode: 1-50</li>
-  </ul>
-    
-  <h3>✅ Input Validation & Scoring</h3>
-  <p>Number validation was already implemented using <code>isNaN()</code>. Just needed to add the scoring system logic:</p>
-  <div class="code-block">
-    <button class="copy-button">Copy</button>
-    <pre><code class="language-js">
+          </code></pre>
+        </div>
+        
+        <p>The code is simple and works immediately. But I felt it could still be improved.</p>
+      </section>
+
+      <section>
+        <h2><i class="fas fa-star"></i> Bonus Challenge</h2>
+        <p>There were additional optional challenges:</p>
+        <ul>
+          <li>Number input validation</li>
+          <li>Scoring system (comments based on number of attempts)</li>
+          <li>Hard mode: 1-50</li>
+        </ul>
+        
+        <h3><i class="fas fa-check-double"></i> Input Validation & Scoring</h3>
+        <p>Number validation was already implemented using <code>isNaN()</code>. Just needed to add the scoring system logic:</p>
+        
+        <div class="code-block">
+          <div class="code-header">
+            <div class="code-title">
+              <i class="fab fa-js"></i>
+              Scoring System
+            </div>
+            <button class="copy-button" onclick="copyCode(this)">
+              <i class="fas fa-copy"></i>
+              Copy
+            </button>
+          </div>
+          <pre><code class="language-js">
 if(attempt <= 3) {
   console.log("🔥 Pro move! You guessed it super fast.");
 } else if (attempt <= 6) {
@@ -110,31 +201,63 @@ if(attempt <= 3) {
 } else {
   console.log("😅 Well, needs more practice. Keep trying!");
 }
-    </code></pre>
-  </div>
-    
-  <h3>🎯 Hard Mode (1-50)</h3>
-  <p>I used <code>confirm()</code> to ask if the user wants to play in hard mode:</p>
-  <div class="code-block">
-    <button class="copy-button">Copy</button>
-    <pre><code class="language-js">
+          </code></pre>
+        </div>
+        
+        <h3><i class="fas fa-fire"></i> Hard Mode (1-50)</h3>
+        <p>I used <code>confirm()</code> to ask if the user wants to play in hard mode:</p>
+        
+        <div class="code-block">
+          <div class="code-header">
+            <div class="code-title">
+              <i class="fab fa-js"></i>
+              Hard Mode Implementation
+            </div>
+            <button class="copy-button" onclick="copyCode(this)">
+              <i class="fas fa-copy"></i>
+              Copy
+            </button>
+          </div>
+          <pre><code class="language-js">
 let hardMode = confirm("Want to play in hard mode? (Numbers 1–50)");
 let rangeText = hardMode ? "1 and 50" : "1 and 10";
 let randomNumber = Math.floor(Math.random() * (hardMode ? 50 : 10)) + 1;
-    </code></pre>
-  </div>
-  <p>Then I included rangeText in the <code>prompt()</code> to make it dynamic:</p>
-  <div class="code-block">
-    <button class="copy-button">Copy</button>
-    <pre><code class="language-js">
+          </code></pre>
+        </div>
+        
+        <p>Then I included rangeText in the <code>prompt()</code> to make it dynamic:</p>
+        
+        <div class="code-block">
+          <div class="code-header">
+            <div class="code-title">
+              <i class="fab fa-js"></i>
+              Dynamic Prompt
+            </div>
+            <button class="copy-button" onclick="copyCode(this)">
+              <i class="fas fa-copy"></i>
+              Copy
+            </button>
+          </div>
+          <pre><code class="language-js">
 const userInput = prompt(`I'm thinking of a number between ${rangeText}. Take a guess!`);
-    </code></pre>
-  </div>
-    
-  <h3>🧩 Final Version: Fully Interactive</h3>
-  <div class="code-block">
-    <button class="copy-button">Copy</button>
-    <pre><code class="language-js">
+          </code></pre>
+        </div>
+      </section>
+
+      <section>
+        <h2><i class="fas fa-trophy"></i> Final Version: Fully Interactive</h2>
+        <div class="code-block">
+          <div class="code-header">
+            <div class="code-title">
+              <i class="fab fa-js"></i>
+              Complete Solution
+            </div>
+            <button class="copy-button" onclick="copyCode(this)">
+              <i class="fas fa-copy"></i>
+              Copy
+            </button>
+          </div>
+          <pre><code class="language-js">
 let hardMode = confirm("Want to play in hard mode? (Numbers 1–50)");
 let rangeText = hardMode ? "1 and 50" : "1 and 10";
 let randomNumber = Math.floor(Math.random() * (hardMode ? 50 : 10)) + 1;
@@ -169,22 +292,86 @@ while(repeat) {
     }
   }
 }
-    </code></pre>
+          </code></pre>
+        </div>
+      </section>
+
+      <footer class="article-footer">
+        <div class="conclusion">
+          <h3>💡 Reflection</h3>
+          <p>What I learned from this challenge:</p>
+          <ul>
+            <li>The importance of careful syntax writing (small typos can cause big errors)</li>
+            <li><code>if-else</code> logic can be enhanced to be more interactive and dynamic</li>
+            <li><code>confirm()</code> and <code>prompt()</code> make the user experience more engaging</li>
+            <li>Debugging can actually be fun when treated as learning material</li>
+          </ul>
+          <p>And of course, I'm more excited to continue to Day 5 🚀</p>
+        </div>
+        
+        <div style="text-align: center;">
+          <a href="https://github.com/syfaarizal/js-number-guessing-game" target="_blank" rel="noopener noreferrer" class="github-link">
+            <i class="fab fa-github"></i> 
+            View Source Code
+          </a>
+        </div>
+      </footer>
+    </article>
+
+    <!-- Post Navigation -->
+    <nav class="post-navigation">
+      <a href="./day3.html" class="nav-button">
+        <span class="nav-label">← Previous</span>
+        <span class="nav-title">Interactive Calculator</span>
+      </a>
+      <a href="./day5.html" class="nav-button next">
+        <span class="nav-label">Next →</span>
+        <span class="nav-title">To-Do List App</span>
+      </a>
+    </nav>
+
+    <!-- Related Posts -->
+    <section class="related-posts">
+      <h3>📚 Related Posts</h3>
+      <div class="related-grid">
+        <a href="day3.html" class="related-card">
+          <div class="related-date">June 9, 2025</div>
+          <div class="related-title">Day 3: Interactive Calculator</div>
+          <div class="related-excerpt">Building a fully functional calculator with interactive user interface and proper error handling.</div>
+          <div class="related-tags">
+            <span class="tag">JavaScript</span>
+            <span class="tag">UI</span>
+            <span class="tag">Interactive</span>
+          </div>
+        </a>
+        
+        <a href="day5.html" class="related-card">
+          <div class="related-date">June 13, 2025</div>
+          <div class="related-title">Day 5: To-Do List App</div>
+          <div class="related-excerpt">Building a simple to-do list application with add, remove, and mark as complete functionality.</div>
+          <div class="related-tags">
+            <span class="tag">JavaScript</span>
+            <span class="tag">DOM</span>
+            <span class="tag">Productivity</span>
+          </div>
+        </a>
+        
+        <a href="day6.html" class="related-card">
+          <div class="related-date">June 15, 2025</div>
+          <div class="related-title">Day 6: Weather App</div>
+          <div class="related-excerpt">Creating a weather application that fetches data from an API and displays it beautifully.</div>
+          <div class="related-tags">
+            <span class="tag">JavaScript</span>
+            <span class="tag">API</span>
+            <span class="tag">Async</span>
+          </div>
+        </a>
+      </div>
+    </section>
   </div>
-    
-  <h3>💬 Reflection</h3>
-  <p>What I learned from this challenge:</p>
-  <ul>
-    <li>The importance of careful syntax writing (small typos can cause big errors)</li>
-    <li><code>if-else</code> logic can be enhanced to be more interactive and dynamic</li>
-    <li><code>confirm()</code> and <code>prompt()</code> make the user experience more engaging</li>
-    <li>Debugging can actually be fun when treated as learning material</li>
-  </ul>
-    
-  <p>And of course, I'm more excited to continue to Day 5 🚀</p>
-    
-  <p><a href="https://github.com/syfaarizal/js-number-guessing-game" target="_blank" rel="noopener noreferrer"><i class="fab fa-github"></i> View on GitHub</a></p>
+
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-javascript.min.js"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-jsx.min.js"></script>
   <script src="../assets/js/mainblog.js"></script>
 </body>

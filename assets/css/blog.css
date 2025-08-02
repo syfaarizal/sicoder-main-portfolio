@@ -332,9 +332,15 @@ code:not(pre code) {
   border-bottom: none;
 }
 
-/* .tb-blog tr:hover {
-  background-color: #f7fafc;
-} */
+.modal-img {
+  display: flex;
+  align-items: center;
+}
+
+.modal-img img{
+  max-width: 100%;
+  margin-bottom: 20px;
+}
 
 /* Article Footer */
 .article-footer {
