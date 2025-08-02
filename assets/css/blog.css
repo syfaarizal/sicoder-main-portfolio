@@ -302,6 +302,40 @@ code:not(pre code) {
   font-size: 1.2rem;
 }
 
+/* Table Styles */
+.tb-blog {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0;
+  font-family: 'Inter', sans-serif;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.tb-blog th {
+  background-color: var(--primary-color);
+  color: white;
+  padding: 12px 15px;
+  text-align: left;
+  font-weight: 600;
+  text-transform: uppercase;
+  font-size: 0.85rem;
+  letter-spacing: 0.5px;
+}
+
+.tb-blog td {
+  padding: 12px 15px;
+  border-bottom: 1px solid #e2e8f0;
+  vertical-align: top;
+}
+
+.tb-blog tr:last-child td {
+  border-bottom: none;
+}
+
+/* .tb-blog tr:hover {
+  background-color: #f7fafc;
+} */
+
 /* Article Footer */
 .article-footer {
   margin-top: 4rem;

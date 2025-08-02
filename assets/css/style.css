@@ -395,7 +395,7 @@ span{
 }
 
 .about-header h1::after {
-  content: '';
+  /* content: ''; */
   position: absolute;
   bottom: -10px;
   left: 50%;
@@ -409,14 +409,14 @@ span{
 .about-header p {
   font-size: 2.2rem;
   color: var(--text-light);
-  font-weight: 600;
+  /* font-weight: 600; */
   opacity: 0;
-  animation: fadeIn 1s ease 0.8s forwards;
+  animation: fadeIn 1s ease 0.5s forwards;
 }
 
 @keyframes fadeIn {
   to {
-  opacity: 1;
+    opacity: 1;
   }
 }
 
