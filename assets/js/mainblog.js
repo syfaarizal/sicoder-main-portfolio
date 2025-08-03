@@ -26,9 +26,9 @@ function updateScrollProgress() {
 
 window.addEventListener('scroll', updateScrollProgress);
 
-// Smooth reveal animation on scroll
+//Smooth reveal animation on scroll
 function revealElements() {
-    const elements = document.querySelectorAll('section, .related-card');
+    const elements = document.querySelectorAll('.related-card');
   
     elements.forEach(element => {
         const elementTop = element.getBoundingClientRect().top;

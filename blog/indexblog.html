@@ -6,7 +6,7 @@
     <meta name="description" content="Personal portfolio of Syifa Fauziyah Arizal - Front-end developer & UI designer.">
     <meta name="theme-color" content="#161616">
     <meta name="msapplication-TileColor" content="#971313">
-    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="mobile-web-app-capable" content="yes">
     <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,10 +15,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <title>SICODER. Blog</title>
     <style>
+        @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600&display=swap');
+        
         :root {
             --primary-color: #971313;
             --primary-light: #c74a4a;
-            --primary-gradient: linear-gradient(135deg, #971313, #c74a4a);
+            --primary-gradient: linear-gradient(135deg, #971313, #470000);
             --dark-color: #000000;
             --light-color: #f8f8f8;
             --gray-color: #e0e0e0;
@@ -26,7 +28,7 @@
             --transition: all 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94);
             --shadow: 0 4px 20px rgba(151, 19, 19, 0.1);
             --shadow-hover: 0 20px 40px rgba(151, 19, 19, 0.2);
-            --blur-bg: rgba(255, 255, 255, 0.95);
+            --blur-bg: rgba(219, 219, 219, 0.95);
         }
 
         * {
@@ -38,10 +40,6 @@
         body {
             font-family: 'Poppins', sans-serif;
             background: var(--dark-color);
-            background-image: url(/assets/img/bg-red.jpg);
-            background-repeat: no-repeat;
-            background-size: 110% 100%;
-            background-position: center center;
             color: var(--light-color);
             line-height: 1.6;
             overflow-x: hidden;
@@ -55,13 +53,13 @@
             width: 100%;
             height: 100%;
             z-index: -1;
-            opacity: 0.1;
+            opacity: 1;
         }
 
         .particle {
             position: absolute;
-            width: 2px;
-            height: 2px;
+            width: 5px;
+            height: 5px;
             background: var(--primary-color);
             border-radius: 50%;
             animation: float 20s infinite linear;
@@ -123,7 +121,7 @@
 
         .blog-header p {
             font-size: 1.2rem;
-            color: #888;
+            color: var(--gray-color);
             max-width: 600px;
             margin: 0 auto;
             opacity: 0.8;
@@ -177,6 +175,7 @@
             display: flex;
             gap: 0.5rem;
             flex-wrap: wrap;
+            z-index: 1;
         }
 
         .filter-tag {
@@ -194,7 +193,7 @@
         .filter-tag:hover,
         .filter-tag.active {
             background: var(--primary-gradient);
-            color: white;
+            color: var(--gray-color);
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(151, 19, 19, 0.3);
         }
@@ -349,7 +348,7 @@
         }
 
         .read-more-btn:hover {
-            color: white;
+            color: var(--dark-color);
             transform: translateY(-2px);
             box-shadow: 0 5px 15px rgba(151, 19, 19, 0.3);
         }
@@ -374,10 +373,11 @@
         .stat-item {
             text-align: center;
             padding: 1rem;
-            background: var(--blur-bg);
+            background: var(--dark-color);
             backdrop-filter: blur(10px);
             border-radius: 15px;
             min-width: 120px;
+            border: 1px solid var(--primary-color);
         }
 
         .stat-number {
@@ -389,7 +389,7 @@
 
         .stat-label {
             font-size: 0.9rem;
-            color: #666;
+            color: #999999;
             text-transform: uppercase;
             letter-spacing: 1px;
         }
@@ -443,6 +443,34 @@
         .blog-card:nth-child(5) { animation-delay: 0.5s; }
         .blog-card:nth-child(6) { animation-delay: 0.6s; }
 
+        .logo-sticky img {
+            width: 130%;
+            height: auto;
+        }
+
+        .logo-sticky {
+            position: fixed;
+            bottom: 10px;
+            right: 30px;
+            z-index: 999;
+            width: 50px;
+            height: auto;
+            max-width: 30vw;
+            max-height: 30vh;
+            opacity: 0.8;
+            transition: all 0.3s ease;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-sticky:hover {
+            opacity: 1;
+            transform: scale(1.2) rotate(5deg);
+            cursor: pointer;
+        }
+
+
         /* Responsive Design */
         @media (max-width: 768px) {
             .blog-controls {
@@ -465,6 +493,25 @@
 
             .blog-card:hover {
                 transform: translateY(-10px);
+            }
+
+            .logo-sticky {
+                width: 40px;
+                right: 10px;
+            }
+
+            .logo-sticky img {
+                width: 100%;
+                height: auto;
+            }
+
+            .logo-sticky:hover {
+                transform: scale(1.1) rotate(5deg);
+            }
+
+            .particle {
+                width: 3px;
+                height: 3px;
             }
         }
 
@@ -497,7 +544,7 @@
                 <span class="stat-label">Posts</span>
             </div>
             <div class="stat-item">
-                <span class="stat-number" id="totalDays">81</span>
+                <span class="stat-number" id="totalDays">30</span>
                 <span class="stat-label">Days</span>
             </div>
             <div class="stat-item">
@@ -514,17 +561,29 @@
             <div class="filter-tags">
                 <button class="filter-tag active" data-filter="all">All</button>
                 <button class="filter-tag" data-filter="javascript">JavaScript</button>
-                <button class="filter-tag" data-filter="game">Games</button>
-                <button class="filter-tag" data-filter="calculator">Calculator</button>
-                <button class="filter-tag" data-filter="loop">Loops</button>
                 <button class="filter-tag" data-filter="html">HTML</button>
                 <button class="filter-tag" data-filter="css">CSS</button>
+                <button class="filter-tag" data-filter="game">Games</button>
+                <button class="filter-tag" data-filter="calculator">Calculator</button>
+                <button class="filter-tag" data-filter="loops">Loops</button>
+                <button class="filter-tag" data-filter="math">Math</button>
+                <button class="filter-tag" data-filter="conditions">Conditions</button>
+                <button class="filter-tag" data-filter="array">Arrays</button>
                 <button class="filter-tag" data-filter="template-literals">Template Literals</button>
-                <button class="filter-tag" data-filter="variables">Variables</button>
                 <button class="filter-tag" data-filter="functions">Functions</button>
-                <button class="filter-tag" data-filter="objects">Objects</button>
-                <button class="filter-tag" data-filter="arrays">Arrays</button>
-                <button class="filter-tag" data-filter="conditionals">Conditionals</button>
+                <button class="filter-tag" data-filter="calculator">Calculator</button>
+                <button class="filter-tag" data-filter="logic">Logic</button>
+                <button class="filter-tag" data-filter="grid">Grid</button>
+                <button class="filter-tag" data-filter="layout">Layout</button>
+                <button class="filter-tag" data-filter="flexbox">Flexbox</button>
+                <button class="filter-tag" data-filter="animations">Animations</button>
+                <button class="filter-tag" data-filter="basics">Basics</button>
+                <button class="filter-tag" data-filter="web design">Web Design</button>
+                <button class="filter-tag" data-filter="responsive design">Responsive Design</button>
+                <button class="filter-tag" data-filter="styling">Styling</button>
+                <button class="filter-tag" data-filter="web development">Web Development</button>
+                <button class="filter-tag" data-filter="age">Age</button>
+                <button class="filter-tag" data-filter="semantics">Semantics</button>
             </div>
         </div>
 
@@ -549,7 +608,7 @@
                     Read more <i class="fas fa-arrow-right"></i>
                 </a>
             </div>
-            <div class="blog-card" data-tags="javascript calculator interactive ui" data-date="2025-06-09">
+            <div class="blog-card" data-tags="javascript functions calculator" data-date="2025-06-09">
                 <small class="page-counter">June 9, 2025</small>
                 <h3>Day 3: Interactive Calculator</h3>
                 <p>Day 3 of this coding challenge really made me frown but also smile when I finally got it working. Building an <b>interactive calculator...</b></p>
@@ -557,7 +616,7 @@
                     Read more <i class="fas fa-arrow-right"></i>
                 </a>
             </div>
-            <div class="blog-card" data-tags="javascript game guessing random" data-date="2025-06-11">
+            <div class="blog-card" data-tags="javascript game logic" data-date="2025-06-11">
                 <small class="page-counter">June 11, 2025</small>
                 <h3>Day 4: Number Guessing Game</h3>
                 <p>Day 4 of this coding challenge had a different vibe because I was asked to create a simple <b>game</b>: a number guessing challenge...</p>
@@ -565,7 +624,7 @@
                     Read more <i class="fas fa-arrow-right"></i>
                 </a>
             </div>
-            <div class="blog-card" data-tags="javascript loop creative patterns" data-date="2025-07-07">
+            <div class="blog-card" data-tags="javascript loops array" data-date="2025-07-07">
                 <small class="page-counter">July 7, 2025</small>
                 <h3>Day 5: Creative Name Looping</h3>
                 <p>After taking some time off to focus on other projects, I'm finally back to the JS challenges! This time working with <b>loops...</b></p>
@@ -573,7 +632,7 @@
                     Read more <i class="fas fa-arrow-right"></i>
                 </a>
             </div>
-            <div class="blog-card" data-tags="javascript numbers conditions logic" data-date="2025-07-15">
+            <div class="blog-card" data-tags="javascript conditions logic" data-date="2025-07-15">
                 <small class="page-counter">July 15, 2025</small>
                 <h3>Day 6: Odd, Even, or Special?</h3>
                 <p>Yo! Back again with day 6 challenge. Today I'm playing with <b>numbers</b>, but not just checking if they're odd or even...</p>
@@ -588,19 +647,19 @@
         </div>
 
         <div class="blog-container" id="blogContainer">
-            <div class="blog-card" data-tags="javascript numbers conditions logic" data-date="2025-07-15">
+            <div class="blog-card" data-tags="html web development basics" data-date="2025-07-15">
                 <small class="page-counter">May 15, 2025</small>
                 <h3>HTML Basics: The Foundation of Web Development</h3>
-                <p>"If a website is a house, HTML is its foundation. You can't see it, but everything stands because of it."</p>
-                <a href="./html-intro.html" class="read-more-btn" aria-label="Read more about Day 6: Odd, Even, or Special?">
+                <p>HTML is the foundation of all web development. Learn the basic concepts, tags, and structure that...</p>
+                <a href="./html-intro.html" class="read-more-btn" aria-label="Read more about HTML Basics: The Foundation of Web Development">
                     Read more <i class="fas fa-arrow-right"></i>
                 </a>
             </div>
-            <div class="blog-card" data-tags="javascript numbers conditions logic" data-date="2025-07-15">
+            <div class="blog-card" data-tags="html layout semantics" data-date="2025-07-15">
                 <small class="page-counter">May 16, 2025</small>
                 <h3>HTML Intermediate: Structure & Semantics</h3>
-                <p>"If part 1 was the house foundation, part 2 is about arranging the rooms to be cozy and well-structured."</p>
-                <a href="html-intro2.html" class="read-more-btn" aria-label="Read more about Day 6: Odd, Even, or Special?">
+                <p>Take your HTML skills to the next level by learning about iframes, div vs span, and the importance of semantic HTML structure...</p>
+                <a href="html-intro2.html" class="read-more-btn" aria-label="Read more about HTML Intermediate: Structure & Semantics">
                     Read more <i class="fas fa-arrow-right"></i>
                 </a>
             </div>
@@ -611,35 +670,35 @@
         </div>
 
         <div class="blog-container" id="blogContainer">
-            <div class="blog-card" data-tags="javascript numbers conditions logic" data-date="2025-07-15">
-                <small class="page-counter">July 15, 2025</small>
-                <h3>Day 6: Odd, Even, or Special?</h3>
-                <p>Yo! Back again with day 6 challenge. Today I'm playing with <b>numbers</b>, but not just checking if they're odd or even...</p>
-                <a href="./css1.html" class="read-more-btn" aria-label="Read more about Day 6: Odd, Even, or Special?">
+            <div class="blog-card" data-tags="css web design styling basics" data-date="2025-07-15">
+                <small class="page-counter">May 17, 2025</small>
+                <h3>CSS Basics: Styling the Web</h3>
+                <p>CSS is what transforms plain HTML into beautiful, visually appealing websites. Learn the fundamentals of styling web pages with colors, fonts, and layouts....</p>
+                <a href="./css1.html" class="read-more-btn" aria-label="Read more about CSS Basics: Styling the Web">
                     Read more <i class="fas fa-arrow-right"></i>
                 </a>
             </div>
-            <div class="blog-card" data-tags="javascript numbers conditions logic" data-date="2025-07-15">
-                <small class="page-counter">July 15, 2025</small>
-                <h3>Day 6: Odd, Even, or Special?</h3>
-                <p>Yo! Back again with day 6 challenge. Today I'm playing with <b>numbers</b>, but not just checking if they're odd or even...</p>
-                <a href="./css2.html" class="read-more-btn" aria-label="Read more about Day 6: Odd, Even, or Special?">
+            <div class="blog-card" data-tags="css web design styling" data-date="2025-07-15">
+                <small class="page-counter">May 19, 2025</small>
+                <h3>CSS Styling: Beyond the Basics</h3>
+                <p>Take your CSS skills further by mastering text styling, the box model, backgrounds, and display properties to create visually appealing websites....</p>
+                <a href="./css2.html" class="read-more-btn" aria-label="Read more about CSS Styling: Beyond the Basics">
                     Read more <i class="fas fa-arrow-right"></i>
                 </a>
             </div>
-            <div class="blog-card" data-tags="javascript numbers conditions logic" data-date="2025-07-15">
-                <small class="page-counter">July 15, 2025</small>
-                <h3>Day 6: Odd, Even, or Special?</h3>
-                <p>Yo! Back again with day 6 challenge. Today I'm playing with <b>numbers</b>, but not just checking if they're odd or even...</p>
-                <a href="./css3.html" class="read-more-btn" aria-label="Read more about Day 6: Odd, Even, or Special?">
+            <div class="blog-card" data-tags="css layout flexbox grid" data-date="2025-07-15">
+                <small class="page-counter">May 22, 2025</small>
+                <h3>CSS Layout: Positioning and Modern Techniques?</h3>
+                <p>Master modern CSS layout techniques including positioning, Flexbox, Grid systems, and responsive design to create...</p>
+                <a href="./css3.html" class="read-more-btn" aria-label="Read more about CSS Layout: Positioning and Modern Techniques">
                     Read more <i class="fas fa-arrow-right"></i>
                 </a>
             </div>
-            <div class="blog-card" data-tags="javascript numbers conditions logic" data-date="2025-07-15">
-                <small class="page-counter">July 15, 2025</small>
-                <h3>Day 6: Odd, Even, or Special?</h3>
-                <p>Yo! Back again with day 6 challenge. Today I'm playing with <b>numbers</b>, but not just checking if they're odd or even...</p>
-                <a href="./css4.html" class="read-more-btn" aria-label="Read more about Day 6: Odd, Even, or Special?">
+            <div class="blog-card" data-tags="css animations responsive design" data-date="2025-07-15">
+                <small class="page-counter">May 27, 2025</small>
+                <h3>CSS Advanced: Animations, Responsive Design & Best Practices</h3>
+                <p>aster advanced CSS techniques including animations, transitions, responsive units, and professional...</p>
+                <a href="./css4.html" class="read-more-btn" aria-label="Read more about CSS Advanced: Animations, Responsive Design & Best Practices">
                     Read more <i class="fas fa-arrow-right"></i>
                 </a>
             </div>
@@ -649,6 +708,10 @@
             <i class="fas fa-search"></i>
             <h3>No posts found</h3>
             <p>Try adjusting your search or filter criteria</p>
+        </div>
+
+        <div class="logo-sticky">
+            <img src="../assets/img/logo-html-more-red-no-bg.png" alt="Your Logo" />
         </div>
     </section>
 
@@ -673,7 +736,7 @@
         const filterTags = document.querySelectorAll('.filter-tag');
         const blogCards = document.querySelectorAll('.blog-card');
         const noResults = document.getElementById('noResults');
-        const blogContainer = document.getElementById('blogContainer');
+        const blogContainers = document.querySelectorAll('.blog-container');
 
         let currentFilter = 'all';
 
@@ -699,6 +762,15 @@
                     visibleCount++;
                 } else {
                     card.style.display = 'none';
+                }
+            });
+
+            // Show/hide section headers based on visible cards
+            blogContainers.forEach(container => {
+                const visibleCardsInContainer = container.querySelectorAll('.blog-card[style*="display: block"], .blog-card:not([style*="display: none"])').length;
+                const header = container.previousElementSibling;
+                if (header && header.classList.contains('judul-blog')) {
+                    header.style.display = visibleCardsInContainer > 0 ? 'block' : 'none';
                 }
             });
 
@@ -784,7 +856,7 @@
             // Animate counters
             setTimeout(() => {
                 animateCounter(document.getElementById('totalPosts'), 12);
-                animateCounter(document.getElementById('totalDays'), 81);
+                animateCounter(document.getElementById('totalDays'), 30);
                 animateCounter(document.getElementById('currentStreak'), 3);
             }, 1000);
         });
@@ -802,6 +874,7 @@
 
         // Add loading states for better UX
         searchInput.addEventListener('input', () => {
+            const blogContainer = document.getElementById('jsContainer');
             blogContainer.classList.add('loading');
             setTimeout(() => {
                 blogContainer.classList.remove('loading');

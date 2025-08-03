@@ -395,7 +395,7 @@ span{
 }
 
 .about-header h1::after {
-  /* content: ''; */
+  content: '';
   position: absolute;
   bottom: -10px;
   left: 50%;
@@ -409,7 +409,6 @@ span{
 .about-header p {
   font-size: 2.2rem;
   color: var(--text-light);
-  /* font-weight: 600; */
   opacity: 0;
   animation: fadeIn 1s ease 0.5s forwards;
 }
@@ -500,6 +499,13 @@ span{
   align-items: center;
 }
 
+.about-img img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
+}
+
 /* Rotating border effect */
 .about-img-container::before {
   content: '';
@@ -562,7 +568,7 @@ span{
   object-fit: cover;
   border: 4px solid rgba(151, 19, 19, 0.3);
   transition: all 0.5s ease;
-  filter: grayscale(20%) contrast(80%);
+  filter: grayscale(10%) contrast(95%);
   box-shadow: 
     0 0 30px rgba(151, 19, 19, 0.582),
     inset 0 0 20px rgba(0, 0, 0, 0.3);
@@ -571,11 +577,19 @@ span{
 .about-img-container:hover img {
   transform: scale(1.05);
   border-color: var(--primary-color);
-  filter: grayscale(0%) contrast(100%) brightness(105%);
+  filter: grayscale(0%) contrast(105%) brightness(120%);
   box-shadow: 
     0 0 50px rgba(151, 19, 19, 0.6),
     0 0 100px rgba(151, 19, 19, 0.37),
     inset 0 0 20px rgba(0, 0, 0, 0.2);
+}
+
+.about-img-container:hover img{
+  background-image: url(../img/logo-html-more-red-no-bg.png);
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border-radius: 50%;
 }
 
 /* skill */
