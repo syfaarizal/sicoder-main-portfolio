@@ -1,99 +1,85 @@
-# 🚀 SICODE[R] – Personal Web Portfolio
+# <SICODER /> 👑
 
-Welcome to my personal portfolio website!  
-This is where I document, build, and grow as a self-taught **Front-End Developer**, **QA** & **UI enthusiast**.
+> "Code like royalty. Grow like a warrior." — *SICODER*
 
-## 🎯 Live Site
+![SICODER Logo](.//assets/img/sicoder-logo-readme.png)
 
-🌐 [Check it out here](https://syfaarizal.github.io/sicoder-main-portfolio/)
+**SICODER** is my personal front-end portfolio, tech lab, and creative playground — built to evolve alongside my skills, mindset, and ambition as a developer.
 
----
-
-## 📌 About the Project
-
-SICODE[R] bukan sekadar portfolio biasa. Ini adalah tempat gue menunjukkan kemampuan _front-end_, UI, dan semangat belajar gue secara real-time.
-
-Website ini dibangun full dari 0 menggunakan:
-
-- ✅ **HTML5** – Struktur semantic dan accessibility
-- 🎨 **CSS3** – Styling lengkap, animasi, responsive design
-- ⚙️ **JavaScript (Vanilla)** – Interaktivitas seperti modal, event handling, blog viewer
-- 📝 **Blog Post Loader** – Markdown blog di-fetch secara dinamis via JavaScript
-- 🎯 **Mobile-First Design** – Optimized for all screen sizes
+This project blends clean code with strong identity. It’s not just a portfolio, it’s a statement.
 
 ---
 
-## 📁 Project Structure
+## 🎨 Meet SICODER
 
-```bash
-├── index.html              # Main HTML file
-├── style.css               # Custom styling & responsive layout
-├── main.js                 # JavaScript logic (blog modal, nav toggle, scrollspy)
-├── blogPosts.json          # Blog metadata (title, date, file path)
-├── assets/                 # All image & logo files
-└── blog/                   # Markdown blog posts (markdown files not included here)
-```
+SICODER stands for:  
+> **"Si Koder"** — an identity I wear proudly as a self-taught developer with a mission: build great UIs, solve real problems, and create impact through tech.
+
+Home to:
+- 💼 My live portfolio  
+- 🧠 A dev blog featuring thoughts & tutorials  
+- 🧪 A sandbox for front-end experiments  
+- 🎭 A personal brand powered by consistency and growth  
+
+---
+
+## 🧑‍🎤 Who’s behind the code?
+
+![Kai Shi](./assets/img/Kai-Shi-nobg.png)
+
+Meet **Kai Shi** — the digital face of SICODER.  
+A fictional persona that represents my coding spirit: focused, bold, and future-ready. Kai Shi lives in the `about` section of this site as a visual embodiment of my growth journey.
+
+---
+
+## ⚙️ Tech Stack
+
+- **HTML5**, **CSS3**, **Vanilla JavaScript**  
+- Future: **React**, **Next.js**, **Tailwind CSS**  
+- Markdown-based blog setup (static for now)
 
 ---
 
 ## ✨ Features
 
-- ✅ Fully responsive & mobile-friendly
-- 🧠 Interactive blog viewer with Markdown rendering
-- 🛠️ Clean UI design with custom hover & scroll effects
-- 🔥 Section-based scrollspy for active nav
-- 🧪 Project showcase with live demo & source code links
-- 💬 Contact form with `formsubmit.co`
+- Fully responsive layout  
+- Semantic, accessible HTML  
+- Consistent branding (color, icon, identity)  
+- Linked blog system w/ tags  
+- Clean modular codebase (soon to be component-based)
 
 ---
 
-## 📚 Blog System
+## 🔭 Roadmap
 
-Blog section menampilkan konten belajar gue setiap hari, termasuk challenge dan materi HTML/CSS/JS. Konten-nya diambil dari file markdown dan ditampilkan secara dinamis pakai **marked.js**.
-
-Example data (from `blogPosts.json`):
-
-```json
-{
-  "title": "Day 1: Cetak Nama dan Status",
-  "sub": "Ditulis pada 05 Juni 2025",
-  "file": "blog/day1.md"
-}
-```
+- [x] Home, About, Skills, Blog, Projects, Contact  
+- [x] Branding integration (logo + Kai Shi)  
+- [ ] Migrate to **React + Next.js**  
+- [ ] Add CMS for blog (Notion API / MDX / Sanity)  
+- [ ] Implement dark mode + theme switcher  
+- [ ] Add animation via Framer Motion  
+- [ ] SEO & performance optimization
 
 ---
 
-## 📦 Tools & Library
+## 🙋‍♀️ About Me
 
-- [Font Awesome 6](https://fontawesome.com/)
-- [Marked.js](https://marked.js.org/)
-- [Formsubmit.co](https://formsubmit.co/) (for contact form)
-- HTML/CSS/JS Vanilla (tanpa framework)
+Hey, I’m **Syifa** — an Indonesian self-taught front-end developer with dreams bigger than my GitHub graph.  
+I’m building this as both a showcase and a process tracker. Everything in SICODER is made with intention, and every update reflects a step forward.
 
----
-
-## 🔧 How to Run Locally
-
-```bash
-git clone https://github.com/syfaarizal/sicoder-main-portfolio.git
-cd sicoder-main-portfolio
-# Open index.html in your browser (use Live Server recommended)
-```
+> *“Learning in public isn’t just brave — it’s powerful.”*
 
 ---
 
-## 👩‍💻 Author
+## 🔗 Links
 
-**Syifa Fauziyah Arizal**  
-Front-End Developer in progress 🚀  
-[🌐 LinkedIn](https://www.linkedin.com/in/syifaarizal/) | [🐱 GitHub](https://github.com/syfaarizal) | [📷 Instagram](https://instagram.com/syfaarizal)
-
----
-
-## 📢 License
-
-This project is licensed under the [MIT License](LICENSE) – feel free to use, fork, or remix it!
+- 🌐 [Live Site](https://syfaarizal.github.io/sicoder-main-portfolio/)  
+- 🧑‍💻 [GitHub](https://github.com/syfaarizal)  
+- 💬 [Email Me](mailto:syifairgi@gmail.com)  
 
 ---
 
-> “Every great product starts with a conversation.” – let's connect!
+Thanks for visiting!  
+Feel free to star ⭐, fork 🍴, or just vibe 💻✨  
+Let’s build the web — beautifully.
+
