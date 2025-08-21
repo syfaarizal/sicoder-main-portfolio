@@ -37,6 +37,7 @@ ul, li, ol {
   position: sticky;
   top: 0;
   background: rgba(10, 10, 10, 0.95);
+  -webkit-backdrop-filter: blur(20px);
   backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--border-color);
   padding: 1rem 0;
