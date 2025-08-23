@@ -568,7 +568,7 @@ span{
   object-fit: cover;
   border: 4px solid rgba(151, 19, 19, 0.3);
   transition: all 0.5s ease;
-  filter: grayscale(10%) contrast(95%);
+  filter: grayscale(10%) contrast(90%) brightness(90%);
   box-shadow: 
     0 0 30px rgba(151, 19, 19, 0.582),
     inset 0 0 20px rgba(0, 0, 0, 0.3);
@@ -577,20 +577,20 @@ span{
 .about-img-container:hover img {
   transform: scale(1.05);
   border-color: var(--primary-color);
-  filter: grayscale(0%) contrast(105%) brightness(120%);
+  filter: grayscale(0%) contrast(100%) brightness(100%);
   box-shadow: 
     0 0 50px rgba(151, 19, 19, 0.6),
     0 0 100px rgba(151, 19, 19, 0.37),
     inset 0 0 20px rgba(0, 0, 0, 0.2);
 }
 
-.about-img-container:hover img{
+/* .about-img-container:hover img{
   background-image: url(../img/logo-html-more-red-no-bg.png);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   border-radius: 50%;
-}
+} */
 
 /* skill */
 #skills {
@@ -800,7 +800,7 @@ span{
     content: "Read More ";
   }
   95%,100%{
-    content: "Read More";
+    content: "Read More →";
   }
 }
 
@@ -836,6 +836,28 @@ span{
   color: #aaa;
   margin-bottom: 0.25rem;
   display: block;
+}
+
+.btn-links-all {
+  display: inline-block;
+  padding: 1rem 20rem ;
+  background-color: black;
+  border-radius: 2rem;
+  font-size: 1.6rem;
+  color: var(--primary-color);
+  letter-spacing: 0.1rem;
+  font-weight: 600;
+  border: 2px solid var(--primary-color);
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.btn-links-all:hover{
+  transform: scale(1.05) translateY(-3px);
+  background-color: var(--primary-color);
+  color: black;
+  min-width: 100px;
+  transform-origin: center;
 }
 
 .blog-links {
@@ -957,6 +979,19 @@ span{
   background-color: var(--primary-color);
   color: black;
   transform: translateY(-5px);
+}
+
+.btn-demo i {
+  margin-right: 8px;
+}
+
+.btn-outline i {
+  margin-right: 8px;
+}
+
+.btn-demo.disabled {
+  cursor: not-allowed;
+  color: rgb(59, 59, 59);
 }
 
 #contact {
