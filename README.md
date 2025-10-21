@@ -23,15 +23,6 @@ Home to:
 
 ---
 
-## 🧑‍🎤 Who’s behind the code?
-
-![Kai Shi](./assets/img/Kai-Shi-nobg.png)
-
-Meet **Kai Shi** — the digital face of SICODER.  
-A fictional persona that represents my coding spirit: focused, bold, and future-ready. Kai Shi lives in the `about` section of this site as a visual embodiment of my growth journey.
-
----
-
 ## ⚙️ Tech Stack
 
 - **HTML5**, **CSS3**, **Vanilla JavaScript**  
