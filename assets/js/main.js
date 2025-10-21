@@ -76,3 +76,16 @@ const skillObserver = new IntersectionObserver((entries) => {
 }, { threshold: 0.5});
 
 skillCards.forEach(card => skillObserver.observe(card));
+
+// Add animation to project cards on scroll
+const projectCards = document.querySelectorAll('.project-card');
+const projectObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.style.animation = 'fadeInUp 0.5s ease forwards';
+            entry.target.style.opacity = '1';
+        }
+    });
+}, { threshold: 0.5});
+
+projectCards.forEach(card => projectObserver.observe(card));

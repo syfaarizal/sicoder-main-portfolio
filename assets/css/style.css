@@ -584,13 +584,13 @@ span{
     inset 0 0 20px rgba(0, 0, 0, 0.2);
 }
 
-/* .about-img-container:hover img{
+.about-img-container:hover img{
   background-image: url(../img/logo-html-more-red-no-bg.png);
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
   border-radius: 50%;
-} */
+}
 
 /* skill */
 #skills {
@@ -763,45 +763,9 @@ span{
 }
 
 .blog-card a::before{
-  content: "Read More →";
+  content: " ";
   color: var(--primary-color);
   animation: href 3s infinite;
-}
-
-@keyframes href{
-  0%,10%{
-    content: "R";
-  }
-  10%,20%{
-    content: "Re";
-  }
-  20%,30%{
-    content: "Rea";
-  }
-  30%,40%{
-    content: "Read";
-  }
-  40%,50%{
-    content: "Read ";
-  }
-  50%,60%{
-    content: "Read M";
-  }
-  60%,70%{
-    content: "Read Mo";
-  }
-  70%,80%{
-    content: "Read Mor";
-  }
-  80%,90%{
-    content: "Read More";
-  }
-  90%,95%{
-    content: "Read More ";
-  }
-  95%,100%{
-    content: "Read More →";
-  }
 }
 
 .blog-card {

@@ -448,7 +448,12 @@
   }
 
   .svg-panah { margin-left: 100px; }
-  .exstaCV a { margin-left: 0; }
+  #extraLinks a { margin-left: 0; }
+
+  .btn-links-all {
+    padding: 0.5rem 12rem;
+    border-radius: 1rem;
+  }
 }
 
 /* 🔸 max-width: 640px 🔸 */
