@@ -16,6 +16,10 @@
     <title>SICODER. Blog</title>
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;400;600&display=swap');
+
+        html {
+            scroll-behavior: smooth;
+        }
         
         :root {
             --primary-color: #971313;
@@ -149,6 +153,7 @@
             border: 2px solid transparent;
             border-radius: 50px;
             background: var(--blur-bg);
+            -webkit-backdrop-filter: blur(10px);
             backdrop-filter: blur(10px);
             font-size: 1rem;
             transition: var(--transition);
@@ -228,6 +233,7 @@
 
         .blog-card {
             background: var(--dark-color);
+            -webkit-backdrop-filter: blur(15px);
             backdrop-filter: blur(15px);
             border: 1px solid rgba(255, 255, 255, 0.2);
             border-radius: 20px;
@@ -374,6 +380,7 @@
             text-align: center;
             padding: 1rem;
             background: var(--dark-color);
+            -webkit-backdrop-filter: blur(10px);
             backdrop-filter: blur(10px);
             border-radius: 15px;
             min-width: 120px;
@@ -711,7 +718,7 @@
         </div>
 
         <div class="logo-sticky">
-            <img src="../assets/img/logo-html-more-red-no-bg.png" alt="Your Logo" />
+            <a href="#"><img src="../assets/img/logo-html-more-red-no-bg.png" alt="Logo SICODER"></a>
         </div>
     </section>
 
