@@ -453,8 +453,8 @@
   #extraLinks a { margin-left: 0; }
 
   .btn-links-all {
-    padding: 0.5rem 12rem;
-    border-radius: 1rem;
+    padding: 0.5rem 10rem;
+    border-radius: 2rem;
   }
 }
 
