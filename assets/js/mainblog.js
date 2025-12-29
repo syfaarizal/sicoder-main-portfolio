@@ -1,4 +1,3 @@
-// Copy code functionality
 function copyCode(button) {
     const codeBlock = button.closest('.code-block').querySelector('code');
     const text = codeBlock.textContent;

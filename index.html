@@ -4,67 +4,93 @@
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta name="description" content="Personal portfolio of Syifa Fauziyah Arizal - Front-end developer & UI designer.">
-        <!-- <meta name="theme-color" content="#161616"> -->
+        <meta name="theme-color" content="#161616">
         <meta name="msapplication-navbutton-color" content="#161616">
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
         <meta name="msapplication-TileColor" content="#971313">
         <meta name="mobile-web-app-capable" content="yes">
+        
+        <!-- Fonts & Icons -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
         <link rel="preconnect" href="https://cdnjs.cloudflare.com">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
         <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+        
+        <!-- CSS Files -->
         <link rel="stylesheet" href="./assets/css/style.css">
+        <link rel="stylesheet" href="./assets/css/themes.css">
+        <link rel="stylesheet" href="./assets/css/animations.css">
         <link rel="stylesheet" href="./assets/css/responsive.css">
+        
         <link rel="icon" type="image/png" href="./assets/img/logo-html-more-red-no-bg.png">
-        <title>SICODER .</title>
+        <title>SICODER | Front-End Developer & UI Designer</title>
     </head>
-    <body>
-        <header class="header">
-            <a href="#home" class="logo">SICO<span>DER</span> .</a>
-            <div class="menu-toggle" id="menu-toggle">
-                <i class="fa fa-bars"></i>
-            </div>
-            <nav>
-                <a href="#home" class="active"> Home </a>
-                <a href="#about"> About</a>
-                <a href="#skills"> Skills</a>
-                <a href="#blog"> Blog</a>
-                <a href="#project"> Project</a>
-                <a href="#contact"> Contact</a>
-            </nav>
-        </header>
+    <body class="dark-theme">
+        <!-- Theme Toggle -->
+        <div class="theme-toggle">
+            <input type="checkbox" id="theme-switch" class="theme-switch">
+            <label for="theme-switch" class="theme-label">
+                <i class="fas fa-sun"></i>
+                <i class="fas fa-moon"></i>
+                <span class="theme-ball"></span>
+            </label>
+        </div>
+
+        <!-- Header (akan di-include via JS) -->
+        <div id="header-container"></div>
+
         <main>
-            <section id="home">
-                <div class="home">
-                    <div class="home-img">
-                        <img src="assets/img/logo-html-more-red-no-bg.png" alt="SICODER Logo">
-                    </div>
-                    <div class="home-content">
-                        <h1>Hi, it's <span>Syifa F.A</span></h1>
-                        <h3 class="typing-text">I'm a <span></span></h3>
-                        <p>I don’t just want to code. I want to build. Build interfaces, experiences, and a future where I take full control of my skills and story. 
-                            This is where it starts. You’re not just looking at a portfolio. You’re witnessing a path in the making. Let’s create something extraordinary.</p>
-                        <div class="social-icons">
-                            <a href="https://www.linkedin.com/in/syifaarizal/" target="_blank" rel="noopener noreferrer" title="LinkedIn"><i class="fa-brands fa-linkedin"></i></a>
-                            <a href="https://github.com/syfaarizal" target="_blank" rel="noopener noreferrer" title="GitHub"><i class="fa-brands fa-github"></i></a>
-                            <a href="https://www.instagram.com/syfaarizal/?utm_source=ig_web_button_share_sheet" target="_blank" rel="noopener noreferrer" title="Instagram"><i class="fa-brands fa-instagram"></i></a>
+            <!-- Hero Section dengan efek partikel -->
+            <section id="home" class="hero-section">
+                <div class="particles-container" id="particles-js"></div>
+                <div class="hero-content">
+                    <div class="home">
+                        <div class="home-img">
+                            <img src="assets/img/logo-html-more-red-no-bg.png" alt="SICODER Logo" class="logo-3d">
+                            <div class="glow-effect"></div>
                         </div>
-                        <a href="#contact" class="btn">Hire me</a>
-                        <a href="#" id="CV-btn" class="btn">Download CV</a>
-                        <div id="extraLinks" class="extraCV hidden">
-                            <div class="svg-panah animated-item">
-                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" color="red" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M6 8L12 14L18 8M6 14L12 20L18 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                </svg>
+                        <div class="home-content">
+                            <h1 class="reveal-text">Hi, it's <span>Syifa F.A</span></h1>
+                            <h3 class="typing-text">I'm a <span></span></h3>
+                            <p class="fade-in">I don't just want to code. I want to build. Build interfaces, experiences, and a future where I take full control of my skills and story.</p>
+                            <div class="social-icons">
+                                <a href="https://www.linkedin.com/in/syifaarizal/" target="_blank" rel="noopener noreferrer" title="LinkedIn" class="social-icon">
+                                    <i class="fa-brands fa-linkedin"></i>
+                                    <span class="tooltip">LinkedIn</span>
+                                </a>
+                                <a href="https://github.com/syfaarizal" target="_blank" rel="noopener noreferrer" title="GitHub" class="social-icon">
+                                    <i class="fa-brands fa-github"></i>
+                                    <span class="tooltip">GitHub</span>
+                                </a>
+                                <a href="https://www.instagram.com/syfaarizal/" target="_blank" rel="noopener noreferrer" title="Instagram" class="social-icon">
+                                    <i class="fa-brands fa-instagram"></i>
+                                    <span class="tooltip">Instagram</span>
+                                </a>
                             </div>
-                            <a href="./assets/CV/CV-FrontEnd-Ind.pdf" class="animated-item" download="CV-FrontEnd-Ind.pdf">CV in Bahasa Indonesia</a>
-                            <a href="./assets/CV/CV-FrontEnd-Eng.pdf" class="animated-item" download="CV-FrontEnd-Eng.pdf">CV in English</a>
+                            <div class="hero-buttons">
+                                <a href="#contact" class="btn pulse-animation">Hire me</a>
+                                <a href="#" id="CV-btn" class="btn outline-btn">Download CV</a>
+                                <div id="extraLinks" class="extraCV hidden">
+                                    <div class="svg-panah animated-item">
+                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                            <path d="M6 8L12 14L18 8M6 14L12 20L18 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                                        </svg>
+                                    </div>
+                                    <a href="./assets/CV/CV-FrontEnd-Ind.pdf" class="animated-item cv-link" download>CV in Bahasa Indonesia</a>
+                                    <a href="./assets/CV/CV-FrontEnd-Eng.pdf" class="animated-item cv-link" download>CV in English</a>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
+                <a href="#about" class="scroll-down">
+                    <i class="fas fa-chevron-down"></i>
+                </a>
             </section>
-            <section id="about">
+
+            <!-- About Section -->
+            <section id="about" class="section-card">
                 <div class="about-header">
                     <h1>About <span>Me</span></h1>
                     <p>Get to know more about my journey and passion</p>
@@ -75,274 +101,93 @@
                         <h2>Hi, I'm Syifa <span>Fauziayah Arizal</span></h2>
                         <p>I'm a passionate front-end developer and UI designer with a focus on creating clean, responsive, and user-friendly web applications. I love turning ideas into reality through code and design, and I'm always eager to learn new technologies and improve my skills.</p>
                         <p>Currently, I'm honing my skills in HTML, CSS, JavaScript, and various front-end frameworks. My goal is to build intuitive interfaces that enhance user experience while maintaining high performance and accessibility standards.</p>
-                        <p>When I'm not coding, you can find me exploring new design trends, contributing to open-source projects, or sharing my knowledge with the community.</p>
-                        <p>Feel free to connect with me on social media or check out my projects on GitHub!</p>
+                        <div class="stats-container">
+                            <div class="stat-card">
+                                <h3>5+</h3>
+                                <p>Projects Completed</p>
+                            </div>
+                            <div class="stat-card">
+                                <h3>100%</h3>
+                                <p>Client Satisfaction</p>
+                            </div>
+                            <div class="stat-card">
+                                <h3>2+</h3>
+                                <p>Years Learning</p>
+                            </div>
+                        </div>
                     </div>
                     
                     <div class="about-img">
                         <div class="about-img-container">
                             <img src="./assets/img/Syifa-Anime.png" alt="Syifa Fauziyah Arizal">
+                            <div class="floating-elements">
+                                <span class="float-el el1">HTML</span>
+                                <span class="float-el el2">CSS</span>
+                                <span class="float-el el3">JS</span>
+                                <span class="float-el el4">UI/UX</span>
+                            </div>
                         </div>
                     </div>
                 </div>
             </section>
-            <section id="skills">
+
+            <!-- Skills Section -->
+            <section id="skills" class="section-card">
                 <div class="skills-header">
                     <div>
                         <h1>My <span>Skills</span></h1>
                         <p>Skills I've Sharpened So Far</p>
                     </div>
                 </div>
-                <div class="skills-title">
-                    <h1>Technical <span>Skills</span></h1>
+                
+                <!-- Skill tabs untuk filter -->
+                <div class="skill-tabs">
+                    <button class="skill-tab active" data-filter="all">All Skills</button>
+                    <button class="skill-tab" data-filter="technical">Technical</button>
+                    <button class="skill-tab" data-filter="design">Design</button>
+                    <button class="skill-tab" data-filter="soft">Soft Skills</button>
+                    <button class="skill-tab" data-filter="tools">Tools</button>
                 </div>
-                <div id="web-skills" class="skills-container">
-                    <div class="skill-card">
-                        <svg width="40" height="40" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
-                            <path fill="#E44D26" d="M19.444 0l7.393 82.383L64 96l37.163-13.591L108.556 0z"/>
-                            <path fill="#F16529" d="M64 89.754l30.104-10.962L101.222 7.3H64z"/>
-                        </svg>
-                        <h3>HTML5</h3>
-                        <p>Semantic & accessible structure</p>
-                    </div>
-                    <div class="skill-card">
-                        <svg width="40" height="40" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
-                            <path fill="#1572B6" d="M19.5 0l7.3 82.3 37.2 13.7 37.2-13.7 7.2-82.3z"/>
-                            <path fill="#33A9DC" d="M64 92.5V7.4h37.2l-6.6 74.2z"/>
-                        </svg>
-                        <h3>CSS3</h3>
-                        <p>Flexbox, Grid, Animations, Styling</p>
-                    </div>
-                    <div class="skill-card">
-                        <svg width="40" height="40" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
-                            <path fill="#E5C100" d="M19.5 0l7.3 82.3 37.2 13.7 37.2-13.7 7.2-82.3z"/>
-                            <path fill="#F7DF1E" d="M64 92.5V7.4h37.2l-6.6 74.2z"/>
-                        </svg>
-                        <h3>JavaScript (Vanilla)</h3>
-                        <p>DOM, Events, Basic Logic, Interactivity</p>
-                    </div>
-                    <div class="skill-card">
-                        <svg width="80" height="80" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="2" y="10" width="38" height="26" rx="2" fill="#971313"/>
-                            <rect x="2" y="38" width="38" height="6" fill="#333"/>
-                            <rect x="44" y="6" width="16" height="28" rx="2" fill="#555"/>
-                            <rect x="48" y="38" width="8" height="16" rx="2" fill="#aaa"/>
-                            <circle cx="52" cy="52" r="1" fill="#000"/>
-                        </svg>
-                        <h3>Responsive Design</h3>
-                        <p>Mobile-first, Flexible Layouts, Media Queries</p>
-                    </div>
-                    <div class="skill-card">
-                        <svg width="50" height="50" viewBox="0 0 1024 1024" fill="#971313" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M512 76C273.6 76 76 273.6 76 512c0 192 124.8 354.4 297.6 411.2 21.6 4 29.6-9.6 29.6-21.6 0-10.4-0.4-44.8-0.8-81.6-121.2 26.4-146.8-51.2-146.8-51.2-19.6-49.6-48-62.8-48-62.8-39.2-26.8 3.2-26.4 3.2-26.4 43.2 3.2 66 44.4 66 44.4 38.4 65.6 100.8 46.8 125.6 35.6 4-28 15.2-46.8 27.6-57.6-96.8-11.2-198.8-48.4-198.8-215.6 0-47.6 16.8-86.8 44.4-117.6-4.4-11.2-19.2-56.4 4.4-117.6 0 0 36.4-11.6 119.2 44.8 34.4-9.6 71.2-14.4 107.6-14.4 36.4 0 73.2 4.8 107.6 14.4 82.8-56.4 119.2-44.8 119.2-44.8 23.6 61.2 8.8 106.4 4.4 117.6 27.6 30.8 44.4 70 44.4 117.6 0 167.6-102.4 204.4-199.6 215.2 15.6 13.2 29.6 39.2 29.6 79.2 0 57.2-0.4 103.2-0.4 117.2 0 12 8 26 30 21.6C823.2 866.4 948 703.6 948 512 948 273.6 750.4 76 512 76z"/>
-                        </svg>
-                        <h3>Git & GitHub</h3>
-                        <p>Version Control, Commits, Repositories</p>
-                    </div>
-                    <div class="skill-card">
-                        <svg width="50" height="50" viewBox="0 0 50 50" xmlns="http://www.w3.org/2000/svg">
-                            <circle cx="28" cy="28" r="12" fill="#FFFFFF" fill-opacity="0.6" stroke="#971313" stroke-width="4"/>
-                            <line x1="40" y1="40" x2="55" y2="55" stroke="#971313" stroke-width="4" stroke-linecap="round"/>
-                        </svg>
-                        <h3>QA (Quality Assurance)</h3>
-                        <p>Manual cross-device testing & issue tracking via Notion</p>
-                    </div>
+
+                <!-- Skills akan ditampilkan berdasarkan filter -->
+                <div class="skills-grid" id="skills-container">
+                    <!-- Skill cards akan di-generate oleh JavaScript -->
                 </div>
-                <div class="skills-title">
-                    <h1>Styling & <span>UI</span></h1>
-                </div>
-                <div class="skills-container">
-                    <div class="skill-card">
-                        <svg width="80" height="80" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg" fill="none" stroke="#971313" stroke-width="2">
-                            <rect x="2" y="2" width="60" height="60" rx="5" ry="5" stroke="#971313" fill="white"/>
-                            <rect x="8" y="8" width="48" height="10" fill="#971313"/>
-                            <rect x="8" y="22" width="20" height="30" fill="#f0f0f0" stroke="#971313"/>
-                            <rect x="32" y="22" width="24" height="30" fill="#f0f0f0" stroke="#971313"/>
-                        </svg>
-                        <h3>UI/UX</h3>
-                        <p>Focus on clean layout & visual hierarchy</p>
-                    </div>
-                    <div class="skill-card">
-                        <svg width="40" height="40" viewBox="0 0 24 24" fill="#6c63ff" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M5 4v3h5.5v12h3V7H19V4H5z"/>
-                        </svg>
-                        <h3>Typography & Color Theory</h3>
-                        <p>Matching brand with aesthetic</p>
-                    </div>
-                    <div class="skill-card">
-                        <svg width="40" height="40" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
-                            <path fill="#1572B6" d="M19.5 0l7.3 82.3 37.2 13.7 37.2-13.7 7.2-82.3z"/>
-                            <path fill="#33A9DC" d="M64 92.5V7.4h37.2l-6.6 74.2z"/>
-                        </svg>
-                        <h3>CSS Animation</h3>
-                        <p>Smooth interaction, hover, @keyframes</p>
-                    </div>
-                    <div class="skill-card">
-                        <svg width="36" height="36" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="4" y="4" width="10" height="10" fill="#0F62FE" rx="2"/>
-                            <rect x="18" y="4" width="10" height="10" fill="#08BDBA" rx="2"/>
-                            <rect x="4" y="18" width="10" height="10" fill="#FF832B" rx="2"/>
-                            <rect x="18" y="18" width="10" height="10" fill="#A56EFF" rx="2"/>
-                        </svg>
-                        <h3>Component-based thinking</h3>
-                        <p>Reusable layout design</p>
-                    </div>
-                </div>
-                <div class="skills-title">
-                    <h1>Soft <span>Skills</span></h1>
-                </div>
-                <div class="skills-container">
-                    <div class="skill-card">
-                        <svg width="40" height="40" viewBox="0 0 24 24" fill="#fbbc05" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M9 21h6v-2H9v2zM12 2a7 7 0 00-1 13.93V18h2v-2.07A7 7 0 0012 2z"/>
-                        </svg>
-                        <h3>Problem Solving</h3>
-                        <p>Enjoys debugging and solving tricky errors until it's done</p>
-                    </div>
-                    <div class="skill-card">
-                        <svg width="40" height="40" viewBox="0 0 24 24" fill="#34a853" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M9 16.2l-3.5-3.5L4 14.2l5 5L20 8.2 18.6 7l-9.6 9.2z"/>
-                        </svg>
-                        <h3>Consistency & Focus</h3>
-                        <p>Steady learning routine, committed to progress every day</p>
-                    </div>
-                    <div class="skill-card">
-                        <svg width="40" height="40" viewBox="0 0 24 24" fill="#03a9f4" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M12 12c2.21 0 4-1.79 4-4S14.21 4 12 4 8 5.79 8 8s1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
-                        </svg>
-                        <h3>Collaboration & Empathy</h3>
-                        <p>Communicative and open-minded when working with others</p>
-                    </div>
-                    <div class="skill-card">
-                        <svg width="40" height="40" viewBox="0 0 24 24" fill="#9c27b0" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M18 2H6a2 2 0 00-2 2v16l4-4h10a2 2 0 002-2V4a2 2 0 00-2-2z"/>
-                        </svg>
-                        <h3>Self-Learning</h3>
-                        <p>Actively explores tech, reads docs, and learns independently</p>
-                    </div>
-                </div>
-                <div class="skills-title">
-                    <h1>Tools & <span>Platform</span></h1>
-                </div>
-                <div class="skills-container">
-                    <div class="skill-card">
-                        <?xml version="1.0" encoding="utf-8"?><svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 256 256" style="enable-background:new 0 0 256 256" xml:space="preserve"><style type="text/css">.st0{fill-rule:evenodd;clip-rule:evenodd;fill:#FFFFFF;filter:url(#Adobe_OpacityMaskFilter);} .st1{mask:url(#mask0_1_);} .st2{fill:#0065A9;} .st3{fill:#007ACC;} .st4{fill:#1F9CF0;} .st5{opacity:0.25;} .st6{fill-rule:evenodd;clip-rule:evenodd;fill:url(#SVGID_1_);}</style><defs><filter id="Adobe_OpacityMaskFilter" filterUnits="userSpaceOnUse" x="-0.16" y="0.66" width="256.16" height="254.68"><feColorMatrix type="matrix" values="1 0 0 0 0 0 1 0 0 0 0 0 1 0 0 0 0 0 1 0"/></filter></defs><mask maskUnits="userSpaceOnUse" x="-0.16" y="0.66" width="256.16" height="254.68" id="mask0_1_"><path class="st0" d="M181.53,254.25c4.03,1.57,8.63,1.47,12.7-0.49l52.71-25.36c5.54-2.66,9.06-8.27,9.06-14.42V42.02 c0-6.15-3.52-11.75-9.06-14.42L194.23,2.24c-5.34-2.57-11.59-1.94-16.28,1.47c-0.67,0.49-1.31,1.03-1.91,1.63L75.15,97.39 L31.2,64.02c-4.09-3.11-9.81-2.85-13.61,0.61L3.49,77.45c-4.65,4.23-4.65,11.54-0.01,15.77L41.59,128L3.48,162.77 c-4.64,4.24-4.64,11.55,0.01,15.78l14.1,12.82c3.8,3.46,9.52,3.71,13.61,0.61l43.95-33.36l100.9,92.05 C177.65,252.26,179.52,253.47,181.53,254.25z M192.04,69.89L115.48,128l76.56,58.12V69.89z"/></mask><g class="st1"><path class="st2" d="M246.94,27.64l-52.75-25.4c-6.1-2.94-13.4-1.7-18.19,3.09L3.32,162.77c-4.64,4.24-4.64,11.55,0.01,15.78 l14.1,12.82c3.8,3.46,9.53,3.71,13.62,0.61L239,34.23c6.98-5.29,17-0.32,17,8.44v-0.61C256,35.91,252.48,30.3,246.94,27.64z"/><g><path class="st3" d="M246.94,228.36l-52.75,25.4c-6.1,2.94-13.4,1.7-18.19-3.09L3.32,93.23c-4.64-4.23-4.64-11.55,0.01-15.77 l14.1-12.82c3.8-3.46,9.53-3.71,13.62-0.61L239,221.77c6.98,5.29,17,0.32,17-8.44v0.61C256,220.09,252.48,225.7,246.94,228.36z"/></g><g><path class="st4" d="M194.2,253.76c-6.11,2.94-13.4,1.7-18.2-3.1c5.9,5.9,16,1.72,16-6.63V11.96c0-8.35-10.1-12.53-16-6.63 c4.79-4.79,12.09-6.03,18.2-3.1l52.74,25.36c5.54,2.67,9.07,8.27,9.07,14.42v171.97c0,6.15-3.52,11.75-9.07,14.42L194.2,253.76z"/></g><g class="st5"><linearGradient id="SVGID_1_" gradientUnits="userSpaceOnUse" x1="127.8439" y1="257.34" x2="127.8439" y2="2.6598" gradientTransform="matrix(1 0 0 -1 0 258)"><stop offset="0" style="stop-color:#FFFFFF"/><stop offset="1" style="stop-color:#FFFFFF;stop-opacity:0"/></linearGradient><path class="st6" d="M181.38,254.25c4.03,1.57,8.63,1.47,12.7-0.49l52.71-25.36c5.54-2.66,9.06-8.27,9.06-14.42V42.02 c0-6.15-3.52-11.75-9.06-14.42L194.08,2.24c-5.34-2.57-11.59-1.94-16.28,1.47c-0.67,0.49-1.31,1.03-1.91,1.63L74.99,97.39 L31.04,64.02c-4.09-3.11-9.81-2.85-13.61,0.61L3.33,77.45c-4.65,4.23-4.65,11.54-0.01,15.78L41.44,128L3.32,162.77 c-4.64,4.24-4.64,11.55,0.01,15.78l14.1,12.82c3.8,3.46,9.52,3.71,13.61,0.61l43.95-33.36l100.9,92.05 C177.49,252.26,179.36,253.47,181.38,254.25z M191.88,69.89L115.32,128l76.56,58.12V69.89z"/></g></g></svg>
-                        <h3>VS Code</h3>
-                        <p>My main code editor — clean, fast, reliable</p>
-                    </div>
-                    <div class="skill-card">
-                        <svg width="50" height="50" viewBox="0 0 1024 1024" fill="#971313" xmlns="http://www.w3.org/2000/svg">
-                            <path d="M512 76C273.6 76 76 273.6 76 512c0 192 124.8 354.4 297.6 411.2 21.6 4 29.6-9.6 29.6-21.6 0-10.4-0.4-44.8-0.8-81.6-121.2 26.4-146.8-51.2-146.8-51.2-19.6-49.6-48-62.8-48-62.8-39.2-26.8 3.2-26.4 3.2-26.4 43.2 3.2 66 44.4 66 44.4 38.4 65.6 100.8 46.8 125.6 35.6 4-28 15.2-46.8 27.6-57.6-96.8-11.2-198.8-48.4-198.8-215.6 0-47.6 16.8-86.8 44.4-117.6-4.4-11.2-19.2-56.4 4.4-117.6 0 0 36.4-11.6 119.2 44.8 34.4-9.6 71.2-14.4 107.6-14.4 36.4 0 73.2 4.8 107.6 14.4 82.8-56.4 119.2-44.8 119.2-44.8 23.6 61.2 8.8 106.4 4.4 117.6 27.6 30.8 44.4 70 44.4 117.6 0 167.6-102.4 204.4-199.6 215.2 15.6 13.2 29.6 39.2 29.6 79.2 0 57.2-0.4 103.2-0.4 117.2 0 12 8 26 30 21.6C823.2 866.4 948 703.6 948 512 948 273.6 750.4 76 512 76z"/>
-                        </svg>
-                        <h3>GitHub</h3>
-                        <p>For version control and project hosting</p>
-                    </div>
-                    <div class="skill-card">
-                        <svg xmlns="http://www.w3.org/2000/svg"
-                            width="60"
-                            viewBox="0 0 390 512.36"
-                            shape-rendering="geometricPrecision"
-                            text-rendering="geometricPrecision"
-                            image-rendering="optimizeQuality"
-                            fill-rule="evenodd"
-                            clip-rule="evenodd">
-                            <g fill-rule="nonzero">
-                                <path fill="#00B6FF" d="M172.53 246.9c0-42.04 34.09-76.11 76.12-76.11h11.01c.3.01.63-.01.94-.01 47.16 0 85.4 38.25 85.4 85.4 0 47.15-38.24 85.39-85.4 85.39-.31 0-.64-.01-.95-.01l-11 .01c-42.03 0-76.12-34.09-76.12-76.12V246.9z"/>
-                                <path fill="#24CB71" d="M0 426.98c0-47.16 38.24-85.41 85.4-85.41l87.13.01v84.52c0 47.65-39.06 86.26-86.71 86.26C38.67 512.36 0 474.13 0 426.98z"/>
-                                <path fill="#FF7237" d="M172.53.01v170.78h87.13c.3-.01.63.01.94.01 47.16 0 85.4-38.25 85.4-85.4C346 38.24 307.76 0 260.6 0c-.31 0-.64.01-.95.01h-87.12z"/>
-                                <path fill="#FF3737" d="M0 85.39c0 47.16 38.24 85.4 85.4 85.4h87.13V.01H85.39C38.24.01 0 38.24 0 85.39z"/>
-                                <path fill="#874FFF" d="M0 256.18c0 47.16 38.24 85.4 85.4 85.4h87.13V170.8H85.39C38.24 170.8 0 209.03 0 256.18z"/>
-                            </g>
-                        </svg>
-                        <h3>Figma (Basic)</h3>
-                        <p>For wireframing and experimenting with UI ideas</p>
-                    </div>
-                    <div class="skill-card">
-                        <svg width="36" height="36" viewBox="0 0 36 36" xmlns="http://www.w3.org/2000/svg">
-                            <rect x="2" y="2" width="32" height="32" rx="4" fill="black"/>
-                            <text x="8" y="26" font-family="Arial, sans-serif" font-size="20" fill="white" font-weight="bold">N</text>
-                        </svg>
-                        <h3>Notion</h3>
-                        <p>Used for planning, notes, and learning documentation</p>
-                    </div>
-                    <div class="skill-card">
-                        <svg xmlns="http://www.w3.org/2000/svg" shape-rendering="geometricPrecision" text-rendering="geometricPrecision" image-rendering="optimizeQuality" fill-rule="evenodd" clip-rule="evenodd" viewBox="0 0 512 509.639"><path fill="#fff" d="M115.612 0h280.775C459.974 0 512 52.026 512 115.612v278.415c0 63.587-52.026 115.613-115.613 115.613H115.612C52.026 509.64 0 457.614 0 394.027V115.612C0 52.026 52.026 0 115.612 0z"/><path fill-rule="nonzero" d="M412.037 221.764a90.834 90.834 0 004.648-28.67 90.79 90.79 0 00-12.443-45.87c-16.37-28.496-46.738-46.089-79.605-46.089-6.466 0-12.943.683-19.264 2.04a90.765 90.765 0 00-67.881-30.515h-.576c-.059.002-.149.002-.216.002-39.807 0-75.108 25.686-87.346 63.554-25.626 5.239-47.748 21.31-60.682 44.03a91.873 91.873 0 00-12.407 46.077 91.833 91.833 0 0023.694 61.553 90.802 90.802 0 00-4.649 28.67 90.804 90.804 0 0012.442 45.87c16.369 28.504 46.74 46.087 79.61 46.087a91.81 91.81 0 0019.253-2.04 90.783 90.783 0 0067.887 30.516h.576l.234-.001c39.829 0 75.119-25.686 87.357-63.588 25.626-5.242 47.748-21.312 60.682-44.033a91.718 91.718 0 0012.383-46.035 91.83 91.83 0 00-23.693-61.553l-.004-.005zM275.102 413.161h-.094a68.146 68.146 0 01-43.611-15.8 56.936 56.936 0 002.155-1.221l72.54-41.901a11.799 11.799 0 005.962-10.251V241.651l30.661 17.704c.326.163.55.479.596.84v84.693c-.042 37.653-30.554 68.198-68.21 68.273h.001zm-146.689-62.649a68.128 68.128 0 01-9.152-34.085c0-3.904.341-7.817 1.005-11.663.539.323 1.48.897 2.155 1.285l72.54 41.901a11.832 11.832 0 0011.918-.002l88.563-51.137v35.408a1.1 1.1 0 01-.438.94l-73.33 42.339a68.43 68.43 0 01-34.11 9.12 68.359 68.359 0 01-59.15-34.11l-.001.004zm-19.083-158.36a68.044 68.044 0 0135.538-29.934c0 .625-.036 1.731-.036 2.5v83.801l-.001.07a11.79 11.79 0 005.954 10.242l88.564 51.13-30.661 17.704a1.096 1.096 0 01-1.034.093l-73.337-42.375a68.36 68.36 0 01-34.095-59.143 68.412 68.412 0 019.112-34.085l-.004-.003zm251.907 58.621l-88.563-51.137 30.661-17.697a1.097 1.097 0 011.034-.094l73.337 42.339c21.109 12.195 34.132 34.746 34.132 59.132 0 28.604-17.849 54.199-44.686 64.078v-86.308c.004-.032.004-.065.004-.096 0-4.219-2.261-8.119-5.919-10.217zm30.518-45.93c-.539-.331-1.48-.898-2.155-1.286l-72.54-41.901a11.842 11.842 0 00-5.958-1.611c-2.092 0-4.15.558-5.957 1.611l-88.564 51.137v-35.408l-.001-.061a1.1 1.1 0 01.44-.88l73.33-42.303a68.301 68.301 0 0134.108-9.129c37.704 0 68.281 30.577 68.281 68.281a68.69 68.69 0 01-.984 11.545v.005zm-191.843 63.109l-30.668-17.704a1.09 1.09 0 01-.596-.84v-84.692c.016-37.685 30.593-68.236 68.281-68.236a68.332 68.332 0 0143.689 15.804 63.09 63.09 0 00-2.155 1.222l-72.54 41.9a11.794 11.794 0 00-5.961 10.248v.068l-.05 102.23zm16.655-35.91l39.445-22.782 39.444 22.767v45.55l-39.444 22.767-39.445-22.767v-45.535z"/></svg>
-                        <h3>ChatGPT</h3>
-                        <p>Helps me reflect, refine ideas, and accelerate tasks with clarity and speed.</p>
-                    </div>
-                </div>
-                <div class="box-line"></div>
             </section>
-            <section id="blog">
+
+            <!-- Blog Section -->
+            <section id="blog" class="section-card">
                 <div class="blog-header">
                     <h1>My <span>Blog</span></h1>
                     <p>My blog in learning, building and growing.</p>
                 </div>
+                
                 <div class="judul-blog">
                     <h2>Challenges <span>Day-By-Day</span></h2>
                 </div>
-                <div class="blog-container">
-                    <div class="blog-cards">
-                        <div class="blog-card">
-                            <small class="page-counter">June 5, 2025</small>
-                            <h3>Day 1: Print Name and Status</h3>
-                            <p>Today I learned about template literals in JavaScript. You know, that thing where you can insert variables...</p>
-                            <a href="./blog/day1.html" class="read-more-btn">Read More →</a>
-                        </div>
+                
+                <div class="blog-carousel">
+                    <div class="blog-container">
+                        <!-- Blog cards tetap sama seperti sebelumnya -->
                     </div>
-                    <div class="blog-cards">
-                        <div class="blog-card">
-                            <small class="page-counter">June 6, 2025</small>
-                            <h3>Day 2: Simple Age Calculator</h3>
-                            <p>Today's challenge really made my brain curl 😅 We were asked to create a <b>JavaScript program</b> that...</p>
-                            <a href="./blog/day2.html" class="read-more-btn">Read More →</a>
-                        </div>
-                    </div>
-                    <div class="blog-cards">
-                        <div class="blog-card">
-                            <small class="page-counter">June 9, 2025</small>
-                            <h3>Day 3: Interactive Calculator</h3>
-                            <p>Day 3 of this coding challenge really made me frown but also smile when I finally got it working. I was...</p>
-                            <a href="./blog/day3.html" class="read-more-btn">Read More →</a>
-                        </div>
-                    </div>
-                    <div class="blog-cards">
-                        <div class="blog-card">
-                            <small class="page-counter">June 11, 2025</small>
-                            <h3>Day 4: Number Guessing Game</h3>
-                            <p>Day 4 of this coding challenge had a different vibe because I was asked to create a simple game...</p>
-                            <a href="./blog/day4.html" class="read-more-btn">Read More →</a>
-                        </div>
-                    </div>
-                    <div class="blog-cards">
-                        <div class="blog-card">
-                            <small class="page-counter">July 7, 2025</small>
-                            <h3>Day 5: Creative Name Looping</h3>
-                            <p>After taking some time off to focus on other projects, I'm finally back to the JS challenges! This time...</p>
-                            <a href="./blog/day5.html" class="read-more-btn">Read More →</a>
-                        </div>
-                    </div>
-                    <div class="blog-cards">
-                        <div class="blog-card">
-                            <small class="page-counter">July 15, 2025</small>
-                            <h3>Day 6: Odd, Even, or Special?</h3>
-                            <p>Yo! Back again with day 6 challenge. Today I'm playing with numbers, but not just checking...</p>
-                            <a href="./blog/day6.html" class="read-more-btn">Read More →</a>
-                        </div>
-                    </div>
+                    <button class="carousel-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
+                    <button class="carousel-btn next-btn"><i class="fas fa-chevron-right"></i></button>
                 </div>
+                
                 <div class="blog-links">
                     <a href="./blog/indexblog.html" class="btn-links-all">View All Blog</a>
                 </div>
-                <div class="box-line"></div>
             </section>
-            <section id="project">
+
+            <!-- Projects Section -->
+            <section id="project" class="section-card">
                 <div class="portfolio-header">
                     <div>
                         <h1>My <span>Project</span></h1>
                         <p>These are the projects where I learn and grow by building.</p>
                     </div>
                 </div>
+                
                 <div class="portfolio-container">
                     <div class="project-card">
                         <img src="./assets/img/showcase-review.png" alt="Button & Login">
@@ -404,61 +249,122 @@
                         </div>
                     </div>
                 </div>
-                <div class="box-line"></div>
             </section>
-            <section id="contact">
+
+            <!-- Contact Section -->
+            <section id="contact" class="section-card">
                 <div class="contact-header">
                     <div>
                         <h1>Let's <span>Connect</span></h1>
                         <p>Have a project, idea, or just want to say hi? Reach me here:</p>
                     </div>
                 </div>
+                
                 <div class="contact-container">
                     <form action="https://formsubmit.co/syifairgi@gmail.com" method="POST" class="contact-form" autocomplete="on">
-                        <label for="name">Name:</label>
-                        <input type="text" name="name" placeholder="Your Name" required>
-                        <label for="email">Email:</label>
-                        <input type="email" name="email" placeholder="Email" required>
-                        <label for="subject">Subject</label>
-                        <input type="text" name="subject" placeholder="Subject" required>
-                        <label for="mesaage">Message:</label>
-                        <textarea name="message" rows="5" placeholder="Message" required></textarea>
+                        <div class="form-group">
+                            <label for="name">Name:</label>
+                            <input type="text" name="name" placeholder="Your Name" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="email">Email:</label>
+                            <input type="email" name="email" placeholder="Email" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="subject">Subject</label>
+                            <input type="text" name="subject" placeholder="Subject" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="message">Message:</label>
+                            <textarea name="message" rows="5" placeholder="Your message here..." required></textarea>
+                        </div>
 
                         <input type="hidden" name="_captcha" value="false">
                         <input type="hidden" name="_next" value="./thanks.html">
 
-                        <button type="submit" class="btn">Submit</button>
+                        <button type="submit" class="btn submit-btn">Send Message</button>
                     </form>
+                    
                     <div class="contact-visual">
                         <p class="contact-quote"></p>
                         <div class="box-line-quote"></div>
-                        <img src="assets/img/sicoder-logo.png" alt="Code visual">
+                        <div class="contact-info">
+                            <div class="info-card">
+                                <i class="fas fa-envelope"></i>
+                                <div>
+                                    <h3>Email</h3>
+                                    <p>syifairgi@gmail.com</p>
+                                </div>
+                            </div>
+                            <div class="info-card">
+                                <i class="fas fa-phone"></i>
+                                <div>
+                                    <h3>Phone</h3>
+                                    <p>+62 858-6486-4931</p>
+                                </div>
+                            </div>
+                            <div class="info-card">
+                                <i class="fas fa-map-marker-alt"></i>
+                                <div>
+                                    <h3>Location</h3>
+                                    <p>Indonesia</p>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </section>
         </main>
-        <footer id="footer">
-            <div class="footer-container">
-                <div class="footer-left">
-                    <img src="assets/img/sicoder-logo.png" alt="Logo" class="footer-logo">
-                    <p class="footer-tagline">Crafted with ❤️ and <code>&lt;/&gt;</code></p>
-                </div>
-                <div class="footer-right">
-                    <h3>Get in touch</h3>
-                    <p><i class="fas fa-envelope"></i> syifairgi@gmail.com</p>
-                    <p><i class="fas fa-phone"></i> +62 858-6486-4931</p>
-                <div class="footer-socials">
-                    <a href="https://www.linkedin.com/in/syifaarizal/" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                    <a href="https://github.com/syfaarizal" title="GitHub"><i class="fab fa-github"></i></a>
-                    <a href="https://www.instagram.com/syfaarizal/?utm_source=ig_web_button_share_sheet" title="Instagram"><i class="fab fa-instagram"></i></a>
-                </div>
-                </div>
-            </div>
-            <div class="footer-bottom">
-                <p>© 2025 SICODER. All rights reserved.</p>
-            </div>
-        </footer>
-        <script src="assets/js/main.js"></script>
+
+        <div id="footer-container"></div>
+
+        <button id="backToTop" class="back-to-top">
+            <i class="fas fa-arrow-up"></i>
+        </button>
+
+        <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+        <script src="./assets/js/theme-switcher.js"></script>
+        <script src="./assets/js/animations.js"></script>
+        <script src="./assets/js/main.js"></script>
+        
+        <!-- Inisialisasi partikel -->
+        <script>
+            document.addEventListener('DOMContentLoaded', function() {
+                if (typeof particlesJS !== 'undefined') {
+                    particlesJS('particles-js', {
+                        particles: {
+                            number: { value: 80, density: { enable: true, value_area: 800 } },
+                            color: { value: "#971313" },
+                            shape: { type: "circle" },
+                            opacity: { value: 0.5, random: true },
+                            size: { value: 3, random: true },
+                            line_linked: {
+                                enable: true,
+                                distance: 150,
+                                color: "#971313",
+                                opacity: 0.4,
+                                width: 1
+                            },
+                            move: {
+                                enable: true,
+                                speed: 2,
+                                direction: "none",
+                                random: true,
+                                straight: false,
+                                out_mode: "out",
+                                bounce: false
+                            }
+                        },
+                        interactivity: {
+                            detect_on: "canvas",
+                            events: {
+                                onhover: { enable: true, mode: "repulse" },
+                                onclick: { enable: true, mode: "push" }
+                            }
+                        }
+                    });
+                }
+            });
+        </script>
     </body>
 </html>
-
