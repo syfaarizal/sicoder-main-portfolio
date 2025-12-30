@@ -25,7 +25,10 @@ class ThemeSwitcher {
         
         // Update meta theme-color
         const themeColor = theme === 'light' ? '#f8f9fa' : '#0a0a0a';
-        document.querySelector('meta[name="theme-color"]').setAttribute('content', themeColor);
+        const metaThemeColor = document.querySelector('meta[name="theme-color"]');
+        if (metaThemeColor) {
+            metaThemeColor.setAttribute('content', themeColor);
+        }
     }
 
     saveTheme(theme) {
