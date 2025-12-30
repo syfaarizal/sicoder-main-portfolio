@@ -237,3 +237,20 @@
 .wave .shape-fill {
     fill: var(--surface-color);
 }
+
+/* Animated items */
+.animated-item {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: fadeInUp 0.5s ease forwards;
+}
+
+/* Ensure particles container is visible */
+#particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: -1;
+}
