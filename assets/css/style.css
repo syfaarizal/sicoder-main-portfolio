@@ -813,14 +813,15 @@ section {
 }
 
 .blog-container {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    display: flex;
     gap: 3rem;
     transition: transform 0.5s ease;
+    width: 100%;
 }
 
 .blog-cards {
-    min-width: 100%;
+    flex: 0 0 calc(100% / 3);
+    min-width: 0;
 }
 
 .blog-card {
@@ -1519,6 +1520,10 @@ section {
     .portfolio-container {
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
     }
+    
+    .blog-cards {
+        flex: 0 0 calc(100% / 2);
+    }
 }
 
 @media (max-width: 992px) {
@@ -1550,10 +1555,6 @@ section {
         gap: 4rem;
     }
     
-    .blog-container {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    
     .skills-grid {
         grid-template-columns: repeat(2, 1fr);
     }
@@ -1566,22 +1567,27 @@ section {
     
     nav {
         position: fixed;
-        top: 80px;
-        right: -100%;
-        width: 80%;
-        height: calc(100vh - 80px);
+        top: 100%;
+        left: 0;
+        width: 100%;
+        padding: 2rem 5%;
         background: var(--surface-color);
+        border-top: 1px solid var(--border-color);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+        transform: translateY(-100%);
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0.3s ease;
         flex-direction: column;
         align-items: center;
         justify-content: flex-start;
         padding-top: 5rem;
-        transition: right 0.3s ease;
-        box-shadow: -5px 0 15px rgba(0, 0, 0, 0.2);
-        border-left: 2px solid var(--primary-color);
     }
     
     nav.active {
-        right: 0;
+        transform: translateY(-100%);
+        opacity: 1;
+        visibility: visible;
     }
     
     nav a {
@@ -1623,8 +1629,8 @@ section {
         flex-direction: column;
     }
     
-    .blog-container {
-        grid-template-columns: 1fr;
+    .blog-cards {
+        flex: 0 0 100%;
     }
     
     .carousel-btn {
@@ -1683,6 +1689,10 @@ section {
     
     .theme-switch:checked + .theme-label .theme-ball {
         transform: translateX(25px);
+    }
+    
+    .logo-3d {
+        animation: none;
     }
 }
 
@@ -1770,4 +1780,9 @@ section {
         color: black !important;
         text-decoration: underline;
     }
+}
+
+/* Hidden utility class */
+.hidden {
+    display: none;
 }
