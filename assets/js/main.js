@@ -50,9 +50,6 @@ document.addEventListener('DOMContentLoaded', function() {
                         link.classList.add("active");
                     }
                 });
-                
-                // Add animation class when section enters viewport
-                entry.target.classList.add('section-visible');
             }
         });
     }, { threshold: 0.1 });
@@ -77,9 +74,6 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initialize skill data and filter
     initSkillData();
 
-    // Initialize theme switcher
-    initThemeSwitcher();
-
     // Initialize back to top button
     initBackToTop();
 
@@ -91,6 +85,22 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Initialize form validation
     initFormValidation();
+
+    // Add scroll effect for header
+    window.addEventListener('scroll', function() {
+        const header = document.querySelector('.header');
+        if (header) {
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(10, 10, 10, 0.95)';
+                header.style.backdropFilter = 'blur(10px)';
+                header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.3)';
+            } else {
+                header.style.background = 'transparent';
+                header.style.backdropFilter = 'none';
+                header.style.boxShadow = 'none';
+            }
+        }
+    });
 });
 
 // Initialize Blog Carousel
@@ -364,38 +374,6 @@ function initSkillData() {
     }
 }
 
-// Initialize Theme Switcher
-function initThemeSwitcher() {
-    const themeSwitch = document.getElementById('theme-switch');
-    const body = document.body;
-    
-    if (!themeSwitch) return;
-    
-    // Load saved theme from localStorage
-    const savedTheme = localStorage.getItem('theme') || 'dark';
-    setTheme(savedTheme);
-    
-    // Add event listener to switch
-    themeSwitch.addEventListener('change', (e) => {
-        const theme = e.target.checked ? 'light' : 'dark';
-        setTheme(theme);
-        localStorage.setItem('theme', theme);
-    });
-    
-    function setTheme(theme) {
-        body.classList.remove('dark-theme', 'light-theme');
-        body.classList.add(`${theme}-theme`);
-        themeSwitch.checked = theme === 'light';
-        
-        // Update meta theme-color
-        const themeColor = theme === 'light' ? '#f8f9fa' : '#0a0a0a';
-        const metaThemeColor = document.querySelector('meta[name="theme-color"]');
-        if (metaThemeColor) {
-            metaThemeColor.setAttribute('content', themeColor);
-        }
-    }
-}
-
 // Initialize Back to Top Button
 function initBackToTop() {
     const backToTopBtn = document.getElementById('backToTop');
@@ -632,21 +610,5 @@ window.addEventListener('resize', function() {
     const blogContainer = document.querySelector('.blog-container');
     if (blogContainer) {
         blogContainer.style.transform = 'translateX(0)';
-    }
-});
-
-// Add scroll effect for header
-window.addEventListener('scroll', function() {
-    const header = document.querySelector('.header');
-    if (header) {
-        if (window.scrollY > 100) {
-            header.style.background = 'rgba(10, 10, 10, 0.95)';
-            header.style.backdropFilter = 'blur(10px)';
-            header.style.boxShadow = '0 5px 20px rgba(0, 0, 0, 0.3)';
-        } else {
-            header.style.background = 'transparent';
-            header.style.backdropFilter = 'none';
-            header.style.boxShadow = 'none';
-        }
     }
 });
