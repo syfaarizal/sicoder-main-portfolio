@@ -545,7 +545,6 @@ function initBlogCarousel() {
         blogCard.className = 'blog-card animate-on-scroll';
         
         blogCard.innerHTML = `
-            <img src="${post.image}" alt="${post.title}" class="blog-image">
             <div class="blog-content">
                 <span class="blog-date">${post.date}</span>
                 <h4 class="blog-title">${post.title}</h4>
