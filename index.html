@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="no-js">
     <head>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -10,23 +10,41 @@
         <meta name="msapplication-TileColor" content="#971313">
         <meta name="mobile-web-app-capable" content="yes">
         
+        <!-- Preload Critical Resources -->
+        <link rel="preload" href="./assets/css/style.css" as="style">
+        <link rel="preload" href="./assets/js/main.js" as="script">
+        
         <!-- Fonts & Icons -->
         <link rel="preconnect" href="https://fonts.googleapis.com">
         <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-        <link rel="preconnect" href="https://cdnjs.cloudflare.com">
+        <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet">
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-        <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
         
         <!-- CSS Files -->
         <link rel="stylesheet" href="./assets/css/style.css">
         <link rel="stylesheet" href="./assets/css/themes.css">
         <link rel="stylesheet" href="./assets/css/animations.css">
+        <link rel="stylesheet" href="./assets/css/components.css">
         <link rel="stylesheet" href="./assets/css/responsive.css">
         
         <link rel="icon" type="image/png" href="./assets/img/logo-html-more-red-no-bg.png">
         <title>SICODER | Front-End Developer & UI Designer</title>
     </head>
     <body class="dark-theme">
+        <!-- Loading Screen -->
+        <div class="loading-screen">
+            <div class="loading-spinner">
+                <div class="spinner-circle"></div>
+                <div class="spinner-text">SICODER</div>
+            </div>
+        </div>
+
+        <!-- Cursor Effects -->
+        <div class="custom-cursor"></div>
+        <div class="cursor-trail">
+            <div class="trail-container"></div>
+        </div>
+
         <!-- Theme Toggle -->
         <div class="theme-toggle">
             <input type="checkbox" id="theme-switch" class="theme-switch">
@@ -37,105 +55,190 @@
             </label>
         </div>
 
+        <!-- Floating Particles Background -->
+        <div class="floating-particles" id="floating-particles"></div>
+
         <header class="header">
             <a href="#home" class="logo">SICO<span>DER</span> .</a>
             <div class="menu-toggle" id="menu-toggle">
-                <i class="fa fa-bars"></i>
+                <div class="hamburger">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
             </div>
-            <nav>
-                <a href="#home" class="active"> Home </a>
-                <a href="#about"> About</a>
-                <a href="#skills"> Skills</a>
-                <a href="#blog"> Blog</a>
-                <a href="#project"> Project</a>
-                <a href="#contact"> Contact</a>
+            <nav class="nav-menu">
+                <a href="#home" class="nav-link active" data-text="Home">Home</a>
+                <a href="#about" class="nav-link" data-text="About">About</a>
+                <a href="#skills" class="nav-link" data-text="Skills">Skills</a>
+                <a href="#blog" class="nav-link" data-text="Blog">Blog</a>
+                <a href="#project" class="nav-link" data-text="Projects">Projects</a>
+                <a href="#contact" class="nav-link" data-text="Contact">Contact</a>
+                <div class="nav-indicator"></div>
             </nav>
         </header>
 
         <main>
+            <!-- Hero Section -->
             <section id="home" class="hero-section">
-                <div class="particles-container" id="particles-js"></div>
+                <div class="hero-bg-overlay"></div>
                 <div class="hero-content">
                     <div class="home">
                         <div class="home-img">
-                            <img src="assets/img/logo-html-more-red-no-bg.png" alt="SICODER Logo" class="logo-3d">
-                            <div class="glow-effect"></div>
+                            <div class="image-container">
+                                <img src="assets/img/logo-html-more-red-no-bg.png" alt="SICODER Logo" class="logo-3d">
+                                <div class="hexagon-border">
+                                    <div class="hex"></div>
+                                    <div class="hex"></div>
+                                    <div class="hex"></div>
+                                </div>
+                                <div class="glow-effect"></div>
+                            </div>
                         </div>
                         <div class="home-content">
-                            <h1 class="reveal-text">Hi, it's <span>Syifa F.A</span></h1>
-                            <h3 class="typing-text">I'm a  <span></span></h3>
-                            <p class="fade-in">I don't just want to code. I want to build. Build interfaces, experiences, and a future where I take full control of my skills and story.</p>
+                            <div class="intro-text">
+                                <h6 class="subtitle reveal-text">Hello, I'm</h6>
+                                <h1 class="title reveal-text">Syifa <span class="gradient-text">F.A</span></h1>
+                                <div class="typing-container">
+                                    <h3 class="typing-text">I'm a <span class="typed-text"></span></h3>
+                                </div>
+                            </div>
+                            <p class="description fade-in">
+                                I don't just want to code. I want to build. Build interfaces, experiences, 
+                                and a future where I take full control of my skills and story.
+                            </p>
+                            
                             <div class="social-icons">
-                                <a href="https://www.linkedin.com/in/syifaarizal/" target="_blank" rel="noopener noreferrer" title="LinkedIn" class="social-icon">
+                                <a href="https://www.linkedin.com/in/syifaarizal/" target="_blank" class="social-icon" data-tooltip="LinkedIn">
                                     <i class="fa-brands fa-linkedin"></i>
-                                    <span class="tooltip">LinkedIn</span>
+                                    <span class="hover-effect"></span>
                                 </a>
-                                <a href="https://github.com/syfaarizal" target="_blank" rel="noopener noreferrer" title="GitHub" class="social-icon">
+                                <a href="https://github.com/syfaarizal" target="_blank" class="social-icon" data-tooltip="GitHub">
                                     <i class="fa-brands fa-github"></i>
-                                    <span class="tooltip">GitHub</span>
+                                    <span class="hover-effect"></span>
                                 </a>
-                                <a href="https://www.instagram.com/syfaarizal/" target="_blank" rel="noopener noreferrer" title="Instagram" class="social-icon">
+                                <a href="https://www.instagram.com/syfaarizal/" target="_blank" class="social-icon" data-tooltip="Instagram">
                                     <i class="fa-brands fa-instagram"></i>
-                                    <span class="tooltip">Instagram</span>
+                                    <span class="hover-effect"></span>
+                                </a>
+                                <a href="#contact" class="social-icon" data-tooltip="Email">
+                                    <i class="fa-solid fa-envelope"></i>
+                                    <span class="hover-effect"></span>
                                 </a>
                             </div>
+                            
                             <div class="hero-buttons">
-                                <a href="#contact" class="btn pulse-animation">Hire me</a>
-                                <a href="#" id="CV-btn" class="btn outline-btn">Download CV</a>
-                                <div id="extraLinks" class="extraCV hidden">
-                                    <div class="svg-panah animated-item">
-                                        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                            <path d="M6 8L12 14L18 8M6 14L12 20L18 14" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
-                                        </svg>
+                                <a href="#contact" class="btn btn-primary pulse-animation">
+                                    <span>Hire Me</span>
+                                    <i class="fas fa-arrow-right"></i>
+                                </a>
+                                <div class="cv-dropdown">
+                                    <a href="#" id="CV-btn" class="btn btn-secondary">
+                                        <span>Download CV</span>
+                                        <i class="fas fa-download"></i>
+                                    </a>
+                                    <div id="extraLinks" class="cv-dropdown-content">
+                                        <a href="./assets/CV/CV-FrontEnd-Ind.pdf" class="cv-link" download>
+                                            <i class="fas fa-file-pdf"></i>
+                                            CV in Bahasa Indonesia
+                                        </a>
+                                        <a href="./assets/CV/CV-FrontEnd-Eng.pdf" class="cv-link" download>
+                                            <i class="fas fa-file-pdf"></i>
+                                            CV in English
+                                        </a>
                                     </div>
-                                    <a href="./assets/CV/CV-FrontEnd-Ind.pdf" class="animated-item cv-link" download>CV in Bahasa Indonesia</a>
-                                    <a href="./assets/CV/CV-FrontEnd-Eng.pdf" class="animated-item cv-link" download>CV in English</a>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
+                
                 <a href="#about" class="scroll-down">
-                    <i class="fas fa-chevron-down"></i>
+                    <div class="scroll-animation">
+                        <span></span>
+                        <span></span>
+                        <span></span>
+                    </div>
+                    <span class="scroll-text">Scroll Down</span>
                 </a>
             </section>
 
             <!-- About Section -->
             <section id="about" class="section-card">
-                <div class="about-header">
-                    <h1>About <span>Me</span></h1>
-                    <p>Get to know more about my journey and passion</p>
+                <div class="section-header">
+                    <div class="section-title">
+                        <span class="title-number">01</span>
+                        <h2>About <span class="highlight">Me</span></h2>
+                    </div>
+                    <p class="section-subtitle">Get to know more about my journey and passion</p>
                 </div>
                 
                 <div class="about-content">
                     <div class="about-text">
-                        <h2>Hi, I'm Syifa <span>Fauziayah Arizal</span></h2>
-                        <p>I'm a passionate front-end developer and UI designer with a focus on creating clean, responsive, and user-friendly web applications. I love turning ideas into reality through code and design, and I'm always eager to learn new technologies and improve my skills.</p>
-                        <p>Currently, I'm honing my skills in HTML, CSS, JavaScript, and various front-end frameworks. My goal is to build intuitive interfaces that enhance user experience while maintaining high performance and accessibility standards.</p>
+                        <div class="about-intro">
+                            <h3>Hi, I'm <span class="gradient-text">Syifa Fauziyah Arizal</span></h3>
+                            <div class="accent-line"></div>
+                            <p class="lead-text">
+                                I'm a passionate front-end developer and UI designer with a focus on creating clean, 
+                                responsive, and user-friendly web applications.
+                            </p>
+                        </div>
+                        
+                        <div class="about-details">
+                            <p>
+                                I love turning ideas into reality through code and design, and I'm always eager to 
+                                learn new technologies and improve my skills. Currently, I'm honing my skills in 
+                                HTML, CSS, JavaScript, and various front-end frameworks.
+                            </p>
+                            <p>
+                                My goal is to build intuitive interfaces that enhance user experience while 
+                                maintaining high performance and accessibility standards.
+                            </p>
+                        </div>
+                        
                         <div class="stats-container">
-                            <div class="stat-card">
-                                <h3>3+</h3>
-                                <p>Projects Completed</p>
+                            <div class="stat-card animate-on-scroll">
+                                <div class="stat-icon">
+                                    <i class="fas fa-code"></i>
+                                </div>
+                                <div class="stat-content">
+                                    <h3 class="stat-number" data-count="3">0+</h3>
+                                    <p class="stat-label">Projects Completed</p>
+                                </div>
                             </div>
-                            <div class="stat-card">
-                                <h3>100%</h3>
-                                <p>Client Satisfaction</p>
+                            <div class="stat-card animate-on-scroll">
+                                <div class="stat-icon">
+                                    <i class="fas fa-heart"></i>
+                                </div>
+                                <div class="stat-content">
+                                    <h3 class="stat-number" data-count="100">0%</h3>
+                                    <p class="stat-label">Client Satisfaction</p>
+                                </div>
                             </div>
-                            <div class="stat-card">
-                                <h3>1+</h3>
-                                <p>Years Learning</p>
+                            <div class="stat-card animate-on-scroll">
+                                <div class="stat-icon">
+                                    <i class="fas fa-clock"></i>
+                                </div>
+                                <div class="stat-content">
+                                    <h3 class="stat-number" data-count="1">0+</h3>
+                                    <p class="stat-label">Years Learning</p>
+                                </div>
                             </div>
                         </div>
                     </div>
                     
-                    <div class="about-img">
-                        <div class="about-img-container">
-                            <img src="./assets/img/Syifa-Anime.png" alt="Syifa Fauziyah Arizal">
-                            <div class="floating-elements">
-                                <span class="float-el el1">HTML</span>
-                                <span class="float-el el2">CSS</span>
-                                <span class="float-el el3">JS</span>
-                                <span class="float-el el4">UI/UX</span>
+                    <div class="about-visual">
+                        <div class="floating-avatar">
+                            <div class="avatar-container">
+                                <img src="./assets/img/Syifa-Anime.png" alt="Syifa Fauziyah Arizal" class="avatar-image">
+                                <div class="avatar-overlay"></div>
+                                <div class="tech-tags">
+                                    <span class="tech-tag" style="--i:1">HTML5</span>
+                                    <span class="tech-tag" style="--i:2">CSS3</span>
+                                    <span class="tech-tag" style="--i:3">JS</span>
+                                    <span class="tech-tag" style="--i:4">UI/UX</span>
+                                </div>
+                                <div class="ring"></div>
                             </div>
                         </div>
                     </div>
@@ -144,228 +247,215 @@
 
             <!-- Skills Section -->
             <section id="skills" class="section-card">
-                <div class="skills-header">
-                    <div>
-                        <h1>My <span>Skills</span></h1>
-                        <p>Skills I've Sharpened So Far</p>
+                <div class="section-header">
+                    <div class="section-title">
+                        <span class="title-number">02</span>
+                        <h2>My <span class="highlight">Skills</span></h2>
                     </div>
+                    <p class="section-subtitle">Skills I've Sharpened So Far</p>
                 </div>
                 
-                <!-- Skill tabs untuk filter -->
                 <div class="skill-tabs">
-                    <button class="skill-tab active" data-filter="all">All Skills</button>
-                    <button class="skill-tab" data-filter="technical">Technical</button>
-                    <button class="skill-tab" data-filter="design">Design</button>
-                    <button class="skill-tab" data-filter="soft">Soft Skills</button>
-                    <button class="skill-tab" data-filter="tools">Tools</button>
+                    <button class="skill-tab active" data-filter="all">
+                        <i class="fas fa-layer-group"></i>
+                        <span>All Skills</span>
+                    </button>
+                    <button class="skill-tab" data-filter="technical">
+                        <i class="fas fa-code"></i>
+                        <span>Technical</span>
+                    </button>
+                    <button class="skill-tab" data-filter="design">
+                        <i class="fas fa-paint-brush"></i>
+                        <span>Design</span>
+                    </button>
+                    <button class="skill-tab" data-filter="soft">
+                        <i class="fas fa-users"></i>
+                        <span>Soft Skills</span>
+                    </button>
+                    <button class="skill-tab" data-filter="tools">
+                        <i class="fas fa-tools"></i>
+                        <span>Tools</span>
+                    </button>
                 </div>
 
-                <!-- Skills akan ditampilkan berdasarkan filter -->
                 <div class="skills-grid" id="skills-container">
+                    <!-- Skills will be populated by JavaScript -->
                 </div>
             </section>
 
             <!-- Blog Section -->
             <section id="blog" class="section-card">
+                <div class="section-header">
+                    <div class="section-title">
+                        <span class="title-number">03</span>
+                        <h2>My <span class="highlight">Blog</span></h2>
+                    </div>
+                    <p class="section-subtitle">My blog in learning, building and growing</p>
+                </div>
+                
                 <div class="blog-header">
-                    <h1>My <span>Blog</span></h1>
-                    <p>My blog in learning, building and growing.</p>
+                    <h3 class="blog-section-title">Challenges <span class="gradient-text">Day-By-Day</span></h3>
+                    <div class="decorative-line"></div>
                 </div>
                 
-                <div class="judul-blog">
-                    <h2>Challenges <span>Day-By-Day</span></h2>
-                </div>
-                
-                <div class="blog-carousel">
-                    <div class="blog-container">
-                        <div class="blog-cards">
-                            <div class="blog-card">
-                                <small class="page-counter">June 5, 2025</small>
-                                <h3>Day 1: Print Name and Status</h3>
-                                <p>Today I learned about template literals in JavaScript. You know, that thing where you can insert variables...</p>
-                                <a href="./blog/day1.html" class="read-more-btn">Read More →</a>
-                            </div>
-                        </div>
-                        <div class="blog-cards">
-                            <div class="blog-card">
-                                <small class="page-counter">June 6, 2025</small>
-                                <h3>Day 2: Simple Age Calculator</h3>
-                                <p>Today's challenge really made my brain curl 😅 We were asked to create a <b>JavaScript program</b> that...</p>
-                                <a href="./blog/day2.html" class="read-more-btn">Read More →</a>
-                            </div>
-                        </div>
-                        <div class="blog-cards">
-                            <div class="blog-card">
-                                <small class="page-counter">June 9, 2025</small>
-                                <h3>Day 3: Interactive Calculator</h3>
-                                <p>Day 3 of this coding challenge really made me frown but also smile when I finally got it working. I was...</p>
-                                <a href="./blog/day3.html" class="read-more-btn">Read More →</a>
-                            </div>
-                        </div>
-                        <div class="blog-cards">
-                            <div class="blog-card">
-                                <small class="page-counter">June 11, 2025</small>
-                                <h3>Day 4: Number Guessing Game</h3>
-                                <p>Day 4 of this coding challenge had a different vibe because I was asked to create a simple game...</p>
-                                <a href="./blog/day4.html" class="read-more-btn">Read More →</a>
-                            </div>
-                        </div>
-                        <div class="blog-cards">
-                            <div class="blog-card">
-                                <small class="page-counter">July 7, 2025</small>
-                                <h3>Day 5: Creative Name Looping</h3>
-                                <p>After taking some time off to focus on other projects, I'm finally back to the JS challenges! This time...</p>
-                                <a href="./blog/day5.html" class="read-more-btn">Read More →</a>
-                            </div>
-                        </div>
-                        <div class="blog-cards">
-                            <div class="blog-card">
-                                <small class="page-counter">July 15, 2025</small>
-                                <h3>Day 6: Odd, Even, or Special?</h3>
-                                <p>Yo! Back again with day 6 challenge. Today I'm playing with numbers, but not just checking...</p>
-                                <a href="./blog/day6.html" class="read-more-btn">Read More →</a>
-                            </div>
+                <div class="blog-carousel-container">
+                    <div class="blog-carousel">
+                        <div class="blog-track" id="blog-track">
+                            <!-- Blog cards will be populated by JavaScript -->
                         </div>
                     </div>
-                    <button class="carousel-btn prev-btn"><i class="fas fa-chevron-left"></i></button>
-                    <button class="carousel-btn next-btn"><i class="fas fa-chevron-right"></i></button>
+                    <div class="carousel-controls">
+                        <button class="carousel-btn prev-btn">
+                            <i class="fas fa-chevron-left"></i>
+                        </button>
+                        <div class="carousel-dots"></div>
+                        <button class="carousel-btn next-btn">
+                            <i class="fas fa-chevron-right"></i>
+                        </button>
+                    </div>
                 </div>
                 
-                <div class="blog-links">
-                    <a href="./blog/indexblog.html" class="btn-links-all">View All Blog</a>
+                <div class="section-footer">
+                    <a href="./blog/indexblog.html" class="btn btn-outline">
+                        <span>View All Blog Posts</span>
+                        <i class="fas fa-external-link-alt"></i>
+                    </a>
                 </div>
             </section>
 
             <!-- Projects Section -->
             <section id="project" class="section-card">
-                <div class="portfolio-header">
-                    <div>
-                        <h1>My <span>Project</span></h1>
-                        <p>These are the projects where I learn and grow by building.</p>
+                <div class="section-header">
+                    <div class="section-title">
+                        <span class="title-number">04</span>
+                        <h2>My <span class="highlight">Projects</span></h2>
                     </div>
+                    <p class="section-subtitle">These are the projects where I learn and grow by building</p>
                 </div>
                 
-                <div class="portfolio-container">
-                    <div class="project-card">
-                        <img src="./assets/img/showcase-review.png" alt="Button & Login">
-                        <div class="tech-stack">
-                            <span>HTML</span>
-                            <span>CSS</span>
-                            <span>JavaScript</span>
-                            <span>GSAP</span>
-                            <span>Responsive Design</span>
-                        </div>
-                        <h3>Login Page Showcase — SICODER</h3>
-                        <p>My collection of creative login page templates built with clean and modern front-end code. This showcase explores multiple design styles, from dark mode to gradient and glassmorphism, while keeping everything smooth, responsive, and developer-friendly.</p>
-                        <div class="project-links">
-                            <a href="https://syfaarizal.github.io/showcase-login-page/" class="btn-demo" target="_blank" rel="noopener">
-                                <i class="fas fa-external-link-alt"></i> Live Demo
-                            </a>
-                            <a href="https://github.com/syfaarizal/showcase-login-page" class="btn-outline" target="_blank" rel="noopener">
-                                <i class="fab fa-github"></i> Source Code
-                            </a>
-                        </div>
-                    </div>
-                    <div class="project-card">
-                        <img src="./assets/img/CVDigital.png" alt="To-do List">
-                        <div class="tech-stack">
-                            <span>HTML</span>
-                            <span>CSS</span>
-                            <span>JavaScript</span>
-                            <span>Responsive Design</span>
-                            <span>Personal Branding</span>
-                        </div>
-                        <h3>Digital CV — Personal Brand</h3>
-                        <p>A modern digital CV integrated into my personal portfolio, built to showcase skills, projects, and experience interactively. Features a clean design, easy navigation, and responsive layout for recruiters and collaborators to explore my profile seamlessly.</p>
-                        <div class="project-links">
-                            <a href="https://syfaarizal.github.io/landing-page-sicoder/" class="btn-demo" target="_blank" rel="noopener">
-                                <i class="fas fa-external-link-alt"></i> Live Demo
-                            </a>
-                            <a href="https://github.com/syfaarizal/landing-page-sicoder" class="btn-outline" target="_blank" rel="noopener">
-                                <i class="fab fa-github"></i> Source Code
-                            </a>
-                        </div>
-                    </div>
-                    <div class="project-card">
-                        <img src="./assets/img/CruisePoint.png" alt="To-do List">
-                        <div class="tech-stack">
-                            <span>HTML</span>
-                            <span>CSS</span>
-                            <span>JavaScript</span>
-                            <span>Responsive Design</span>
-                        </div>
-                        <h3>CruisePoint Indonesia – Landing Page</h3>
-                        <p>A professional and responsive landing page built for CruisePoint Indonesia, a recruitment and legal assistance agency specializing in the global cruise industry. This project highlights a modern UI and smooth navigation to enhance user experience.</p>
-                        <div class="project-links">
-                            <a href="https://syfaarizal.github.io/cruishpoint-indonesia/" class="btn-demo" target="_blank" rel="noopener">
-                                <i class="fas fa-external-link-alt"></i> Live Demo
-                            </a>
-                            <a href="https://github.com/syfaarizal/cruishpoint-indonesia" class="btn-demo" target="_blank" rel="noopener">
-                                <i class="fab fa-github"></i> Source Code
-                            </a>
-                        </div>
-                    </div>
+                <div class="projects-filter">
+                    <button class="filter-btn active" data-filter="all">All Projects</button>
+                    <button class="filter-btn" data-filter="web">Web Development</button>
+                    <button class="filter-btn" data-filter="design">UI/UX Design</button>
+                    <button class="filter-btn" data-filter="personal">Personal</button>
+                </div>
+                
+                <div class="projects-grid">
+                    <!-- Project cards will be populated by JavaScript -->
                 </div>
             </section>
 
             <!-- Contact Section -->
             <section id="contact" class="section-card">
-                <div class="contact-header">
-                    <div>
-                        <h1>Let's <span>Connect</span></h1>
-                        <p>Have a project, idea, or just want to say hi? Reach me here:</p>
+                <div class="section-header">
+                    <div class="section-title">
+                        <span class="title-number">05</span>
+                        <h2>Let's <span class="highlight">Connect</span></h2>
                     </div>
+                    <p class="section-subtitle">Have a project, idea, or just want to say hi? Reach me here</p>
                 </div>
                 
                 <div class="contact-container">
-                    <form action="https://formsubmit.co/syifairgi@gmail.com" method="POST" class="contact-form" autocomplete="on">
-                        <div class="form-group">
-                            <label for="name">Name:</label>
-                            <input type="text" name="name" placeholder="Your Name" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="email">Email:</label>
-                            <input type="email" name="email" placeholder="Email" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="subject">Subject</label>
-                            <input type="text" name="subject" placeholder="Subject" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="message">Message:</label>
-                            <textarea name="message" rows="5" placeholder="Your message here..." required></textarea>
-                        </div>
+                    <div class="contact-form-container">
+                        <form action="https://formsubmit.co/syifairgi@gmail.com" method="POST" class="contact-form" autocomplete="on">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="name">
+                                        <i class="fas fa-user"></i>
+                                        <span>Your Name</span>
+                                    </label>
+                                    <input type="text" name="name" placeholder="Enter your name" required>
+                                    <div class="form-line"></div>
+                                </div>
+                                <div class="form-group">
+                                    <label for="email">
+                                        <i class="fas fa-envelope"></i>
+                                        <span>Email Address</span>
+                                    </label>
+                                    <input type="email" name="email" placeholder="your@email.com" required>
+                                    <div class="form-line"></div>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="subject">
+                                    <i class="fas fa-tag"></i>
+                                    <span>Subject</span>
+                                </label>
+                                <input type="text" name="subject" placeholder="What's this about?" required>
+                                <div class="form-line"></div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="message">
+                                    <i class="fas fa-comment-dots"></i>
+                                    <span>Your Message</span>
+                                </label>
+                                <textarea name="message" rows="5" placeholder="Tell me about your project or idea..." required></textarea>
+                                <div class="form-line"></div>
+                            </div>
 
-                        <input type="hidden" name="_captcha" value="false">
-                        <input type="hidden" name="_next" value="./thanks.html">
+                            <input type="hidden" name="_captcha" value="false">
+                            <input type="hidden" name="_next" value="./thanks.html">
 
-                        <button type="submit" class="btn submit-btn">Send Message</button>
-                    </form>
+                            <button type="submit" class="btn btn-primary submit-btn">
+                                <span>Send Message</span>
+                                <i class="fas fa-paper-plane"></i>
+                            </button>
+                        </form>
+                    </div>
                     
-                    <div class="contact-visual">
-                        <p class="contact-quote">build with me</p>
-                        <div class="box-line-quote"></div>
-                        <div class="contact-info">
-                            <div class="info-card">
-                                <i class="fas fa-envelope"></i>
-                                <div>
-                                    <h3>Email</h3>
+                    <div class="contact-info-container">
+                        <div class="contact-quote">
+                            <div class="quote-icon">
+                                <i class="fas fa-quote-left"></i>
+                            </div>
+                            <p class="quote-text">Great things in business are never done by one person. They're done by a team of people.</p>
+                            <p class="quote-author">- Steve Jobs</p>
+                        </div>
+                        
+                        <div class="contact-details">
+                            <div class="contact-card animate-on-scroll">
+                                <div class="contact-icon">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="contact-content">
+                                    <h4>Email</h4>
                                     <p>syifairgi@gmail.com</p>
                                 </div>
                             </div>
-                            <div class="info-card">
-                                <i class="fas fa-phone"></i>
-                                <div>
-                                    <h3>Phone</h3>
+                            <div class="contact-card animate-on-scroll">
+                                <div class="contact-icon">
+                                    <i class="fas fa-phone"></i>
+                                </div>
+                                <div class="contact-content">
+                                    <h4>Phone</h4>
                                     <p>+62 858-6486-4931</p>
                                 </div>
                             </div>
-                            <div class="info-card">
-                                <i class="fas fa-map-marker-alt"></i>
-                                <div>
-                                    <h3>Location</h3>
+                            <div class="contact-card animate-on-scroll">
+                                <div class="contact-icon">
+                                    <i class="fas fa-map-marker-alt"></i>
+                                </div>
+                                <div class="contact-content">
+                                    <h4>Location</h4>
                                     <p>Indonesia</p>
                                 </div>
+                            </div>
+                        </div>
+                        
+                        <div class="contact-socials">
+                            <h4>Follow Me</h4>
+                            <div class="social-links">
+                                <a href="https://www.linkedin.com/in/syifaarizal/" class="social-link" target="_blank">
+                                    <i class="fab fa-linkedin"></i>
+                                </a>
+                                <a href="https://github.com/syfaarizal" class="social-link" target="_blank">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="https://www.instagram.com/syfaarizal/" class="social-link" target="_blank">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
                             </div>
                         </div>
                     </div>
@@ -373,47 +463,90 @@
             </section>
         </main>
 
-        <footer id="footer">
+        <footer class="footer">
             <div class="footer-container">
-                <div class="footer-left">
-                    <img src="assets/img/sicoder-logo.png" alt="Logo" class="footer-logo">
-                    <p class="footer-tagline">Crafted with ❤️ and <code>&lt;/&gt;</code></p>
-                    <p class="footer-credit">Design & Code by Syifa F.A</p>
+                <div class="footer-brand">
+                    <div class="footer-logo">
+                        <img src="assets/img/sicoder-logo.png" alt="SICODER Logo">
+                        <div class="logo-glow"></div>
+                    </div>
+                    <p class="footer-tagline">Transforming ideas into digital experiences</p>
+                    <p class="footer-credit">© 2026 SICODER. All rights reserved.</p>
                 </div>
-                <div class="footer-middle">
-                    <h3>Quick Links</h3>
-                    <ul>
-                        <li><a href="#home">Home</a></li>
-                        <li><a href="#about">About</a></li>
-                        <li><a href="#skills">Skills</a></li>
-                        <li><a href="#blog">Blog</a></li>
-                        <li><a href="#project">Projects</a></li>
-                        <li><a href="#contact">Contact</a></li>
-                    </ul>
-                </div>
-                <div class="footer-right">
-                    <h3>Get in touch</h3>
-                    <p><i class="fas fa-envelope"></i> syifairgi@gmail.com</p>
-                    <p><i class="fas fa-phone"></i> +62 858-6486-4931</p>
-                    <div class="footer-socials">
-                        <a href="https://www.linkedin.com/in/syifaarizal/" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
-                        <a href="https://github.com/syfaarizal" title="GitHub"><i class="fab fa-github"></i></a>
-                        <a href="https://www.instagram.com/syfaarizal/" title="Instagram"><i class="fab fa-instagram"></i></a>
+                
+                <div class="footer-links">
+                    <div class="links-column">
+                        <h4>Quick Links</h4>
+                        <ul>
+                            <li><a href="#home">Home</a></li>
+                            <li><a href="#about">About</a></li>
+                            <li><a href="#skills">Skills</a></li>
+                            <li><a href="#blog">Blog</a></li>
+                            <li><a href="#project">Projects</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="links-column">
+                        <h4>Resources</h4>
+                        <ul>
+                            <li><a href="./assets/CV/CV-FrontEnd-Eng.pdf" download>Download CV</a></li>
+                            <li><a href="#blog">Latest Posts</a></li>
+                            <li><a href="#project">Projects</a></li>
+                            <li><a href="#contact">Hire Me</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="links-column">
+                        <h4>Connect</h4>
+                        <ul>
+                            <li><a href="mailto:syifairgi@gmail.com">Email</a></li>
+                            <li><a href="tel:+6285864864931">Phone</a></li>
+                            <li><a href="#contact">Contact Form</a></li>
+                        </ul>
                     </div>
                 </div>
+                
+                <div class="footer-newsletter">
+                    <h4>Stay Updated</h4>
+                    <p>Subscribe to my newsletter for updates</p>
+                    <form class="newsletter-form">
+                        <input type="email" placeholder="Your email address" required>
+                        <button type="submit">
+                            <i class="fas fa-paper-plane"></i>
+                        </button>
+                    </form>
+                </div>
             </div>
+            
             <div class="footer-bottom">
-                <p>© 2026 SICODER. All rights reserved. | Made with passion</p>
+                <div class="footer-socials">
+                    <a href="https://www.linkedin.com/in/syifaarizal/" target="_blank">
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                    <a href="https://github.com/syfaarizal" target="_blank">
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="https://www.instagram.com/syfaarizal/" target="_blank">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                </div>
+                <p class="footer-copyright">Made with ❤️ and <code>&lt;/&gt;</code> by Syifa F.A</p>
             </div>
         </footer>
 
+        <!-- Back to Top -->
         <button id="backToTop" class="back-to-top">
             <i class="fas fa-arrow-up"></i>
         </button>
 
-        <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+        <!-- Notification Toast -->
+        <div class="toast-container"></div>
+
+        <!-- JavaScript Files -->
         <script src="./assets/js/theme-switcher.js"></script>
         <script src="./assets/js/animations.js"></script>
+        <script src="./assets/js/particles-config.js"></script>
         <script src="./assets/js/main.js"></script>
     </body>
 </html>
