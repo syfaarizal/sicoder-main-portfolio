@@ -1,0 +1,414 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects | SICODER - Front-End Developer</title>
+    <meta name="description" content="Explore my latest projects - Modern web development, creative designs, and innovative solutions.">
+    
+    <!-- Favicon -->
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <!-- CSS -->
+    <link rel="stylesheet" href="./css/project.css">
+    <link rel="stylesheet" href="./css/theme.css">
+    <link rel="stylesheet" href="./css/animations.css">
+    
+    <!-- JavaScript -->
+    <script src="./js/theme-switcher.js" defer></script>
+    <script src="./js/particles.js" defer></script>
+    <script src="./js/project.js" type="module" defer></script>
+    
+    <style>
+        /* Initial styles to prevent FOUC */
+        body {
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+        
+        body.loaded {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="dark-theme">
+    <!-- Background Elements -->
+    <div class="bg-grid"></div>
+    <div class="bg-blobs"></div>
+    <canvas id="particles-canvas" class="particles-canvas"></canvas>
+    
+    <!-- Loading Screen -->
+    <div class="loading-screen">
+        <div class="loader">
+            <div class="loader-inner">
+                <div class="loader-line-wrap">
+                    <div class="loader-line"></div>
+                </div>
+                <div class="loader-line-wrap">
+                    <div class="loader-line"></div>
+                </div>
+                <div class="loader-line-wrap">
+                    <div class="loader-line"></div>
+                </div>
+                <div class="loader-line-wrap">
+                    <div class="loader-line"></div>
+                </div>
+                <div class="loader-line-wrap">
+                    <div class="loader-line"></div>
+                </div>
+            </div>
+            <div class="loading-text">Loading Projects<span class="loading-dots">...</span></div>
+        </div>
+    </div>
+
+    <!-- Back to Home -->
+    <a href="../index.html" class="back-home">
+        <i class="fas fa-arrow-left"></i>
+        <span>Back to Home</span>
+    </a>
+
+    <!-- Theme Toggle -->
+    <button class="theme-toggle" aria-label="Toggle theme">
+        <div class="theme-icon">
+            <i class="fas fa-sun"></i>
+            <i class="fas fa-moon"></i>
+        </div>
+        <div class="theme-ball"></div>
+    </button>
+
+    <!-- Main Content -->
+    <main>
+        <!-- Hero Section -->
+        <section class="hero-section">
+            <div class="container">
+                <div class="hero-content">
+                    <h1 class="hero-title glitch" data-text="PROJECT SHOWCASE">PROJECT SHOWCASE</h1>
+                    <p class="hero-subtitle">Where <span class="highlight">Code</span> Meets <span class="highlight">Creativity</span></p>
+                    <p class="hero-description">Explore my collection of modern web projects, experiments, and creative solutions. Each project tells a story of learning, growth, and innovation.</p>
+                    
+                    <div class="hero-stats">
+                        <div class="stat-item">
+                            <div class="stat-number" data-count="8">0</div>
+                            <div class="stat-label">Projects</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" data-count="15">0</div>
+                            <div class="stat-label">Technologies</div>
+                        </div>
+                        <div class="stat-item">
+                            <div class="stat-number" data-count="100">0</div>
+                            <div class="stat-label">Code Hours</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="scroll-indicator">
+                <div class="mouse">
+                    <div class="wheel"></div>
+                </div>
+                <div class="arrows">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </div>
+            </div>
+        </section>
+
+        <!-- Projects Grid -->
+        <section class="projects-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <span class="title-number">01</span>
+                        <span class="title-text">Featured <span class="gradient-text">Projects</span></span>
+                    </h2>
+                    <p class="section-description">A curated collection of my best work, from modern web apps to creative experiments.</p>
+                </div>
+
+                <!-- Project Filter -->
+                <div class="projects-filter">
+                    <div class="filter-buttons">
+                        <button class="filter-btn active" data-filter="all">All Projects</button>
+                        <button class="filter-btn" data-filter="web">Web Dev</button>
+                        <button class="filter-btn" data-filter="design">UI/UX</button>
+                        <button class="filter-btn" data-filter="js">JavaScript</button>
+                        <button class="filter-btn" data-filter="api">API</button>
+                        <button class="filter-btn" data-filter="personal">Personal</button>
+                    </div>
+                    
+                    <div class="filter-search">
+                        <input type="text" class="search-input" placeholder="Search projects...">
+                        <i class="fas fa-search"></i>
+                    </div>
+                </div>
+
+                <!-- Projects Grid -->
+                <div class="projects-grid" id="projects-grid">
+                    <!-- Projects will be loaded dynamically -->
+                </div>
+
+                <!-- Empty Template Cards -->
+                <div class="section-header" id="add-projects-section">
+                    <h2 class="section-title">
+                        <span class="title-number">02</span>
+                        <span class="title-text">Add <span class="gradient-text">Your Projects</span></span>
+                    </h2>
+                    <p class="section-description">Use these templates to showcase more of your work. Just copy the HTML structure and customize!</p>
+                </div>
+
+                <div class="template-grid" id="template-grid">
+                    <!-- Template cards will be loaded dynamically -->
+                </div>
+
+                <!-- Add Project Form (Collapsible) -->
+                <div class="add-project-section">
+                    <button class="add-project-toggle">
+                        <i class="fas fa-plus"></i>
+                        <span>Add New Project</span>
+                    </button>
+                    
+                    <div class="add-project-form hidden">
+                        <h3>Add Your Project</h3>
+                        <form id="project-form">
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="project-title">Project Title *</label>
+                                    <input type="text" id="project-title" placeholder="Enter project title" required>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="project-category">Category *</label>
+                                    <select id="project-category" required>
+                                        <option value="">Select category</option>
+                                        <option value="web">Web Development</option>
+                                        <option value="design">UI/UX Design</option>
+                                        <option value="js">JavaScript</option>
+                                        <option value="api">API Integration</option>
+                                        <option value="personal">Personal Project</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                                
+                                <div class="form-group full-width">
+                                    <label for="project-description">Description *</label>
+                                    <textarea id="project-description" placeholder="Describe your project..." rows="3" required></textarea>
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="project-image">Image URL</label>
+                                    <input type="url" id="project-image" placeholder="https://example.com/image.jpg">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="project-live">Live Demo URL</label>
+                                    <input type="url" id="project-live" placeholder="https://example.com">
+                                </div>
+                                
+                                <div class="form-group">
+                                    <label for="project-github">GitHub URL</label>
+                                    <input type="url" id="project-github" placeholder="https://github.com/username/repo">
+                                </div>
+                                
+                                <div class="form-group full-width">
+                                    <label for="project-technologies">Technologies (comma separated) *</label>
+                                    <input type="text" id="project-technologies" placeholder="HTML, CSS, JavaScript, React" required>
+                                </div>
+                                
+                                <div class="form-group full-width">
+                                    <label for="project-features">Key Features (comma separated)</label>
+                                    <input type="text" id="project-features" placeholder="Responsive design, Dark mode, Animations">
+                                </div>
+                            </div>
+                            
+                            <div class="form-actions">
+                                <button type="button" class="btn btn-secondary" id="preview-project">Preview</button>
+                                <button type="submit" class="btn btn-primary">Add Project</button>
+                                <button type="button" class="btn btn-text" id="reset-form">Reset</button>
+                            </div>
+                        </form>
+                        
+                        <!-- Preview Card -->
+                        <div class="preview-card hidden" id="preview-card"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Technologies Section -->
+        <section class="tech-section">
+            <div class="container">
+                <div class="section-header">
+                    <h2 class="section-title">
+                        <span class="title-number">03</span>
+                        <span class="title-text">Tech <span class="gradient-text">Stack</span></span>
+                    </h2>
+                    <p class="section-description">Technologies and tools I use to bring ideas to life</p>
+                </div>
+                
+                <div class="tech-grid">
+                    <div class="tech-card" data-tech="html">
+                        <div class="tech-icon">
+                            <i class="fab fa-html5"></i>
+                        </div>
+                        <div class="tech-content">
+                            <h3>HTML5</h3>
+                            <p>Semantic markup & modern structure</p>
+                        </div>
+                    </div>
+                    
+                    <div class="tech-card" data-tech="css">
+                        <div class="tech-icon">
+                            <i class="fab fa-css3-alt"></i>
+                        </div>
+                        <div class="tech-content">
+                            <h3>CSS3</h3>
+                            <p>Modern layouts & animations</p>
+                        </div>
+                    </div>
+                    
+                    <div class="tech-card" data-tech="js">
+                        <div class="tech-icon">
+                            <i class="fab fa-js"></i>
+                        </div>
+                        <div class="tech-content">
+                            <h3>JavaScript</h3>
+                            <p>Interactive & dynamic features</p>
+                        </div>
+                    </div>
+                    
+                    <div class="tech-card" data-tech="github">
+                        <div class="tech-icon">
+                            <i class="fab fa-github"></i>
+                        </div>
+                        <div class="tech-content">
+                            <h3>Git & GitHub</h3>
+                            <p>Version control & collaboration</p>
+                        </div>
+                    </div>
+                    
+                    <div class="tech-card" data-tech="responsive">
+                        <div class="tech-icon">
+                            <i class="fas fa-mobile-alt"></i>
+                        </div>
+                        <div class="tech-content">
+                            <h3>Responsive Design</h3>
+                            <p>Mobile-first approach</p>
+                        </div>
+                    </div>
+                    
+                    <div class="tech-card" data-tech="api">
+                        <div class="tech-icon">
+                            <i class="fas fa-code"></i>
+                        </div>
+                        <div class="tech-content">
+                            <h3>API Integration</h3>
+                            <p>Connect & fetch data</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta-section">
+            <div class="container">
+                <div class="cta-content">
+                    <h2 class="cta-title">Got a <span class="gradient-text">Project</span> in Mind?</h2>
+                    <p class="cta-description">Let's collaborate and build something amazing together!</p>
+                    <div class="cta-buttons">
+                        <a href="../index.html#contact" class="btn btn-primary">
+                            <i class="fas fa-paper-plane"></i>
+                            <span>Contact Me</span>
+                        </a>
+                        <a href="../index.html" class="btn btn-outline">
+                            <i class="fas fa-home"></i>
+                            <span>Back to Portfolio</span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-brand">
+                    <a href="../index.html" class="footer-logo">SICO<span>DER</span></a>
+                    <p class="footer-tagline">Building the web, one project at a time</p>
+                </div>
+                
+                <div class="footer-links">
+                    <div class="links-column">
+                        <h4>Explore</h4>
+                        <ul>
+                            <li><a href="../index.html">Home</a></li>
+                            <li><a href="../index.html#about">About</a></li>
+                            <li><a href="../index.html#skills">Skills</a></li>
+                            <li><a href="../index.html#project">Projects</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="links-column">
+                        <h4>Connect</h4>
+                        <ul>
+                            <li><a href="https://github.com/syfaarizal" target="_blank">GitHub</a></li>
+                            <li><a href="https://www.linkedin.com/in/syifaarizal/" target="_blank">LinkedIn</a></li>
+                            <li><a href="https://www.instagram.com/syfaarizal/" target="_blank">Instagram</a></li>
+                            <li><a href="mailto:syifairgi@gmail.com">Email</a></li>
+                        </ul>
+                    </div>
+                    
+                    <div class="links-column">
+                        <h4>Resources</h4>
+                        <ul>
+                            <li><a href="#" class="view-source">View Source</a></li>
+                            <li><a href="#" class="download-cv">Download CV</a></li>
+                            <li><a href="#" class="project-template">Project Template</a></li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p class="copyright">© 2026 SICODER. All rights reserved.</p>
+                <p class="made-with">Made with <i class="fas fa-heart"></i> and <i class="fas fa-code"></i></p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Project Modal -->
+    <div class="modal" id="project-modal">
+        <div class="modal-content">
+            <button class="modal-close">
+                <i class="fas fa-times"></i>
+            </button>
+            <div class="modal-body" id="modal-body">
+                <!-- Project details will be loaded here -->
+            </div>
+        </div>
+    </div>
+
+    <!-- Notification Toast -->
+    <div class="toast-container" id="toast-container"></div>
+
+    <!-- Scroll to Top -->
+    <button class="scroll-top" id="scroll-top">
+        <i class="fas fa-arrow-up"></i>
+    </button>
+
+    <!-- Audio Elements (for interactions) -->
+    <audio id="click-sound" src="assets/click.mp3" preload="auto"></audio>
+    <audio id="hover-sound" src="assets/hover.mp3" preload="auto"></audio>
+</body>
+</html>

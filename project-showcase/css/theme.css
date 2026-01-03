@@ -1,0 +1,99 @@
+.light-theme {
+    /* Colors - Light Theme */
+    --bg-primary: #f8f9fa;
+    --bg-secondary: #ffffff;
+    --bg-tertiary: #f1f3f5;
+    --bg-card: #ffffff;
+    
+    --text-primary: #333333;
+    --text-secondary: #666666;
+    --text-muted: #888888;
+    
+    --accent-primary: #d32f2f;
+    --accent-secondary: #ff6659;
+    --accent-gradient: linear-gradient(135deg, #d32f2f 0%, #ff6659 100%);
+    
+    --border-color: #e0e0e0;
+    --border-light: #f0f0f0;
+    
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.15);
+    --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.2);
+    --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.25);
+    --glow-primary: 0 0 20px rgba(211, 47, 47, 0.2);
+}
+
+/* Theme-specific adjustments */
+.light-theme .bg-grid {
+    background-image: 
+        linear-gradient(to right, var(--border-color) 1px, transparent 1px),
+        linear-gradient(to bottom, var(--border-color) 1px, transparent 1px);
+    opacity: 0.1;
+}
+
+.light-theme .bg-blobs::before {
+    background: var(--accent-primary);
+    opacity: 0.05;
+}
+
+.light-theme .bg-blobs::after {
+    background: var(--accent-secondary);
+    opacity: 0.05;
+}
+
+.light-theme .back-home,
+.light-theme .theme-toggle {
+    background: rgba(255, 255, 255, 0.8);
+    backdrop-filter: blur(10px);
+}
+
+.light-theme .project-card,
+.light-theme .template-card,
+.light-theme .tech-card,
+.light-theme .add-project-section,
+.light-theme .modal-content,
+.light-theme .toast {
+    box-shadow: var(--shadow-md);
+}
+
+.light-theme .form-group input,
+.light-theme .form-group textarea,
+.light-theme .form-group select {
+    background: var(--bg-tertiary);
+}
+
+.light-theme .search-input {
+    background: var(--bg-tertiary);
+}
+
+.light-theme .tech-tag {
+    background: var(--bg-tertiary);
+}
+
+.light-theme .filter-btn {
+    background: var(--bg-tertiary);
+}
+
+.light-theme .modal {
+    background: rgba(248, 249, 250, 0.9);
+}
+
+/* Theme transition */
+body,
+.project-card,
+.template-card,
+.tech-card,
+.back-home,
+.theme-toggle,
+.btn,
+.filter-btn,
+.form-group input,
+.form-group textarea,
+.form-group select,
+.modal,
+.toast {
+    transition: background-color var(--transition-base),
+                color var(--transition-base),
+                border-color var(--transition-base),
+                box-shadow var(--transition-base);
+}
