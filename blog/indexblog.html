@@ -76,6 +76,33 @@
             100% { transform: translateY(-100px) rotate(360deg); opacity: 0; }
         }
 
+        /* Back to Portfolio Button */
+        .back-to-portfolio {
+            position: fixed;
+            top: 20px;
+            left: 50px;
+            z-index: 999;
+        }
+
+        .back-to-portfolio a {
+            text-decoration: none;
+            color: var(--blur-bg);
+            border: none;
+            padding: 10px 15px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1rem;
+            gap: 10px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .back-to-portfolio a:hover {
+            color: var(--primary-color);
+            transform: translateX(-5px);
+        }
+
         #blog {
             max-width: 1200px;
             margin: 0 auto;
@@ -538,6 +565,14 @@
 <body>
     <!-- Particle Background -->
     <div class="particles" id="particles"></div>
+
+    <!-- back to portfolio -->
+    <div class="back-to-portfolio">
+        <a href="../index.html" aria-label="Back to Portfolio">
+            <i class="fas fa-arrow-left"></i>
+             Back to Portfolio
+        </a>
+    </div>
 
     <section id="blog">
         <div class="blog-header">
