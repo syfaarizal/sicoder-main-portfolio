@@ -516,7 +516,7 @@ function initSkillData() {
                     
                     if (filter === 'all' || item.getAttribute('data-category') === filter) {
                         setTimeout(() => {
-                            item.style.display = 'flex';
+                            item.style.display = 'block';
                             setTimeout(() => {
                                 item.style.opacity = '1';
                                 item.style.transform = 'translateY(0)';
@@ -874,7 +874,7 @@ function initProjectsFilter() {
                 
                 if (filter === 'all' || card.getAttribute('data-category') === filter) {
                     setTimeout(() => {
-                        card.style.display = 'flex';
+                        card.style.display = 'block';
                         setTimeout(() => {
                             card.style.opacity = '1';
                             card.style.transform = 'translateY(0)';
