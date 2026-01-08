@@ -95,6 +95,7 @@
 
 .nav-menu {
     display: flex;
+    margin-right: 30px;
     gap: 3rem;
     position: relative;
 }
