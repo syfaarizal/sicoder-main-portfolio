@@ -49,11 +49,6 @@ const projectsData = [
         tech: ["html", "css", "js", "gsap"],
         date: "2024-09-15",
         featured: true,
-        stats: {
-            views: 1250,
-            forks: 45,
-            stars: 89
-        },
         image: "../assets/img/showcase-review.png",
         demo: "https://syfaarizal.github.io/showcase-login-page/",
         code: "https://github.com/syfaarizal/showcase-login-page",
@@ -67,11 +62,6 @@ const projectsData = [
         tech: ["html", "css", "js"],
         date: "2024-08-10",
         featured: false,
-        stats: {
-            views: 890,
-            forks: 23,
-            stars: 45
-        },
         image: "../assets/img/CVDigital.png",
         demo: "https://syfaarizal.github.io/landing-page-sicoder/",
         code: "https://github.com/syfaarizal/landing-page-sicoder",
@@ -85,11 +75,6 @@ const projectsData = [
         tech: ["html", "css", "js"],
         date: "2024-07-05",
         featured: false,
-        stats: {
-            views: 750,
-            forks: 18,
-            stars: 32
-        },
         image: "../assets/img/CruisePoint.png",
         demo: "https://syfaarizal.github.io/cruishpoint-indonesia/",
         code: "https://github.com/syfaarizal/cruishpoint-indonesia",
@@ -363,20 +348,6 @@ function createProjectCard(project, index) {
             <div class="project-tech">
                 ${techBadges}
             </div>
-            <div class="project-stats">
-                <div class="stat">
-                    <i class="fas fa-eye"></i>
-                    <span>${project.stats.views}</span>
-                </div>
-                <div class="stat">
-                    <i class="fas fa-code-branch"></i>
-                    <span>${project.stats.forks}</span>
-                </div>
-                <div class="stat">
-                    <i class="fas fa-heart"></i>
-                    <span>${project.stats.stars}</span>
-                </div>
-            </div>
             <div class="project-actions">
                 <a href="${project.detail}" class="btn btn-outline">
                     <span>View Details</span>
@@ -589,11 +560,6 @@ function sortProjects(sortType) {
                 const techA = a.getAttribute('data-tech').split(' ').length;
                 const techB = b.getAttribute('data-tech').split(' ').length;
                 return techB - techA;
-                
-            case 'popular':
-                const viewsA = parseInt(a.querySelector('.project-stats .stat:nth-child(1) span').textContent);
-                const viewsB = parseInt(b.querySelector('.project-stats .stat:nth-child(1) span').textContent);
-                return viewsB - viewsA;
                 
             default:
                 return 0;
