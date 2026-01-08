@@ -27,13 +27,14 @@
 
 .back-to-portfolio {
     position: absolute;
-    top: 2rem;
-    left: 2rem;
+    top: 5rem;
+    left: 5rem;
     display: flex;
     align-items: center;
     gap: 0.5rem;
     font-size: 1.7rem;
     color: var(--text-color);
+    font-weight: 500;
     text-decoration: none;
     transition: all var(--transition-base);
 }
