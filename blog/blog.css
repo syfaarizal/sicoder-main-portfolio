@@ -562,6 +562,18 @@ code:not(pre code) {
 }
 
 /* Responsive Design */
+@media (max-width: 1280px) {
+  .logo-sticky {
+    right: 70px;
+  }
+}
+
+@media (max-width: 1024px) {
+  .logo-sticky {
+    right: 30px;
+  }
+}
+
 @media (max-width: 768px) {
   .nav-container {
     padding: 0 1rem;
