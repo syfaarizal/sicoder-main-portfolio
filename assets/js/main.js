@@ -793,7 +793,7 @@ function initProjectsFilter() {
     
     const projects = [
         {
-            category: 'web',
+            category: 'design',
             title: 'Login Page Showcase — SICODER',
             description: 'My collection of creative login page templates built with clean and modern front-end code.',
             tags: ['HTML', 'CSS', 'JavaScript', 'GSAP', 'Responsive'],
