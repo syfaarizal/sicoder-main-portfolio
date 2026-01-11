@@ -179,6 +179,56 @@
             border-radius: var(--radius-lg);
             padding: var(--spacing-lg);
         }
+
+        /* Share Buttons */
+        .share-buttons {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: var(--spacing-sm);
+        }
+        
+        .share-btn {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 0.8rem;
+            padding: 1rem;
+            background: var(--surface-color);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-md);
+            color: var(--text-color);
+            transition: all var(--transition-base);
+            text-decoration: none;
+        }
+        
+        .share-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: var(--shadow-md);
+        }
+        
+        .share-btn.twitter:hover {
+            background: #1DA1F2;
+            color: white;
+            border-color: #1DA1F2;
+        }
+        
+        .share-btn.linkedin:hover {
+            background: #0077B5;
+            color: white;
+            border-color: #0077B5;
+        }
+        
+        .share-btn.github:hover {
+            background: #333;
+            color: white;
+            border-color: #333;
+        }
+        
+        .share-btn.copy:hover {
+            background: var(--primary-color);
+            color: white;
+            border-color: var(--primary-color);
+        }
         
         .project-links {
             display: flex;
@@ -230,6 +280,7 @@
             border-color: var(--primary-color);
         }
         
+        /* Back Button */
         .back-to-projects {
             display: inline-flex;
             align-items: center;
@@ -237,12 +288,20 @@
             color: var(--primary-color);
             font-weight: 600;
             margin-bottom: var(--spacing-lg);
-            transition: var(--transition-base);
+            padding: 0.8rem 1.5rem;
+            background: var(--card-color);
+            border: 1px solid var(--border-color);
+            border-radius: var(--radius-full);
+            transition: all var(--transition-base);
+            text-decoration: none;
         }
-
+        
         .back-to-projects:hover {
+            background: var(--gradient-primary);
+            color: white;
+            border-color: transparent;
             transform: translateX(-5px);
-            color: var(--primary-light);
+            box-shadow: var(--shadow-md);
         }
         
         @media (max-width: 992px) {
@@ -270,16 +329,6 @@
             <div class="spinner-circle"></div>
             <div class="spinner-text">LOADING</div>
         </div>
-    </div>
-
-    <!-- Theme Toggle -->
-    <div class="theme-toggle">
-        <input type="checkbox" id="theme-switch" class="theme-switch">
-        <label for="theme-switch" class="theme-label">
-            <i class="fas fa-sun"></i>
-            <i class="fas fa-moon"></i>
-            <span class="theme-ball"></span>
-        </label>
     </div>
 
     <!-- Header -->
@@ -483,21 +532,25 @@
                 </div>
 
                 <!-- Share Project -->
-                <div class="sidebar-card">
-                    <h3>Share Project</h3>
-                    <div style="display: flex; gap: 1rem; margin-top: 1rem;">
-                        <a href="#" class="social-icon" tyle="width: 40px; height: 40px;">
+                <div class="sidebar-card animate-on-scroll">
+                    <h3><i class="fas fa-share-alt"></i> Share Project</h3>
+                    <div class="share-buttons">
+                        <a href="https://twitter.com/intent/tweet?text=Check%20out%20this%20awesome%20Digital%20CV%20by%20@syfaarizal%20-%20a%20modern%20portfolio%20built%20with%20pure%20front-end%20skills!&url=https://syfaarizal.github.io/landing-page-sicoder/" target="_blank" class="share-btn twitter">
                             <i class="fab fa-twitter"></i>
+                            <span>Twitter</span>
                         </a>
-                        <a href="#" class="social-icon" style="width: 40px; height: 40px;">
+                        <a href="https://www.linkedin.com/sharing/share-offsite/?url=https://syfaarizal.github.io/landing-page-sicoder/" target="_blank" class="share-btn linkedin">
                             <i class="fab fa-linkedin"></i>
+                            <span>LinkedIn</span>
                         </a>
-                        <a href="#" class="social-icon" style="width: 40px; height: 40px;">
-                            <i class="fab fa-facebook"></i>
+                        <a href="https://github.com/syfaarizal/landing-page-sicoder" target="_blank" class="share-btn github">
+                            <i class="fab fa-github"></i>
+                            <span>GitHub</span>
                         </a>
-                        <a href="#" class="social-icon" style="width: 40px; height: 40px;">
-                            <i class="fas fa-link"></i>
-                        </a>
+                        <button onclick="copyProjectLink()" class="share-btn copy">
+                            <i class="fas fa-copy"></i>
+                            <span>Copy Link</span>
+                        </button>
                     </div>
                 </div>
             </aside>
@@ -556,15 +609,6 @@
                         <li><a href="indexprojects.html">UI/UX Design</a></li>
                         <li><a href="indexprojects.html">Mobile Apps</a></li>
                         <li><a href="indexprojects.html">Experiments</a></li>
-                    </ul>
-                </div>
-                
-                <div class="links-column">
-                    <h4>Resources</h4>
-                    <ul>
-                        <li><a href="https://github.com/syfaarizal" target="_blank">GitHub</a></li>
-                        <li><a href="#">Source Code</a></li>
-                        <li><a href="#">Design Files</a></li>
                     </ul>
                 </div>
                 
