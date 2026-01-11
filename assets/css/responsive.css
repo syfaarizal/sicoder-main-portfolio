@@ -18,6 +18,19 @@
     html {
         font-size: 58%;
     }
+
+    .header {
+        padding: 2rem 5%;
+    }
+
+    .nav-menu {
+        margin-right: 50px;
+    }
+
+    .theme-toggle {
+        top: 10px;
+        right: 20px;
+    }
     
     .home {
         gap: var(--spacing-lg);
