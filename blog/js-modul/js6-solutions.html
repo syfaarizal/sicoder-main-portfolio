@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>DOM Manipulation — Solutions</title>
-  <meta name="description" content="JavaScript Module 5 Solutions — DOM Manipulation challenges explained with clean and practical code." />
+  <title>Asynchronous JavaScript — Solutions</title>
+  <meta name="description" content="JavaScript Module 6 Solutions — Async, Fetch API, loading states, error handling, and data filtering." />
 
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -21,14 +21,14 @@
 
   <nav class="header-nav">
     <div class="nav-container">
-      <a href="./js5.html" class="back-to-blog">
+      <a href="./js6.html" class="back-to-blog">
         <i class="fas fa-arrow-left"></i>
         Back to Module
       </a>
       <div class="post-meta-nav">
         <div class="reading-time">
           <i class="fas fa-clock"></i>
-          <span>8 min read</span>
+          <span>9 min read</span>
         </div>
       </div>
     </div>
@@ -38,7 +38,7 @@
     <article class="blog-post fade-in">
 
       <header class="article-header">
-        <h1>DOM Manipulation — Solutions</h1>
+        <h1>Asynchronous JavaScript — Solutions</h1>
 
         <div class="article-meta">
           <div class="meta-item">
@@ -47,7 +47,7 @@
           </div>
           <div class="meta-item">
             <i class="fas fa-tags"></i>
-            <span>JavaScript, DOM, Solutions</span>
+            <span>JavaScript, Async, Fetch API, Solutions</span>
           </div>
           <div class="meta-item">
             <i class="fas fa-user"></i>
@@ -56,25 +56,25 @@
         </div>
 
         <div class="article-intro">
-          Tried the challenges already?  
-          Good. Now let’s break them down like real front-end devs.
+          Async is not about speed.  
+          It’s about control, UX, and resilience.
         </div>
       </header>
 
       <blockquote style="margin:1rem 0;padding:1rem;border-left:4px solid #22c55e;font-style:italic;">
-        “DOM mastery is not magic.  
-        It’s just knowing what to touch — and when.”
+        “Real apps assume things will fail — and handle it gracefully.”
       </blockquote>
 
       <!-- Challenge 1 -->
       <section>
-        <h2>✅ Challenge 1 — Todo Interaction</h2>
+        <h2>⏳ Challenge 1 — Loading & Error Handling</h2>
+
         <p>
-          Requirements:
+          Goals:
         </p>
         <ul>
-          <li>Click item → strike through</li>
-          <li>Double click → delete item</li>
+          <li>Show loading text</li>
+          <li>Handle errors properly</li>
         </ul>
 
         <div class="code-block">
@@ -85,45 +85,51 @@
             </button>
           </div>
           <pre><code class="language-javascript">
-const input = document.querySelector("#todoInput");
-const btn = document.querySelector("#addBtn");
-const list = document.querySelector("#todoList");
+const statusText = document.querySelector("#status");
+const card = document.querySelector(".card");
 
-btn.addEventListener("click", () => {
-  const li = document.createElement("li");
-  li.textContent = input.value;
+async function fetchUser() {
+  statusText.textContent = "Loading...";
+  card.innerHTML = "";
 
-  // single click → toggle done
-  li.addEventListener("click", () => {
-    li.classList.toggle("done");
-  });
+  try {
+    const res = await fetch("https://randomuser.me/api/");
+    if (!res.ok) throw new Error("Network error");
 
-  // double click → delete
-  li.addEventListener("dblclick", () => {
-    li.remove();
-  });
+    const data = await res.json();
+    const user = data.results[0];
 
-  list.appendChild(li);
-  input.value = "";
-});
+    card.innerHTML = `
+      <img src="${user.picture.large}">
+      <h3>${user.name.first} ${user.name.last}</h3>
+      <p>${user.email}</p>
+    `;
+
+    statusText.textContent = "";
+  } catch (error) {
+    statusText.textContent = "Failed to load data ❌";
+  }
+}
+
+fetchUser();
           </code></pre>
         </div>
 
         <p>
-          One element. Two behaviors.  
-          This is real DOM control.
+          Loading state keeps users calm.  
+          Error handling keeps apps alive.
         </p>
       </section>
 
       <!-- Challenge 2 -->
       <section>
-        <h2>🔢 Challenge 2 — Counter Upgrade</h2>
+        <h2>🔁 Challenge 2 — Refetch with Button</h2>
+
         <p>
-          Requirements:
+          Goal:
         </p>
         <ul>
-          <li>Add minus button</li>
-          <li>Set min & max limit</li>
+          <li>Click button → fetch new data</li>
         </ul>
 
         <div class="code-block">
@@ -134,45 +140,30 @@ btn.addEventListener("click", () => {
             </button>
           </div>
           <pre><code class="language-javascript">
-let count = 0;
-const max = 10;
-const min = 0;
+const refreshBtn = document.querySelector("#refreshBtn");
 
-const display = document.querySelector("#count");
-const incBtn = document.querySelector("#increment");
-const decBtn = document.querySelector("#decrement");
-
-incBtn.addEventListener("click", () => {
-  if (count < max) {
-    count++;
-    display.textContent = count;
-  }
-});
-
-decBtn.addEventListener("click", () => {
-  if (count > min) {
-    count--;
-    display.textContent = count;
-  }
+refreshBtn.addEventListener("click", () => {
+  fetchUser();
 });
           </code></pre>
         </div>
 
         <p>
-          Boundaries = controlled UI.  
-          No wild numbers.
+          Same logic.  
+          Different trigger.
         </p>
       </section>
 
       <!-- Challenge 3 -->
       <section>
-        <h2>🌗 Challenge 3 — Persistent Theme</h2>
+        <h2>🧬 Challenge 3 — Filter User by Gender</h2>
+
         <p>
-          Requirements:
+          Goal:
         </p>
         <ul>
-          <li>Save theme mode</li>
-          <li>Refresh page → keep the vibe</li>
+          <li>Fetch based on selected gender</li>
+          <li>Render filtered data</li>
         </ul>
 
         <div class="code-block">
@@ -183,43 +174,55 @@ decBtn.addEventListener("click", () => {
             </button>
           </div>
           <pre><code class="language-javascript">
-const toggle = document.querySelector("#toggleTheme");
+const genderSelect = document.querySelector("#gender");
 
-// load saved theme
-if (localStorage.getItem("theme") === "dark") {
-  document.body.classList.add("dark");
+async function fetchUserByGender() {
+  const gender = genderSelect.value;
+  statusText.textContent = "Loading...";
+  card.innerHTML = "";
+
+  try {
+    const res = await fetch(
+      `https://randomuser.me/api/?gender=${gender}`
+    );
+    const data = await res.json();
+    const user = data.results[0];
+
+    card.innerHTML = `
+      <img src="${user.picture.large}">
+      <h3>${user.name.first} ${user.name.last}</h3>
+      <p>${user.email}</p>
+      <span class="badge">${user.gender}</span>
+    `;
+
+    statusText.textContent = "";
+  } catch {
+    statusText.textContent = "Something went wrong ❌";
+  }
 }
 
-toggle.addEventListener("click", () => {
-  document.body.classList.toggle("dark");
-
-  if (document.body.classList.contains("dark")) {
-    localStorage.setItem("theme", "dark");
-  } else {
-    localStorage.setItem("theme", "light");
-  }
-});
+genderSelect.addEventListener("change", fetchUserByGender);
           </code></pre>
         </div>
 
         <p>
-          Small feature.  
-          Big user experience upgrade.
+          Now your app reacts to user input + API data.  
+          This is dynamic UI.
         </p>
       </section>
 
       <section>
-        <h2>🧠 Why These Solutions Matter</h2>
+        <h2>🧠 Why This Module Is a Big Deal</h2>
         <ul>
-          <li>You handled multiple events</li>
-          <li>You controlled state with variables</li>
-          <li>You made UI persistent</li>
-          <li>You wrote logic that users actually feel</li>
+          <li>You handled async state</li>
+          <li>You protected UI from failures</li>
+          <li>You reused logic efficiently</li>
+          <li>You filtered real API data</li>
         </ul>
 
         <p>
-          This is no longer “learning JavaScript”.  
-          This is building interfaces.
+          This is no longer tutorial-level code.  
+          This is production mindset.
         </p>
       </section>
 
@@ -227,10 +230,11 @@ toggle.addEventListener("click", () => {
         <div class="conclusion">
           <h3>📌 Final Takeaways</h3>
           <ul>
-            <li>DOM events can stack on one element</li>
-            <li>State matters more than visuals</li>
-            <li><code>localStorage</code> = simple persistence</li>
-            <li>Clean DOM logic = better UX</li>
+            <li>Always show loading feedback</li>
+            <li>Never trust the network</li>
+            <li>Refetching is just reusing functions</li>
+            <li>Filtering data = better UX</li>
+            <li>Async mastery = framework ready</li>
           </ul>
         </div>
       </footer>
@@ -238,13 +242,13 @@ toggle.addEventListener("click", () => {
     </article>
 
     <nav class="post-navigation">
-      <a href="./js5.html" class="nav-button">
+      <a href="./js6.html" class="nav-button">
         <span class="nav-label">← Previous</span>
-        <span class="nav-title">DOM Manipulation: When Code Starts Moving the Page</span>
+        <span class="nav-title">Asynchronous JavaScript: Keep Your UI Alive</span>
       </a>
-      <a href="./js6.html" class="nav-button next">
+      <a href="./js7.html" class="nav-button next">
         <span class="nav-label">Next →</span>
-        <span class="nav-title">Async JavaScript</span>
+        <span class="nav-title">State & Data Flow</span>
       </a>
     </nav>
   </div>
