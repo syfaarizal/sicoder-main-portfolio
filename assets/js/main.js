@@ -593,37 +593,37 @@ function initBlogCarousel() {
             date: 'June 5, 2025',
             title: 'Day 1: Print Name and Status',
             excerpt: 'Today I learned about template literals in JavaScript. You know, that thing where you can insert variables...',
-            link: '../../blog/day1.html',
+            link: '../../blog/days-challenge/day1.html',
         },
         {
             date: 'June 6, 2025',
             title: 'Day 2: Simple Age Calculator',
             excerpt: 'Today\'s challenge really made my brain curl 😅 We were asked to create a JavaScript program that...',
-            link: '../../blog/day2.html',
+            link: '../../blog/days-challenge/day2.html',
         },
         {
             date: 'June 9, 2025',
             title: 'Day 3: Interactive Calculator',
             excerpt: 'Day 3 of this coding challenge really made me frown but also smile when I finally got it working. I was...',
-            link: '../../blog/day3.html',
+            link: '../../blog/days-challenge/day3.html',
         },
         {
             date: 'June 11, 2025',
             title: 'Day 4: Number Guessing Game',
             excerpt: 'Day 4 of this coding challenge had a different vibe because I was asked to create a simple game...',
-            link: '../../blog/day4.html',
+            link: '../../blog/days-challenge/day4.html',
         },
         {
             date: 'July 7, 2025',
             title: 'Day 5: Creative Name Looping',
             excerpt: 'After taking some time off to focus on other projects, I\'m finally back to the JS challenges! This time...',
-            link: '../../blog/day5.html',
+            link: '../../blog/days-challenge/day5.html',
         },
         {
             date: 'July 15, 2025',
             title: 'Day 6: Odd, Even, or Special?',
             excerpt: 'Yo! Back again with day 6 challenge. Today I\'m playing with numbers, but not just checking...',
-            link: '../../blog/day6.html',
+            link: '../../blog/days-challenge/day6.html',
         }
     ];
     
