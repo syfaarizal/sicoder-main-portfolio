@@ -52,7 +52,7 @@ const projectsData = [
         image: "../assets/img/showcase-review.png",
         demo: "https://syfaarizal.github.io/showcase-login-page/",
         code: "https://github.com/syfaarizal/showcase-login-page",
-        detail: "project-detail1.html?id=1"
+        detail: "./project-detail1.html?id=1"
     },
     {
         id: 2,
@@ -65,7 +65,7 @@ const projectsData = [
         image: "../assets/img/CVDigital.png",
         demo: "https://syfaarizal.github.io/landing-page-sicoder/",
         code: "https://github.com/syfaarizal/landing-page-sicoder",
-        detail: "project-detail.html?id=2"
+        detail: "./project-detail2.html?id=2"
     },
     {
         id: 3,
@@ -78,7 +78,7 @@ const projectsData = [
         image: "../assets/img/CruisePoint.png",
         demo: "https://syfaarizal.github.io/cruishpoint-indonesia/",
         code: "https://github.com/syfaarizal/cruishpoint-indonesia",
-        detail: "project-detail.html?id=3"
+        detail: "./project-detail3.html?id=3"
     },
     // {
     //     id: 4,
