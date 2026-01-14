@@ -80,24 +80,19 @@ const projectsData = [
         code: "https://github.com/syfaarizal/cruishpoint-indonesia",
         detail: "./project-detail3.html?id=3"
     },
-    // {
-    //     id: 4,
-    //     title: "E-commerce UI Design",
-    //     description: "Modern e-commerce interface design with focus on user experience.",
-    //     category: "ui",
-    //     tech: ["figma"],
-    //     date: "2024-10-20",
-    //     featured: false,
-    //     stats: {
-    //         views: 1100,
-    //         forks: 34,
-    //         stars: 67
-    //     },
-    //     image: "../assets/img/ecommerce-ui.jpg",
-    //     demo: "#",
-    //     code: "#",
-    //     detail: "project-detail.html?id=4"
-    // },
+    {
+        id: 4,
+        title: "Pomodoro Timer FocusFlow",
+        description: "Clean and minimalistic UI design for a Pomodoro timer application.",
+        category: "ui",
+        tech: ["react", "tailwind"],
+        date: "2026-01-14",
+        featured: false,
+        image: "../assets/img/pomodoro-focusflow.png",
+        demo: "https://pomodoro-focusflow.vercel.app/",
+        code: "https://github.com/syfaarizal/pomodoro-focusflow",
+        detail: "project-detail.html?id=4"
+    },
     // {
     //     id: 5,
     //     title: "Weather App",
