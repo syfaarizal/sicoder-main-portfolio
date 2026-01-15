@@ -91,7 +91,7 @@ const projectsData = [
         image: "../assets/img/pomodoro-focusflow.png",
         demo: "https://pomodoro-focusflow.vercel.app/",
         code: "https://github.com/syfaarizal/pomodoro-focusflow",
-        detail: "project-detail.html?id=4"
+        detail: "./project-detail4.html?id=4"
     },
     // {
     //     id: 5,
