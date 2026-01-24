@@ -376,6 +376,20 @@ function initSkillData() {
             icon: 'fas fa-bug',
             level: 70
         },
+        { 
+            category: 'technical', 
+            name: 'React Basics', 
+            desc: 'Component-based architecture, JSX, State Management', 
+            icon: 'fab fa-react',
+            level: 50
+        },
+        { 
+            category: 'technical', 
+            name: 'Tailwind CSS', 
+            desc: 'Utility-first CSS Framework', 
+            icon: 'fas fa-wind',
+            level: 30
+        },
         
         // Design Skills
         { 

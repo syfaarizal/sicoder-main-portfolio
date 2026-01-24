@@ -362,7 +362,7 @@
                 
                 <div class="contact-container">
                     <div class="contact-form-container">
-                        <form action="https://formsubmit.co/syifairgi@gmail.com" method="POST" class="contact-form" autocomplete="on">
+                        <form action="https://formsubmit.co/syifairgi@gmail.com" method="POST" class="contact-form">
                             <div class="form-row">
                                 <div class="form-group">
                                     <label for="name">
@@ -401,8 +401,7 @@
                             </div>
 
                             <input type="hidden" name="_captcha" value="false">
-                            <input type="hidden" name="_next" value="./thanks.html">
-
+                                
                             <button type="submit" class="btn btn-primary submit-btn">
                                 <span>Send Message</span>
                                 <i class="fas fa-paper-plane"></i>
@@ -515,8 +514,12 @@
                 <div class="footer-newsletter">
                     <h4>Stay Updated</h4>
                     <p>Subscribe to my newsletter for updates</p>
-                    <form class="newsletter-form">
-                        <input type="email" placeholder="Your email address" required>
+                    <form action="https://formsubmit.co/syifairgi@gmail.com" method="POST" class="newsletter-form">
+                        <input type="hidden" name="_subject" value="New Subscriber for SICODER!">
+                        <input type="hidden" name="_captcha" value="false">
+                        
+                        <input type="email" name="email" placeholder="Your email address" required>
+                        
                         <button type="submit">
                             <i class="fas fa-paper-plane"></i>
                         </button>
