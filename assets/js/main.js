@@ -1265,11 +1265,9 @@ function initTypingAnimation() {
     if (!typedText) return;
     
     const texts = [
+        "Building My Own Path",
         "Front-End Developer in Progress",
-        "Web Developer in the Making",
-        "UI Enthusiast & Front-End Dev",
-        "Front-End Learner with Big Goals",
-        "Developer Building My Own Path"
+        "Code. Design. Direction."
     ];
     
     let textIndex = 0;
