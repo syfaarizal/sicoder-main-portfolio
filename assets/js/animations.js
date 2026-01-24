@@ -9,7 +9,7 @@ class AnimationManager {
         this.initParallax();
         this.initScrollReveal();
         this.initHoverEffects();
-        this.initPageTransitions();
+        // this.initPageTransitions();
     }
 
     // Parallax Effect
@@ -141,6 +141,12 @@ class AnimationManager {
                     // Navigate after animation
                     setTimeout(() => {
                         window.location.hash = targetId;
+
+                        // --- PERBAIKAN: Hapus class exit dari section lama agar kontennya muncul lagi ---
+                        if (currentSection) {
+                            currentSection.classList.remove('page-exit-active');
+                        }
+                        // --------------------------------------------------------------------------------
                         
                         // Add enter animation to new section
                         setTimeout(() => {
