@@ -66,9 +66,27 @@ function initCustomCursor() {
     
     let mouseX = 0;
     let mouseY = 0;
+    let cursorX = 0;
+    let cursorY = 0;
     let trailX = 0;
     let trailY = 0;
     let animationFrameId = null;
+
+    document.addEventListener('mousemove', (e) => {
+        mouseX = e.clientX;
+        mouseY = e.clientY;
+    });
+
+    function animateCursor() {
+        cursorX += (mouseX - cursorX) * 0.15; 
+        cursorY += (mouseY - cursorY) * 0.15;
+        
+        cursor.style.transform = `translate3d(${cursorX}px, ${cursorY}px, 0)`;
+        
+        requestAnimationFrame(animateCursor);
+    }
+
+    animateCursor();
     
     // Hide cursor on touch devices
     if ('ontouchstart' in window || navigator.maxTouchPoints > 0) {

@@ -1663,3 +1663,17 @@
 .pulse-animation {
     animation: pulse 2s infinite;
 }
+
+.custom-cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: var(--primary-color);
+    pointer-events: none; 
+    z-index: 999999; 
+    transition: width 0.3s, height 0.3s;
+    mix-blend-mode: difference;
+}
