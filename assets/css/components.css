@@ -256,7 +256,6 @@
 
 .typing-container {
     min-height: 60px;
-    margin-bottom: var(--spacing-md);
 }
 
 .typing-text {
