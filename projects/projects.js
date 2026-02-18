@@ -359,15 +359,16 @@ function createProjectCard(project, index) {
     return card;
 }
 
+// Module-level active filters state so applyFilters() can access it
+let activeFilters = {
+    category: 'all',
+    tech: []
+};
+
 // Filter Projects
 function initFilterProjects() {
     const filterTags = document.querySelectorAll('.filter-tag');
     const techTags = document.querySelectorAll('.tech-tag');
-    
-    let activeFilters = {
-        category: 'all',
-        tech: []
-    };
     
     // Category filter
     filterTags.forEach(tag => {
@@ -536,26 +537,26 @@ function sortProjects(sortType) {
     // Sort project cards based on sort type
     projectCards.sort((a, b) => {
         switch (sortType) {
-            case 'newest':
+            case 'newest': {
                 const dateA = new Date(projectsData.find(p => 
                     p.title === a.querySelector('.project-title').textContent).date);
                 const dateB = new Date(projectsData.find(p => 
                     p.title === b.querySelector('.project-title').textContent).date);
                 return dateB - dateA;
-                
-            case 'oldest':
-                const dateA2 = new Date(projectsData.find(p => 
+            }
+            case 'oldest': {
+                const dateA = new Date(projectsData.find(p => 
                     p.title === a.querySelector('.project-title').textContent).date);
-                const dateB2 = new Date(projectsData.find(p => 
+                const dateB = new Date(projectsData.find(p => 
                     p.title === b.querySelector('.project-title').textContent).date);
-                return dateA2 - dateB2;
-                
-            case 'difficulty':
+                return dateA - dateB;
+            }
+            case 'difficulty': {
                 // Sort by tech stack complexity (simplified)
                 const techA = a.getAttribute('data-tech').split(' ').length;
                 const techB = b.getAttribute('data-tech').split(' ').length;
                 return techB - techA;
-                
+            }
             default:
                 return 0;
         }
@@ -572,11 +573,32 @@ function initLoadMore() {
     const loadMoreBtn = document.querySelector('.load-more-btn');
     if (!loadMoreBtn) return;
     
-    let currentDisplayCount = 6; // Initial display count
+    const INITIAL_COUNT = 6;
+    
+    // Hide projects beyond initial count and toggle button visibility
+    function applyInitialLimit() {
+        const allCards = document.querySelectorAll('.project-card');
+        if (allCards.length <= INITIAL_COUNT) {
+            loadMoreBtn.style.display = 'none';
+            return;
+        }
+        allCards.forEach((card, index) => {
+            if (index >= INITIAL_COUNT) {
+                card.style.display = 'none';
+                card.style.opacity = '0';
+            }
+        });
+    }
+    
+    applyInitialLimit();
     
     loadMoreBtn.addEventListener('click', function() {
-        // Show all projects
         const hiddenProjects = document.querySelectorAll('.project-card[style*="display: none"]');
+        
+        if (hiddenProjects.length === 0) {
+            loadMoreBtn.style.display = 'none';
+            return;
+        }
         
         hiddenProjects.forEach((project, index) => {
             setTimeout(() => {
@@ -588,7 +610,7 @@ function initLoadMore() {
             }, index * 100);
         });
         
-        // Hide load more button if all projects are visible
+        // Hide load more button once all projects are visible
         setTimeout(() => {
             const remainingHidden = document.querySelectorAll('.project-card[style*="display: none"]').length;
             if (remainingHidden === 0) {
@@ -607,7 +629,8 @@ function updateProjectCount(count) {
         countElement.textContent = count;
     }
     
-    if (projectCountElement) {
+    // Update only the text around the span, not the whole element (avoids destroying #count span)
+    if (projectCountElement && !countElement) {
         projectCountElement.textContent = `Showing ${count} project${count !== 1 ? 's' : ''}`;
     }
 }
