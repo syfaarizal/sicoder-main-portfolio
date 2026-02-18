@@ -88,7 +88,7 @@ const projectsData = [
         tech: ["react", "tailwind"],
         date: "2026-01-14",
         featured: false,
-        image: "../assets/img/pomodoro-focusflow.png",
+        image: "../assets/img/review-pomodoro-focusflow.png",
         demo: "https://pomodoro-focusflow.vercel.app/",
         code: "https://github.com/syfaarizal/pomodoro-focusflow",
         detail: "./project-detail4.html?id=4"
