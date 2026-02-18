@@ -37,6 +37,7 @@
     font-weight: 500;
     text-decoration: none;
     transition: all var(--transition-base);
+    z-index: 10;
 }
 
 .back-to-portfolio:hover {
