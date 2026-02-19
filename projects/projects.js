@@ -93,24 +93,19 @@ const projectsData = [
         code: "https://github.com/syfaarizal/pomodoro-focusflow",
         detail: "./project-detail4.html?id=4"
     },
-    // {
-    //     id: 5,
-    //     title: "Weather App",
-    //     description: "Responsive weather application with real-time data and animations.",
-    //     category: "web",
-    //     tech: ["html", "css", "js", "react"],
-    //     date: "2024-11-05",
-    //     featured: false,
-    //     stats: {
-    //         views: 950,
-    //         forks: 29,
-    //         stars: 51
-    //     },
-    //     image: "../assets/img/weather-app.jpg",
-    //     demo: "#",
-    //     code: "#",
-    //     detail: "project-detail.html?id=5"
-    // },
+    {
+        id: 5,
+        title: "Bisik-Bisik App",
+        description: "A weather application that provides real-time forecasts and interactive animations.",
+        category: "web",
+        tech: ["react", "tailwind", "api", "gsap"],
+        date: "2024-11-05",
+        featured: false,
+        image: "../assets/img/weather-app.jpg",
+        demo: "https://bisik-bisik.vercel.app/",
+        code: "https://github.com/syfaarizal/bisik-bisik",
+        detail: "project-detail.html?id=5"
+    },
     // {
     //     id: 6,
     //     title: "Task Management App",
