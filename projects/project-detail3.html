@@ -29,7 +29,7 @@
     
     <style>
         /* Additional styles for CruisePoint detail page */
-        .header{
+        .header {
             background: transparent;
             backdrop-filter: blur(0);
         }
@@ -355,6 +355,28 @@
         .gallery-item:hover .gallery-caption {
             transform: translateY(0);
         }
+
+        /* Gallery Placeholder */
+        .gallery-placeholder {
+            width: 100%;
+            height: 200px;
+            background: var(--surface-color);
+            border-radius: var(--radius-lg);
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            gap: 1rem;
+            color: var(--text-secondary);
+            font-size: 1.4rem;
+            border: 2px dashed var(--border-color);
+        }
+        
+        .gallery-placeholder i {
+            font-size: 3rem;
+            color: var(--primary-color);
+            opacity: 0.5;
+        }
         
         /* Sidebar */
         .project-sidebar {
@@ -632,75 +654,34 @@
         }
         
         @keyframes revealText {
-            from {
-                transform: translateX(0);
-            }
-            to {
-                transform: translateX(100%);
-            }
+            from { transform: translateX(0); }
+            to   { transform: translateX(100%); }
         }
         
         @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(10px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(10px); }
+            to   { opacity: 1; transform: translateY(0); }
         }
         
         /* Responsive */
         @media (max-width: 992px) {
-            .project-content-section {
-                grid-template-columns: 1fr;
-            }
-            
-            .challenge-solution {
-                grid-template-columns: 1fr;
-            }
-            
-            .project-sidebar {
-                position: static;
-            }
+            .project-content-section { grid-template-columns: 1fr; }
+            .challenge-solution      { grid-template-columns: 1fr; }
+            .project-sidebar         { position: static; }
         }
         
         @media (max-width: 768px) {
-            .project-meta-detail {
-                flex-direction: column;
-                gap: var(--spacing-sm);
-            }
-            
-            .tech-detail-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .feature-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .stats-grid {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .share-buttons {
-                grid-template-columns: 1fr;
-            }
+            .project-meta-detail  { flex-direction: column; gap: var(--spacing-sm); }
+            .tech-detail-grid     { grid-template-columns: repeat(2, 1fr); }
+            .feature-grid         { grid-template-columns: 1fr; }
+            .stats-grid           { grid-template-columns: repeat(2, 1fr); }
+            .share-buttons        { grid-template-columns: 1fr; }
         }
         
         @media (max-width: 576px) {
-            .tech-detail-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .gallery-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .related-grid {
-                grid-template-columns: 1fr;
-            }
+            .tech-detail-grid { grid-template-columns: 1fr; }
+            .gallery-grid     { grid-template-columns: 1fr; }
+            .related-grid     { grid-template-columns: 1fr; }
         }
     </style>
 </head>
@@ -771,6 +752,7 @@
         <div class="project-content-section">
             <!-- Main Content -->
             <div class="project-details">
+
                 <!-- Overview Section -->
                 <section class="detail-section animate-on-scroll">
                     <h2><i class="fas fa-eye"></i> Project Overview</h2>
@@ -1147,7 +1129,7 @@
                     <h4>Connect</h4>
                     <ul>
                         <li><a href="../index.html#contact">Collaborate</a></li>
-                        <li><a href="mailto:syifairgi@gmail.com">Email Me</a></li>
+                        <li><a href="mailto:syifaarizal@email.com">Email Me</a></li>
                         <li><a href="https://www.linkedin.com/in/syifaarizal/" target="_blank">LinkedIn</a></li>
                         <li><a href="https://www.instagram.com/syfaarizal/" target="_blank">Instagram</a></li>
                     </ul>
@@ -1193,27 +1175,22 @@
     <!-- JavaScript -->
     <script>
         document.addEventListener('DOMContentLoaded', function() {
-            // Initialize loading screen
+            // Loading screen
             const loadingScreen = document.querySelector('.loading-screen');
             if (loadingScreen) {
                 setTimeout(() => {
                     loadingScreen.classList.add('loaded');
-                    setTimeout(() => {
-                        loadingScreen.style.display = 'none';
-                    }, 500);
+                    setTimeout(() => { loadingScreen.style.display = 'none'; }, 500);
                 }, 1000);
             }
             
-            // Initialize theme switcher
-            if (typeof ThemeSwitcher !== 'undefined') {
-                new ThemeSwitcher();
-            }
+            // Theme switcher
+            if (typeof ThemeSwitcher !== 'undefined') new ThemeSwitcher();
             
-            // Initialize mobile menu
+            // Mobile menu
             const menuToggle = document.getElementById('menu-toggle');
-            const navMenu = document.querySelector('.nav-menu');
-            const hamburger = document.querySelector('.hamburger');
-            
+            const navMenu    = document.querySelector('.nav-menu');
+            const hamburger  = document.querySelector('.hamburger');
             if (menuToggle && navMenu && hamburger) {
                 menuToggle.addEventListener('click', (e) => {
                     e.stopPropagation();
@@ -1221,10 +1198,7 @@
                     hamburger.classList.toggle('active', isActive);
                     document.body.style.overflow = isActive ? 'hidden' : '';
                 });
-                
-                // Close menu when clicking on a link
-                const navLinks = document.querySelectorAll('.nav-link');
-                navLinks.forEach(link => {
+                document.querySelectorAll('.nav-link').forEach(link => {
                     link.addEventListener('click', () => {
                         navMenu.classList.remove('active');
                         hamburger.classList.remove('active');
@@ -1233,33 +1207,18 @@
                 });
             }
             
-            // Initialize back to top
+            // Back to top
             const backToTopBtn = document.getElementById('backToTop');
             if (backToTopBtn) {
-                function toggleBackToTop() {
-                    if (window.pageYOffset > 300) {
-                        backToTopBtn.classList.add('visible');
-                    } else {
-                        backToTopBtn.classList.remove('visible');
-                    }
-                }
-                
-                window.addEventListener('scroll', toggleBackToTop);
-                
-                backToTopBtn.addEventListener('click', () => {
-                    window.scrollTo({
-                        top: 0,
-                        behavior: 'smooth'
-                    });
-                });
-                
-                toggleBackToTop();
+                const toggle = () => backToTopBtn.classList.toggle('visible', window.pageYOffset > 300);
+                window.addEventListener('scroll', toggle);
+                backToTopBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+                toggle();
             }
             
-            // Initialize animations
-            const animatedElements = document.querySelectorAll('.animate-on-scroll');
-            
-            if (animatedElements.length) {
+            // Scroll animations
+            const animatedEls = document.querySelectorAll('.animate-on-scroll');
+            if (animatedEls.length) {
                 const observer = new IntersectionObserver((entries) => {
                     entries.forEach(entry => {
                         if (entry.isIntersecting) {
@@ -1267,114 +1226,55 @@
                             observer.unobserve(entry.target);
                         }
                     });
-                }, {
-                    threshold: 0.1,
-                    rootMargin: '0px 0px -50px 0px'
-                });
-                
-                animatedElements.forEach(el => {
-                    observer.observe(el);
-                });
+                }, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+                animatedEls.forEach(el => observer.observe(el));
             }
             
-            // Initialize reveal text animations
-            const revealTexts = document.querySelectorAll('.reveal-text');
-            if (revealTexts.length) {
-                revealTexts.forEach(el => {
-                    el.classList.add('revealed');
-                });
-            }
+            // Reveal text
+            document.querySelectorAll('.reveal-text').forEach(el => el.classList.add('revealed'));
             
-            // Initialize fade in animations
-            const fadeInElements = document.querySelectorAll('.fade-in');
-            if (fadeInElements.length) {
-                fadeInElements.forEach(el => {
-                    el.style.animation = 'fadeIn 1s ease forwards';
-                });
-            }
+            // Fade in
+            document.querySelectorAll('.fade-in').forEach(el => {
+                el.style.animation = 'fadeIn 1s ease forwards';
+            });
         });
         
-        // Copy project link function
+        // Copy project link
         function copyProjectLink() {
-            const projectUrl = 'https://syfaarizal.github.io/cruishpoint-indonesia/';
-            navigator.clipboard.writeText(projectUrl)
+            navigator.clipboard.writeText('https://syfaarizal.github.io/cruishpoint-indonesia/')
                 .then(() => {
-                    // Show success notification
                     if (typeof showToast === 'function') {
                         showToast('Project link copied to clipboard!', 'success', 2000);
                     } else {
                         alert('Project link copied to clipboard!');
                     }
                 })
-                .catch(err => {
-                    console.error('Failed to copy: ', err);
-                });
+                .catch(err => console.error('Failed to copy:', err));
         }
         
-        // Toast notification function (fallback)
+        // Toast fallback
         if (typeof showToast === 'undefined') {
             window.showToast = function(message, type = 'info', duration = 3000) {
                 const toast = document.createElement('div');
                 toast.style.cssText = `
-                    position: fixed;
-                    top: 20px;
-                    right: 20px;
-                    background: var(--surface-color);
-                    color: var(--text-color);
-                    padding: 1rem 1.5rem;
-                    border-radius: var(--radius-md);
-                    border-left: 4px solid #16a085;
-                    box-shadow: var(--shadow-lg);
-                    z-index: 9999;
-                    animation: slideIn 0.3s ease;
+                    position:fixed; top:20px; right:20px;
+                    background:var(--surface-color); color:var(--text-color);
+                    padding:1rem 1.5rem; border-radius:var(--radius-md);
+                    border-left:4px solid var(--primary-color); box-shadow:var(--shadow-lg);
+                    z-index:9999; animation:slideIn 0.3s ease;
                 `;
-                
                 toast.textContent = message;
                 document.body.appendChild(toast);
-                
                 setTimeout(() => {
                     toast.style.animation = 'slideOut 0.3s ease forwards';
-                    setTimeout(() => {
-                        document.body.removeChild(toast);
-                    }, 300);
+                    setTimeout(() => document.body.removeChild(toast), 300);
                 }, duration);
             };
-            
-            // Add animation styles
+
             const style = document.createElement('style');
             style.textContent = `
-                @keyframes slideIn {
-                    from {
-                        transform: translateX(100%);
-                        opacity: 0;
-                    }
-                    to {
-                        transform: translateX(0);
-                        opacity: 1;
-                    }
-                }
-                
-                @keyframes slideOut {
-                    from {
-                        transform: translateX(0);
-                        opacity: 1;
-                    }
-                    to {
-                        transform: translateX(100%);
-                        opacity: 0;
-                    }
-                }
-                
-                @keyframes fadeIn {
-                    from {
-                        opacity: 0;
-                        transform: translateY(10px);
-                    }
-                    to {
-                        opacity: 1;
-                        transform: translateY(0);
-                    }
-                }
+                @keyframes slideIn  { from { transform:translateX(100%); opacity:0; } to { transform:translateX(0); opacity:1; } }
+                @keyframes slideOut { from { transform:translateX(0); opacity:1; } to { transform:translateX(100%); opacity:0; } }
             `;
             document.head.appendChild(style);
         }
