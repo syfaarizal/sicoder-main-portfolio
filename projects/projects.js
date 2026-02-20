@@ -104,7 +104,7 @@ const projectsData = [
         image: "../assets/img/bisik-bisik-preview.png",
         demo: "https://bisik-bisik.vercel.app/",
         code: "https://github.com/syfaarizal/bisik-bisik",
-        detail: "./index-detail5.html?id=5"
+        detail: "./project-detail5.html?id=5"
     },
     // {
     //     id: 6,
