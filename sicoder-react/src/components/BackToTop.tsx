@@ -19,7 +19,7 @@ export default function BackToTop() {
       onClick={(e) => { e.preventDefault(); scrollToTop(); }}
       aria-hidden={!visible}
     >
-      <img src="./assets/img/logo-html-more-red-no-bg.png" alt="Logo SICODER" />
+      <img src="/public/assets/logo-html-more-red-no-bg.png" alt="Logo SICODER" />
     </a>
   );
 }

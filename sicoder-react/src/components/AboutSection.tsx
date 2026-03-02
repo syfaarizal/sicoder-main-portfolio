@@ -95,7 +95,7 @@ export default function AboutSection() {
         <div className="about-visual">
           <div className="floating-avatar">
             <div className="avatar-container">
-              <img src="./assets/img/Syifa-Anime.png" alt="Syifa Fauziyah Arizal" className="avatar-image" />
+              <img src="/public/assets/Syifa-Anime.png" alt="Syifa Fauziyah Arizal" className="avatar-image" />
               <div className="avatar-overlay"></div>
               <div className="tech-tags">
                 {['HTML5', 'CSS3', 'JS', 'UI/UX'].map((tag, i) => (
