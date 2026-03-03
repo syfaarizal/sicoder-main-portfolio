@@ -1,8 +1,4 @@
 import { useEffect } from 'react';
-import { useTheme } from './hooks/useTheme';
-import { useToast } from './hooks/useToast';
-import { useAnimateOnScroll } from './hooks/useScrollReveal';
-
 import LoadingScreen from './components/LoadingScreen';
 import CustomCursor from './components/CustomCursor';
 import FloatingParticles from './components/FloatingParticles';
@@ -16,9 +12,36 @@ import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
 import BackToTop from './components/BackToTop';
 import ToastContainer from './components/ToastContainer';
+import './styles/global.css';
 
-// Initialize section-reveal IntersectionObserver globally
-function useSectionReveal() {
+function useScrollReveal() {
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add('animated');
+            (entry.target as HTMLElement).style.opacity = '1';
+            (entry.target as HTMLElement).style.transform = 'translateY(0)';
+          }
+        });
+      },
+      { threshold: 0.1, rootMargin: '0px 0px -50px 0px' }
+    );
+
+    const els = document.querySelectorAll('.animate-on-scroll');
+    els.forEach(el => {
+      (el as HTMLElement).style.opacity = '0';
+      (el as HTMLElement).style.transform = 'translateY(20px)';
+      (el as HTMLElement).style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+      observer.observe(el);
+    });
+
+    return () => observer.disconnect();
+  });
+}
+
+function useRevealText() {
   useEffect(() => {
     const observer = new IntersectionObserver(
       (entries) => {
@@ -29,41 +52,50 @@ function useSectionReveal() {
           }
         });
       },
-      { threshold: 0.1, rootMargin: '0px 0px -100px 0px' }
+      { threshold: 0.05, rootMargin: '0px 0px -50px 0px' }
     );
 
-    document.querySelectorAll('.section-reveal').forEach(el => observer.observe(el));
-    return () => observer.disconnect();
+    const els = document.querySelectorAll('.reveal-text, .section-reveal');
+    els.forEach(el => observer.observe(el));
+
+    // Fallback: reveal elements already in viewport after short delay
+    const timer = setTimeout(() => {
+      els.forEach(el => {
+        const rect = el.getBoundingClientRect();
+        if (rect.top < window.innerHeight) {
+          el.classList.add('revealed');
+        }
+      });
+    }, 300);
+
+    return () => {
+      observer.disconnect();
+      clearTimeout(timer);
+    };
   });
 }
 
 export default function App() {
-  const { theme, toggleTheme } = useTheme();
-  const { toasts, showToast, removeToast } = useToast();
-
-  useSectionReveal();
-  useAnimateOnScroll();
+  useScrollReveal();
+  useRevealText();
 
   return (
     <>
       <LoadingScreen />
       <CustomCursor />
       <FloatingParticles />
-
-      <Header theme={theme} onToggleTheme={toggleTheme} />
-
+      <Header />
       <main>
         <HeroSection />
         <AboutSection />
         <SkillsSection />
         <BlogSection />
         <ProjectsSection />
-        <ContactSection showToast={showToast} />
+        <ContactSection />
       </main>
-
-      <Footer showToast={showToast} />
+      <Footer />
       <BackToTop />
-      <ToastContainer toasts={toasts} onRemove={removeToast} />
+      <ToastContainer />
     </>
   );
 }

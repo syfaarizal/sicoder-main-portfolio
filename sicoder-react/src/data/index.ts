@@ -78,7 +78,7 @@ export const projects: Project[] = [
     tags: ['HTML', 'CSS', 'JavaScript', 'GSAP', 'Responsive'],
     demo: 'https://syfaarizal.github.io/showcase-login-page/',
     code: 'https://github.com/syfaarizal/showcase-login-page',
-    image: '/public/assets/showcase-review.png',
+    image: './assets/img/showcase-review.png',
   },
   {
     category: 'personal',
@@ -87,7 +87,7 @@ export const projects: Project[] = [
     tags: ['HTML', 'CSS', 'JavaScript', 'Responsive', 'Personal Branding'],
     demo: 'https://syfaarizal.github.io/landing-page-sicoder/',
     code: 'https://github.com/syfaarizal/landing-page-sicoder',
-    image: '/public/assets/CVDigital.png',
+    image: './assets/img/CVDigital.png',
   },
   {
     category: 'web',
@@ -96,6 +96,6 @@ export const projects: Project[] = [
     tags: ['HTML', 'CSS', 'JavaScript', 'Responsive Design'],
     demo: 'https://syfaarizal.github.io/cruishpoint-indonesia/',
     code: 'https://github.com/syfaarizal/cruishpoint-indonesia',
-    image: '/public/assets/CruisePoint.png',
+    image: './assets/img/CruisePoint.png',
   },
 ];

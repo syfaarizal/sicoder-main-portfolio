@@ -1,33 +1,63 @@
-import { useState, useEffect, useCallback } from 'react';
+import { useState, useEffect, useCallback, useRef } from 'react';
 import { blogPosts } from '../data';
-
-function getSlidesPerView() {
-  if (window.innerWidth <= 768) return 1;
-  if (window.innerWidth <= 1200) return 2;
-  return 3;
-}
 
 export default function BlogSection() {
   const [currentSlide, setCurrentSlide] = useState(0);
-  const [slidesPerView, setSlidesPerView] = useState(getSlidesPerView);
+  const [slidesPerView, setSlidesPerView] = useState(3);
+  const trackRef = useRef<HTMLDivElement>(null);
+
+  function getSpv() {
+    if (window.innerWidth <= 768) return 1;
+    if (window.innerWidth <= 1200) return 2;
+    return 3;
+  }
+
+  useEffect(() => {
+    setSlidesPerView(getSpv());
+  }, []);
 
   const totalSlides = Math.ceil(blogPosts.length / slidesPerView);
 
+  const goTo = useCallback((index: number) => {
+    const track = trackRef.current;
+    if (!track) return;
+    const card = track.querySelector('.blog-card') as HTMLElement;
+    if (!card) return;
+    const gap = 24; // 1.5rem gap
+    const cardWidth = card.offsetWidth;
+    const offset = index * (slidesPerView * (cardWidth + gap));
+    track.style.transform = `translateX(-${offset}px)`;
+    track.style.transition = 'transform 0.5s ease';
+    setCurrentSlide(index);
+  }, [slidesPerView]);
+
   const nextSlide = useCallback(() => {
-    setCurrentSlide(prev => (prev < totalSlides - 1 ? prev + 1 : 0));
-  }, [totalSlides]);
+    setCurrentSlide(prev => {
+      const next = prev < totalSlides - 1 ? prev + 1 : 0;
+      goTo(next);
+      return next;
+    });
+  }, [totalSlides, goTo]);
 
   const prevSlide = useCallback(() => {
-    setCurrentSlide(prev => (prev > 0 ? prev - 1 : totalSlides - 1));
-  }, [totalSlides]);
+    setCurrentSlide(prev => {
+      const next = prev > 0 ? prev - 1 : totalSlides - 1;
+      goTo(next);
+      return next;
+    });
+  }, [totalSlides, goTo]);
 
-  // Auto slide
   useEffect(() => {
-    const interval = setInterval(nextSlide, 5000);
+    const interval = setInterval(() => {
+      setCurrentSlide(prev => {
+        const next = prev < totalSlides - 1 ? prev + 1 : 0;
+        goTo(next);
+        return next;
+      });
+    }, 5000);
     return () => clearInterval(interval);
-  }, [nextSlide]);
+  }, [totalSlides, goTo]);
 
-  // Keyboard nav
   useEffect(() => {
     const handler = (e: KeyboardEvent) => {
       if (e.key === 'ArrowLeft') prevSlide();
@@ -37,19 +67,21 @@ export default function BlogSection() {
     return () => document.removeEventListener('keydown', handler);
   }, [prevSlide, nextSlide]);
 
-  // Resize
   useEffect(() => {
     const handler = () => {
-      const newSpv = getSlidesPerView();
-      setSlidesPerView(newSpv);
+      setSlidesPerView(getSpv());
       setCurrentSlide(0);
+      if (trackRef.current) {
+        trackRef.current.style.transform = 'translateX(0)';
+      }
     };
     window.addEventListener('resize', handler);
     return () => window.removeEventListener('resize', handler);
   }, []);
 
-  const cardWidth = `calc(${100 / slidesPerView}% - ${(slidesPerView - 1) * 2}rem / ${slidesPerView})`;
-  const translateX = currentSlide === 0 ? 0 : -(currentSlide * (100 / slidesPerView));
+  const cardStyle: React.CSSProperties = {
+    flex: `0 0 calc(${100 / slidesPerView}% - ${(slidesPerView > 1 ? 24 * (slidesPerView - 1) / slidesPerView : 0)}px)`,
+  };
 
   return (
     <section id="blog" className="section-card section-reveal">
@@ -68,19 +100,9 @@ export default function BlogSection() {
 
       <div className="blog-carousel-container">
         <div className="blog-carousel">
-          <div
-            className="blog-track"
-            style={{
-              transform: `translateX(${translateX}%)`,
-              transition: 'transform 0.5s ease',
-            }}
-          >
+          <div ref={trackRef} className="blog-track">
             {blogPosts.map((post, i) => (
-              <div
-                key={i}
-                className="blog-card animate-on-scroll"
-                style={{ flex: `0 0 ${cardWidth}` }}
-              >
+              <div key={i} className="blog-card animate-on-scroll" style={cardStyle}>
                 <div className="blog-content">
                   <span className="blog-date">{post.date}</span>
                   <h4 className="blog-title">{post.title}</h4>
@@ -104,7 +126,7 @@ export default function BlogSection() {
               <div
                 key={i}
                 className={`carousel-dot${i === currentSlide ? ' active' : ''}`}
-                onClick={() => setCurrentSlide(i)}
+                onClick={() => { goTo(i); }}
                 aria-label={`Go to slide ${i + 1}`}
               />
             ))}

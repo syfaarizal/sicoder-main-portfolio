@@ -1,62 +1,46 @@
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 
-interface StatItem {
-  icon: string;
-  count: number;
-  suffix: string;
-  label: string;
-}
-
-const stats: StatItem[] = [
-  { icon: 'fas fa-code', count: 3, suffix: '+', label: 'Projects Completed' },
-  { icon: 'fas fa-heart', count: 100, suffix: '%', label: 'Client Satisfaction' },
-  { icon: 'fas fa-clock', count: 1, suffix: '+', label: 'Years Learning' },
-];
-
-function StatCard({ stat }: { stat: StatItem }) {
-  const [value, setValue] = useState(0);
-  const ref = useRef<HTMLDivElement>(null);
-  const animated = useRef(false);
+export default function AboutSection() {
+  const statsRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    const el = ref.current;
-    if (!el) return;
-    const observer = new IntersectionObserver(entries => {
+    if (!statsRef.current) return;
+
+    const statCards = statsRef.current.querySelectorAll('.stat-card');
+    
+    const observer = new IntersectionObserver((entries) => {
       entries.forEach(entry => {
-        if (entry.isIntersecting && !animated.current) {
-          animated.current = true;
-          const duration = 1500;
-          const start = performance.now();
-          const animate = (now: number) => {
-            const progress = Math.min((now - start) / duration, 1);
-            const eased = 1 - Math.pow(1 - progress, 4);
-            setValue(Math.floor(eased * stat.count));
-            if (progress < 1) requestAnimationFrame(animate);
-            else setValue(stat.count);
-          };
-          requestAnimationFrame(animate);
-          observer.unobserve(el);
+        if (entry.isIntersecting) {
+          const statNumber = entry.target.querySelector('.stat-number') as HTMLElement;
+          if (!statNumber) return;
+          const target = parseInt(statNumber.getAttribute('data-count') || '0');
+          const isPercentage = statNumber.textContent?.includes('%');
+          const suffix = isPercentage ? '%' : '+';
+          animateCounter(statNumber, target, suffix);
+          observer.unobserve(entry.target);
         }
       });
     }, { threshold: 0.5 });
-    observer.observe(el);
+
+    statCards.forEach(card => observer.observe(card));
     return () => observer.disconnect();
-  }, [stat.count]);
+  }, []);
+
+  function animateCounter(el: HTMLElement, target: number, suffix: string) {
+    const duration = 1500;
+    const start = performance.now();
+    function update(now: number) {
+      const elapsed = now - start;
+      const progress = Math.min(elapsed / duration, 1);
+      const easeOutQuart = 1 - Math.pow(1 - progress, 4);
+      el.textContent = Math.floor(easeOutQuart * target) + suffix;
+      if (progress < 1) requestAnimationFrame(update);
+    }
+    requestAnimationFrame(update);
+  }
 
   return (
-    <div ref={ref} className="stat-card animate-on-scroll">
-      <div className="stat-icon"><i className={stat.icon}></i></div>
-      <div className="stat-content">
-        <h3 className="stat-number">{value}{stat.suffix}</h3>
-        <p className="stat-label">{stat.label}</p>
-      </div>
-    </div>
-  );
-}
-
-export default function AboutSection() {
-  return (
-    <section id="about" className="section-card section-reveal">
+    <section id="about" className="section-card">
       <div className="section-header">
         <div className="section-title">
           <span className="title-number">01</span>
@@ -87,20 +71,41 @@ export default function AboutSection() {
             </p>
           </div>
 
-          <div className="stats-container">
-            {stats.map((stat, i) => <StatCard key={i} stat={stat} />)}
+          <div className="stats-container" ref={statsRef}>
+            <div className="stat-card animate-on-scroll">
+              <div className="stat-icon"><i className="fas fa-code"></i></div>
+              <div className="stat-content">
+                <h3 className="stat-number" data-count="3">0+</h3>
+                <p className="stat-label">Projects Completed</p>
+              </div>
+            </div>
+            <div className="stat-card animate-on-scroll">
+              <div className="stat-icon"><i className="fas fa-heart"></i></div>
+              <div className="stat-content">
+                <h3 className="stat-number" data-count="100">0%</h3>
+                <p className="stat-label">Client Satisfaction</p>
+              </div>
+            </div>
+            <div className="stat-card animate-on-scroll">
+              <div className="stat-icon"><i className="fas fa-clock"></i></div>
+              <div className="stat-content">
+                <h3 className="stat-number" data-count="1">0+</h3>
+                <p className="stat-label">Years Learning</p>
+              </div>
+            </div>
           </div>
         </div>
 
         <div className="about-visual">
           <div className="floating-avatar">
             <div className="avatar-container">
-              <img src="/public/assets/Syifa-Anime.png" alt="Syifa Fauziyah Arizal" className="avatar-image" />
+              <img src="./assets/img/Syifa-Anime.png" alt="Syifa Fauziyah Arizal" className="avatar-image" />
               <div className="avatar-overlay"></div>
               <div className="tech-tags">
-                {['HTML5', 'CSS3', 'JS', 'UI/UX'].map((tag, i) => (
-                  <span key={tag} className="tech-tag" style={{ ['--i' as string]: i + 1 }}>{tag}</span>
-                ))}
+                <span className="tech-tag" style={{ '--i': 1 } as React.CSSProperties}>HTML5</span>
+                <span className="tech-tag" style={{ '--i': 2 } as React.CSSProperties}>CSS3</span>
+                <span className="tech-tag" style={{ '--i': 3 } as React.CSSProperties}>JS</span>
+                <span className="tech-tag" style={{ '--i': 4 } as React.CSSProperties}>UI/UX</span>
               </div>
               <div className="ring"></div>
             </div>

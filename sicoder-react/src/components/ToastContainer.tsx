@@ -1,33 +1,44 @@
-import { Toast, ToastType } from '../types';
+import { useState, useEffect } from 'react';
 
-interface ToastContainerProps {
-  toasts: Toast[];
-  onRemove: (id: number) => void;
+interface Toast {
+  id: number;
+  message: string;
+  type: 'success' | 'error' | 'warning' | 'info';
 }
 
-const icons: Record<ToastType, string> = {
+const icons = {
   success: 'fas fa-check-circle',
   error: 'fas fa-exclamation-circle',
   warning: 'fas fa-exclamation-triangle',
   info: 'fas fa-info-circle',
 };
+const titles = { success: 'Success', error: 'Error', warning: 'Warning', info: 'Info' };
+const colors = { success: '#10B981', error: '#EF4444', warning: '#F59E0B', info: 'var(--primary-color)' };
 
-const titles: Record<ToastType, string> = {
-  success: 'Success', error: 'Error', warning: 'Warning', info: 'Info',
-};
+export default function ToastContainer() {
+  const [toasts, setToasts] = useState<Toast[]>([]);
 
-const colors: Record<ToastType, string> = {
-  success: '#10B981', error: '#EF4444', warning: '#F59E0B', info: 'var(--primary-color)',
-};
+  useEffect(() => {
+    // Register global showToast function like original JS
+    (window as any).showToast = (message: string, type: string = 'info', duration: number = 5000) => {
+      const id = Date.now();
+      const toastType = type as Toast['type'];
+      setToasts(prev => [...prev, { id, message, type: toastType }]);
+      setTimeout(() => {
+        setToasts(prev => prev.filter(t => t.id !== id));
+      }, duration);
+    };
+  }, []);
 
-export default function ToastContainer({ toasts, onRemove }: ToastContainerProps) {
+  const remove = (id: number) => setToasts(prev => prev.filter(t => t.id !== id));
+
   return (
     <div className="toast-container">
       {toasts.map(toast => (
         <div
           key={toast.id}
           className={`toast ${toast.type}`}
-          onClick={() => onRemove(toast.id)}
+          onClick={() => remove(toast.id)}
           role="alert"
           aria-live="assertive"
         >
