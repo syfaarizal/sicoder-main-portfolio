@@ -24,27 +24,56 @@ const skills = [
   { category: 'tools', name: 'ChatGPT', desc: 'Helps refine ideas and accelerate tasks', icon: 'fas fa-robot', level: 85 },
 ];
 
+const TABS = [
+  { filter: 'all',       icon: 'fas fa-layer-group', label: 'All Skills' },
+  { filter: 'technical', icon: 'fas fa-code',         label: 'Technical' },
+  { filter: 'design',    icon: 'fas fa-paint-brush',  label: 'Design' },
+  { filter: 'soft',      icon: 'fas fa-users',        label: 'Soft Skills' },
+  { filter: 'tools',     icon: 'fas fa-tools',        label: 'Tools' },
+];
+
 export default function SkillsSection() {
-  const [activeFilter, setActiveFilter] = useState('all');
-  const [animatedSkills, setAnimatedSkills] = useState<Set<number>>(new Set());
-  const sectionRef = useRef<HTMLElement>(null);
+  const [activeFilter, setActiveFilter]   = useState('all');
+  const [visibleSkills, setVisibleSkills] = useState<typeof skills>(skills);
+  const [barsActive, setBarsActive]       = useState(false);
+  const [gridKey, setGridKey]             = useState(0); // forces re-animation
+  const isAnimating = useRef(false);
+  const sectionRef  = useRef<HTMLElement>(null);
 
-  const filtered = activeFilter === 'all' ? skills : skills.filter(s => s.category === activeFilter);
-
-  // Animate progress bars on scroll into view
+  // Animate progress bars when section scrolls into view (first time)
   useEffect(() => {
     if (!sectionRef.current) return;
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        if (entry.isIntersecting) {
-          setAnimatedSkills(new Set(skills.map((_, i) => i)));
-          observer.disconnect();
-        }
-      });
+      if (entries[0].isIntersecting) {
+        setBarsActive(true);
+        observer.disconnect();
+      }
     }, { threshold: 0.2 });
     observer.observe(sectionRef.current);
     return () => observer.disconnect();
   }, []);
+
+  const applyFilter = (f: string) => {
+    if (f === activeFilter || isAnimating.current) return;
+    isAnimating.current = true;
+    setActiveFilter(f);
+
+    // Step 1 — clear grid (triggers CSS fade-out via gridKey change)
+    setVisibleSkills([]);
+
+    // Step 2 — after fade-out, inject new skills → triggers fade-in
+    setTimeout(() => {
+      const next = f === 'all' ? skills : skills.filter(s => s.category === f);
+      setVisibleSkills(next);
+      setGridKey(k => k + 1); // new key = new animation cycle
+      // Re-run progress bars after cards appear
+      setBarsActive(false);
+      setTimeout(() => {
+        setBarsActive(true);
+        isAnimating.current = false;
+      }, 50);
+    }, 260);
+  };
 
   return (
     <section id="skills" className="section-card" ref={sectionRef}>
@@ -56,19 +85,13 @@ export default function SkillsSection() {
         <p className="section-subtitle">Skills I've Sharpened So Far</p>
       </div>
 
+      {/* Filter tabs */}
       <div className="skill-tabs">
-        {[
-          { filter: 'all', icon: 'fas fa-layer-group', label: 'All Skills' },
-          { filter: 'technical', icon: 'fas fa-code', label: 'Technical' },
-          { filter: 'design', icon: 'fas fa-paint-brush', label: 'Design' },
-          { filter: 'soft', icon: 'fas fa-users', label: 'Soft Skills' },
-          { filter: 'tools', icon: 'fas fa-tools', label: 'Tools' },
-        ].map(tab => (
+        {TABS.map(tab => (
           <button
             key={tab.filter}
             className={`skill-tab${activeFilter === tab.filter ? ' active' : ''}`}
-            data-filter={tab.filter}
-            onClick={() => setActiveFilter(tab.filter)}
+            onClick={() => applyFilter(tab.filter)}
           >
             <i className={tab.icon}></i>
             <span>{tab.label}</span>
@@ -76,37 +99,47 @@ export default function SkillsSection() {
         ))}
       </div>
 
-      <div className="skills-grid" id="skills-container">
-        {filtered.map((skill, index) => {
-          const globalIndex = skills.indexOf(skill);
-          const animated = animatedSkills.has(globalIndex);
-          return (
-            <div key={skill.name} className="skill-item animate-on-scroll" data-category={skill.category}>
-              <div className="skill-header">
-                <div className="skill-icon">
-                  <i className={skill.icon}></i>
-                </div>
-                <div className="skill-info">
-                  <h3 className="skill-name">{skill.name}</h3>
-                  <p className="skill-desc">{skill.desc}</p>
-                </div>
+      {/* Skills grid */}
+      <div className="skills-grid" key={gridKey}>
+        {visibleSkills.map((skill, i) => (
+          <div
+            key={skill.name}
+            className="skill-item"
+            data-category={skill.category}
+            style={{
+              animation: 'skillFadeIn 0.35s ease both',
+              animationDelay: `${i * 60}ms`,
+            }}
+          >
+            <div className="skill-header">
+              <div className="skill-icon">
+                <i className={skill.icon}></i>
               </div>
-              <div className="skill-level">
-                <div className="progress-bar">
-                  <div
-                    className="progress-fill"
-                    style={{ width: animated ? `${skill.level}%` : '0%' }}
-                    data-width={skill.level}
-                  ></div>
-                </div>
-                <div className="progress-text">
-                  <span className="progress-value">{animated ? `${skill.level}%` : '0%'}</span>
-                  <span className="progress-label">Proficiency</span>
-                </div>
+              <div className="skill-info">
+                <h3 className="skill-name">{skill.name}</h3>
+                <p className="skill-desc">{skill.desc}</p>
               </div>
             </div>
-          );
-        })}
+            <div className="skill-level">
+              <div className="progress-bar">
+                <div
+                  className="progress-fill"
+                  style={{
+                    width: barsActive ? `${skill.level}%` : '0%',
+                    transition: barsActive
+                      ? `width 0.9s cubic-bezier(0.4,0,0.2,1) ${i * 60 + 200}ms`
+                      : 'none',
+                  }}
+                  data-width={skill.level}
+                />
+              </div>
+              <div className="progress-text">
+                <span className="progress-value">{barsActive ? `${skill.level}%` : '0%'}</span>
+                <span className="progress-label">Proficiency</span>
+              </div>
+            </div>
+          </div>
+        ))}
       </div>
     </section>
   );
