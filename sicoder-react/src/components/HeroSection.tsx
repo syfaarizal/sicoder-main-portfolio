@@ -20,32 +20,36 @@ export default function HeroSection() {
       const currentText = texts[textIndexRef.current];
       const isDeleting = isDeletingRef.current;
 
-      if (isDeleting) {
-        const next = currentText.substring(0, charIndexRef.current - 1);
-        setTypedText(next);
-        charIndexRef.current--;
-        timeout = setTimeout(type, 50);
-      } else {
-        const next = currentText.substring(0, charIndexRef.current + 1);
-        setTypedText(next);
+      if (!isDeleting) {
+        // Typing forward
         charIndexRef.current++;
+        setTypedText(currentText.substring(0, charIndexRef.current));
 
         if (charIndexRef.current === currentText.length) {
+          // Finished typing — pause then start deleting
           isDeletingRef.current = true;
-          timeout = setTimeout(type, 1500);
+          timeout = setTimeout(type, 1800);
         } else {
-          timeout = setTimeout(type, 100);
+          timeout = setTimeout(type, 110);
         }
-      }
+      } else {
+        // Deleting
+        charIndexRef.current--;
+        setTypedText(currentText.substring(0, charIndexRef.current));
 
-      if (isDeleting && charIndexRef.current === 0) {
-        isDeletingRef.current = false;
-        textIndexRef.current = (textIndexRef.current + 1) % texts.length;
-        timeout = setTimeout(type, 500);
+        if (charIndexRef.current === 0) {
+          // Finished deleting — move to next text and pause
+          isDeletingRef.current = false;
+          textIndexRef.current = (textIndexRef.current + 1) % texts.length;
+          timeout = setTimeout(type, 600);
+        } else {
+          timeout = setTimeout(type, 55);
+        }
       }
     }
 
-    timeout = setTimeout(type, 1000);
+    // Initial delay before starting
+    timeout = setTimeout(type, 1200);
     return () => clearTimeout(timeout);
   }, []);
 
@@ -79,7 +83,7 @@ export default function HeroSection() {
           <div className="home-img">
             <div className="image-container">
               <img
-                src="/public/assets/logo-html-more-red-no-bg.png"
+                src="assets/img/logo-html-more-red-no-bg.png"
                 alt="SICODER Logo"
                 className="logo-3d"
               />
