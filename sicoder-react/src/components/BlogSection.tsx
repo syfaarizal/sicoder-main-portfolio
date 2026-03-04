@@ -1,4 +1,5 @@
 import { useState, useEffect, useCallback, useRef } from 'react';
+import { Link } from 'react-router-dom';
 import { blogPosts } from '../data';
 
 export default function BlogSection() {
@@ -107,10 +108,10 @@ export default function BlogSection() {
                   <span className="blog-date">{post.date}</span>
                   <h4 className="blog-title">{post.title}</h4>
                   <p className="blog-excerpt">{post.excerpt}</p>
-                  <a href={post.link} className="read-more">
+                  <Link to={`/blog/days-challenge/${post.link.split('/').pop()?.replace('.html','') || 'day1'}`} className="read-more">
                     <span>Read More</span>
                     <i className="fas fa-arrow-right"></i>
-                  </a>
+                  </Link>
                 </div>
               </div>
             ))}
@@ -138,10 +139,10 @@ export default function BlogSection() {
       </div>
 
       <div className="section-footer">
-        <a href="./blog/indexblog.html" className="btn btn-outline">
+        <Link to="/blog" className="btn btn-outline">
           <span>View All Blog Posts</span>
           <i className="fas fa-external-link-alt"></i>
-        </a>
+        </Link>
       </div>
     </section>
   );

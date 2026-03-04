@@ -13,6 +13,17 @@ export interface BlogPost {
   link: string;
 }
 
+export interface BlogIndexPost {
+  id: string;
+  date: string;
+  title: string;
+  excerpt: string;
+  category: 'challenge' | 'css' | 'javascript';
+  tags: string[];
+  badge: string;
+  path: string;
+}
+
 export interface Project {
   category: 'web' | 'personal';
   title: string;

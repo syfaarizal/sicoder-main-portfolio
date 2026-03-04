@@ -1,4 +1,7 @@
 import { useEffect } from 'react';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
+
+// Main portfolio components
 import LoadingScreen from './components/LoadingScreen';
 import CustomCursor from './components/CustomCursor';
 import FloatingParticles from './components/FloatingParticles';
@@ -13,6 +16,10 @@ import Footer from './components/Footer';
 import BackToTop from './components/BackToTop';
 import ToastContainer from './components/ToastContainer';
 import './styles/global.css';
+
+// Blog pages
+import BlogIndexPage from './pages/blog/BlogIndexPage';
+import { Day1Page, Day2Page, Day3Page, Day4Page, Day5Page, Day6Page } from './pages/blog/days-challenge';
 
 function useScrollReveal() {
   useEffect(() => {
@@ -58,7 +65,7 @@ function useRevealText() {
     const els = document.querySelectorAll('.reveal-text, .section-reveal');
     els.forEach(el => observer.observe(el));
 
-    // Fallback: reveal elements already in viewport after short delay
+    // Fallback: reveal elements already in viewport
     const timer = setTimeout(() => {
       els.forEach(el => {
         const rect = el.getBoundingClientRect();
@@ -75,7 +82,7 @@ function useRevealText() {
   });
 }
 
-export default function App() {
+function PortfolioHome() {
   useScrollReveal();
   useRevealText();
 
@@ -97,5 +104,27 @@ export default function App() {
       <BackToTop />
       <ToastContainer />
     </>
+  );
+}
+
+export default function App() {
+  return (
+    <BrowserRouter>
+      <Routes>
+        {/* Portfolio home */}
+        <Route path="/" element={<PortfolioHome />} />
+
+        {/* Blog index */}
+        <Route path="/blog" element={<BlogIndexPage />} />
+
+        {/* Days challenge posts */}
+        <Route path="/blog/days-challenge/day1" element={<Day1Page />} />
+        <Route path="/blog/days-challenge/day2" element={<Day2Page />} />
+        <Route path="/blog/days-challenge/day3" element={<Day3Page />} />
+        <Route path="/blog/days-challenge/day4" element={<Day4Page />} />
+        <Route path="/blog/days-challenge/day5" element={<Day5Page />} />
+        <Route path="/blog/days-challenge/day6" element={<Day6Page />} />
+      </Routes>
+    </BrowserRouter>
   );
 }
