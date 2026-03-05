@@ -2,11 +2,9 @@
 
 > "Code like royalty. Grow like a warrior." — *SICODER*
 
-![SICODER Logo](.//assets/img/sicoder-logo-readme.png)
-
 **SICODER** is my personal front-end portfolio, tech lab, and creative playground — built to evolve alongside my skills, mindset, and ambition as a developer.
 
-This project blends clean code with strong identity. It’s not just a portfolio, it’s a statement.
+This project blends clean code with strong identity. It's not just a portfolio, it's a statement.
 
 ---
 
@@ -25,9 +23,9 @@ Home to:
 
 ## ⚙️ Tech Stack
 
-- **HTML5**, **CSS3**, **Vanilla JavaScript**  
-- Future: **React**, **Next.js**, **Tailwind CSS**  
-- Markdown-based blog setup (static for now)
+- **HTML5**, **CSS3**, **Vanilla JavaScript** *(original)*
+- **React**, **TypeScript**, **Tailwind CSS**, **Vite** *(current)*
+- Markdown-based blog setup (migrating to MDX / CMS)
 
 ---
 
@@ -37,7 +35,56 @@ Home to:
 - Semantic, accessible HTML  
 - Consistent branding (color, icon, identity)  
 - Linked blog system w/ tags  
-- Clean modular codebase (soon to be component-based)
+- Dark/Light theme toggle (`Alt+T` shortcut)
+- Custom cursor with trail effect
+- Floating particles background
+- Hero section with typing animation
+- Skills section with filter tabs & progress bars
+- Blog carousel with auto-slide & keyboard nav
+- Projects section with category filter
+- Contact form with validation & toast notifications
+- Scroll reveal animations
+- Back to top button
+- Clean modular, component-based codebase
+
+---
+
+## 🗂️ Project Structure
+
+```
+sicoder-portfolio/
+├── public/
+├── src/
+│   ├── components/         # All UI components (Header, Hero, Skills, etc.)
+│   ├── data/               # Static data (skills, blog posts, projects)
+│   ├── hooks/              # Custom hooks (useTheme, useScrollReveal, useToast)
+│   ├── styles/             # Global CSS variables & keyframe animations
+│   ├── types/              # TypeScript interfaces
+│   ├── App.tsx
+│   └── main.tsx
+├── index.html
+├── vite.config.ts
+├── tailwind.config.js
+└── package.json
+```
+
+---
+
+## 🚀 Setup & Running
+
+```bash
+# Install dependencies
+npm install
+
+# Development server
+npm run dev
+
+# Build for production
+npm run build
+
+# Preview production build
+npm run preview
+```
 
 ---
 
@@ -45,20 +92,22 @@ Home to:
 
 - [x] Home, About, Skills, Blog, Projects, Contact  
 - [x] Branding integration (logo + Kai Shi)  
-- [ ] Migrate to **React + Next.js**  
+- [x] Migrate to **React + TypeScript + Vite**
+- [x] Dark mode + theme switcher
+- [x] Scroll reveal & animations
 - [ ] Add CMS for blog (Notion API / MDX / Sanity)  
-- [ ] Implement dark mode + theme switcher  
 - [ ] Add animation via Framer Motion  
 - [ ] SEO & performance optimization
+- [ ] Deploy via Vercel / custom domain
 
 ---
 
 ## 🙋‍♀️ About Me
 
-Hey, I’m **Syifa** — an Indonesian self-taught front-end developer with dreams bigger than my GitHub graph.  
-I’m building this as both a showcase and a process tracker. Everything in SICODER is made with intention, and every update reflects a step forward.
+Hey, I'm **Syifa** — an Indonesian self-taught front-end developer with dreams bigger than my GitHub graph.  
+I'm building this as both a showcase and a process tracker. Everything in SICODER is made with intention, and every update reflects a step forward.
 
-> *“Learning in public isn’t just brave — it’s powerful.”*
+> *"Learning in public isn't just brave — it's powerful."*
 
 ---
 
@@ -72,5 +121,4 @@ I’m building this as both a showcase and a process tracker. Everything in SICO
 
 Thanks for visiting!  
 Feel free to star ⭐, fork 🍴, or just vibe 💻✨  
-Let’s build the web — beautifully.
-
+Let's build the web — beautifully.
