@@ -219,3 +219,7 @@ export function Output({ children }: { children: React.ReactNode }) {
 export function HighlightBox({ children }: { children: React.ReactNode }) {
   return <div className="day-highlight-box">{children}</div>;
 }
+
+export function QuoteBox({ children }: { children: React.ReactNode }) {
+  return <blockquote className="day-quote-box">{children}</blockquote>;
+}
