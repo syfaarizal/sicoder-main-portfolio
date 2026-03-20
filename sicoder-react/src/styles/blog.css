@@ -836,6 +836,33 @@
   font-size: 1.2rem;
 }
 
+/* Quote box */
+.day-quote-box {
+  border: none;
+  border-left: 4px solid #830c0c;
+  background: linear-gradient(135deg, rgba(131, 12, 12, 0.08), rgba(199, 74, 74, 0.05));
+  border-radius: 0 12px 12px 0;
+  padding: 1.25rem 1.75rem;
+  margin: 2rem 0;
+  font-style: italic;
+  font-size: 1.05rem;
+  color: #c0c0c0;
+  line-height: 1.8;
+  position: relative;
+}
+
+.day-quote-box::before {
+  content: '\201C';
+  position: absolute;
+  top: -10px;
+  left: 1rem;
+  font-size: 3rem;
+  color: #830c0c;
+  font-style: normal;
+  line-height: 1;
+  opacity: 0.6;
+}
+
 /* Table */
 .day-post-article table {
   width: 100%;
