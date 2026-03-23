@@ -455,7 +455,7 @@ export default function BlogIndexPage() {
 
       {/* Logo Sticky */}
       <div className="blog-logo-sticky">
-        <Link to="#">
+        <Link to="#" onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
           <img src="/public/assets/logo-html-more-red-no-bg.png" alt="Logo SICODER" />
         </Link>
       </div>
