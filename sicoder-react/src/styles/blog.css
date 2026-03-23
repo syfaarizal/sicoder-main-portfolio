@@ -202,11 +202,11 @@
 }
 
 .blog-stat-number {
-  font-size: 40px;
+  font-size: 50px;
   font-weight: 800;
   color: #971313;
   display: block;
-  font-family: 'Orbitron', monospace;
+  font-family: 'Orbitron', sans-serif;
   letter-spacing: 1px;
 }
 

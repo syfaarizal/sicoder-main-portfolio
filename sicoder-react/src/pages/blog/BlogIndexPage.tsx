@@ -486,7 +486,6 @@ function FeaturedSection() {
             background: 'linear-gradient(135deg,#971313,#470000)',
             color: '#f8f8f8',
             borderRadius: '20px',
-            fontSize: '0.9rem',
             fontWeight: 600,
             marginBottom: '1.5rem',
             alignSelf: 'flex-start',
@@ -507,7 +506,7 @@ function FeaturedSection() {
           <p style={{ color: '#e0e0e0', marginBottom: '2rem', lineHeight: 1.8, fontSize: '1.7rem' }}>
             Discover how JavaScript brings web pages to life. Learn to manipulate the Document Object Model with practical examples and real-world applications that will transform your front-end skills.
           </p>
-          <Link to="/src/pages/blog/days-challenge/Day5Page.tsx" className="blog-read-more" aria-label="Read more about DOM Manipulation">
+          <Link to="/blog/js-modul/js5" className="blog-read-more" aria-label="Read more about DOM Manipulation">
             Explore Now <i className="fas fa-arrow-right"></i>
           </Link>
         </div>
