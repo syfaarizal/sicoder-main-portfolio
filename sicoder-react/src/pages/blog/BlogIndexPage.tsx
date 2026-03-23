@@ -246,7 +246,7 @@ const SECTIONS: { key: BlogCard['category']; label: string; span: string }[] = [
   { key: 'javascript', label: 'Java',         span: 'Script' },
 ];
 
-// ─── Animated counter hook ────────────────────────────────────────────────────
+// Animated counter hook
 function useAnimatedCounter(target: number, duration = 2000, start = false) {
   const [value, setValue] = useState(0);
   useEffect(() => {
@@ -267,7 +267,7 @@ function useAnimatedCounter(target: number, duration = 2000, start = false) {
   return value;
 }
 
-// ─── Scroll reveal hook ───────────────────────────────────────────────────────
+// Scroll reveal hook 
 function useScrollReveal() {
   useEffect(() => {
     const reveal = () => {
@@ -283,7 +283,7 @@ function useScrollReveal() {
   }, []);
 }
 
-// ─── Main Page ────────────────────────────────────────────────────────────────
+// Main Page 
 export default function BlogIndexPage() {
   const [search, setSearch]             = useState('');
   const [activeFilter, setActiveFilter] = useState('all');
@@ -455,8 +455,8 @@ export default function BlogIndexPage() {
 
       {/* Logo Sticky */}
       <div className="blog-logo-sticky">
-        <Link to="/">
-          <img src="/assets/img/sicoder-logo.png" alt="Logo SICODER" />
+        <Link to="#">
+          <img src="/public/assets/logo-html-more-red-no-bg.png" alt="Logo SICODER" />
         </Link>
       </div>
 
@@ -496,7 +496,7 @@ function FeaturedSection() {
           </span>
           <h3 style={{
             fontFamily: "'Montserrat', sans-serif",
-            fontSize: '2.2rem',
+            fontSize: '3.7rem',
             fontWeight: 700,
             marginBottom: '1rem',
             color: '#f8f8f8',
@@ -504,10 +504,10 @@ function FeaturedSection() {
           }}>
             Latest Challenge: DOM Manipulation Mastery
           </h3>
-          <p style={{ color: '#e0e0e0', marginBottom: '2rem', lineHeight: 1.8, fontSize: '1.1rem' }}>
+          <p style={{ color: '#e0e0e0', marginBottom: '2rem', lineHeight: 1.8, fontSize: '1.7rem' }}>
             Discover how JavaScript brings web pages to life. Learn to manipulate the Document Object Model with practical examples and real-world applications that will transform your front-end skills.
           </p>
-          <Link to="/blog/js-modul/js5" className="blog-read-more" aria-label="Read more about DOM Manipulation">
+          <Link to="/src/pages/blog/days-challenge/Day5Page.tsx" className="blog-read-more" aria-label="Read more about DOM Manipulation">
             Explore Now <i className="fas fa-arrow-right"></i>
           </Link>
         </div>
