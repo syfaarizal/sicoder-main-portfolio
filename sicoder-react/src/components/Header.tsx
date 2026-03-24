@@ -92,7 +92,7 @@ export default function Header() {
 
   return (
     <header className={`header${scrolled ? ' scrolled' : ''}`}>
-      <a href="https://sicoder.netlify.app/" className="logo">SICO<span>DER</span> .</a>
+      <a href="https://sicoder.netlify.app/" className="logo">LIBR</a>
 
       <div className="menu-toggle" id="menu-toggle" onClick={toggleMenu}>
         <div className={`hamburger${menuOpen ? ' active' : ''}`}>

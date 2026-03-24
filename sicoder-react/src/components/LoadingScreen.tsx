@@ -29,7 +29,7 @@ export default function LoadingScreen() {
     <div className={`loading-screen${loaded ? ' loaded' : ''}`}>
       <div className="loading-spinner">
         <div className="spinner-circle"></div>
-        <div className="spinner-text">SICODER</div>
+        <div className="spinner-text">LIBR</div>
       </div>
     </div>
   );
