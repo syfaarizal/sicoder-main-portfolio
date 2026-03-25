@@ -15,6 +15,7 @@ import ContactSection from './components/ContactSection';
 import Footer from './components/Footer';
 import BackToTop from './components/BackToTop';
 import ToastContainer from './components/ToastContainer';
+import ScrollToTop from './components/ScrollToTop';
 import './styles/global.css';
 
 // Blog pages
@@ -110,6 +111,7 @@ function PortfolioHome() {
 export default function App() {
   return (
     <BrowserRouter>
+      <ScrollToTop />
       <Routes>
         {/* Portfolio home */}
         <Route path="/" element={<PortfolioHome />} />
