@@ -1,0 +1,75 @@
+:root {
+    /* Colors — Dark Theme (Default) */
+    --bg-color: #0a0a0a;
+    --surface-color: #161616;
+    --card-color: #1a1a1a;
+    --text-color: #ffffff;
+    --text-secondary: #b0b0b0;
+    --text-muted: #888888;
+    --primary-color: #971313;
+    --primary-light: #c22e2e;
+    --primary-dark: #6b0d0d;
+    --accent-color: #ff4757;
+    --success-color: #10b981;
+    --warning-color: #f59e0b;
+    --error-color: #ef4444;
+    --border-color: #333333;
+    --border-light: #444444;
+    --shadow-color: rgba(151, 19, 19, 0.3);
+    --overlay-color: rgba(0, 0, 0, 0.8);
+
+    /* Gradients */
+    --gradient-bg: linear-gradient(135deg, #0a0a0a 0%, #1a1a1a 100%);
+    --gradient-primary: linear-gradient(135deg, #971313 0%, #c22e2e 100%);
+    --gradient-accent: linear-gradient(135deg, #ff4757 0%, #ff6b6b 100%);
+    --gradient-text: linear-gradient(135deg, #971313 0%, #ff4757 100%);
+
+    /* Typography */
+    --font-main: 'Poppins', sans-serif;
+
+    /* Spacing */
+    --spacing-xs: 0.5rem;
+    --spacing-sm: 1rem;
+    --spacing-md: 2rem;
+    --spacing-lg: 4rem;
+    --spacing-xl: 8rem;
+
+    /* Border Radius */
+    --radius-sm: 8px;
+    --radius-md: 16px;
+    --radius-lg: 24px;
+    --radius-xl: 32px;
+    --radius-full: 9999px;
+
+    /* Transitions */
+    --transition-fast: 0.2s ease;
+    --transition-base: 0.3s ease;
+    --transition-slow: 0.5s ease;
+
+    /* Shadows */
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.1);
+    --shadow-md: 0 4px 16px rgba(0, 0, 0, 0.2);
+    --shadow-lg: 0 8px 32px rgba(0, 0, 0, 0.3);
+    --shadow-xl: 0 16px 48px rgba(0, 0, 0, 0.4);
+    --glow-primary: 0 0 20px rgba(151, 19, 19, 0.5);
+}
+
+/* Light Theme Override */
+.light-theme {
+    --bg-color: #f8f9fa;
+    --surface-color: #ffffff;
+    --card-color: #ffffff;
+    --text-color: #333333;
+    --text-secondary: #666666;
+    --text-muted: #888888;
+    --primary-color: #d32f2f;
+    --primary-light: #ff6659;
+    --primary-dark: #9a0007;
+    --accent-color: #ff4757;
+    --border-color: #e0e0e0;
+    --border-light: #f0f0f0;
+    --shadow-color: rgba(211, 47, 47, 0.2);
+    --overlay-color: rgba(255, 255, 255, 0.9);
+    --gradient-bg: linear-gradient(135deg, #f8f9fa 0%, #ffffff 100%);
+    --gradient-primary: linear-gradient(135deg, #d32f2f 0%, #ff6659 100%);
+}
