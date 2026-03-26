@@ -1,0 +1,155 @@
+.blog-header {
+    text-align: center;
+    margin-bottom: var(--spacing-xl);
+}
+
+.blog-section-title {
+    font-size: 3.6rem;
+    margin-bottom: var(--spacing-sm);
+}
+
+.decorative-line {
+    width: 100px;
+    height: 4px;
+    background: var(--gradient-primary);
+    margin: 0 auto;
+    border-radius: 2px;
+    position: relative;
+    overflow: hidden;
+}
+
+.decorative-line::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, white, transparent);
+    animation: shimmer 2s infinite;
+}
+
+.blog-carousel-container {
+    position: relative;
+    padding: var(--spacing-lg) 0;
+}
+
+.blog-carousel {
+    overflow: hidden;
+    border-radius: var(--radius-lg);
+}
+
+.blog-track {
+    display: flex;
+    gap: var(--spacing-md);
+    transition: transform var(--transition-base);
+}
+
+.blog-card {
+    flex: 0 0 calc(33.333% - 2rem);
+    min-width: 0;
+    background: var(--card-color);
+    border: 1px solid var(--border-color);
+    border-radius: var(--radius-lg);
+    overflow: hidden;
+    transition: all var(--transition-base);
+}
+
+.blog-card:hover {
+    transform: translateY(-10px);
+    border-color: var(--primary-color);
+    box-shadow: var(--shadow-xl);
+}
+
+.blog-image {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.blog-content { padding: var(--spacing-md); }
+
+.blog-date {
+    display: inline-block;
+    padding: 0.5rem 1.5rem;
+    background: var(--gradient-primary);
+    color: white;
+    border-radius: var(--radius-full);
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: var(--spacing-sm);
+}
+
+.blog-title {
+    font-size: 2rem;
+    margin-bottom: var(--spacing-sm);
+    color: var(--text-color);
+    line-height: 1.4;
+}
+
+.blog-excerpt {
+    font-size: 1.4rem;
+    color: var(--text-secondary);
+    margin-bottom: var(--spacing-md);
+    line-height: 1.6;
+}
+
+.read-more {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    color: var(--primary-color);
+    font-weight: 600;
+    font-size: 1.4rem;
+    transition: gap var(--transition-base);
+}
+
+.read-more:hover { gap: 1rem; }
+
+/* Carousel Controls */
+
+.carousel-controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--spacing-lg);
+    margin-top: var(--spacing-lg);
+}
+
+.carousel-btn {
+    width: 50px;
+    height: 50px;
+    background: var(--card-color);
+    border: 2px solid var(--border-color);
+    border-radius: var(--radius-full);
+    color: var(--text-color);
+    font-size: 1.6rem;
+    cursor: pointer;
+    transition: all var(--transition-base);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.carousel-btn:hover {
+    background: var(--primary-color);
+    color: white;
+    border-color: transparent;
+    transform: scale(1.1);
+}
+
+.carousel-dots { display: flex; gap: 0.8rem; }
+
+.carousel-dot {
+    width: 12px;
+    height: 12px;
+    background: var(--border-color);
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all var(--transition-base);
+}
+
+.carousel-dot.active {
+    background: var(--primary-color);
+    transform: scale(1.2);
+}
