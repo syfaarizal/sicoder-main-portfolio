@@ -2,10 +2,14 @@
 @tailwind components;
 @tailwind utilities;
 
-/* Import all split files */
+/* ---- Foundations ---- */
 @import './themes.css';
 @import './animations.css';
-@import './responsive.css';
+
+/* ---- Components ---- */
+@import './components/scrollbar.css';
+@import './components/loading.css';
+@import './components/cursor.css';
 @import './components/ui.css';
 @import './components/navbar.css';
 @import './components/hero.css';
@@ -15,6 +19,8 @@
 @import './components/projects.css';
 @import './components/contact.css';
 @import './components/footer.css';
+@import './responsive.css';
+@import './print.css';
 
 * {
     margin: 0;
@@ -44,7 +50,6 @@ body {
     position: relative;
 }
 
-/* Global theme transition — biarkan di sini bukan di komponen */
 body * {
     transition:
         background-color var(--transition-base),
@@ -78,7 +83,7 @@ p {
     color: var(--text-secondary);
 }
 
-/* Gradient text — tidak bisa diganti Tailwind murni */
+/* Gradient text */
 .gradient-text {
     background: var(--gradient-primary);
     -webkit-background-clip: text;
