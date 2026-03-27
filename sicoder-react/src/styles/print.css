@@ -1,0 +1,46 @@
+@media print {
+    .theme-toggle,
+    .menu-toggle,
+    .scroll-down,
+    .back-to-top,
+    .carousel-controls,
+    .section-footer,
+    .hero-buttons,
+    .social-icons,
+    .project-links,
+    .contact-form,
+    .footer-newsletter,
+    .footer-bottom,
+    .custom-cursor,
+    .cursor-trail,
+    .floating-particles,
+    .loading-screen {
+        display: none !important;
+    }
+
+    body {
+        background: white !important;
+        color: black !important;
+        font-size: 12pt;
+    }
+
+    .section-card {
+        break-inside: avoid;
+        box-shadow: none !important;
+        border: 1px solid #ddd !important;
+        margin: 1cm auto;
+        padding: 1cm;
+    }
+
+    a {
+        color: black !important;
+        text-decoration: underline;
+    }
+
+    .logo-3d,
+    .avatar-image,
+    .project-image,
+    .blog-image {
+        filter: grayscale(100%) !important;
+    }
+}
