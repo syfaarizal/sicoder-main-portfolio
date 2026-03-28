@@ -2,11 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
-/* ---- Foundations ---- */
 @import './themes.css';
 @import './animations.css';
-
-/* ---- Components ---- */
 @import './components/scrollbar.css';
 @import './components/loading.css';
 @import './components/cursor.css';
@@ -50,6 +47,7 @@ body {
     position: relative;
 }
 
+/* Global theme transition */
 body * {
     transition:
         background-color var(--transition-base),
