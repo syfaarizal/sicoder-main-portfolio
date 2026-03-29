@@ -1139,10 +1139,6 @@
   font-weight: 500;
 }
 
-
-/* =====================================================
-   SCROLL REVEAL & STAGGER ANIMATIONS
-   ===================================================== */
 .reveal {
   opacity: 0;
   transform: translateY(50px);

@@ -1,4 +1,4 @@
-/* ---- Typography responsive ---- */
+/* Typography responsive */
 
 @media (max-width: 768px) {
     h1 { font-size: 4.8rem; }
@@ -18,7 +18,7 @@
     h6 { font-size: 1.4rem; }
 }
 
-/* ---- max-width: 1400px ---- */
+/* max-width: 1400px */
 
 @media (max-width: 1400px) {
     .home,
@@ -28,7 +28,7 @@
     }
 }
 
-/* ---- max-width: 1280px (Desktop) ---- */
+/* max-width: 1280px (Desktop) */
 
 @media (max-width: 1280px) {
     html { font-size: 58%; }
@@ -54,7 +54,7 @@
     .footer-container  { grid-template-columns: 1fr 2fr; }
 }
 
-/* ---- max-width: 992px (Tablet Landscape) ---- */
+/* max-width: 992px (Tablet Landscape) */
 
 @media (max-width: 992px) {
     html { font-size: 55%; }
@@ -113,7 +113,7 @@
     .newsletter-form   { justify-content: center; }
 }
 
-/* ---- max-width: 768px (Tablet Portrait) ---- */
+/* max-width: 768px (Tablet Portrait) */
 
 @media (max-width: 768px) {
     .menu-toggle { display: block; }
@@ -195,7 +195,7 @@
     .light-theme .nav-link  { border-bottom-color: var(--border-color); }
 }
 
-/* ---- max-width: 576px (Mobile Large) ---- */
+/* max-width: 576px (Mobile Large) */
 
 @media (max-width: 576px) {
     html { font-size: 50%; }
@@ -254,7 +254,7 @@
     .custom-cursor { display: none; }
 }
 
-/* ---- max-width: 480px (Mobile Small) ---- */
+/* max-width: 480px (Mobile Small) */
 
 @media (max-width: 480px) {
     .home .home-content .title      { font-size: 3.5rem; }
@@ -291,7 +291,7 @@
     .footer-brand   { align-items: center; justify-content: center; }
 }
 
-/* ---- max-width: 360px (Extra Small Mobile) ---- */
+/* max-width: 360px (Extra Small Mobile) */
 
 @media (max-width: 360px) {
     .home .home-content .title      { font-size: 3rem; }
@@ -308,7 +308,7 @@
     .projects-grid      { grid-template-columns: 1fr; }
 }
 
-/* ---- Height-based ---- */
+/* Height-based */
 
 @media (max-height: 700px) {
     .hero-section   { min-height: 700px; }
@@ -320,7 +320,7 @@
     .home     { grid-template-columns: 1fr; }
 }
 
-/* ---- Landscape mobile ---- */
+/* Landscape mobile */
 
 @media (orientation: landscape) and (max-height: 500px) {
     .header { padding: 1rem 5%; }
