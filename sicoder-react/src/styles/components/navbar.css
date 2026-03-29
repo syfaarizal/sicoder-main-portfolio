@@ -27,7 +27,12 @@
     color: var(--primary-color);
     display: flex;
     align-items: center;
+    gap: 5px;
     position: relative;
+}
+
+.logo span {
+    color: var(--text-color);
 }
 
 .logo::after {
