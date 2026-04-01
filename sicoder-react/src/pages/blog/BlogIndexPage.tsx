@@ -2,7 +2,7 @@ import { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import '../../styles/blog.css';
 
-// ─── Types ────────────────────────────────────────────────────────────────────
+// Types 
 interface BlogCard {
   id: string;
   date: string;
@@ -14,7 +14,7 @@ interface BlogCard {
   category: 'challenges' | 'html' | 'css' | 'javascript';
 }
 
-// ─── Data (mirrors every card in indexblog.html) ──────────────────────────────
+// Data (mirrors every card in indexblog.html)
 const ALL_CARDS: BlogCard[] = [
   // Challenges
   {
@@ -464,7 +464,7 @@ export default function BlogIndexPage() {
   );
 }
 
-// ─── Featured Section ─────────────────────────────────────────────────────────
+// Featured Section
 function FeaturedSection() {
   return (
     <section className="blog-section-group reveal">
@@ -524,7 +524,7 @@ function FeaturedSection() {
   );
 }
 
-// ─── Blog Card Component ──────────────────────────────────────────────────────
+// Blog Card Component
 function BlogCardItem({ card }: { card: BlogCard }) {
   return (
     <Link
@@ -548,7 +548,7 @@ function BlogCardItem({ card }: { card: BlogCard }) {
   );
 }
 
-// ─── Particles Component ──────────────────────────────────────────────────────
+// Particles Component
 function Particles() {
   const particles = Array.from({ length: 50 }, (_, i) => ({
     id: i,
