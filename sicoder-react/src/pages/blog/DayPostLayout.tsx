@@ -171,10 +171,6 @@ export default function DayPostLayout({
   );
 }
 
-/* =====================================================
-   HELPER COMPONENTS — reusable inside day pages
-   ===================================================== */
-
 export function CodeBlock({
   lang = 'JavaScript',
   langIcon = 'fab fa-js',
