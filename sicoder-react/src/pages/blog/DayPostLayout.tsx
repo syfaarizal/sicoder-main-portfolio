@@ -1,6 +1,85 @@
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useRef, ReactNode } from 'react';
 import { Link } from 'react-router-dom';
-import '../../styles/blog.css';
+import '../../styles/blog/daypost.css';
+
+/* Sub-components */
+
+interface CodeBlockProps {
+  lang: string;
+  langIcon: string;
+  children: string;
+}
+
+export function CodeBlock({ lang, langIcon, children }: CodeBlockProps) {
+  const codeRef = useRef<HTMLElement>(null);
+
+  function handleCopy(e: React.MouseEvent<HTMLButtonElement>) {
+    const btn = e.currentTarget;
+    navigator.clipboard.writeText(children.trim()).then(() => {
+      const original = btn.innerHTML;
+      btn.innerHTML = '<i class="fas fa-check"></i> Copied!';
+      btn.classList.add('copied');
+      setTimeout(() => {
+        btn.innerHTML = original;
+        btn.classList.remove('copied');
+      }, 2000);
+    });
+  }
+
+  return (
+    <div className="day-code-block">
+      <div className="day-code-header">
+        <div className="day-code-title">
+          <i className={langIcon}></i>
+          {lang}
+        </div>
+        <button className="day-copy-btn" onClick={handleCopy}>
+          <i className="fas fa-copy"></i> Copy
+        </button>
+      </div>
+      <pre>
+        <code ref={codeRef} className="language-js">
+          {children.trim()}
+        </code>
+      </pre>
+    </div>
+  );
+}
+
+export function Output({ children }: { children: ReactNode }) {
+  return <div className="day-output">{children}</div>;
+}
+
+export function HighlightBox({ children }: { children: ReactNode }) {
+  return <div className="day-highlight-box">{children}</div>;
+}
+
+export function QuoteBox({ children }: { children: ReactNode }) {
+  return <blockquote className="day-quote-box">{children}</blockquote>;
+}
+
+/* Scroll progress */
+
+function useScrollProgress() {
+  useEffect(() => {
+    const bar = document.querySelector('.day-scroll-bar') as HTMLElement;
+    if (!bar) return;
+    function update() {
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      bar.style.width = ((scrollTop / docHeight) * 100) + '%';
+    }
+    window.addEventListener('scroll', update, { passive: true });
+    return () => window.removeEventListener('scroll', update);
+  }, []);
+}
+
+/* Types */
+
+interface NavLink {
+  path: string;
+  title: string;
+}
 
 interface RelatedPost {
   path: string;
@@ -8,11 +87,6 @@ interface RelatedPost {
   title: string;
   excerpt: string;
   tags: string[];
-}
-
-interface NavPost {
-  path: string;
-  title: string;
 }
 
 interface DayPostLayoutProps {
@@ -23,12 +97,14 @@ interface DayPostLayoutProps {
   readingTime: string;
   intro: string;
   githubUrl: string;
-  conclusion: React.ReactNode;
-  prev?: NavPost;
-  next?: NavPost;
-  related?: RelatedPost[];
-  children: React.ReactNode;
+  prev: NavLink | undefined;
+  next: NavLink | undefined;
+  related: RelatedPost[];
+  conclusion: ReactNode;
+  children: ReactNode;
 }
+
+/* Main Layout */
 
 export default function DayPostLayout({
   badge,
@@ -38,29 +114,19 @@ export default function DayPostLayout({
   readingTime,
   intro,
   githubUrl,
-  conclusion,
   prev,
   next,
-  related = [],
+  related,
+  conclusion,
   children,
 }: DayPostLayoutProps) {
-  const [scrollPct, setScrollPct] = useState(0);
-
-  useEffect(() => {
-    const onScroll = () => {
-      const top = window.scrollY;
-      const height = document.documentElement.scrollHeight - window.innerHeight;
-      setScrollPct(height > 0 ? (top / height) * 100 : 0);
-    };
-    window.addEventListener('scroll', onScroll);
-    return () => window.removeEventListener('scroll', onScroll);
-  }, []);
+  useScrollProgress();
 
   return (
     <div className="day-post-page">
       {/* Scroll progress */}
       <div className="day-scroll-progress">
-        <div className="day-scroll-bar" style={{ width: `${scrollPct}%` }} />
+        <div className="day-scroll-bar" />
       </div>
 
       {/* Nav */}
@@ -68,7 +134,7 @@ export default function DayPostLayout({
         <div className="day-nav-container">
           <Link to="/blog" className="day-back-link">
             <i className="fas fa-arrow-left"></i>
-            Kembali ke Blog
+            Back to Blog
           </Link>
           <div className="day-reading-time">
             <i className="fas fa-clock"></i>
@@ -79,6 +145,7 @@ export default function DayPostLayout({
 
       <div className="day-container">
         <article className="day-post-article">
+
           {/* Header */}
           <header className="day-article-header">
             <div className="day-challenge-badge">{badge}</div>
@@ -100,22 +167,26 @@ export default function DayPostLayout({
             <div className="day-article-intro">{intro}</div>
           </header>
 
-          {/* Body content (passed as children) */}
+          {/* Body content */}
           {children}
 
           {/* Footer */}
           <footer className="day-article-footer">
             <div className="day-conclusion">{conclusion}</div>
             <div style={{ textAlign: 'center' }}>
-              <a href={githubUrl} target="_blank" rel="noopener noreferrer" className="day-github-link">
-                <i className="fab fa-github"></i>
-                View Source Code
+              <a
+                href={githubUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="day-github-link"
+              >
+                <i className="fab fa-github"></i> View Source Code
               </a>
             </div>
           </footer>
         </article>
 
-        {/* Post Navigation */}
+        {/* Post navigation */}
         <nav className="day-post-nav">
           {prev ? (
             <Link to={prev.path} className="day-nav-btn">
@@ -123,36 +194,39 @@ export default function DayPostLayout({
               <span className="day-nav-title">{prev.title}</span>
             </Link>
           ) : (
-            <div className="day-nav-btn disabled">
+            <span className="day-nav-btn disabled">
               <span className="day-nav-label">← Previous</span>
               <span className="day-nav-title">No previous post</span>
-            </div>
+            </span>
           )}
+
           {next ? (
             <Link to={next.path} className="day-nav-btn next">
               <span className="day-nav-label">Next →</span>
               <span className="day-nav-title">{next.title}</span>
             </Link>
           ) : (
-            <div className="day-nav-btn next disabled">
+            <span className="day-nav-btn next disabled">
               <span className="day-nav-label">Next →</span>
               <span className="day-nav-title">No next post</span>
-            </div>
+            </span>
           )}
         </nav>
 
-        {/* Related Posts */}
+        {/* Related posts */}
         {related.length > 0 && (
           <section className="day-related-posts">
             <h3>📚 Related Posts</h3>
             <div className="day-related-grid">
-              {related.map(r => (
-                <Link key={r.path} to={r.path} className="day-related-card">
-                  <div className="day-related-date">{r.date}</div>
-                  <div className="day-related-title">{r.title}</div>
-                  <div className="day-related-excerpt">{r.excerpt}</div>
+              {related.map((post) => (
+                <Link key={post.path} to={post.path} className="day-related-card">
+                  <div className="day-related-date">{post.date}</div>
+                  <div className="day-related-title">{post.title}</div>
+                  <div className="day-related-excerpt">{post.excerpt}</div>
                   <div className="day-related-tags">
-                    {r.tags.map(t => <span key={t} className="day-tag">{t}</span>)}
+                    {post.tags.map((tag) => (
+                      <span key={tag} className="day-tag">{tag}</span>
+                    ))}
                   </div>
                 </Link>
               ))}
@@ -160,62 +234,6 @@ export default function DayPostLayout({
           </section>
         )}
       </div>
-
-      {/* Logo sticky */}
-      <div className="blog-logo-sticky">
-        <Link to="/">
-          <img src="/assets/img/sicoder-logo.png" alt="SICODER Logo" />
-        </Link>
-      </div>
     </div>
   );
-}
-
-export function CodeBlock({
-  lang = 'JavaScript',
-  langIcon = 'fab fa-js',
-  children,
-}: {
-  lang?: string;
-  langIcon?: string;
-  children: string;
-}) {
-  const [copied, setCopied] = useState(false);
-  const codeRef = useRef<HTMLElement>(null);
-
-  const handleCopy = () => {
-    const text = codeRef.current?.textContent || '';
-    navigator.clipboard.writeText(text).then(() => {
-      setCopied(true);
-      setTimeout(() => setCopied(false), 2000);
-    });
-  };
-
-  return (
-    <div className="day-code-block">
-      <div className="day-code-header">
-        <div className="day-code-title">
-          <i className={langIcon}></i>
-          {lang}
-        </div>
-        <button className={`day-copy-btn${copied ? ' copied' : ''}`} onClick={handleCopy}>
-          <i className={`fas ${copied ? 'fa-check' : 'fa-copy'}`}></i>
-          {copied ? 'Copied!' : 'Copy'}
-        </button>
-      </div>
-      <pre><code ref={codeRef}>{children}</code></pre>
-    </div>
-  );
-}
-
-export function Output({ children }: { children: React.ReactNode }) {
-  return <div className="day-output">{children}</div>;
-}
-
-export function HighlightBox({ children }: { children: React.ReactNode }) {
-  return <div className="day-highlight-box">{children}</div>;
-}
-
-export function QuoteBox({ children }: { children: React.ReactNode }) {
-  return <blockquote className="day-quote-box">{children}</blockquote>;
 }
