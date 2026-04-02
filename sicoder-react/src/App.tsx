@@ -16,7 +16,7 @@ import Footer from './components/Footer';
 import BackToTop from './components/BackToTop';
 import ToastContainer from './components/ToastContainer';
 import ScrollToTop from './components/ScrollToTop';
-import './styles/blog.css';
+import "./styles/blog/blog.css"
 
 // Blog pages
 import BlogIndexPage from './pages/blog/BlogIndexPage';
