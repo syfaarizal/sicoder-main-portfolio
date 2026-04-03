@@ -83,7 +83,7 @@
   border: 1px solid rgba(151, 19, 19, 0.3);
   backdrop-filter: blur(10px);
   box-shadow: 0 4px 15px rgba(151, 19, 19, 0.2);
-  transition: all 0.3s ease;
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 .blog-back-btn a:hover {
@@ -181,6 +181,7 @@
   transition: var(--blog-transition);
   position: relative;
   overflow: hidden;
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 .blog-stat-item::before {
@@ -190,7 +191,7 @@
   width: 100%; height: 3px;
   background: linear-gradient(135deg, #971313, #470000);
   transform: scaleX(0);
-  transition: transform 0.4s ease;
+  transition: transform 0.5s ease;
   transform-origin: left;
 }
 
@@ -306,6 +307,7 @@
   font-size: 14px;
   font-family: 'Poppins', sans-serif;
   backdrop-filter: blur(5px);
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 .blog-filter-tag:hover {
@@ -463,6 +465,7 @@
   transition: var(--blog-transition);
   line-height: 1.4;
   flex-grow: 0;
+  transition: all 0.4s ease;
 }
 
 .blog-index-card:hover h3 {
@@ -498,6 +501,7 @@
   font-family: 'Poppins', sans-serif;
   font-size: 14px;
   backdrop-filter: blur(5px);
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 .blog-read-more::before {
@@ -585,6 +589,7 @@
   text-decoration: none;
   transition: var(--blog-transition);
   font-size: 14px;
+  transition: transform 0.3s ease, opacity 0.3s ease;
 }
 
 .blog-footer-links a:hover {
@@ -605,6 +610,7 @@
   align-items: center;
   justify-content: center;
   filter: drop-shadow(0 4px 8px rgba(0,0,0,0.3));
+  transition: transform 0.4s ease, opacity 0.4s ease;
 }
 
 .blog-logo-sticky img {
