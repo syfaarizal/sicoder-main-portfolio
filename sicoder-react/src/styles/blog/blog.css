@@ -83,6 +83,7 @@
   border: 1px solid rgba(151, 19, 19, 0.3);
   backdrop-filter: blur(10px);
   box-shadow: 0 4px 15px rgba(151, 19, 19, 0.2);
+  transition: all 0.3s ease;
 }
 
 .blog-back-btn a:hover {

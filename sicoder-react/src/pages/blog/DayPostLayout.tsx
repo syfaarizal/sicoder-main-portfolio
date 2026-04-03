@@ -38,7 +38,7 @@ export function CodeBlock({ lang, langIcon, children }: CodeBlockProps) {
         </button>
       </div>
       <pre>
-        <code ref={codeRef} className="language-js">
+        <code ref={codeRef} className={`language-${lang}`}>
           {children.trim()}
         </code>
       </pre>
