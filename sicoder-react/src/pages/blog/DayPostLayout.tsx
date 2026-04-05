@@ -1,8 +1,13 @@
 import { useEffect, useRef, ReactNode } from 'react';
 import { Link } from 'react-router-dom';
+import Prism from 'prismjs';
+import 'prismjs/components/prism-javascript';
+import 'prismjs/components/prism-typescript';
+import 'prismjs/components/prism-jsx';
+import 'prismjs/themes/prism-tomorrow.css';
 import '../../styles/blog/daypost.css';
 
-/* Sub-components */
+/* ─── Sub-components ────────────────────────────────────── */
 
 interface CodeBlockProps {
   lang: string;
@@ -12,6 +17,12 @@ interface CodeBlockProps {
 
 export function CodeBlock({ lang, langIcon, children }: CodeBlockProps) {
   const codeRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    if (codeRef.current) {
+      Prism.highlightElement(codeRef.current);
+    }
+  }, [children]);
 
   function handleCopy(e: React.MouseEvent<HTMLButtonElement>) {
     const btn = e.currentTarget;
@@ -27,18 +38,18 @@ export function CodeBlock({ lang, langIcon, children }: CodeBlockProps) {
   }
 
   return (
-    <div className="day-code-block">
-      <div className="day-code-header">
-        <div className="day-code-title">
+    <div className="code-block">
+      <div className="code-header">
+        <div className="code-title">
           <i className={langIcon}></i>
           {lang}
         </div>
-        <button className="day-copy-btn" onClick={handleCopy}>
+        <button className="copy-button" onClick={handleCopy}>
           <i className="fas fa-copy"></i> Copy
         </button>
       </div>
       <pre>
-        <code ref={codeRef} className={`language-${lang}`}>
+        <code ref={codeRef} className="language-js">
           {children.trim()}
         </code>
       </pre>
@@ -47,34 +58,34 @@ export function CodeBlock({ lang, langIcon, children }: CodeBlockProps) {
 }
 
 export function Output({ children }: { children: ReactNode }) {
-  return <div className="day-output">{children}</div>;
+  return <div className="output-example">{children}</div>;
 }
 
 export function HighlightBox({ children }: { children: ReactNode }) {
-  return <div className="day-highlight-box">{children}</div>;
+  return <div className="highlight-box">{children}</div>;
 }
 
 export function QuoteBox({ children }: { children: ReactNode }) {
-  return <blockquote className="day-quote-box">{children}</blockquote>;
+  return <blockquote className="quote-box">{children}</blockquote>;
 }
 
-/* Scroll progress */
+/* ─── Scroll Progress ───────────────────────────────────── */
 
 function useScrollProgress() {
   useEffect(() => {
-    const bar = document.querySelector('.day-scroll-bar') as HTMLElement;
+    const bar = document.querySelector('.scroll-progress-bar') as HTMLElement;
     if (!bar) return;
-    function update() {
+    const update = () => {
       const scrollTop = window.scrollY;
       const docHeight = document.documentElement.scrollHeight - window.innerHeight;
-      bar.style.width = ((scrollTop / docHeight) * 100) + '%';
-    }
+      if (docHeight > 0) bar.style.width = (scrollTop / docHeight) * 100 + '%';
+    };
     window.addEventListener('scroll', update, { passive: true });
     return () => window.removeEventListener('scroll', update);
   }, []);
 }
 
-/* Types */
+/* ─── Types ─────────────────────────────────────────────── */
 
 interface NavLink {
   path: string;
@@ -104,128 +115,112 @@ interface DayPostLayoutProps {
   children: ReactNode;
 }
 
-/* Main Layout */
+/* ─── Main Layout ────────────────────────────────────────── */
 
 export default function DayPostLayout({
-  badge,
-  title,
-  date,
-  tags,
-  readingTime,
-  intro,
-  githubUrl,
-  prev,
-  next,
-  related,
-  conclusion,
-  children,
+  badge, title, date, tags, readingTime,
+  intro, githubUrl, prev, next, related,
+  conclusion, children,
 }: DayPostLayoutProps) {
   useScrollProgress();
 
+  useEffect(() => {
+    Prism.highlightAll();
+  }, []);
+
   return (
     <div className="day-post-page">
-      {/* Scroll progress */}
-      <div className="day-scroll-progress">
-        <div className="day-scroll-bar" />
+      <div className="scroll-progress">
+        <div className="scroll-progress-bar" />
       </div>
 
-      {/* Nav */}
-      <nav className="day-header-nav">
-        <div className="day-nav-container">
-          <Link to="/blog" className="day-back-link">
+      <nav className="header-nav">
+        <div className="nav-container">
+          <Link to="/blog" className="back-to-blog">
             <i className="fas fa-arrow-left"></i>
             Back to Blog
           </Link>
-          <div className="day-reading-time">
-            <i className="fas fa-clock"></i>
-            <span>{readingTime}</span>
+          <div className="post-meta-nav">
+            <div className="reading-time">
+              <i className="fas fa-clock"></i>
+              <span>{readingTime}</span>
+            </div>
           </div>
         </div>
       </nav>
 
-      <div className="day-container">
-        <article className="day-post-article">
-
-          {/* Header */}
-          <header className="day-article-header">
-            <div className="day-challenge-badge">{badge}</div>
+      <div className="container">
+        <article className="blog-post fade-in">
+          <header className="article-header">
+            <div className="challenge-badge">{badge}</div>
             <h1>{title}</h1>
-            <div className="day-article-meta">
-              <div className="day-meta-item">
+            <div className="article-meta">
+              <div className="meta-item">
                 <i className="fas fa-calendar"></i>
                 <span>{date}</span>
               </div>
-              <div className="day-meta-item">
+              <div className="meta-item">
                 <i className="fas fa-tags"></i>
                 <span>{tags}</span>
               </div>
-              <div className="day-meta-item">
+              <div className="meta-item">
                 <i className="fas fa-user"></i>
                 <span>Syifa Fauziyah Arizal</span>
               </div>
             </div>
-            <div className="day-article-intro">{intro}</div>
+            <div className="article-intro">{intro}</div>
           </header>
 
-          {/* Body content */}
           {children}
 
-          {/* Footer */}
-          <footer className="day-article-footer">
-            <div className="day-conclusion">{conclusion}</div>
+          <footer className="article-footer">
+            <div className="conclusion">{conclusion}</div>
             <div style={{ textAlign: 'center' }}>
-              <a
-                href={githubUrl}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="day-github-link"
-              >
+              <a href={githubUrl} target="_blank" rel="noopener noreferrer" className="github-link">
                 <i className="fab fa-github"></i> View Source Code
               </a>
             </div>
           </footer>
         </article>
 
-        {/* Post navigation */}
-        <nav className="day-post-nav">
+        <nav className="post-navigation">
           {prev ? (
-            <Link to={prev.path} className="day-nav-btn">
-              <span className="day-nav-label">← Previous</span>
-              <span className="day-nav-title">{prev.title}</span>
+            <Link to={prev.path} className="nav-button">
+              <span className="nav-label">← Previous</span>
+              <span className="nav-title">{prev.title}</span>
             </Link>
           ) : (
-            <span className="day-nav-btn disabled">
-              <span className="day-nav-label">← Previous</span>
-              <span className="day-nav-title">No previous post</span>
+            <span className="nav-button disabled">
+              <span className="nav-label">← Previous</span>
+              <span className="nav-title">No previous post</span>
             </span>
           )}
 
           {next ? (
-            <Link to={next.path} className="day-nav-btn next">
-              <span className="day-nav-label">Next →</span>
-              <span className="day-nav-title">{next.title}</span>
+            <Link to={next.path} className="nav-button next">
+              <span className="nav-label">Next →</span>
+              <span className="nav-title">{next.title}</span>
             </Link>
           ) : (
-            <span className="day-nav-btn next disabled">
-              <span className="day-nav-label">Next →</span>
-              <span className="day-nav-title">No next post</span>
+            <span className="nav-button next disabled">
+              <span className="nav-label">Next →</span>
+              <span className="nav-title">No next post</span>
             </span>
           )}
         </nav>
 
-        {/* Related posts */}
         {related.length > 0 && (
-          <section className="day-related-posts">
+          <section className="related-posts">
             <h3>📚 Related Posts</h3>
-            <div className="day-related-grid">
+            <div className="related-grid">
               {related.map((post) => (
-                <Link key={post.path} to={post.path} className="day-related-card">
-                  <div className="day-related-date">{post.date}</div>
-                  <div className="day-related-title">{post.title}</div>
-                  <div className="day-related-excerpt">{post.excerpt}</div>
-                  <div className="day-related-tags">
+                <Link key={post.path} to={post.path} className="related-card">
+                  <div className="related-date">{post.date}</div>
+                  <div className="related-title">{post.title}</div>
+                  <div className="related-excerpt">{post.excerpt}</div>
+                  <div className="related-tags">
                     {post.tags.map((tag) => (
-                      <span key={tag} className="day-tag">{tag}</span>
+                      <span key={tag} className="tag">{tag}</span>
                     ))}
                   </div>
                 </Link>
