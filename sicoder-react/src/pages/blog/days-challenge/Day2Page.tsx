@@ -32,10 +32,10 @@ export default function Day2Page() {
         <>
           <h3>🎯 What I Learned Today</h3>
           <ol>
-            <li>Don't mix <code>prompt()</code> and <code>readline()</code> 😅</li>
-            <li>Use <code>parseInt()</code> to ensure the input is a number</li>
-            <li>Input validation is super important!</li>
-            <li>Small additions like <code>\n</code> can make the program output much more readable</li>
+            <li>1. Don't mix <code>prompt()</code> and <code>readline()</code> 😅</li>
+            <li>2. Use <code>parseInt()</code> to ensure the input is a number</li>
+            <li>3. Input validation is super important!</li>
+            <li>4. Small additions like <code>\n</code> can make the program output much more readable</li>
           </ol>
           <p>
             Every challenge isn't just about whether the code works or not, but about{' '}
@@ -57,9 +57,9 @@ export default function Day2Page() {
         <h2><i className="fas fa-lightbulb"></i> Challenge Description</h2>
         <p>Create a program that:</p>
         <ol>
-          <li>Asks the user to enter their <strong>birth year</strong></li>
-          <li>Calculates their <strong>current age</strong></li>
-          <li>Displays a message like this:</li>
+          <li>1. Asks the user to enter their <strong>birth year</strong></li>
+          <li>2. Calculates their <strong>current age</strong></li>
+          <li>3. Displays a message like this:</li>
         </ol>
 
         <CodeBlock lang="Expected Output" langIcon="fab fa-js">
