@@ -93,6 +93,7 @@
 .day-post-page .reading-time {
   display: flex;
   align-items: center;
+  font-size: 1.4rem;
   gap: 0.3rem;
 }
 
@@ -146,7 +147,7 @@
   justify-content: center;
   gap: 2rem;
   color: var(--text-muted);
-  font-size: 0.9rem;
+  font-size: 1.4rem;
   margin-bottom: 2rem;
 }
 
