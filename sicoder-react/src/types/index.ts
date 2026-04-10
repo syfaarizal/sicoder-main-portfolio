@@ -18,7 +18,7 @@ export interface BlogIndexPost {
   date: string;
   title: string;
   excerpt: string;
-  category: 'challenge' | 'css' | 'javascript';
+  category: 'challenge' | 'html' | 'css' | 'javascript';
   tags: string[];
   badge: string;
   path: string;

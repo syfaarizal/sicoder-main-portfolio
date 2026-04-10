@@ -63,6 +63,28 @@ export const blogIndexPosts: BlogIndexPost[] = [
     path: '/blog/days-challenge/day6',
   },
 
+  // === HTML ===
+  {
+    id: 'html1',
+    date: 'May 15, 2025',
+    title: 'HTML Basics: The Foundation of Web Development',
+    excerpt: 'HTML is the backbone of web development. It\'s the language that defines the structure and content of a website. Here are the basics you need to get started with confidence.',
+    category: 'html',
+    tags: ['html', 'basics', 'structure'],
+    badge: 'HTML',
+    path: '/blog/html-modul/html-intro1',
+  },
+  {
+    id: 'html2',
+    date: 'May 20, 2025',
+    title: 'HTML Elements & Attributes: Building Blocks of the Web',  
+    excerpt: 'HTML is the backbone of web development. It\'s the language that defines the structure and content of a website. Here are the basics you need to get started with confidence.',
+    category: 'html',
+    tags: ['html', 'elements', 'attributes'],
+    badge: 'HTML',
+    path: '/blog/html-modul/html-intro2',
+  },
+
   // === CSS Module ===
   {
     id: 'css1',
