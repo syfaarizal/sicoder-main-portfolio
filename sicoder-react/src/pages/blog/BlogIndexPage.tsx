@@ -73,7 +73,7 @@ const ALL_CARDS: BlogCard[] = [
     title: 'HTML Basics: The Foundation of Web Development',
     excerpt: 'HTML is the foundation of all web development. Learn the basic concepts, tags, and structure that...',
     tags: 'html web development basics',
-    path: '/blog/html-modul/html-intro',
+    path: '/blog/html-modul/html1',
   },
   {
     id: 'html2', category: 'html',
@@ -81,7 +81,7 @@ const ALL_CARDS: BlogCard[] = [
     title: 'HTML Intermediate: Structure & Semantics',
     excerpt: 'Take your HTML skills to the next level by learning about iframes, div vs span, and the importance of semantic HTML structure...',
     tags: 'html layout semantics',
-    path: '/blog/html-modul/html-intro2',
+    path: '/blog/html-modul/html2',
   },
 
   // CSS

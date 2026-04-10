@@ -72,7 +72,7 @@ export const blogIndexPosts: BlogIndexPost[] = [
     category: 'html',
     tags: ['html', 'basics', 'structure'],
     badge: 'HTML',
-    path: '/blog/html-modul/html-intro1',
+    path: '/blog/html-modul/html1',
   },
   {
     id: 'html2',
@@ -82,7 +82,7 @@ export const blogIndexPosts: BlogIndexPost[] = [
     category: 'html',
     tags: ['html', 'elements', 'attributes'],
     badge: 'HTML',
-    path: '/blog/html-modul/html-intro2',
+    path: '/blog/html-modul/html2',
   },
 
   // === CSS Module ===

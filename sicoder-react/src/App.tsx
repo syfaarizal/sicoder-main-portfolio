@@ -21,6 +21,7 @@ import "./styles/blog/blog.css"
 // Blog pages
 import BlogIndexPage from './pages/blog/BlogIndexPage';
 import { Day1Page, Day2Page, Day3Page, Day4Page, Day5Page, Day6Page } from './pages/blog/days-challenge';
+import { HtmlIntroPage, HtmlIntro2Page } from './pages/blog/html-modul';
 
 function useScrollReveal() {
   useEffect(() => {
@@ -126,6 +127,10 @@ export default function App() {
         <Route path="/blog/days-challenge/day4" element={<Day4Page />} />
         <Route path="/blog/days-challenge/day5" element={<Day5Page />} />
         <Route path="/blog/days-challenge/day6" element={<Day6Page />} />
+
+        {/* HTML module posts */}
+        <Route path="/blog/html-modul/html1" element={<HtmlIntroPage />} />
+        <Route path="/blog/html-modul/html2" element={<HtmlIntro2Page />} />
       </Routes>
     </BrowserRouter>
   );
