@@ -591,6 +591,68 @@
   font-weight: 500;
 }
 
+/* ─── Table ─────────────────────────────────────────────── */
+
+.day-post-page .tb-blog {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1.5rem 0 2rem;
+  font-size: 0.95rem;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.day-post-page .tb-blog thead {
+  background: var(--primary-gradient);
+}
+
+.day-post-page .tb-blog thead th {
+  padding: 0.85rem 1.2rem;
+  text-align: left;
+  color: #fff;
+  font-weight: 600;
+  letter-spacing: 0.3px;
+  font-size: 0.9rem;
+  text-transform: uppercase;
+}
+
+.day-post-page .tb-blog tbody tr {
+  border-bottom: 1px solid var(--border-color);
+  transition: background 0.2s ease;
+}
+
+.day-post-page .tb-blog tbody tr:last-child {
+  border-bottom: none;
+}
+
+.day-post-page .tb-blog tbody tr:nth-child(odd) {
+  background: var(--surface-color);
+}
+
+.day-post-page .tb-blog tbody tr:nth-child(even) {
+  background: rgba(255, 255, 255, 0.03);
+}
+
+.day-post-page .tb-blog tbody tr:hover {
+  background: rgba(131, 12, 12, 0.12);
+}
+
+.day-post-page .tb-blog td {
+  padding: 0.8rem 1.2rem;
+  color: #e0e0e0;
+  vertical-align: top;
+  line-height: 1.6;
+}
+
+@media (max-width: 768px) {
+  .day-post-page .tb-blog {
+    display: block;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+  }
+}
+
 /* ─── Fade In Animation ─────────────────────────────────── */
 
 @keyframes dayFadeInUp {
