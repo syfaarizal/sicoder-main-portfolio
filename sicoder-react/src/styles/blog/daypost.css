@@ -1,6 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600&display=swap');
 
-/* ─── Scoped variables ──────────────────────────────────── */
+/* Scoped variables */
 
 .day-post-page {
   --primary-color:    #830c0c;
@@ -25,7 +25,7 @@
   min-height: 100vh;
 }
 
-/* ─── Scroll Progress ───────────────────────────────────── */
+/* Scroll Progress */
 
 .day-post-page .scroll-progress {
   position: fixed;
@@ -44,7 +44,7 @@
   transition: width 0.1s ease;
 }
 
-/* ─── Header Nav ────────────────────────────────────────── */
+/* Header Nav */
 
 .day-post-page .header-nav {
   position: sticky;
@@ -97,7 +97,7 @@
   gap: 0.3rem;
 }
 
-/* ─── Container ─────────────────────────────────────────── */
+/* Container */
 
 .day-post-page .container {
   max-width: 800px;
@@ -111,7 +111,7 @@
   gap: 2rem;
 }
 
-/* ─── Article Header ────────────────────────────────────── */
+/* Article Header */
 
 .day-post-page .article-header {
   text-align: center;
@@ -170,7 +170,7 @@
   text-align: left;
 }
 
-/* ─── Content ───────────────────────────────────────────── */
+/* Content */
 
 .day-post-page section {
   margin-bottom: 2rem;
@@ -275,7 +275,7 @@
   color: #e0e0e0;
 }
 
-/* ─── Inline Code ───────────────────────────────────────── */
+/* Inline Code */
 
 .day-post-page code:not(pre code) {
   background: var(--surface-color);
@@ -288,7 +288,7 @@
   font-weight: 500;
 }
 
-/* ─── Code Block ────────────────────────────────────────── */
+/* Code Block */
 
 .day-post-page .code-block {
   position: relative;
@@ -361,7 +361,7 @@
   border-radius: 3px;
 }
 
-/* ─── Output Example ────────────────────────────────────── */
+/* Output Example */
 
 .day-post-page .output-example {
   background: linear-gradient(135deg, #4a1a1a, #4a2d2d);
@@ -389,7 +389,7 @@
   font-weight: 600;
 }
 
-/* ─── Highlight Box ─────────────────────────────────────── */
+/* Highlight Box */
 
 .day-post-page .highlight-box {
   background: linear-gradient(
@@ -417,7 +417,7 @@
 .day-post-page .highlight-box p { color: #e0e0e0; }
 .day-post-page .highlight-box h3 { color: var(--primary-light); margin-top: 0; }
 
-/* ─── Quote Box ─────────────────────────────────────────── */
+/* Quote Box */
 
 .day-post-page .quote-box {
   border: none;
@@ -431,7 +431,7 @@
   padding: 1.25rem 1.75rem;
   margin: 2rem 0;
   font-style: italic;
-  font-size: 1.05rem;
+  font-size: 1.6rem;
   color: #c0c0c0;
   line-height: 1.8;
   position: relative;
@@ -441,15 +441,15 @@
   content: '\201C';
   position: absolute;
   top: -10px;
-  left: 1rem;
-  font-size: 3rem;
+  left: 0.5rem;
+  font-size: 5rem;
   color: var(--primary-color);
   font-style: normal;
   line-height: 1;
   opacity: 0.6;
 }
 
-/* ─── Article Footer ────────────────────────────────────── */
+/* Article Footer */
 
 .day-post-page .article-footer {
   padding-top: 2rem;
@@ -502,7 +502,7 @@
   box-shadow: var(--shadow-hover);
 }
 
-/* ─── Post Navigation ───────────────────────────────────── */
+/* Post Navigation */
 
 .day-post-page .post-navigation {
   display: grid;
@@ -558,7 +558,7 @@
   font-size: 1.3rem;
 }
 
-/* ─── Related Posts ─────────────────────────────────────── */
+/* Related Posts */
 
 .day-post-page .related-posts {
   margin-top: 3rem;
@@ -647,7 +647,7 @@
   font-weight: 500;
 }
 
-/* ─── Table ─────────────────────────────────────────────── */
+/* Table */
 
 .day-post-page .tb-blog {
   width: 100%;
@@ -669,7 +669,7 @@
   color: #fff;
   font-weight: 600;
   letter-spacing: 0.3px;
-  font-size: 0.9rem;
+  font-size: 1.5rem;
   text-transform: uppercase;
 }
 
@@ -696,6 +696,7 @@
 
 .day-post-page .tb-blog td {
   padding: 0.8rem 1.2rem;
+  font-size: 1.4rem;
   color: #e0e0e0;
   vertical-align: top;
   line-height: 1.6;
@@ -709,7 +710,7 @@
   }
 }
 
-/* ─── Fade In Animation ─────────────────────────────────── */
+/* Fade In Animation */
 
 @keyframes dayFadeInUp {
   from { opacity: 0; transform: translateY(30px); }
@@ -720,7 +721,7 @@
   animation: dayFadeInUp 0.6s ease forwards;
 }
 
-/* ─── Logo Sticky ───────────────────────────────────────── */
+/* Logo Sticky */
 
 .day-post-page .logo-sticky {
   position: fixed;
@@ -749,7 +750,7 @@
   cursor: pointer;
 }
 
-/* ─── Responsive ────────────────────────────────────────── */
+/* Responsive  */
 
 @media (max-width: 1280px) {
   .day-post-page .logo-sticky { right: 70px; }

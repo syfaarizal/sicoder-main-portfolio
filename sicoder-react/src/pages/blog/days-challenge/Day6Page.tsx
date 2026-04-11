@@ -11,7 +11,7 @@ export default function Day6Page() {
       intro="Today's challenge focuses on number classification with layered logic to sharpen coding reasoning skills, including checking for odd, even, and multiples of 10."
       githubUrl="https://github.com/syfaarizal/js-ganjil-genap"
       prev={{ path: '/blog/days-challenge/day5', title: 'Creative Name Looping' }}
-      next={{ path: '/blog/html-modul/html-intro', title: 'HTML Basics: The Foundation of Web Development' }}
+      next={{ path: '/blog/html-modul/html1', title: 'HTML Basics: The Foundation of Web Development' }}
       related={[
         {
           path: '/blog/days-challenge/day5',
@@ -21,7 +21,7 @@ export default function Day6Page() {
           tags: ['JavaScript', 'Loops', 'Arrays'],
         },
         {
-          path: '/blog/html-modul/html-intro',
+          path: '/blog/html-modul/html1',
           date: 'May 15, 2025',
           title: 'HTML Basics: The Foundation of Web Development',
           excerpt: 'Learn the basic concepts, tags, and structure that make up every webpage on the internet.',
