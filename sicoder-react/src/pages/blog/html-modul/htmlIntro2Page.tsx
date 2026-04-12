@@ -11,7 +11,7 @@ export default function HtmlIntro2Page() {
       intro="Take your HTML skills to the next level by learning about iframes, div vs span, and the importance of semantic HTML structure."
       githubUrl="#"
       prev={{ path: '/blog/html-modul/html1', title: 'HTML Basics: The Foundation of Web Development' }}
-      next={{ path: '/blog/css/css1', title: 'CSS Basics: Styling the Web' }}
+      next={{ path: '/blog/css-modul/css1', title: 'CSS Fundamentals: The Basics You Must Know' }}
       related={[
         {
           path: '/blog/html-modul/html1',
@@ -21,11 +21,11 @@ export default function HtmlIntro2Page() {
           tags: ['HTML', 'Web Development', 'Basics'],
         },
         {
-          path: '/blog/css/css1',
-          date: 'May 17, 2025',
-          title: 'CSS Basics: Styling the Web',
-          excerpt: 'Learn the fundamentals of styling web pages with colors, fonts, and layouts.',
-          tags: ['CSS', 'Web Design', 'Styling'],
+          path: '/blog/css-modul/css1',
+          date: 'May 10, 2025',
+          title: 'CSS Fundamentals: The Basics You Must Know',
+          excerpt: 'CSS is what makes your HTML go from boring black text to a stunning visual experience.',
+          tags: ['CSS', 'Basics', 'Fundamentals'],
         },
       ]}
       conclusion={
