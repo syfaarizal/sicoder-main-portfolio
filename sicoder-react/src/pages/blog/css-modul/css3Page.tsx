@@ -7,8 +7,8 @@ export default function Css3Page() {
       title="CSS Layout: Positioning and Modern Techniques"
       date="May 22, 2025"
       tags="CSS, Layout, Flexbox, Grid"
-      readingTime="10 min read"
-      intro="Layout is where CSS stops feeling like decoration and starts feeling like engineering. Normal flow, positioning, Flexbox, and Grid each solve different problems—knowing when to reach for which tool saves hours."
+      readingTime="9 min read"
+      intro="Master modern CSS layout techniques including positioning, Flexbox, Grid systems, and responsive design to create professional web layouts."
       githubUrl="#"
       prev={{ path: '/blog/css-modul/css2', title: 'CSS Selectors & Specificity: Target Like a Sniper' }}
       next={{ path: '/blog/css-modul/css4', title: 'CSS Advanced: Animations, Responsive Design & Best Practices' }}
@@ -17,70 +17,101 @@ export default function Css3Page() {
           path: '/blog/css-modul/css2',
           date: 'May 17, 2025',
           title: 'CSS Selectors & Specificity: Target Like a Sniper',
-          excerpt: 'How browsers score competing rules and how to keep selectors maintainable.',
+          excerpt: 'Master text styling, box model, backgrounds, and display properties.',
           tags: ['CSS', 'Selectors', 'Specificity'],
         },
         {
           path: '/blog/css-modul/css4',
           date: 'May 27, 2025',
           title: 'CSS Advanced: Animations, Responsive Design & Best Practices',
-          excerpt: 'Motion, responsive units, and habits that keep stylesheets healthy at scale.',
-          tags: ['CSS', 'Animations', 'Responsive'],
+          excerpt: 'Bring your websites to life with smooth animations and interactive transitions.',
+          tags: ['CSS', 'Animations', 'Responsive Design'],
         },
       ]}
       conclusion={
         <>
-          <h3>Key takeaways</h3>
-          <p>
-            Stay in normal flow until you have a reason to leave it. Use Flexbox for one-dimensional distribution,
-            Grid for two-dimensional structure, and absolute positioning sparingly for overlays—not for whole pages.
-          </p>
+          <h3>Key Takeaways</h3>
+          <ul>
+            <li>Know all <code>position</code> types and how to use them</li>
+            <li>Can control layers with <code>z-index</code></li>
+            <li>Flexbox makes layouts and centering easier</li>
+            <li>CSS Grid handles complex row-column layouts</li>
+            <li>Media queries make layouts responsive</li>
+          </ul>
         </>
       }
     >
       <QuoteBox>
-        Flexbox lines things up along an axis; Grid draws the map. Most dashboards need both.
+        &quot;Now that the design looks good, let&apos;s arrange the placement so elements don&apos;t go wild and step on each other.&quot;
       </QuoteBox>
 
       <section>
-        <h2>Normal flow and the box model</h2>
+        <h2>Positioning: Keeping Elements in Place</h2>
         <p>
-          Block elements stack vertically; inline elements sit in the text line. <code>width</code>,{' '}
-          <code>height</code>, <code>padding</code>, <code>border</code>, and <code>margin</code> describe the box
-          model. <code>box-sizing: border-box</code> keeps padding inside the declared width—almost always what you
-          want for layout math.
+          CSS <code>position</code> controls how elements are placed on the page: <code>static</code>,{' '}
+          <code>relative</code>, <code>absolute</code>, <code>fixed</code>, and <code>sticky</code>.
         </p>
-      </section>
-
-      <section>
-        <h2>Flexbox snapshot</h2>
         <CodeBlock lang="CSS" langIcon="fab fa-css3-alt">
-{`.toolbar {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 12px;
+{`.box {
+  position: relative;
+  top: 20px;
+  left: 30px;
 }`}
         </CodeBlock>
-        <p>
-          <code>gap</code> replaces many brittle margin hacks between items. Pair <code>flex-wrap: wrap</code> with
-          sensible min widths when building responsive toolbars.
-        </p>
       </section>
 
       <section>
-        <h2>Grid snapshot</h2>
+        <h2>z-index: Who&apos;s On Top?</h2>
+        <p>
+          <code>z-index</code> controls stacking order on the z-axis. Higher value appears on top.
+        </p>
         <CodeBlock lang="CSS" langIcon="fab fa-css3-alt">
-{`.gallery {
+{`.card {
+  position: absolute;
+  z-index: 10;
+}`}
+        </CodeBlock>
+      </section>
+
+      <section>
+        <h2>Flexbox: Stress-Free Layouts &amp; Centering</h2>
+        <CodeBlock lang="CSS" langIcon="fab fa-css3-alt">
+{`.container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: row;
+}`}
+        </CodeBlock>
+        <CodeBlock lang="CSS" langIcon="fab fa-css3-alt">
+{`.flexbox {
+  display: flex;
+  gap: 20px;
+  justify-content: space-between;
+}`}
+        </CodeBlock>
+      </section>
+
+      <section>
+        <h2>CSS Grid: For More Complex Layouts</h2>
+        <CodeBlock lang="CSS" langIcon="fab fa-css3-alt">
+{`.grid-container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  grid-template-columns: repeat(3, 1fr);
   gap: 16px;
 }`}
         </CodeBlock>
-        <p>
-          <code>auto-fit</code> with <code>minmax</code> gives you responsive columns without media queries for every
-          breakpoint—still fine-tune with queries when design needs it.
-        </p>
+      </section>
+
+      <section>
+        <h2>Responsive Layout: Start Here</h2>
+        <CodeBlock lang="CSS" langIcon="fab fa-css3-alt">
+{`@media (max-width: 768px) {
+  .container {
+    flex-direction: column;
+  }
+}`}
+        </CodeBlock>
       </section>
     </DayPostLayout>
   );
