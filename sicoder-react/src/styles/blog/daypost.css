@@ -63,7 +63,7 @@
   margin: 0 auto;
   padding: 0 2rem;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 }
 
@@ -92,6 +92,7 @@
 
 .day-post-page .reading-time {
   display: flex;
+  justify-content: flex-start;
   align-items: center;
   font-size: 1.4rem;
   gap: 0.3rem;
@@ -102,7 +103,7 @@
 .day-post-page .container {
   max-width: 800px;
   margin: 0 auto;
-  padding: 0 2rem 4rem;
+  padding: 0 2rem 20px;
 }
 
 .day-post-page .blog-post {
@@ -145,6 +146,7 @@
 .day-post-page .article-meta {
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 2rem;
   color: var(--text-muted);
   font-size: 1.4rem;
@@ -173,7 +175,9 @@
 /* Content */
 
 .day-post-page section {
-  margin-bottom: 2rem;
+  padding-top: 20px;
+  padding-bottom: 20px;
+  margin-bottom: 10px;
 }
 
 .day-post-page ul,
@@ -264,7 +268,7 @@
 }
 
 .day-post-page h3 {
-  font-size: 2rem;
+  font-size: 18px;
   font-weight: 600;
   color: var(--primary-light);
   margin: 2rem 0 1rem;
@@ -305,7 +309,7 @@
   padding: 0.75rem 1rem;
   border-bottom: 1px solid var(--border-color);
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
 }
 
@@ -328,6 +332,7 @@
   font-weight: 500;
   transition: var(--transition);
   display: flex;
+  justify-content: flex-start;
   align-items: center;
   gap: 0.3rem;
   font-family: 'Inter', sans-serif;
@@ -565,6 +570,7 @@
 /* Related Posts */
 
 .day-post-page .related-posts {
+  padding-top: 20px;
   margin-top: 3rem;
 }
 
