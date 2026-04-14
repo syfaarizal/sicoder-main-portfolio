@@ -1,0 +1,12 @@
+export { default as Js1Page } from './js1Page';
+export { default as Js2Page } from './js2Page';
+export { default as Js2SolutionPage } from './js2SolutionPage';
+export { default as Js3Page } from './js3Page';
+export { default as Js3SolutionPage } from './js3SolutionPage';
+export { default as Js4Page } from './js4Page';
+export { default as Js4SolutionPage } from './js4SolutionPage';
+export { default as Js5Page } from './js5Page';
+export { default as Js5SolutionPage } from './js5SolutionPage';
+export { default as Js6Page } from './js6Page';
+export { default as Js6SolutionPage } from './js6SolutionPage';
+export { default as Js7Page } from './js7Page';
