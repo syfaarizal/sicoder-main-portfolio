@@ -502,6 +502,10 @@
   box-shadow: var(--shadow-hover);
 }
 
+.day-post-page .article-footer-github-wrap {
+  text-align: center;
+}
+
 /* Post Navigation */
 
 .day-post-page .post-navigation {

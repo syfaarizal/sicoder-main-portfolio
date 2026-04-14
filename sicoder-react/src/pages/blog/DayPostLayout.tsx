@@ -175,7 +175,7 @@ export default function DayPostLayout({
 
           <footer className="article-footer">
             <div className="conclusion">{conclusion}</div>
-            <div style={{ textAlign: 'center' }}>
+            <div className="article-footer-github-wrap">
               <a href={githubUrl} target="_blank" rel="noopener noreferrer" className="github-link">
                 <i className="fab fa-github"></i> View Source Code
               </a>

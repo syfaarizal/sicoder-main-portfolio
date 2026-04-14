@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from 'react';
+import { useState, useEffect, useLayoutEffect, useMemo, useRef } from 'react';
 import { Link } from 'react-router-dom';
 import "../../styles/blog/blog.css"
 
@@ -403,8 +403,8 @@ export default function BlogIndexPage() {
               }}
             />
           </div>
-          <div style={{ textAlign: 'center' }}>
-            <p style={{ color: '#e0e0e0', marginBottom: '0.5rem' }}>Filter by tag:</p>
+          <div className="blog-filter-section">
+            <p className="blog-filter-intro">Filter by tag:</p>
             <div className="blog-filter-tags">
               {FILTER_TAGS.map(tag => (
                 <button
@@ -476,56 +476,23 @@ export default function BlogIndexPage() {
 function FeaturedSection() {
   return (
     <section className="blog-section-group reveal">
-      <div style={{
-        background: 'rgba(20,20,20,0.7)',
-        backdropFilter: 'blur(15px)',
-        border: '1px solid rgba(151,19,19,0.2)',
-        borderRadius: '20px',
-        display: 'grid',
-        gridTemplateColumns: '1fr 220px',
-        minHeight: '280px',
-        overflow: 'hidden',
-        boxShadow: '0 4px 20px rgba(151,19,19,0.1)',
-      }}>
-        <div style={{ padding: '3rem', display: 'flex', flexDirection: 'column', justifyContent: 'center' }}>
-          <span style={{
-            display: 'inline-block',
-            padding: '0.5rem 1.2rem',
-            background: 'linear-gradient(135deg,#971313,#470000)',
-            color: '#f8f8f8',
-            borderRadius: '20px',
-            fontWeight: 600,
-            marginBottom: '1.5rem',
-            alignSelf: 'flex-start',
-            border: '1px solid rgba(151,19,19,0.3)',
-          }}>
+      <div className="blog-featured-shell">
+        <div className="blog-featured-content">
+          <span className="blog-featured-badge">
             Featured
           </span>
-          <h3 style={{
-            fontFamily: "'Montserrat', sans-serif",
-            fontSize: '3.7rem',
-            fontWeight: 700,
-            marginBottom: '1rem',
-            color: '#f8f8f8',
-            lineHeight: 1.3,
-          }}>
+          <h3 className="blog-featured-title">
             Latest Challenge: DOM Manipulation Mastery
           </h3>
-          <p style={{ color: '#e0e0e0', marginBottom: '2rem', lineHeight: 1.8, fontSize: '1.7rem' }}>
+          <p className="blog-featured-text">
             Discover how JavaScript brings web pages to life. Learn to manipulate the Document Object Model with practical examples and real-world applications that will transform your front-end skills.
           </p>
           <Link to="/blog/js-modul/js5" className="blog-read-more" aria-label="Read more about DOM Manipulation">
             Explore Now <i className="fas fa-arrow-right"></i>
           </Link>
         </div>
-        <div style={{
-          background: '#0a0a0a',
-          display: 'flex',
-          alignItems: 'center',
-          justifyContent: 'center',
-          borderLeft: '1px solid rgba(151,19,19,0.2)',
-        }}>
-          <i className="fas fa-code" style={{ fontSize: '8rem', color: '#971313', opacity: 0.7 }}></i>
+        <div className="blog-featured-aside">
+          <i className="fas fa-code blog-featured-icon"></i>
         </div>
       </div>
     </section>
@@ -558,25 +525,36 @@ function BlogCardItem({ card }: { card: BlogCard }) {
 
 // Particles Component
 function Particles() {
-  const particles = Array.from({ length: 50 }, (_, i) => ({
-    id: i,
-    left: Math.random() * 100,
-    delay: Math.random() * 20,
-    duration: 20 + Math.random() * 10,
-  }));
+  const particles = useMemo(
+    () =>
+      Array.from({ length: 50 }, (_, i) => ({
+        id: i,
+        left: Math.random() * 100,
+        delay: Math.random() * 20,
+        duration: 20 + Math.random() * 10,
+      })),
+    []
+  );
+
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  useLayoutEffect(() => {
+    const root = containerRef.current;
+    if (!root) return;
+    const nodes = root.querySelectorAll<HTMLElement>('.blog-particle');
+    nodes.forEach((el, i) => {
+      const p = particles[i];
+      if (!p) return;
+      el.style.setProperty('--particle-left', `${p.left}%`);
+      el.style.setProperty('--particle-delay', `${p.delay}s`);
+      el.style.setProperty('--particle-duration', `${p.duration}s`);
+    });
+  }, [particles]);
 
   return (
-    <div className="blog-particles" id="particles">
+    <div ref={containerRef} className="blog-particles" id="particles">
       {particles.map(p => (
-        <div
-          key={p.id}
-          className="blog-particle"
-          style={{
-            left: `${p.left}%`,
-            animationDelay: `${p.delay}s`,
-            animationDuration: `${p.duration}s`,
-          }}
-        />
+        <div key={p.id} className="blog-particle" />
       ))}
     </div>
   );
