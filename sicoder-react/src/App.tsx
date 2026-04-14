@@ -23,6 +23,20 @@ import BlogIndexPage from './pages/blog/BlogIndexPage';
 import { Day1Page, Day2Page, Day3Page, Day4Page, Day5Page, Day6Page } from './pages/blog/days-challenge';
 import { HtmlIntroPage, HtmlIntro2Page } from './pages/blog/html-modul';
 import { Css1Page, Css2Page, Css3Page, Css4Page } from './pages/blog/css-modul';
+import {
+  Js1Page,
+  Js2Page,
+  Js2SolutionPage,
+  Js3Page,
+  Js3SolutionPage,
+  Js4Page,
+  Js4SolutionPage,
+  Js5Page,
+  Js5SolutionPage,
+  Js6Page,
+  Js6SolutionPage,
+  Js7Page,
+} from './pages/blog/js-modul';
 
 function useScrollReveal() {
   useEffect(() => {
@@ -138,6 +152,20 @@ export default function App() {
         <Route path="/blog/css-modul/css2" element={<Css2Page />} />
         <Route path="/blog/css-modul/css3" element={<Css3Page />} />
         <Route path="/blog/css-modul/css4" element={<Css4Page />} />
+
+        {/* JavaScript module posts */}
+        <Route path="/blog/js-modul/js1" element={<Js1Page />} />
+        <Route path="/blog/js-modul/js2" element={<Js2Page />} />
+        <Route path="/blog/js-modul/js2-solutions" element={<Js2SolutionPage />} />
+        <Route path="/blog/js-modul/js3" element={<Js3Page />} />
+        <Route path="/blog/js-modul/js3-solutions" element={<Js3SolutionPage />} />
+        <Route path="/blog/js-modul/js4" element={<Js4Page />} />
+        <Route path="/blog/js-modul/js4-solutions" element={<Js4SolutionPage />} />
+        <Route path="/blog/js-modul/js5" element={<Js5Page />} />
+        <Route path="/blog/js-modul/js5-solutions" element={<Js5SolutionPage />} />
+        <Route path="/blog/js-modul/js6" element={<Js6Page />} />
+        <Route path="/blog/js-modul/js6-solutions" element={<Js6SolutionPage />} />
+        <Route path="/blog/js-modul/js7" element={<Js7Page />} />
       </Routes>
     </BrowserRouter>
   );

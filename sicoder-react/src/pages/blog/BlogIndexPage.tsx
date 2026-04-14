@@ -207,6 +207,14 @@ const ALL_CARDS: BlogCard[] = [
     tags: 'javascript async fetch api solutions',
     path: '/blog/js-modul/js6-solutions',
   },
+  {
+    id: 'js7', category: 'javascript',
+    date: 'Jan 14, 2026', badge: 'Projects',
+    title: 'Mini Projects Gallery',
+    excerpt: 'Tutorials teach you how to type. Projects prove you can think and build.',
+    tags: 'javascript projects portfolio',
+    path: '/blog/js-modul/js7',
+  },
 ];
 
 // All filter tags — mirrors indexblog.html filter buttons
